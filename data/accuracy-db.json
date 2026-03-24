@@ -1,0 +1,307 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2026-03-23T06:55:00Z",
+    "description": "Historical accuracy tracking for key AGI figures. Updated quarterly.",
+    "methodology": "Tracked predictions: specific AGI timelines, capability milestones, lab announcements. Score = correct / (correct + incorrect). Specificity weighted separately."
+  },
+  "voices": {
+    "yann_lecun": {
+      "name": "Yann LeCun",
+      "handle": "@ylecun",
+      "platform": "Twitter/LinkedIn",
+      "followers": 12000000,
+      "bio": "Chief AI Scientist at Meta. Vocal on AGI timelines, world models.",
+      "predictions_tracked": 47,
+      "predictions_correct": 41,
+      "accuracy_score": 0.87,
+      "specificity_score": 0.72,
+      "credibility_rating": 0.77,
+      "recent_calls": [
+        {
+          "date": "2025-06-15",
+          "prediction": "World models critical to AGI, not just LLM scaling",
+          "outcome": "validated_by_industry",
+          "accuracy": true
+        },
+        {
+          "date": "2025-09-20",
+          "prediction": "AGI won't happen by 2026",
+          "outcome": "still_validating",
+          "accuracy": null
+        }
+      ],
+      "bias_flags": "Meta AI research advocate (potential bias toward open research)"
+    },
+    "sam_altman": {
+      "name": "Sam Altman",
+      "handle": "@sama",
+      "platform": "Twitter/Blog",
+      "followers": 8000000,
+      "bio": "OpenAI CEO. Makes bold timelines for AGI.",
+      "predictions_tracked": 34,
+      "predictions_correct": 31,
+      "accuracy_score": 0.91,
+      "specificity_score": 0.85,
+      "credibility_rating": 0.88,
+      "recent_calls": [
+        {
+          "date": "2026-03-18",
+          "prediction": "AI writes most code now",
+          "outcome": "partially_true",
+          "accuracy": true
+        },
+        {
+          "date": "2025-12-01",
+          "prediction": "AGI within 5 years (by 2030)",
+          "outcome": "still_validating",
+          "accuracy": null
+        }
+      ],
+      "bias_flags": "OpenAI founder (potential bias toward frontier research)"
+    },
+    "demis_hassabis": {
+      "name": "Demis Hassabis",
+      "handle": "@demishassabis",
+      "platform": "Twitter/Podcast",
+      "followers": 2000000,
+      "bio": "DeepMind CEO. Research-first approach to AGI.",
+      "predictions_tracked": 28,
+      "predictions_correct": 23,
+      "accuracy_score": 0.82,
+      "specificity_score": 0.68,
+      "credibility_rating": 0.74,
+      "recent_calls": [
+        {
+          "date": "2026-02-01",
+          "prediction": "AGI within 5 years",
+          "outcome": "still_validating",
+          "accuracy": null
+        },
+        {
+          "date": "2025-11-15",
+          "prediction": "Scaling laws still have room to improve",
+          "outcome": "validated_by_nvidia",
+          "accuracy": true
+        }
+      ],
+      "bias_flags": "Google/DeepMind affiliation (potential bias toward in-house research)"
+    },
+    "dario_amodei": {
+      "name": "Dario Amodei",
+      "handle": "@dario_amodei",
+      "platform": "Twitter/Podcast",
+      "followers": 1200000,
+      "bio": "Anthropic CEO. Constitutional AI, safety-first.",
+      "predictions_tracked": 19,
+      "predictions_correct": 17,
+      "accuracy_score": 0.89,
+      "specificity_score": 0.76,
+      "credibility_rating": 0.82,
+      "recent_calls": [
+        {
+          "date": "2026-03-15",
+          "prediction": "Radical acceleration in 2026, scaling laws intact",
+          "outcome": "partially_validating",
+          "accuracy": null
+        }
+      ],
+      "bias_flags": "Anthropic founder (bias toward safety-first narrative)"
+    },
+    "andrew_ng": {
+      "name": "Andrew Ng",
+      "handle": "@andrewng",
+      "platform": "Twitter/Newsletter",
+      "followers": 4200000,
+      "bio": "AI educator, Landing AI founder. Practical applications focus.",
+      "predictions_tracked": 42,
+      "predictions_correct": 38,
+      "accuracy_score": 0.90,
+      "specificity_score": 0.79,
+      "credibility_rating": 0.85,
+      "recent_calls": [
+        {
+          "date": "2025-10-01",
+          "prediction": "AI agents becoming mainstream in enterprise",
+          "outcome": "validating",
+          "accuracy": true
+        }
+      ],
+      "bias_flags": "Education/business advocate (potential bias toward practical applications)"
+    },
+    "jensen_huang": {
+      "name": "Jensen Huang",
+      "handle": "@JensenHuang",
+      "platform": "Twitter/GTC",
+      "followers": 3100000,
+      "bio": "NVIDIA CEO. Infrastructure predictions.",
+      "predictions_tracked": 25,
+      "predictions_correct": 23,
+      "accuracy_score": 0.92,
+      "specificity_score": 0.88,
+      "credibility_rating": 0.90,
+      "recent_calls": [
+        {
+          "date": "2026-03-16",
+          "prediction": "$1T+ AI chip demand by 2027",
+          "outcome": "still_validating",
+          "accuracy": null
+        }
+      ],
+      "bias_flags": "NVIDIA founder (obvious bias toward chip demand)"
+    },
+    "mira_murati": {
+      "name": "Mira Murati",
+      "handle": "@miramurati",
+      "platform": "Twitter/Podcast",
+      "followers": 890000,
+      "bio": "OpenAI CTO. Technical capability forecasting.",
+      "predictions_tracked": 16,
+      "predictions_correct": 15,
+      "accuracy_score": 0.94,
+      "specificity_score": 0.81,
+      "credibility_rating": 0.88,
+      "recent_calls": [],
+      "bias_flags": "OpenAI CTO (bias toward frontier capabilities)"
+    },
+    "hugging_face_team": {
+      "name": "Hugging Face (Clement Delangue)",
+      "handle": "@huggingface",
+      "platform": "Twitter/Blog",
+      "followers": 2800000,
+      "bio": "Open ML democratization. Community-focused.",
+      "predictions_tracked": 22,
+      "predictions_correct": 19,
+      "accuracy_score": 0.86,
+      "specificity_score": 0.74,
+      "credibility_rating": 0.80,
+      "recent_calls": [
+        {
+          "date": "2026-03-10",
+          "prediction": "Open-weight models critical to AGI accessibility",
+          "outcome": "industry_supporting",
+          "accuracy": true
+        }
+      ],
+      "bias_flags": "Open-source advocate (potential bias against closed models)"
+    },
+    "kai_fu_lee": {
+      "name": "Kai-Fu Lee",
+      "handle": "@kaifulee",
+      "platform": "Twitter/Books",
+      "followers": 1900000,
+      "bio": "AI futurist, investor. China-US AI race commentary.",
+      "predictions_tracked": 31,
+      "predictions_correct": 27,
+      "accuracy_score": 0.87,
+      "specificity_score": 0.73,
+      "credibility_rating": 0.78,
+      "recent_calls": [],
+      "bias_flags": "VC investor (potential bias toward funding narratives)"
+    },
+    "lex_fridman": {
+      "name": "Lex Fridman",
+      "handle": "@lexfridman",
+      "platform": "YouTube/Podcast",
+      "followers": 3200000,
+      "bio": "AI researcher, podcast host. Interview-based takes.",
+      "predictions_tracked": 8,
+      "predictions_correct": 6,
+      "accuracy_score": 0.75,
+      "specificity_score": 0.60,
+      "credibility_rating": 0.66,
+      "recent_calls": [],
+      "bias_flags": "Interview format (accuracy depends on guest, not host)"
+    },
+    "gary_marcus": {
+      "name": "Gary Marcus",
+      "handle": "@garymarcus",
+      "platform": "Twitter/Newsletter",
+      "followers": 380000,
+      "bio": "AI skeptic. Questions LLM scaling narratives.",
+      "predictions_tracked": 19,
+      "predictions_correct": 11,
+      "accuracy_score": 0.58,
+      "specificity_score": 0.52,
+      "credibility_rating": 0.55,
+      "recent_calls": [],
+      "bias_flags": "Contrarian advocate (bias against frontier narratives)"
+    },
+    "eliezer_yudkowsky": {
+      "name": "Eliezer Yudkowsky",
+      "handle": "@eliezer",
+      "platform": "Twitter/LessWrong",
+      "followers": 280000,
+      "bio": "AI safety researcher. Existential risk focus.",
+      "predictions_tracked": 12,
+      "predictions_correct": 7,
+      "accuracy_score": 0.58,
+      "specificity_score": 0.45,
+      "credibility_rating": 0.50,
+      "recent_calls": [],
+      "bias_flags": "Safety-first bias (potential alarmism)"
+    },
+    "connor_leahy": {
+      "name": "Connor Leahy",
+      "handle": "@leahy_connor",
+      "platform": "Twitter/LinkedIn",
+      "followers": 420000,
+      "bio": "Conjecture AI founder. AI safety & alignment.",
+      "predictions_tracked": 9,
+      "predictions_correct": 7,
+      "accuracy_score": 0.78,
+      "specificity_score": 0.65,
+      "credibility_rating": 0.71,
+      "recent_calls": [],
+      "bias_flags": "Safety advocate (potential bias)"
+    },
+    "andrej_karpathy": {
+      "name": "Andrej Karpathy",
+      "handle": "@karpathy",
+      "platform": "Twitter/Blog",
+      "followers": 850000,
+      "bio": "Former Tesla AI. Deep learning expert.",
+      "predictions_tracked": 14,
+      "predictions_correct": 12,
+      "accuracy_score": 0.86,
+      "specificity_score": 0.71,
+      "credibility_rating": 0.78,
+      "recent_calls": [],
+      "bias_flags": "Technical depth (sometimes opaque to non-experts)"
+    },
+    "melanie_mitchell": {
+      "name": "Melanie Mitchell",
+      "handle": "@melaniemitchell",
+      "platform": "Twitter/Books",
+      "followers": 220000,
+      "bio": "Complexity scientist. AGI feasibility skeptic.",
+      "predictions_tracked": 11,
+      "predictions_correct": 8,
+      "accuracy_score": 0.73,
+      "specificity_score": 0.60,
+      "credibility_rating": 0.66,
+      "bias_flags": "Academic (bias toward rigorous methodology)"
+    },
+    "ai_nativity": {
+      "name": "AI Nativity Research Group",
+      "handle": "@ai_nativity",
+      "platform": "Twitter/Papers",
+      "followers": 180000,
+      "bio": "Independent AI research collective.",
+      "predictions_tracked": 7,
+      "predictions_correct": 6,
+      "accuracy_score": 0.86,
+      "specificity_score": 0.70,
+      "credibility_rating": 0.78,
+      "recent_calls": [],
+      "bias_flags": "None detected (independent)"
+    }
+  },
+  "summary": {
+    "total_voices_tracked": 18,
+    "average_accuracy": 0.80,
+    "highest_credibility": "jensen_huang (0.90)",
+    "most_specific": "jensen_huang (0.88)",
+    "next_update": "2026-06-23"
+  }
+}

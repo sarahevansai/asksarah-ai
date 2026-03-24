@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://asksarah.ai/og-image.png">
+  <title>SourceVault™ — AI Newsroom Research Desk | askSarah.ai</title>
+  <meta name="description" content="Find verified expert sources in under 3 minutes. Real quotes, AI visibility scores, broadcast readiness, interview questions, and outreach drafts. Free. Built by Sarah Evans.">
+  <meta property="og:title" content="SourceVault™ — Find Expert Sources in Seconds">
+  <meta property="og:description" content="AI-powered source discovery for journalists, producers, and bookers. Real quotes, AI visibility scores, broadcast readiness. Free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/sourcevault">
+  <link rel="canonical" href="https://asksarah.ai/sourcevault">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838;
+      --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f;
+      --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee;
+      --purple: #a78bfa; --purple-bright: #c084fc;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --gradient-purple: linear-gradient(135deg, #a78bfa, #c084fc);
+      --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(168,85,247,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(124,58,237,0.07); animation: o2 25s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .purple-text { background: var(--gradient-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--gradient) !important; color: white !important; padding: 0.45rem 1.2rem; border-radius: 100px; font-weight: 600 !important; font-size: 0.82rem !important; }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+
+    /* Hero */
+    .hero { padding: 8rem 2rem 4rem; text-align: center; position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.25); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.75rem; font-weight: 600; color: var(--purple); margin-bottom: 1.5rem; letter-spacing: 0.03em; }
+    .hero h1 { font-family: 'Space Grotesk'; font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; line-height: 1.15; }
+    .hero p { color: var(--text); font-size: 1.1rem; line-height: 1.7; max-width: 620px; margin: 0 auto 2rem; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.85rem 2rem; border-radius: 100px; font-size: 1rem; font-weight: 700; text-decoration: none; background: var(--gradient-purple); color: #0c0a1a; box-shadow: 0 6px 24px rgba(168,85,247,0.3); transition: all 0.2s; font-family: 'Space Grotesk'; }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(168,85,247,0.4); }
+    .hero-sub { margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Sections */
+    .section { max-width: 900px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+    .section-header { text-align: center; margin-bottom: 2.5rem; }
+    .section-header h2 { font-family: 'Space Grotesk'; font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 700; margin-bottom: 0.5rem; }
+    .section-header p { color: var(--text-muted); font-size: 0.9rem; }
+    .section-spacer { height: 5rem; }
+
+    /* Problem */
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+    .problem-card { background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.12); border-radius: var(--radius); padding: 1.25rem; }
+    .problem-card .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .problem-card h4 { font-size: 0.9rem; font-weight: 700; color: #f87171; margin-bottom: 0.3rem; }
+    .problem-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+    .solution-box { background: rgba(52,211,153,0.04); border: 1px solid rgba(52,211,153,0.15); border-radius: var(--radius); padding: 1.5rem; text-align: center; }
+    .solution-box h4 { font-size: 1rem; font-weight: 700; color: #34d399; margin-bottom: 0.4rem; }
+    .solution-box p { font-size: 0.88rem; color: var(--text); }
+
+    /* Try It */
+    .try-grid { display: flex; flex-direction: column; gap: 0.75rem; }
+    .try-prompt { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 1rem; transition: all 0.2s; }
+    .try-prompt:hover { border-color: rgba(168,85,247,0.25); background: var(--card-hover); }
+    .try-arrow { color: var(--purple); font-size: 1rem; flex-shrink: 0; }
+    .try-text { color: var(--text); font-size: 0.9rem; flex: 1; }
+    .try-tag { font-size: 0.65rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 6px; flex-shrink: 0; }
+    .tag-breaking { background: rgba(239,68,68,0.15); color: #f87171; }
+    .tag-podcast { background: rgba(168,85,247,0.15); color: #c084fc; }
+    .tag-tv { background: rgba(59,130,246,0.15); color: #60a5fa; }
+    .tag-trade { background: rgba(52,211,153,0.15); color: #34d399; }
+    .tag-feature { background: rgba(251,191,36,0.15); color: #fbbf24; }
+
+    /* How It Works */
+    .layers { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .layer { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; position: relative; overflow: hidden; }
+    .layer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+    .layer:nth-child(1)::before { background: #818cf8; }
+    .layer:nth-child(2)::before { background: #a78bfa; }
+    .layer:nth-child(3)::before { background: #c084fc; }
+    .layer:nth-child(4)::before { background: #34d399; }
+    .layer-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .layer-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; }
+    .layer-title { font-family: 'Space Grotesk'; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .layer-desc { font-size: 0.84rem; color: var(--text); line-height: 1.55; }
+
+    /* Features Grid */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .feature { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+    .feature-icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .feature h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .feature p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* Who It's For */
+    .personas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; }
+    .persona { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; transition: all 0.2s; }
+    .persona:hover { border-color: rgba(168,85,247,0.25); transform: translateY(-2px); }
+    .persona-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .persona h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .persona p { font-size: 0.72rem; color: var(--text-muted); line-height: 1.4; }
+
+    /* Built On */
+    .built-on { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .built-item { display: flex; align-items: flex-start; gap: 0.75rem; }
+    .built-check { width: 24px; height: 24px; border-radius: 6px; background: rgba(168,85,247,0.15); color: var(--purple); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0; margin-top: 2px; }
+    .built-text h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.15rem; }
+    .built-text p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+
+    /* CTA Bottom */
+    .cta-bottom { text-align: center; padding: 4rem 2rem 5rem; position: relative; z-index: 1; }
+    .cta-bottom h2 { font-family: 'Space Grotesk'; font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 700; margin-bottom: 0.75rem; }
+    .cta-bottom p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+    /* Footer */
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .layers { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .personas { grid-template-columns: repeat(2, 1fr); }
+      .built-on { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+          <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+        </text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="tools.html">Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="speaking.html">Speaking</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="connect.html">Connect</a>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="tools.html">Tools</a>
+    <a href="learn.html">Learn</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="connect.html">Connect</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">🔍 AI Newsroom Research Desk · Free</div>
+    <h1><span class="purple-text">SourceVault</span>™</h1>
+    <p>Find verified expert sources in under 3 minutes. Real quotes, AI visibility scores, broadcast readiness, interview questions, and outreach drafts — all from a single story brief.</p>
+    <a href="https://chatgpt.com/g/g-69af751a179481918742f3e1bddf8a41-sourcevaulttm" target="_blank" class="hero-cta">Try SourceVault Free →</a>
+    <div class="hero-sub">No login · No paywall · Built on GPT-4.5 with live web search</div>
+  </div>
+
+  <!-- THE PROBLEM -->
+  <div class="section">
+    <div class="section-header">
+      <h2>The Problem</h2>
+      <p>Source discovery hasn't changed in 15 years</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="icon">⏳</div>
+        <h4>Hours of searching</h4>
+        <p>Finding credible sources means Googling, scrolling LinkedIn, scanning articles, and cross-referencing — all before you even start writing.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">❓</div>
+        <h4>No proof of expertise</h4>
+        <p>You find names and job titles but no evidence they actually know the topic. Vetting takes as long as finding them.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">🔁</div>
+        <h4>Same voices on repeat</h4>
+        <p>The same overexposed experts end up in every story. Fresh perspectives and emerging voices are hard to surface.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">🕐</div>
+        <h4>Deadlines don't wait</h4>
+        <p>Breaking news hits and you need someone on air tomorrow. There's no time for a research project.</p>
+      </div>
+    </div>
+    <div class="solution-box">
+      <h4>SourceVault flips the process.</h4>
+      <p>Instead of waiting for sources to come to you, it searches for them — and verifies they're worth your time before you ever reach out.</p>
+    </div>
+  </div>
+
+  <div class="section-spacer"></div>
+
+  <!-- TRY IT -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Try It</h2>
+      <p>Describe what you need in plain language</p>
+    </div>
+    <div class="try-grid">
+      <div class="try-prompt">
+        <div class="try-arrow">→</div>
+        <div class="try-text">"Oil prices crash 25% — I need an analyst who can go on TV tomorrow morning"</div>
+        <div class="try-tag tag-breaking">Breaking</div>
+      </div>
+      <div class="try-prompt">
+        <div class="try-arrow">→</div>
+        <div class="try-text">"Who should I talk to about AI copyright lawsuits?"</div>
+        <div class="try-tag tag-feature">Feature</div>
+      </div>
+      <div class="try-prompt">
+        <div class="try-arrow">→</div>
+        <div class="try-text">"Female AI founder outside Silicon Valley for a podcast panel on automation and jobs"</div>
+        <div class="try-tag tag-podcast">Podcast</div>
+      </div>
+      <div class="try-prompt">
+        <div class="try-arrow">→</div>
+        <div class="try-text">"I'm booking guests for a fintech show — who's doing something interesting with embedded payments"</div>
+        <div class="try-tag tag-tv">TV</div>
+      </div>
+      <div class="try-prompt">
+        <div class="try-arrow">→</div>
+        <div class="try-text">"Hospital CTO who's actually deployed AI in healthcare, not just piloting"</div>
+        <div class="try-tag tag-trade">Trade</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-spacer"></div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section">
+    <div class="section-header">
+      <h2>How It Works</h2>
+      <p>4-layer verification on every source</p>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <div class="layer-icon">🔍</div>
+        <div class="layer-num">Layer 1</div>
+        <div class="layer-title">Deep Research</div>
+        <div class="layer-desc">Runs a real-time search across news publications, trade outlets, podcast transcripts, conference speaker lists, LinkedIn, published bylines, and op-eds. Scans hundreds of sources to find the handful of people who've actually spoken publicly on your specific topic.</div>
+      </div>
+      <div class="layer">
+        <div class="layer-icon">💬</div>
+        <div class="layer-num">Layer 2</div>
+        <div class="layer-title">Quote Verification</div>
+        <div class="layer-desc">Pulls direct quotes from interviews, articles, podcasts, and posts. Not bios. Not LinkedIn headlines. Their actual words on your topic — with publication name, date, and context so you can verify immediately.</div>
+      </div>
+      <div class="layer">
+        <div class="layer-icon">🤖</div>
+        <div class="layer-num">Layer 3</div>
+        <div class="layer-title">AI Visibility Check</div>
+        <div class="layer-desc">Checks whether ChatGPT, Perplexity, Gemini, and Claude already cite this person as an authority. If multiple AI models independently name someone as an expert, that's a credibility signal you can't fake. Also flags emerging voices AI hasn't picked up yet — your exclusive.</div>
+      </div>
+      <div class="layer">
+        <div class="layer-icon">📧</div>
+        <div class="layer-num">Layer 4</div>
+        <div class="layer-title">Reachability</div>
+        <div class="layer-desc">Timezone, contact pathway, recent activity, broadcast experience, and media-readiness signals. Includes response likelihood estimates and pre-written outreach emails and LinkedIn DMs so you can reach out immediately.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-spacer"></div>
+
+  <!-- WHAT EVERY REPORT INCLUDES -->
+  <div class="section">
+    <div class="section-header">
+      <h2>What Every Report Includes</h2>
+      <p>A full newsroom research package from a single prompt</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">🏆</div>
+        <h4>Best Quote Candidate</h4>
+        <p>The single strongest quote found — right at the top of every report so you can see story value instantly.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <h4>Verified Quotes</h4>
+        <p>Real quotes from articles, podcasts, and interviews with publication name, date, and citation context.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎯</div>
+        <h4>Perspective Snapshots</h4>
+        <p>Each expert's unique angle on the topic. No more getting 5 versions of the same take.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🤖</div>
+        <h4>AI Visibility Scores</h4>
+        <p>Checked across ChatGPT, Perplexity, Gemini, and Claude. See who AI already trusts as an authority.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔵</div>
+        <h4>Fresh Voice Flags</h4>
+        <p>Credible but under-quoted experts flagged automatically. Editors love these — they're your exclusive.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚠️</div>
+        <h4>Editorial Caution Flags</h4>
+        <p>Vendor bias, conflicts of interest, and potential concerns flagged so you can assess before quoting.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📺</div>
+        <h4>Broadcast Readiness</h4>
+        <p>Best TV guest, best podcast guest, on-camera experience, and soundbite strength for booking producers.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">❓</div>
+        <h4>Interview Starter Questions</h4>
+        <p>2-3 tailored questions per source so you can start the conversation faster.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✉️</div>
+        <h4>Outreach Drafts</h4>
+        <p>Pre-written email, LinkedIn DM, and 3 subject line suggestions — ready to send the moment you pick a source.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <h4>Story Angle Suggestions</h4>
+        <p>Based on the sources it found, it suggests angles that would produce the strongest story.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📊</div>
+        <h4>Original Data Signals</h4>
+        <p>Flags experts with proprietary research, surveys, or datasets. Essential for investigative and feature work.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🌐</div>
+        <h4>Newsroom Opportunity Briefs</h4>
+        <p>Ask for emerging story ideas and get 3-5 trending topics with recommended expert types to interview.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-spacer"></div>
+
+  <!-- WHO IT'S FOR -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Built For</h2>
+      <p>Anyone who needs expert voices on deadline</p>
+    </div>
+    <div class="personas">
+      <div class="persona">
+        <div class="persona-icon">📰</div>
+        <h4>Reporters</h4>
+        <p>Paste a story brief, get sources ready to quote</p>
+      </div>
+      <div class="persona">
+        <div class="persona-icon">📺</div>
+        <h4>TV Producers</h4>
+        <p>Broadcast-ready guests with booking signals</p>
+      </div>
+      <div class="persona">
+        <div class="persona-icon">🎙</div>
+        <h4>Podcast Hosts</h4>
+        <p>Interesting voices with unique perspectives</p>
+      </div>
+      <div class="persona">
+        <div class="persona-icon">✍️</div>
+        <h4>Editors</h4>
+        <p>Story angles, fresh voices, balanced coverage</p>
+      </div>
+      <div class="persona">
+        <div class="persona-icon">🔍</div>
+        <h4>Investigative</h4>
+        <p>Data signals, credentials, caution flags</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-spacer"></div>
+
+  <!-- BUILT TO BE CREDIBLE -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Built to Be Credible</h2>
+      <p>Not a vibe check — a verification system</p>
+    </div>
+    <div class="built-on">
+      <div class="built-item">
+        <div class="built-check">✓</div>
+        <div class="built-text">
+          <h4>GPT-4.5 with live web search</h4>
+          <p>OpenAI's most accurate model, searching the live web in real time — not pulling from a static database.</p>
+        </div>
+      </div>
+      <div class="built-item">
+        <div class="built-check">✓</div>
+        <div class="built-text">
+          <h4>Multi-layer verification</h4>
+          <p>Every source passes identity, proof of expertise, AI citation presence, editorial flags, and reachability checks.</p>
+        </div>
+      </div>
+      <div class="built-item">
+        <div class="built-check">✓</div>
+        <div class="built-text">
+          <h4>Honest about limitations</h4>
+          <p>If it can't find public quotes, it says so. If a match is weak, it tells you. It doesn't pad results.</p>
+        </div>
+      </div>
+      <div class="built-item">
+        <div class="built-check">✓</div>
+        <div class="built-text">
+          <h4>Editorial consideration flags</h4>
+          <p>Vendor bias, conflicts of interest, and potential concerns are surfaced — not hidden.</p>
+        </div>
+      </div>
+      <div class="built-item">
+        <div class="built-check">✓</div>
+        <div class="built-text">
+          <h4>Perspective diversity</h4>
+          <p>Automatically includes contrarian voices and different viewpoints for balanced coverage.</p>
+        </div>
+      </div>
+      <div class="built-item">
+        <div class="built-check">✓</div>
+        <div class="built-text">
+          <h4>Verifiable citations</h4>
+          <p>Every quote includes publication name, date, and context so you can verify before using.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-spacer"></div>
+
+  <!-- IT EVEN WRITES YOUR OUTREACH -->
+  <div class="section">
+    <div class="section-header">
+      <h2>It Even Writes Your Outreach</h2>
+      <p>Once you pick a source, SourceVault drafts a personalized email and LinkedIn DM — ready to send</p>
+    </div>
+    <div style="max-width: 380px; margin: 0 auto; border-radius: 24px; overflow: hidden; border: 2px solid rgba(168,85,247,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(168,85,247,0.1);">
+      <video autoplay loop muted playsinline style="width: 100%; display: block;">
+        <source src="sourcevault-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">Real outreach draft generated for a source — mobile experience shown</p>
+  </div>
+
+  <div class="section-spacer"></div>
+
+  <!-- WHY I BUILT THIS -->
+  <div class="section">
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; text-align: center;">
+      <h2 style="font-family: 'Space Grotesk'; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">Why I Built This</h2>
+      <p style="color: var(--text); font-size: 0.95rem; line-height: 1.7; max-width: 600px; margin: 0 auto;">After 23 years working with journalists on both sides — placing expert sources as a PR strategist and serving as one myself — I've seen the same sourcing challenges repeat for over a decade. Reporters struggle to find credible experts. Experts struggle to be discovered. SourceVault bridges that gap using public expertise signals, media appearances, verified quotes, and AI visibility data.</p>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem;">— Sarah Evans · <a href="https://www.linkedin.com/in/prsarahevans" target="_blank" style="color: var(--purple); text-decoration: none;">LinkedIn</a> · <a href="/" style="color: var(--cyan); text-decoration: none;">asksarah.ai</a></p>
+    </div>
+  </div>
+
+  <!-- CTA BOTTOM -->
+  <div class="cta-bottom">
+    <h2>Try SourceVault™</h2>
+    <p>Paste a story brief. Get 5 verified expert sources with quotes, AI visibility, and contact info.</p>
+    <a href="https://chatgpt.com/g/g-69af751a179481918742f3e1bddf8a41-sourcevaulttm" target="_blank" class="hero-cta">Try SourceVault Free →</a>
+    <div class="hero-sub">Free · No login · No paywall · Runs on ChatGPT</div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="tools.html">Tools</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="newsletter.html">Newsletter</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a>
+          <a href="https://github.com/sarahevansai" target="_blank">GitHub</a>
+          <a href="https://t.me/sarahevansai" target="_blank">Telegram</a>
+          <a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a>
+        </div>
+        <div class="footer-col">
+          <h4>More Tools</h4>
+          <a href="tools.html">All Free Tools</a>
+          <a href="https://github.com/sarahevansai/briefcase-ai" target="_blank">BriefCase — Morning Brief</a>
+          <a href="https://chatgpt.com/g/g-6904a060fd8c8191bf5cdbc82571fee9-ai-visibility-engine-geo" target="_blank">GEO GPT — Visibility Audit</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="/" class="nav-logo" style="opacity: 0.5;">
+          <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="height: 22px;">
+            <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+              <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+            </text>
+          </svg>
+        </a>
+        <p>&copy; <span id="currentYear"></span> Sarah Evans. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>

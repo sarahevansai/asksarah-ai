@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI and Communications: The Practitioner's Guide (2026) — askSarah.ai</title>
+  <meta name="description" content="What's actually working in AI and communications in 2026. The AI comms stack, workflow transformations, team structure changes, ethics, and a 23-year perspective on disruption cycles.">
+  <meta property="og:title" content="AI and Communications: The Practitioner's Guide (2026) — askSarah.ai">
+  <meta property="og:description" content="What's actually working vs what's hype in AI + communications. A practitioner's guide from 23 years of experience.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://asksarah.ai/ai-and-communications">
+  <link rel="canonical" href="https://asksarah.ai/ai-and-communications">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI and Communications: The Practitioner's Guide (2026)",
+    "description": "What's actually working vs what's hype in AI and communications. The AI comms stack, workflow transformations, team structure changes, and career implications.",
+    "author": { "@type": "Person", "name": "Sarah Evans", "jobTitle": "Communications Strategist & Technology Builder", "url": "https://asksarah.ai" },
+    "publisher": { "@type": "Organization", "name": "askSarah.ai", "url": "https://asksarah.ai" },
+    "datePublished": "2026-03-07",
+    "dateModified": "2026-03-07",
+    "url": "https://asksarah.ai/ai-and-communications",
+    "wordCount": 4500
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How is AI changing communications in 2026?", "acceptedAnswer": { "@type": "Answer", "text": "AI is transforming communications across three dimensions: how brands get discovered (AI visibility), how teams operate (AI-powered workflows), and how content is created and distributed. The biggest shift is from reactive to proactive communications, with AI enabling real-time monitoring, automated reporting, and predictive strategy." } },
+      { "@type": "Question", "name": "What AI tools do communications professionals use daily?", "acceptedAnswer": { "@type": "Answer", "text": "The 2026 AI comms stack includes: Claude or ChatGPT for content drafting and strategy, Perplexity for research, custom GPTs for specialized workflows (media list building, press release formatting), Granola or similar for meeting transcription, and monitoring tools with AI analysis. Most teams use 5-8 AI tools daily." } },
+      { "@type": "Question", "name": "Will AI replace PR professionals?", "acceptedAnswer": { "@type": "Answer", "text": "AI won't replace PR professionals, but PR professionals who use AI will replace those who don't. The core human skills — relationship building, strategic judgment, crisis instincts, creative thinking — remain irreplaceable. What changes is the speed and scale at which professionals can operate." } },
+      { "@type": "Question", "name": "How should teams disclose AI usage to clients?", "acceptedAnswer": { "@type": "Answer", "text": "Best practice in 2026: be transparent by default. Disclose AI usage in your engagement agreements, specify which tasks use AI assistance, and maintain human oversight on all client-facing outputs. Most sophisticated clients now expect AI usage — hiding it is riskier than disclosing it." } }
+    ]
+  }
+  </script>
+
+  <style>
+    :root { --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838; --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f; --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee; --gradient: linear-gradient(135deg, #7c3aed, #06b6d4); --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee); --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06); --radius: 16px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; } html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--gradient); z-index: 200; transition: width 0.1s; }
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(124,58,237,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(6,182,212,0.07); animation: o2 25s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; } .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border: none; }
+    .article-hero { position: relative; z-index: 1; padding: 8rem 2rem 3rem; }
+    .article-hero-inner { max-width: 800px; margin: 0 auto; }
+    .article-hero-deco { position: absolute; top: 0; left: 0; right: 0; height: 400px; overflow: hidden; z-index: -1; }
+    .article-hero-deco::before { content: ''; position: absolute; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, rgba(167,139,250,0.2), transparent); top: 45%; }
+    .article-hero-deco::after { content: ''; position: absolute; width: 2px; height: 100%; background: linear-gradient(180deg, transparent, rgba(34,211,238,0.15), transparent); left: 35%; }
+    .breadcrumb { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--violet-light); text-decoration: none; } .breadcrumb a:hover { color: var(--cyan-light); }
+    .article-meta { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+    .article-meta span { font-size: 0.75rem; color: var(--text-muted); }
+    .article-hero h1 { font-family: 'Space Grotesk'; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .article-hero-sub { font-size: 1.05rem; color: var(--text); max-width: 600px; line-height: 1.7; }
+    .article-layout { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; position: relative; z-index: 1; }
+    .toc { position: sticky; top: 5rem; align-self: start; }
+    .toc h4 { font-family: 'Space Grotesk'; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 600; }
+    .toc a { display: block; font-size: 0.78rem; color: var(--text-muted); text-decoration: none; padding: 0.3rem 0; padding-left: 0.75rem; border-left: 2px solid var(--border); transition: all 0.2s; line-height: 1.4; }
+    .toc a:hover, .toc a.active { color: var(--white); border-left-color: var(--violet); }
+    .toc-mobile { display: none; position: relative; z-index: 1; max-width: 800px; margin: 0 auto 2rem; padding: 0 2rem; }
+    .toc-mobile-toggle { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0.75rem 1rem; color: var(--white); font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .toc-mobile-content { display: none; background: var(--card); border: 1px solid var(--border); border-radius: 0 0 12px 12px; margin-top: -1px; padding: 0.5rem 1rem 0.75rem; }
+    .toc-mobile-content.open { display: block; }
+    .toc-mobile-content a { display: block; font-size: 0.82rem; color: var(--text); text-decoration: none; padding: 0.4rem 0; border-bottom: 1px solid var(--border-light); }
+    .toc-mobile-content a:last-child { border: none; }
+    .article-content { max-width: 720px; }
+    .article-content h2 { font-family: 'Space Grotesk'; font-size: 1.6rem; font-weight: 700; margin: 2.5rem 0 1rem; line-height: 1.2; letter-spacing: -0.02em; scroll-margin-top: 5rem; }
+    .article-content h3 { font-family: 'Space Grotesk'; font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--white); scroll-margin-top: 5rem; }
+    .article-content p { color: var(--text); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.25rem; }
+    .article-content strong { color: var(--white); }
+    .article-content ul, .article-content ol { color: var(--text); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    .article-content li { margin-bottom: 0.4rem; }
+    .article-content a { color: var(--violet-light); text-decoration: none; border-bottom: 1px solid rgba(167,139,250,0.3); transition: all 0.2s; }
+    .article-content a:hover { color: var(--cyan-light); border-bottom-color: var(--cyan); }
+    .article-content blockquote { border-left: 3px solid var(--violet); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(124,58,237,0.06); border-radius: 0 12px 12px 0; }
+    .article-content blockquote p { margin-bottom: 0; color: var(--white); font-style: italic; }
+    .callout { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+    .callout h4 { font-family: 'Space Grotesk'; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+    .callout p { margin-bottom: 0; }
+    .cta-inline { background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.08)); border: 1px solid rgba(124,58,237,0.2); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0; text-align: center; }
+    .cta-inline p { margin-bottom: 0.75rem; } .cta-inline a.btn { display: inline-block; background: var(--gradient); color: white; padding: 0.6rem 1.5rem; border-radius: 100px; font-weight: 600; font-size: 0.85rem; text-decoration: none; border: none; }
+    .faq-section { margin-top: 3rem; } .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+    .faq-q { font-family: 'Space Grotesk'; font-weight: 600; font-size: 1rem; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--violet-light); transition: transform 0.2s; }
+    .faq-q.open::after { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s; } .faq-a.open { max-height: 500px; } .faq-a p { padding-top: 0.75rem; font-size: 0.9rem; }
+    .share-section { display: flex; gap: 0.75rem; align-items: center; margin: 2rem 0; flex-wrap: wrap; }
+    .share-section span { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+    .share-btn { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; border-radius: 100px; font-size: 0.75rem; font-weight: 500; text-decoration: none; border: 1px solid var(--border); color: var(--text); transition: all 0.2s; }
+    .share-btn:hover { border-color: var(--violet); color: var(--white); }
+    .author-bio { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 3rem 0; }
+    .author-bio img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-bio-text h4 { font-family: 'Space Grotesk'; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .author-bio-text p { font-size: 0.82rem; color: var(--text); line-height: 1.6; margin-bottom: 0; }
+    .cross-links { margin: 3rem 0; } .cross-links h3 { font-family: 'Space Grotesk'; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+    .cross-link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; }
+    .cross-link-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; transition: all 0.2s; }
+    .cross-link-card:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-2px); }
+    .cross-link-card h4 { font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+    .cross-link-card p { font-size: 0.75rem; color: var(--text-muted); margin: 0; }
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+    @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .toc { display: none; } .toc-mobile { display: block; } }
+    @media (max-width: 768px) { .footer-cols { grid-template-columns: 1fr; } .nav-links { display: none; } .nav-hamburger { display: flex; } .article-hero { padding: 6rem 1.5rem 2rem; } .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; } .author-bio { flex-direction: column; align-items: center; text-align: center; } }
+  </style>
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+  <div class="bg-mesh"></div><div class="bg-orb orb-1"></div><div class="bg-orb orb-2"></div>
+
+  <nav>
+    <a href="/" class="nav-logo"><svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg"><text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30"><tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan></text></svg></a>
+    <div class="nav-links"><a href="/">Home</a><a href="about.html">About</a><a href="tools.html">Tools</a><a href="learn.html" class="active">Learn</a><a href="speaking.html">Speaking</a><a href="newsletter.html">Newsletter</a><a href="connect.html">Connect</a></div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu"><a href="/">Home</a><a href="about.html">About</a><a href="tools.html">Tools</a><a href="learn.html">Learn</a><a href="speaking.html">Speaking</a><a href="newsletter.html">Newsletter</a><a href="connect.html">Connect</a></div>
+
+  <section class="article-hero">
+    <div class="article-hero-deco"></div>
+    <div class="article-hero-inner">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="learn.html">Learn</a> → AI and Communications</div>
+      <div class="article-meta"><span>📖 20 min read</span><span>Published March 7, 2026</span><span>By Sarah Evans</span></div>
+      <h1><span class="gradient-text">AI and Communications</span>: The Practitioner's Guide (2026)</h1>
+      <p class="article-hero-sub">What's actually working, what's hype, and how 23 years of disruption cycles inform what's coming next.</p>
+    </div>
+  </section>
+
+  <div class="toc-mobile">
+    <button class="toc-mobile-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Table of Contents <span>▾</span></button>
+    <div class="toc-mobile-content">
+      <a href="#state">State of AI in Comms</a><a href="#working-vs-hype">Working vs. Hype</a><a href="#stack">The AI Comms Stack</a><a href="#workflows">Workflow Transformations</a><a href="#teams">Team Structure Changes</a><a href="#clients">Client Communication</a><a href="#ethics">Ethics and Disclosure</a><a href="#measurement">Measurement Framework</a><a href="#careers">Career Implications</a><a href="#perspective">23-Year Perspective</a><a href="#faq">FAQ</a>
+    </div>
+  </div>
+
+  <div class="article-layout">
+    <aside class="toc">
+      <h4>Contents</h4>
+      <a href="#state">State of AI in Comms</a><a href="#working-vs-hype">Working vs. Hype</a><a href="#stack">The AI Comms Stack</a><a href="#workflows">Workflow Transformations</a><a href="#teams">Team Structure</a><a href="#clients">Client Communication</a><a href="#ethics">Ethics & Disclosure</a><a href="#measurement">Measurement</a><a href="#careers">Career Implications</a><a href="#perspective">23-Year Perspective</a><a href="#faq">FAQ</a>
+    </aside>
+
+    <article class="article-content">
+
+      <h2 id="state">The State of AI in Communications — March 2026</h2>
+
+      <p>Let me give you the honest picture. Not the conference-keynote version where AI is going to revolutionize everything overnight. Not the fearmonger version where AI is going to replace all of us. The practitioner version — what it actually looks like in the day-to-day of running a communications team in 2026.</p>
+
+      <p>At <a href="https://www.zenmedia.com" target="_blank">Zen Media</a>, AI touches every major workflow. Content drafting, media research, client reporting, competitive analysis, trend monitoring, and strategic planning all have AI components. But — and this is crucial — <strong>none of these workflows are fully automated.</strong> AI accelerates human work. It doesn't replace human judgment.</p>
+
+      <p>The biggest shift I've seen isn't in any single tool or capability. It's in <strong>expectations</strong>. Clients expect faster turnaround. Executives expect data-driven strategy. Teams expect automated admin work. The bar has moved, and teams that haven't integrated AI are falling behind not because they can't do good work, but because they can't do it at the speed the market now demands.</p>
+
+      <h2 id="working-vs-hype">What's Actually Working vs. What's Hype</h2>
+
+      <h3>Actually Working ✅</h3>
+
+      <ul>
+        <li><strong>AI-assisted content drafting.</strong> Not AI-generated content published directly — AI-assisted drafts that humans refine, fact-check, and add strategic insight to. This cuts first-draft time by 60-70%.</li>
+        <li><strong>Automated monitoring and summarization.</strong> AI processing thousands of mentions, articles, and social posts and surfacing what actually matters. The signal-to-noise improvement is enormous.</li>
+        <li><strong>Meeting-to-action pipelines.</strong> Tools like Granola that transcribe meetings and extract action items automatically. We've eliminated 80% of follow-up documentation time.</li>
+        <li><strong>Research acceleration.</strong> What used to take a junior team member a full day — competitive landscape analysis, industry trend reports, journalist research — now takes 30 minutes with AI augmentation.</li>
+        <li><strong>AI visibility optimization.</strong> Structuring content so AI models can find and cite it. This is the new SEO, and it's producing measurable results within 90 days for every client we've implemented it with.</li>
+        <li><strong>Custom GPT workflows.</strong> Building specialized AI tools for specific tasks (press release formatting, media list generation, crisis plan templates). Our team has 12 custom GPTs they use daily.</li>
+      </ul>
+
+      <h3>Still Hype 🚫</h3>
+
+      <ul>
+        <li><strong>"Fully autonomous PR agents."</strong> No. AI can't navigate the nuance of journalist relationships, client politics, or crisis instincts. Anyone selling fully autonomous PR is selling snake oil.</li>
+        <li><strong>"AI-generated thought leadership."</strong> Readers and editors can spot AI-generated content. It lacks specificity, original thinking, and the hard-won insights that make thought leadership valuable. AI can help you write faster — it can't think for you.</li>
+        <li><strong>"Predictive media intelligence."</strong> The tools that claim to predict which stories will go viral or which journalists will cover your pitch are still unreliable. Media is fundamentally unpredictable beyond basic pattern matching.</li>
+        <li><strong>"One-click campaign generation."</strong> Complex, multi-channel communications campaigns still require strategic thinking, audience understanding, and creative judgment that AI can't replicate.</li>
+      </ul>
+
+      <div class="callout">
+        <h4>🎯 The Practitioner's Rule</h4>
+        <p>If someone claims AI can fully automate a task that requires human judgment, relationship navigation, or creative strategy — they're selling to people who don't actually do the work. AI accelerates; it doesn't replace.</p>
+      </div>
+
+      <h2 id="stack">The AI Communications Stack (2026)</h2>
+
+      <p>Here's the actual stack our team uses daily. Not aspirational — operational:</p>
+
+      <h3>Strategy & Research</h3>
+      <ul>
+        <li><strong>Claude (Anthropic)</strong> — Primary AI for strategic thinking, content development, and complex analysis. Best reasoning capabilities of any model.</li>
+        <li><strong>Perplexity</strong> — Real-time research with citations. Replaced most Google searches for competitive intelligence.</li>
+        <li><strong>ChatGPT</strong> — Custom GPTs for specialized workflows. Our GEO GPT, GenAI Wire builder, and crisis plan generator live here.</li>
+      </ul>
+
+      <h3>Content & Creation</h3>
+      <ul>
+        <li><strong>Claude / ChatGPT</strong> — First-draft generation for press releases, pitches, blog posts, and client communications.</li>
+        <li><strong>Cursor</strong> — AI-powered code editor for building tools and websites (see <a href="vibecoding-for-comms.html">vibecoding guide</a>).</li>
+      </ul>
+
+      <h3>Monitoring & Analysis</h3>
+      <ul>
+        <li><strong>Custom monitoring pipelines</strong> — Built with AI to track brand mentions across AI platforms, not just traditional media.</li>
+        <li><strong>Granola</strong> — Meeting transcription and action item extraction. Every call is automatically documented.</li>
+      </ul>
+
+      <h3>Workflow & Operations</h3>
+      <ul>
+        <li><strong>Custom automations</strong> — Slack-to-Todoist task capture, automated daily digests, client report generation.</li>
+        <li><strong>Monday.com + AI</strong> — Project management with AI-assisted status updates and timeline predictions.</li>
+      </ul>
+
+      <h2 id="workflows">Workflow Transformations: Before and After</h2>
+
+      <h3>Media List Building</h3>
+      <p><strong>Before:</strong> 4-6 hours of manual research, database searching, LinkedIn stalking, and email finding. Quality varied based on who did it.</p>
+      <p><strong>After:</strong> 30-minute process using AI research + human curation. AI identifies relevant journalists and recent coverage; human validates fit and adds relationship context. Better quality, 90% less time.</p>
+
+      <h3>Press Release Drafting</h3>
+      <p><strong>Before:</strong> 3-4 hours for first draft, including internal gathering of information, drafting, and initial client review.</p>
+      <p><strong>After:</strong> 45-minute process. AI generates structured first draft from brief; human adds strategic framing, quotes, and context. Then runs it through our GenAI Wire format for AI citation optimization. Total process including AI optimization: 90 minutes.</p>
+
+      <h3>Client Reporting</h3>
+      <p><strong>Before:</strong> Full day at end of month compiling data from multiple tools, creating charts, writing narrative.</p>
+      <p><strong>After:</strong> Real-time dashboard that auto-compiles metrics. Monthly narrative takes 1 hour to write with AI assistance pulling in the data. Clients have 24/7 access to current metrics instead of waiting for monthly PDFs.</p>
+
+      <h3>Competitive Analysis</h3>
+      <p><strong>Before:</strong> Multi-day project involving manual monitoring, coverage tracking, and synthesis.</p>
+      <p><strong>After:</strong> Ongoing AI-powered monitoring that surfaces competitive moves in real-time. Monthly synthesis takes 2 hours instead of 2 days.</p>
+
+      <h2 id="teams">Team Structure Changes</h2>
+
+      <p>The honest conversation most agencies aren't having: AI does change team structure. Here's how we've evolved:</p>
+
+      <p><strong>Junior roles have changed, not disappeared.</strong> Entry-level team members now spend less time on data entry, list building, and report compilation. They spend more time on AI tool management, quality control, and client-facing communication. The skill requirement has shifted from "can you grind through repetitive tasks" to "can you manage AI workflows and think critically about outputs."</p>
+
+      <p><strong>Mid-level professionals are more productive.</strong> The biggest beneficiaries of AI integration. They can now handle more clients, produce higher-quality work, and spend more time on strategy. A team of 5 with AI integration can produce what used to require a team of 8-10.</p>
+
+      <p><strong>Senior leaders need AI literacy.</strong> You don't need to use AI tools daily, but you need to understand capabilities, limitations, and strategic implications. Senior leaders who dismiss AI as "just a tool" are making bad decisions about team investment, client promises, and competitive positioning.</p>
+
+      <h2 id="clients">Communicating About AI to Clients</h2>
+
+      <p>This is where many agencies stumble. Here's what works:</p>
+
+      <ol>
+        <li><strong>Be transparent about AI usage.</strong> Include it in your engagement agreements. "We use AI tools to accelerate research, drafting, and analysis. All client-facing deliverables are reviewed and approved by senior team members."</li>
+        <li><strong>Frame it as an advantage.</strong> "AI integration means faster turnaround, deeper research, and more comprehensive analysis — not less human attention to your account."</li>
+        <li><strong>Show the results.</strong> Clients care about outcomes. If AI-assisted workflows produce better results faster, demonstrate it with data.</li>
+        <li><strong>Address concerns directly.</strong> Some clients worry about confidentiality, accuracy, or quality. Address each specifically with your processes.</li>
+      </ol>
+
+      <h2 id="ethics">Ethics and Disclosure</h2>
+
+      <p>This is non-negotiable. Here's our framework:</p>
+
+      <ul>
+        <li><strong>Never publish AI-generated content as original thought.</strong> AI assists; humans author. If Sarah Evans' byline is on it, Sarah Evans wrote it (with AI assistance on the draft).</li>
+        <li><strong>Disclose AI usage when asked.</strong> We don't volunteer that "this press release was drafted with AI assistance" on every document, but if a client or journalist asks, we're transparent.</li>
+        <li><strong>Maintain human oversight on all outputs.</strong> Every AI-generated draft is reviewed by a human before it goes anywhere. No exceptions.</li>
+        <li><strong>Protect client data.</strong> We don't put confidential client information into AI tools without appropriate data handling agreements. Enterprise-grade tools only for sensitive data.</li>
+        <li><strong>Credit original sources.</strong> If AI surfaces a insight that originated from someone's research, we cite the original source — not the AI.</li>
+      </ul>
+
+      <h2 id="measurement">Measurement Framework for AI-Integrated Comms</h2>
+
+      <p>Traditional PR measurement was already broken. AI gives us a chance to fix it:</p>
+
+      <h3>New Metrics That Matter</h3>
+      <ul>
+        <li><strong>Answer Share™:</strong> Percentage of AI-generated answers that mention your brand. The new market share. (See <a href="ai-visibility-guide.html">AI Visibility Guide</a>)</li>
+        <li><strong>AI Sentiment Accuracy:</strong> Is what AI says about your brand accurate? This is distinct from media sentiment.</li>
+        <li><strong>Workflow Efficiency:</strong> Time savings from AI integration, measured per deliverable type.</li>
+        <li><strong>Content Citation Rate:</strong> Percentage of your published content that gets cited by AI models.</li>
+      </ul>
+
+      <h3>Traditional Metrics, Enhanced</h3>
+      <ul>
+        <li><strong>Media impressions + AI reach:</strong> Traditional media coverage plus AI-generated answer reach.</li>
+        <li><strong>Share of voice + Answer Share:</strong> Combined traditional and AI visibility metrics.</li>
+        <li><strong>Lead attribution:</strong> Tracking which leads originated from AI-recommended content vs. traditional channels.</li>
+      </ul>
+
+      <h2 id="careers">Career Implications</h2>
+
+      <p>Let me be direct about this: <strong>AI will not replace good communications professionals.</strong> But it will separate the field into two tiers.</p>
+
+      <p><strong>Tier 1:</strong> Professionals who integrate AI into their practice, build custom tools, and leverage technology to amplify their expertise. They'll command premium compensation, work on more strategic projects, and be in high demand.</p>
+
+      <p><strong>Tier 2:</strong> Professionals who continue working the same way they did in 2023. They'll be productive but increasingly outpaced. Not unemployable — just operating at a disadvantage that compounds over time.</p>
+
+      <p>The skills that matter most in 2026 and beyond:</p>
+      <ul>
+        <li>Strategic thinking (irreplaceable by AI)</li>
+        <li>Relationship building (fundamentally human)</li>
+        <li>AI tool proficiency (new requirement)</li>
+        <li><a href="vibecoding-for-comms.html">Vibecoding / tool building</a> (emerging differentiator)</li>
+        <li>Data literacy (enhanced by AI but requiring human interpretation)</li>
+        <li>Crisis judgment (irreplaceable instinct developed over years)</li>
+      </ul>
+
+      <h2 id="perspective">The 23-Year Perspective on Disruption</h2>
+
+      <p>I started in PR in 2003. Since then I've lived through: the social media revolution (2007-2012), the content marketing era (2012-2018), the influencer economy (2016-present), the digital-first transformation (2020-2022), and now the AI era (2023-present).</p>
+
+      <p>Every single one of these disruptions triggered the same cycle:</p>
+
+      <ol>
+        <li><strong>Hype:</strong> "This changes everything! Traditional PR is dead!"</li>
+        <li><strong>Panic:</strong> "How do we adapt? Are we obsolete?"</li>
+        <li><strong>Integration:</strong> "Oh, this is actually a powerful tool for what we already do."</li>
+        <li><strong>New normal:</strong> The tool becomes table stakes, and the cycle repeats.</li>
+      </ol>
+
+      <p>AI is following the same pattern, but at compressed speed. The hype-to-integration cycle that took social media 5 years is happening with AI in 18 months.</p>
+
+      <p>The lesson from every previous cycle: <strong>the professionals who adapt early gain a lasting advantage. The ones who resist eventually adapt anyway — just from a weaker position.</strong></p>
+
+      <p>The fundamentals of great communications haven't changed in 23 years: understand your audience, tell a compelling story, build genuine relationships, measure what matters, and adapt constantly. AI is the most powerful adaptation tool we've ever had. Use it.</p>
+
+      <div class="cta-inline">
+        <p><strong>Stay current on AI + comms.</strong> Get the PR@ctical newsletter — weekly executive brief on what's actually working.</p>
+        <a href="newsletter.html" class="btn">Subscribe Free →</a>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-section">
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">How is AI changing communications in 2026?</div>
+          <div class="faq-a"><p>AI is transforming communications across three dimensions: how brands get discovered (AI visibility), how teams operate (AI-powered workflows), and how content is created and distributed. The biggest shift is from reactive to proactive communications, with AI enabling real-time monitoring, automated reporting, and predictive strategy.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What AI tools do comms professionals use daily?</div>
+          <div class="faq-a"><p>The 2026 AI comms stack includes Claude or ChatGPT for content drafting and strategy, Perplexity for research, custom GPTs for specialized workflows, Granola or similar for meeting transcription, and monitoring tools with AI analysis. Most teams use 5-8 AI tools daily.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Will AI replace PR professionals?</div>
+          <div class="faq-a"><p>AI won't replace PR professionals, but PR professionals who use AI will replace those who don't. The core human skills — relationship building, strategic judgment, crisis instincts, creative thinking — remain irreplaceable. What changes is the speed and scale at which professionals can operate.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">How should teams disclose AI usage to clients?</div>
+          <div class="faq-a"><p>Be transparent by default. Disclose AI usage in your engagement agreements, specify which tasks use AI assistance, and maintain human oversight on all client-facing outputs. Most sophisticated clients now expect AI usage — hiding it is riskier than disclosing it.</p></div>
+        </div>
+      </div>
+
+      <div class="share-section">
+        <span>Share this guide:</span>
+        <a href="https://twitter.com/intent/tweet?text=AI%20and%20Communications%3A%20The%20Practitioner%27s%20Guide%20by%20%40prsarahevans&url=https://asksarah.ai/ai-and-communications" target="_blank" class="share-btn">𝕏 Twitter</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://asksarah.ai/ai-and-communications" target="_blank" class="share-btn">LinkedIn</a>
+      </div>
+
+      <div class="author-bio">
+        <img src="sarah-headshot.png" alt="Sarah Evans">
+        <div class="author-bio-text">
+          <h4>Sarah Evans</h4>
+          <p>Communications Strategist & Technology Builder. 23+ years in PR, Partner at Zen Media. Writing about AI and communications since before it was a trend. <a href="about.html">Full bio →</a></p>
+        </div>
+      </div>
+
+      <div class="cross-links">
+        <h3>Continue Learning</h3>
+        <div class="cross-link-grid">
+          <a href="ai-visibility-guide.html" class="cross-link-card"><h4>AI Visibility Guide</h4><p>How to show up in AI-generated answers.</p></a>
+          <a href="ai-visibility-cmo-guide.html" class="cross-link-card"><h4>CMO's Guide to AI Visibility</h4><p>Budget, measurement, and team structure.</p></a>
+          <a href="ai-visibility-sales.html" class="cross-link-card"><h4>AI & B2B Sales</h4><p>How AI reshapes pipeline and close rates.</p></a>
+          <a href="ai-visibility-business-leaders.html" class="cross-link-card"><h4>AI Visibility for Business Leaders</h4><p>The executive action plan.</p></a>
+          <a href="ai-visibility-small-business.html" class="cross-link-card"><h4>AI Visibility for Small Business</h4><p>DIY tactics for solopreneurs.</p></a>
+          <a href="vibecoding-for-comms.html" class="cross-link-card"><h4>Vibecoding for Comms</h4><p>Build your own tools with AI.</p></a>
+          <a href="future-of-public-relations.html" class="cross-link-card"><h4>Future of PR</h4><p>Why PR's future is AI-native.</p></a>
+          <a href="ai-visibility-marketing.html" class="cross-link-card"><h4>AI Visibility Marketing</h4><p>The new marketing discipline.</p></a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- FREE CHECKLIST CTA -->
+  <section style="position: relative; z-index: 1; padding: 2rem 2rem 3rem;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <a href="https://stan.store/asksarahevans/p/ai-visibility-checklist" target="_blank" style="display: block; background: rgba(6,182,212,0.06); border: 2px solid rgba(6,182,212,0.25); border-radius: 20px; padding: 2rem 2.25rem; text-decoration: none; text-align: center; transition: all 0.3s; box-shadow: 0 0 30px rgba(6,182,212,0.06);">
+        <div style="font-family: Space Grotesk, sans-serif; font-size: 1.15rem; font-weight: 700; color: #f0eef8; margin-bottom: 0.4rem;">Want to put this into practice?</div>
+        <div style="font-size: 0.9rem; color: #c4c0d8; margin-bottom: 1.25rem;">Get the free AI Visibility Checklist — 20 actions you can take this week to show up in ChatGPT, Perplexity, Gemini, and Claude.</div>
+        <span style="display: inline-flex; padding: 0.6rem 1.5rem; border-radius: 100px; font-size: 0.88rem; font-weight: 600; background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a; box-shadow: 0 4px 16px rgba(6,182,212,0.3);">Get the Free AI Visibility Checklist →</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col"><h4>Navigation</h4><a href="/">Home</a><a href="about.html">About</a><a href="tools.html">Tools</a><a href="learn.html">Learn</a><a href="speaking.html">Speaking</a><a href="newsletter.html">Newsletter</a></div>
+        <div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a><a href="https://github.com/sarahevansai" target="_blank">GitHub</a><a href="https://t.me/sarahevansai" target="_blank">Telegram</a><a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a></div>
+        <div class="footer-col"><h4>Built by Sarah Evans</h4><a href="https://www.zenmedia.com" target="_blank">Partner at Zen Media</a><a href="https://hackernoon.com/u/sarahevans" target="_blank">HackerNoon Column</a><a href="https://x.com/prsarahevans" target="_blank">X / Twitter</a></div>
+      </div>
+      <div class="footer-bottom">
+        <a href="/" class="nav-logo" style="opacity: 0.5;"><svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="height: 22px;"><text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30"><tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan></text></svg></a>
+        <p>&copy; <span id="currentYear"></span> Sarah Evans. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    window.addEventListener('scroll', () => { const h = document.documentElement; document.getElementById('readingProgress').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%'; });
+    const tocLinks = document.querySelectorAll('.toc a'); const sections = [];
+    tocLinks.forEach(a => { const el = document.getElementById(a.getAttribute('href').slice(1)); if (el) sections.push({ el, a }); });
+    window.addEventListener('scroll', () => { let c = sections[0]; sections.forEach(s => { if (s.el.getBoundingClientRect().top < 120) c = s; }); tocLinks.forEach(a => a.classList.remove('active')); if (c) c.a.classList.add('active'); });
+  </script>
+</body>
+</html>

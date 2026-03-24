@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://asksarah.ai/og-image.png">
+  <title>Tools — askSarah.ai | Free AI Visibility & Workflow Tools</title>
+  <meta name="description" content="Free tools built by Sarah Evans: GEO GPT, GenAI Press Release Builder, Command Center Hub, and more. Open source AI visibility and workflow tools.">
+  <meta property="og:title" content="Tools — askSarah.ai">
+  <meta property="og:description" content="Free AI visibility and workflow tools built by Sarah Evans.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/tools">
+  <link rel="canonical" href="https://asksarah.ai/tools">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838;
+      --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f;
+      --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(124,58,237,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(6,182,212,0.07); animation: o2 25s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--white); }
+    .nav-cta { background: var(--gradient) !important; color: white !important; padding: 0.45rem 1.2rem; border-radius: 100px; font-weight: 600 !important; font-size: 0.82rem !important; }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+
+    .page-header { padding: 7rem 2rem 3rem; text-align: center; position: relative; z-index: 1; }
+    .page-header h1 { font-family: 'Space Grotesk'; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+    .page-header p { color: var(--text-muted); font-size: 0.95rem; max-width: 500px; margin: 0 auto; }
+
+    .tools-grid { max-width: 1000px; margin: 0 auto; padding: 0 2rem 4rem; position: relative; z-index: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.25rem; }
+    .tool-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; position: relative; overflow: hidden; transition: all 0.2s; display: flex; flex-direction: column; }
+    .tool-card:hover { border-color: rgba(124,58,237,0.25); transform: translateY(-3px); background: var(--card-hover); box-shadow: 0 16px 48px rgba(0,0,0,0.3); }
+    .tool-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient); }
+    .tool-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .tool-card h3 { font-family: 'Space Grotesk'; font-weight: 700; font-size: 1.05rem; color: var(--white); margin-bottom: 0.4rem; }
+    .tool-card p { color: var(--text); font-size: 0.84rem; line-height: 1.55; margin-bottom: 1.25rem; flex: 1; }
+    .tool-btn { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; text-decoration: none; transition: all 0.2s; font-family: inherit; }
+    .tool-btn-primary { background: var(--gradient); color: white; box-shadow: 0 4px 16px rgba(124,58,237,0.2); }
+    .tool-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(124,58,237,0.3); }
+    .tool-btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.1); }
+    .tool-btn-ghost:hover { border-color: var(--violet); background: rgba(124,58,237,0.06); }
+
+    .github-cta { text-align: center; padding: 0 2rem 5rem; position: relative; z-index: 1; }
+    .github-cta a { color: var(--violet-light); font-family: 'Space Grotesk'; font-weight: 600; font-size: 1rem; text-decoration: none; transition: color 0.2s; }
+    .github-cta a:hover { color: var(--cyan-light); }
+
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+          <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+        </text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="tools.html" class="active">Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="speaking.html">Speaking</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="connect.html">Connect</a>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="tools.html">Tools</a>
+    <a href="learn.html">Learn</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="connect.html">Connect</a>
+  </div>
+
+  <div class="page-header">
+    <h1>Free Tools & <span class="gradient-text">Open Source</span></h1>
+    <p>AI-powered tools for how you work — organized by what you do.</p>
+  </div>
+
+  <!-- AUDIENCE FILTER -->
+  <div style="max-width: 1000px; margin: 0 auto 2rem; padding: 0 2rem; position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+    <a href="#media" style="padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.78rem; font-weight: 600; text-decoration: none; background: rgba(168,85,247,0.12); color: #c084fc; border: 1px solid rgba(168,85,247,0.25); transition: all 0.2s;">📰 Journalists & Media</a>
+    <a href="#pr" style="padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.78rem; font-weight: 600; text-decoration: none; background: rgba(6,182,212,0.12); color: #22d3ee; border: 1px solid rgba(6,182,212,0.25); transition: all 0.2s;">📣 PR & Communications</a>
+    <a href="#marketing" style="padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.78rem; font-weight: 600; text-decoration: none; background: rgba(52,211,153,0.12); color: #34d399; border: 1px solid rgba(52,211,153,0.25); transition: all 0.2s;">📊 Marketers & SEO</a>
+    <a href="#business" style="padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.78rem; font-weight: 600; text-decoration: none; background: rgba(251,191,36,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); transition: all 0.2s;">💼 Business Leaders</a>
+    <a href="#developers" style="padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.78rem; font-weight: 600; text-decoration: none; background: rgba(239,68,68,0.12); color: #f87171; border: 1px solid rgba(239,68,68,0.25); transition: all 0.2s;">🛠 Developers & Builders</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION: JOURNALISTS & MEDIA -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="media" style="max-width: 1000px; margin: 0 auto 1rem; padding: 2.5rem 2rem 0; position: relative; z-index: 1;">
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem;">
+      <span style="font-size: 1.4rem;">📰</span>
+      <h2 style="font-family: 'Space Grotesk'; font-size: 1.2rem; font-weight: 700; color: #c084fc;">For Journalists & Media</h2>
+    </div>
+    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem;">Reporters, editors, TV producers, podcast hosts, bookers — find sources, verify expertise, meet deadlines.</p>
+  </div>
+
+  <div style="max-width: 1000px; margin: 0 auto 2.5rem; padding: 0 2rem; position: relative; z-index: 1;">
+    <a href="sourcevault.html" style="display: block; background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(124,58,237,0.1)); border: 2px solid rgba(168,85,247,0.4); border-radius: 20px; padding: 2rem 2.25rem; text-decoration: none; position: relative; overflow: hidden; transition: all 0.3s;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(135deg, #a78bfa, #c084fc);"></div>
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+        <span style="background: linear-gradient(135deg, #a78bfa, #c084fc); color: #0c0a1a; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">New · Free</span>
+      </div>
+      <h3 style="font-family: 'Space Grotesk'; font-size: 1.3rem; font-weight: 700; color: #f0eef8; margin-bottom: 0.4rem;">🔍 SourceVault™ — AI Newsroom Research Desk</h3>
+      <p style="color: #c4c0d8; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.6rem; max-width: 700px;">Find verified expert sources in under 3 minutes. Real quotes, AI visibility scores, broadcast readiness, interview questions, outreach drafts.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;">
+        <span style="font-size: 0.65rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 6px; background: rgba(168,85,247,0.15); color: #c084fc;">Verified Quotes</span>
+        <span style="font-size: 0.65rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 6px; background: rgba(59,130,246,0.15); color: #60a5fa;">AI Visibility</span>
+        <span style="font-size: 0.65rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 6px; background: rgba(52,211,153,0.15); color: #34d399;">Broadcast Ready</span>
+        <span style="font-size: 0.65rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 6px; background: rgba(251,191,36,0.15); color: #fbbf24;">Interview Qs</span>
+        <span style="font-size: 0.65rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 6px; background: rgba(239,68,68,0.15); color: #f87171;">Breaking News</span>
+        <span style="font-size: 0.65rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 6px; background: rgba(236,72,153,0.15); color: #f472b6;">Outreach Drafts</span>
+      </div>
+      <span style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.55rem 1.2rem; border-radius: 100px; font-size: 0.85rem; font-weight: 600; background: linear-gradient(135deg, #a78bfa, #c084fc); color: #0c0a1a; box-shadow: 0 4px 16px rgba(168,85,247,0.3);">Learn More →</span>
+    </a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION: PR & COMMUNICATIONS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="pr" style="max-width: 1000px; margin: 0 auto 1rem; padding: 1rem 2rem 0; position: relative; z-index: 1;">
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem;">
+      <span style="font-size: 1.4rem;">📣</span>
+      <h2 style="font-family: 'Space Grotesk'; font-size: 1.2rem; font-weight: 700; color: #22d3ee;">For PR & Communications</h2>
+    </div>
+    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem;">Write releases AI models cite. Build visibility inside AI-generated answers. Optimize content for the answer economy.</p>
+  </div>
+
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-icon">📰</div>
+      <h3>GenAI Press Release Builder</h3>
+      <p>Paste your press release, get back a version AI models can actually find and cite. Most releases get ignored — this one won't.</p>
+      <a href="https://chatgpt.com/g/g-68d694bd670c8191a38c11b6d509c31f-genai-press-release-builder-from-zen-media" target="_blank" class="tool-btn tool-btn-primary">Try It Free →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">📡</div>
+      <h3>GenAI Wire Builder</h3>
+      <p>Format wire releases so AI models actually read and reference them. Only 3 of 50 we tested got cited — this fixes that.</p>
+      <a href="https://github.com/sarahevansai/genai-wire-builder" target="_blank" class="tool-btn tool-btn-ghost">View on GitHub →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">✍️</div>
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;"><span style="background: linear-gradient(135deg, #7c3aed, #06b6d4); color: white; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">$47</span></div>
+      <h3>AI-Ready Content Writer's Toolkit</h3>
+      <p>Write content AI actually cites. 43-page guide, custom GPT, worksheets, and tool stack.</p>
+      <a href="https://stan.store/asksarahevans/p/the-aiready-content-writers-toolkit" target="_blank" class="tool-btn tool-btn-primary">Get the Toolkit →</a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION: MARKETERS & SEO -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="marketing" style="max-width: 1000px; margin: 0 auto 1rem; padding: 2.5rem 2rem 0; position: relative; z-index: 1;">
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem;">
+      <span style="font-size: 1.4rem;">📊</span>
+      <h2 style="font-family: 'Space Grotesk'; font-size: 1.2rem; font-weight: 700; color: #34d399;">For Marketers & SEO</h2>
+    </div>
+    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem;">See what AI says about your brand. Audit your visibility. Fix what's wrong before your competitors do.</p>
+  </div>
+
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-icon">🎯</div>
+      <h3>GEO GPT — AI Visibility Engine</h3>
+      <p>Find out what ChatGPT, Gemini, and Perplexity say about your brand — and what they're getting wrong. Free, 5 minutes.</p>
+      <a href="https://chatgpt.com/g/g-6904a060fd8c8191bf5cdbc82571fee9-ai-visibility-engine-geo" target="_blank" class="tool-btn tool-btn-primary">Run Your Free Audit →</a>
+    </div>
+
+    <div class="tool-card" style="border-color: rgba(6,182,212,0.3); box-shadow: 0 0 30px rgba(6,182,212,0.06);">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(135deg, #06b6d4, #22d3ee);"></div>
+      <div class="tool-icon">✅</div>
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;"><span style="background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">Free</span></div>
+      <h3>AI Visibility Checklist</h3>
+      <p>20 specific actions to show up in ChatGPT, Perplexity, Gemini, and Claude.</p>
+      <a href="https://stan.store/asksarahevans/p/ai-visibility-checklist" target="_blank" class="tool-btn" style="background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a; box-shadow: 0 4px 16px rgba(6,182,212,0.2);">Get the Free Checklist →</a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION: BUSINESS LEADERS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="business" style="max-width: 1000px; margin: 0 auto 1rem; padding: 2.5rem 2rem 0; position: relative; z-index: 1;">
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem;">
+      <span style="font-size: 1.4rem;">💼</span>
+      <h2 style="font-family: 'Space Grotesk'; font-size: 1.2rem; font-weight: 700; color: #fbbf24;">For Business Leaders</h2>
+    </div>
+    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem;">Morning intelligence, AI visibility audits, and workflow tools that save hours every week.</p>
+  </div>
+
+  <div class="tools-grid">
+    <div class="tool-card" style="border-color: rgba(251,191,36,0.3); box-shadow: 0 0 30px rgba(251,191,36,0.06);">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(135deg, #fbbf24, #f59e0b);"></div>
+      <div class="tool-icon">☕</div>
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;"><span style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0c0a1a; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">New · Open Source</span></div>
+      <h3>BriefCase — AI Morning Brief</h3>
+      <p>Your personalized morning intelligence brief. News, angles, and action items delivered before your first meeting.</p>
+      <a href="https://github.com/sarahevansai/briefcase-ai" target="_blank" class="tool-btn" style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0c0a1a; box-shadow: 0 4px 16px rgba(251,191,36,0.2);">View on GitHub →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">🎯</div>
+      <h3>GEO GPT — AI Visibility Engine</h3>
+      <p>See what AI models say about your company. Find out what they're getting wrong — and how to fix it.</p>
+      <a href="https://chatgpt.com/g/g-6904a060fd8c8191bf5cdbc82571fee9-ai-visibility-engine-geo" target="_blank" class="tool-btn tool-btn-primary">Run Your Free Audit →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">🎛️</div>
+      <h3>Command Center Hub</h3>
+      <p>One place to find every doc, board, login, and tool your team uses. No more digging through Slack or bookmarks.</p>
+      <a href="https://github.com/sarahevansai/command-center-hub" target="_blank" class="tool-btn tool-btn-ghost">Get It Free →</a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION: DEVELOPERS & BUILDERS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="developers" style="max-width: 1000px; margin: 0 auto 1rem; padding: 2.5rem 2rem 0; position: relative; z-index: 1;">
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem;">
+      <span style="font-size: 1.4rem;">🛠</span>
+      <h2 style="font-family: 'Space Grotesk'; font-size: 1.2rem; font-weight: 700; color: #f87171;">For Developers & Builders</h2>
+    </div>
+    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem;">Open source tools you can clone, customize, and deploy. All MIT licensed.</p>
+  </div>
+
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-icon">🤖</div>
+      <h3>AI Chatbot Template</h3>
+      <p>The code behind this site. Clone it, add your expertise, deploy your own digital twin in minutes. Free hosting included.</p>
+      <a href="https://github.com/sarahevansai/ai-chatbot-template" target="_blank" class="tool-btn tool-btn-ghost">Clone & Deploy →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">☕</div>
+      <h3>BriefCase</h3>
+      <p>Configurable morning intelligence brief. YAML config, multi-source, markdown output. Python.</p>
+      <a href="https://github.com/sarahevansai/briefcase-ai" target="_blank" class="tool-btn tool-btn-ghost">View on GitHub →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">📡</div>
+      <h3>GenAI Wire Builder</h3>
+      <p>Structure wire releases for AI model consumption. Entity-first formatting, claim-evidence pairing.</p>
+      <a href="https://github.com/sarahevansai/genai-wire-builder" target="_blank" class="tool-btn tool-btn-ghost">View on GitHub →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">📋</div>
+      <h3>DailyOps</h3>
+      <p>Aggregate Slack, email, and Monday.com into a single daily digest. Node.js.</p>
+      <a href="https://github.com/sarahevansai/dailyops" target="_blank" class="tool-btn tool-btn-ghost">View on GitHub →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">📅</div>
+      <h3>Todoist Calendar Sync</h3>
+      <p>Auto-sync Todoist tasks to Google Calendar. Two-way, real-time.</p>
+      <a href="https://github.com/sarahevansai/todoist-calendar-sync" target="_blank" class="tool-btn tool-btn-ghost">View on GitHub →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">⚡</div>
+      <h3>Slack Emoji to Todoist</h3>
+      <p>React to a Slack message with an emoji → task created in Todoist automatically.</p>
+      <a href="https://github.com/sarahevansai/slack-emoji-to-todoist" target="_blank" class="tool-btn tool-btn-ghost">View on GitHub →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">🎛️</div>
+      <h3>Command Center Hub</h3>
+      <p>Central dashboard for team docs, boards, logins, and tools. HTML + JSON config.</p>
+      <a href="https://github.com/sarahevansai/command-center-hub" target="_blank" class="tool-btn tool-btn-ghost">View on GitHub →</a>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">💳</div>
+      <h3>Digital Business Card</h3>
+      <p>QR code lock screen → branded contact page. One tap save at events.</p>
+      <a href="https://github.com/sarahevansai/digital-business-card" target="_blank" class="tool-btn tool-btn-ghost">View on GitHub →</a>
+    </div>
+  </div>
+
+  <div class="github-cta">
+    <a href="https://github.com/sarahevansai" target="_blank">View all projects on GitHub →</a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="tools.html">Tools</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="newsletter.html">Newsletter</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a>
+          <a href="https://github.com/sarahevansai" target="_blank">GitHub</a>
+          <a href="https://t.me/sarahevansai" target="_blank">Telegram</a>
+          <a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a>
+        </div>
+        <div class="footer-col">
+          <h4>Built by Sarah Evans</h4>
+          <a href="https://www.zenmedia.com" target="_blank">Partner at Zen Media</a>
+          <a href="https://hackernoon.com/u/sarahevans" target="_blank">HackerNoon Column</a>
+          <a href="https://x.com/prsarahevans" target="_blank">X / Twitter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="/" class="nav-logo" style="opacity: 0.5;">
+          <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="height: 22px;">
+            <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+              <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+            </text>
+          </svg>
+        </a>
+        <p>&copy; <span id="currentYear"></span> Sarah Evans. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>

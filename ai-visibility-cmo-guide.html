@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The CMO's Guide to AI Visibility: Beyond SEO in 2026 — askSarah.ai</title>
+  <meta name="description" content="The marketing leader's guide to AI visibility. Budget allocation, measurement frameworks, team structure, tech stack, and how to present AI visibility ROI to your board.">
+  <meta property="og:title" content="The CMO's Guide to AI Visibility — askSarah.ai">
+  <meta property="og:description" content="Beyond SEO in 2026. Budget allocation, measurement frameworks, team structure, and board-ready ROI for marketing leaders.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://asksarah.ai/ai-visibility-cmo-guide">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://asksarah.ai/ai-visibility-cmo-guide">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The CMO's Guide to AI Visibility: Beyond SEO in 2026",
+    "description": "The marketing leader's guide to AI visibility — budget allocation, measurement frameworks, team structure, tech stack, and board-ready ROI.",
+    "author": { "@type": "Person", "name": "Sarah Evans", "jobTitle": "Communications Strategist & Technology Builder", "url": "https://asksarah.ai" },
+    "publisher": { "@type": "Organization", "name": "askSarah.ai", "url": "https://asksarah.ai" },
+    "datePublished": "2026-03-08",
+    "dateModified": "2026-03-08",
+    "url": "https://asksarah.ai/ai-visibility-cmo-guide",
+    "mainEntityOfPage": "https://asksarah.ai/ai-visibility-cmo-guide",
+    "image": "https://asksarah.ai/og-image.png",
+    "wordCount": 4400
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    "name": "AI Visibility Marketing",
+    "description": "The discipline of optimizing a brand's presence in AI-generated answers across platforms like ChatGPT, Gemini, Perplexity, and Claude. Encompasses entity building, structured data, content strategy for AI citation, and measurement via Answer Share."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can my SEO team handle AI visibility?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Your SEO team is a critical part of AI visibility, but they can't handle it alone. AI visibility requires skills across SEO (structured data, content), PR (entity building, third-party mentions), content strategy (definitive content, FAQ optimization), and analytics (Answer Share tracking). Most CMOs either upskill their SEO team and add PR collaboration, or create a cross-functional AI visibility task force." }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the timeline for AI visibility results?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Expect measurable improvement in Answer Share within 60-90 days. AI models update their knowledge roughly every 28 days, so you need 2-3 cycles. The first quarter is about building the foundation (structured data, entity consistency, initial content). The second quarter is when compound effects kick in and you see sustained improvement. Plan for a 6-month minimum commitment to see strategic-level results." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I measure ROI on AI visibility?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Primary metric: Answer Share improvement (% of relevant queries where your brand appears). Secondary metrics: pipeline quality from AI-influenced buyers, close rate differential on AI-positive vs. AI-negative deals, entity strength score, and competitive position tracking. For board-level ROI, calculate: (AI-influenced pipeline × close rate improvement × average deal size) vs. program cost. Early adopters report 3-5x ROI within the first year." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much budget should I shift from SEO to AI visibility?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Start with 15-25% of your current SEO budget reallocated to AI visibility in Year 1. This isn't taking away from SEO — much of the work (structured data, content quality, entity building) actually strengthens both SEO and AI visibility simultaneously. By Year 2, most CMOs find that 30-40% of what was traditionally 'SEO budget' is better described as 'AI visibility budget' since the strategies have converged." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838;
+      --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f;
+      --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--gradient); z-index: 200; transition: width 0.1s; }
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(124,58,237,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(6,182,212,0.07); animation: o2 25s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border: none; }
+
+    .article-hero { position: relative; z-index: 1; padding: 8rem 2rem 3rem; }
+    .article-hero-inner { max-width: 800px; margin: 0 auto; }
+    .article-hero-deco { position: absolute; top: 0; left: 0; right: 0; height: 400px; overflow: hidden; z-index: -1; }
+    /* Unique deco: dashboard/grid motif */
+    .article-hero-deco::before { content: ''; position: absolute; width: 250px; height: 160px; border: 1px solid rgba(167,139,250,0.08); top: 80px; right: 10%; border-radius: 12px; background: repeating-linear-gradient(90deg, rgba(167,139,250,0.03) 0px, rgba(167,139,250,0.03) 1px, transparent 1px, transparent 50px); }
+    .article-hero-deco::after { content: ''; position: absolute; width: 120px; height: 120px; border: 2px solid rgba(34,211,238,0.06); bottom: 80px; left: 5%; border-radius: 12px; }
+    .breadcrumb { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--violet-light); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--cyan-light); }
+    .article-meta { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+    .article-meta span { font-size: 0.75rem; color: var(--text-muted); }
+    .article-hero h1 { font-family: 'Space Grotesk'; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .article-hero-sub { font-size: 1.05rem; color: var(--text); max-width: 600px; line-height: 1.7; }
+
+    .article-layout { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; position: relative; z-index: 1; }
+    .toc { position: sticky; top: 5rem; align-self: start; }
+    .toc h4 { font-family: 'Space Grotesk'; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 600; }
+    .toc a { display: block; font-size: 0.78rem; color: var(--text-muted); text-decoration: none; padding: 0.3rem 0; padding-left: 0.75rem; border-left: 2px solid var(--border); transition: all 0.2s; line-height: 1.4; }
+    .toc a:hover, .toc a.active { color: var(--white); border-left-color: var(--violet); }
+
+    .toc-mobile { display: none; position: relative; z-index: 1; max-width: 800px; margin: 0 auto 2rem; padding: 0 2rem; }
+    .toc-mobile-toggle { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0.75rem 1rem; color: var(--white); font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .toc-mobile-content { display: none; background: var(--card); border: 1px solid var(--border); border-radius: 0 0 12px 12px; margin-top: -1px; padding: 0.5rem 1rem 0.75rem; }
+    .toc-mobile-content.open { display: block; }
+    .toc-mobile-content a { display: block; font-size: 0.82rem; color: var(--text); text-decoration: none; padding: 0.4rem 0; border-bottom: 1px solid var(--border-light); }
+    .toc-mobile-content a:last-child { border: none; }
+
+    .article-content { max-width: 720px; }
+    .article-content h2 { font-family: 'Space Grotesk'; font-size: 1.6rem; font-weight: 700; margin: 2.5rem 0 1rem; line-height: 1.2; letter-spacing: -0.02em; scroll-margin-top: 5rem; }
+    .article-content h3 { font-family: 'Space Grotesk'; font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--white); scroll-margin-top: 5rem; }
+    .article-content p { color: var(--text); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.25rem; }
+    .article-content strong { color: var(--white); }
+    .article-content ul, .article-content ol { color: var(--text); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    .article-content li { margin-bottom: 0.4rem; }
+    .article-content a { color: var(--violet-light); text-decoration: none; border-bottom: 1px solid rgba(167,139,250,0.3); transition: all 0.2s; }
+    .article-content a:hover { color: var(--cyan-light); border-bottom-color: var(--cyan); }
+    .article-content blockquote { border-left: 3px solid var(--violet); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(124,58,237,0.06); border-radius: 0 12px 12px 0; }
+    .article-content blockquote p { margin-bottom: 0; color: var(--white); font-style: italic; }
+
+    .callout { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+    .callout h4 { font-family: 'Space Grotesk'; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+    .callout p { margin-bottom: 0; }
+
+    .cta-inline { background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.08)); border: 1px solid rgba(124,58,237,0.2); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0; text-align: center; }
+    .cta-inline p { margin-bottom: 0.75rem; }
+    .cta-inline a.btn { display: inline-block; background: var(--gradient); color: white; padding: 0.6rem 1.5rem; border-radius: 100px; font-weight: 600; font-size: 0.85rem; text-decoration: none; border: none; }
+
+    .faq-section { margin-top: 3rem; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+    .faq-q { font-family: 'Space Grotesk'; font-weight: 600; font-size: 1rem; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--violet-light); transition: transform 0.2s; }
+    .faq-q.open::after { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-a.open { max-height: 500px; }
+    .faq-a p { padding-top: 0.75rem; font-size: 0.9rem; }
+
+    .share-section { display: flex; gap: 0.75rem; align-items: center; margin: 2rem 0; flex-wrap: wrap; }
+    .share-section span { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+    .share-btn { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; border-radius: 100px; font-size: 0.75rem; font-weight: 500; text-decoration: none; border: 1px solid var(--border); color: var(--text); transition: all 0.2s; }
+    .share-btn:hover { border-color: var(--violet); color: var(--white); }
+
+    .author-bio { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 3rem 0; }
+    .author-bio img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-bio-text h4 { font-family: 'Space Grotesk'; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .author-bio-text p { font-size: 0.82rem; color: var(--text); line-height: 1.6; margin-bottom: 0; }
+
+    .cross-links { margin: 3rem 0; }
+    .cross-links h3 { font-family: 'Space Grotesk'; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+    .cross-link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; }
+    .cross-link-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; transition: all 0.2s; }
+    .cross-link-card:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-2px); }
+    .cross-link-card h4 { font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+    .cross-link-card p { font-size: 0.75rem; color: var(--text-muted); margin: 0; }
+
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .toc { display: none; }
+      .toc-mobile { display: block; }
+    }
+    @media (max-width: 768px) {
+      .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .article-hero { padding: 6rem 1.5rem 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .author-bio { flex-direction: column; align-items: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+          <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+        </text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="tools.html">Tools</a>
+      <a href="learn.html" class="active">Learn</a>
+      <a href="speaking.html">Speaking</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="connect.html">Connect</a>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="tools.html">Tools</a>
+    <a href="learn.html">Learn</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="connect.html">Connect</a>
+  </div>
+
+  <section class="article-hero">
+    <div class="article-hero-deco"></div>
+    <div class="article-hero-inner">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="learn.html">Learn</a> → CMO's Guide to AI Visibility</div>
+      <div class="article-meta">
+        <span>📖 22 min read</span>
+        <span>Published March 8, 2026</span>
+        <span>By Sarah Evans</span>
+      </div>
+      <h1>The CMO's Guide to <span class="gradient-text">AI Visibility</span>: Beyond SEO in 2026</h1>
+      <p class="article-hero-sub">Your marketing budget has a blind spot. You're spending on channels that AI is already bypassing. Here's how to fix it.</p>
+    </div>
+  </section>
+
+  <div class="toc-mobile">
+    <button class="toc-mobile-toggle" onclick="this.nextElementSibling.classList.toggle('open')">
+      Table of Contents <span>▾</span>
+    </button>
+    <div class="toc-mobile-content">
+      <a href="#blind-spot">The Budget Blind Spot</a>
+      <a href="#discipline">AI Visibility as a Discipline</a>
+      <a href="#measurement">Measurement Framework</a>
+      <a href="#budget">Budget Allocation</a>
+      <a href="#team">Team Structure</a>
+      <a href="#tech-stack">The Tech Stack</a>
+      <a href="#content-pivot">Content Strategy Pivot</a>
+      <a href="#board">Presenting to the Board</a>
+      <a href="#benchmarking">Competitive Benchmarking</a>
+      <a href="#martech">Martech Integration</a>
+      <a href="#quarterly">Quarterly Review Template</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+
+  <div class="article-layout">
+    <aside class="toc">
+      <h4>Contents</h4>
+      <a href="#blind-spot">Budget Blind Spot</a>
+      <a href="#discipline">The Discipline</a>
+      <a href="#measurement">Measurement</a>
+      <a href="#budget">Budget Allocation</a>
+      <a href="#team">Team Structure</a>
+      <a href="#tech-stack">Tech Stack</a>
+      <a href="#content-pivot">Content Pivot</a>
+      <a href="#board">Board Presentation</a>
+      <a href="#benchmarking">Benchmarking</a>
+      <a href="#martech">Martech Integration</a>
+      <a href="#quarterly">Quarterly Review</a>
+      <a href="#faq">FAQ</a>
+    </aside>
+
+    <article class="article-content">
+
+      <h2 id="blind-spot">The Marketing Budget Blind Spot: Spending on Channels AI Bypasses</h2>
+
+      <p>Here's a question most CMOs aren't asking yet: <strong>what percentage of your marketing budget is being spent on channels that AI is actively bypassing?</strong></p>
+
+      <p>Think about where your budget goes today: paid search, SEO, content marketing, social media, events, email. Now think about what happens when 40%+ of your B2B buyers start their research by asking ChatGPT instead of Googling. Your paid search ads? Invisible. Your organic search rankings? Bypassed. Your carefully optimized landing pages? Never visited.</p>
+
+      <p>This isn't theoretical. According to Gartner's 2025 data, AI-generated answers now influence over 40% of B2B purchase decisions in the consideration phase. McKinsey reports 59% of executives use AI as their first research tool. The shift is happening faster than most marketing organizations are adapting.</p>
+
+      <p>The marketing budget blind spot isn't that you're spending too much — it's that you're spending in channels that a growing percentage of your buyers never touch. Meanwhile, the channel that IS reaching those buyers — AI-generated answers — likely has zero dedicated budget.</p>
+
+      <p>That's the problem this guide solves.</p>
+
+      <h2 id="discipline">AI Visibility Marketing as a Discipline</h2>
+
+      <p><a href="ai-visibility-marketing.html">AI Visibility Marketing</a> is the discipline of optimizing your brand's presence in AI-generated answers. It's not a subset of SEO, though it borrows some tactics. It's not just PR, though entity building is central. It's a new marketing discipline that sits at the intersection of SEO, PR, content strategy, and data analytics.</p>
+
+      <p>Here's how it maps to what you already know:</p>
+
+      <ul>
+        <li><strong>From SEO:</strong> Structured data, content optimization, technical foundations</li>
+        <li><strong>From PR:</strong> Entity building, third-party authority, consistent positioning across channels</li>
+        <li><strong>From Content Strategy:</strong> Definitive content creation, FAQ optimization, thought leadership</li>
+        <li><strong>From Analytics:</strong> Answer Share tracking, competitive monitoring, attribution</li>
+      </ul>
+
+      <p>The discipline is new but the skills exist in your organization. The gap is typically in coordination — nobody owns the intersection of all four areas, and nobody is measuring the output (AI mentions) specifically.</p>
+
+      <h2 id="measurement">Measurement Framework: Answer Share, Entity Strength, Citation Tracking</h2>
+
+      <p>You can't manage AI visibility without measuring it. Here's the framework I recommend for marketing leaders:</p>
+
+      <h3>Tier 1: Primary Metrics (Monthly)</h3>
+
+      <ul>
+        <li><strong>Answer Share™:</strong> Percentage of your target queries where your brand appears in AI-generated answers. This is your north star. Track across ChatGPT, Gemini, Perplexity, and Claude.</li>
+        <li><strong>Competitive Position:</strong> When you do appear, are you mentioned first, last, or in between? Are you the recommendation or an alternative?</li>
+        <li><strong>Sentiment Accuracy:</strong> Is what AI says about you accurate, current, and favorable? Score each mention on a 1-5 scale.</li>
+      </ul>
+
+      <h3>Tier 2: Diagnostic Metrics (Monthly)</h3>
+
+      <ul>
+        <li><strong>Entity Strength Score:</strong> How detailed and confident are AI responses when asked directly about your brand? Grade A-F based on accuracy, depth, and currency.</li>
+        <li><strong>Query Coverage:</strong> How many relevant query categories are you appearing in? Are you expanding beyond core queries into adjacent ones?</li>
+        <li><strong>Source Citation:</strong> Which of your content pieces are being cited by AI models? This tells you what content format and topic work.</li>
+      </ul>
+
+      <h3>Tier 3: Business Impact Metrics (Quarterly)</h3>
+
+      <ul>
+        <li><strong>AI-Influenced Pipeline:</strong> Deals where the buyer used AI in their research (captured via sales discovery). Track separately from organic and paid pipeline.</li>
+        <li><strong>Close Rate by AI Influence:</strong> Win rate on deals where AI was positive about your brand vs. neutral vs. negative.</li>
+        <li><strong>Pipeline Quality:</strong> Are AI-influenced leads higher quality (larger deal size, shorter cycle, better fit)?</li>
+      </ul>
+
+      <div class="callout">
+        <h4>📊 The CMO Dashboard</h4>
+        <p>Add three tiles to your existing marketing dashboard: <strong>Answer Share % (trend)</strong>, <strong>Competitive AI Position (rank)</strong>, and <strong>AI-Influenced Pipeline $ (value)</strong>. These connect AI visibility directly to business outcomes your CEO and CFO understand.</p>
+      </div>
+
+      <h2 id="budget">Budget Allocation: How Much to Shift from Traditional SEO to AI Visibility</h2>
+
+      <p>The good news: AI visibility doesn't require an entirely new budget. Much of the work strengthens both SEO and AI visibility simultaneously. Here's how to think about allocation:</p>
+
+      <h3>Year 1: Foundation (15-25% Reallocation)</h3>
+
+      <ul>
+        <li><strong>Audit and Strategy:</strong> $10,000-$30,000 (one-time). Baseline measurement, competitive analysis, strategy development.</li>
+        <li><strong>Content Optimization:</strong> Redirect 15-20% of content budget toward "definitive content" — long-form guides, FAQ pages, comparison content that AI models prefer. This content also performs well for SEO.</li>
+        <li><strong>Structured Data:</strong> $5,000-$15,000 (one-time). Complete Schema.org implementation across your site. This improves both AI visibility and rich search results.</li>
+        <li><strong>Entity Building (PR):</strong> Add an AI visibility lens to your existing PR program. Same budget, different targeting — focus earned media on outlets AI models frequently cite.</li>
+        <li><strong>Monitoring:</strong> $500-$2,000/month for ongoing Answer Share tracking and competitive monitoring.</li>
+      </ul>
+
+      <h3>Year 2: Scale (30-40% of "SEO Budget" is Now AI Visibility)</h3>
+
+      <p>By Year 2, the lines between SEO and AI visibility have blurred. Most of what was "SEO content" is now structured for both search and AI citation. Budget allocation reflects this convergence rather than a separate line item.</p>
+
+      <h3>The Reallocation Framework</h3>
+
+      <p>Don't think of this as cutting SEO. Think of it as evolving SEO into something broader. Here's what shifts:</p>
+
+      <ul>
+        <li><strong>Less:</strong> Thin keyword-targeted blog posts, link building for link building's sake, technical SEO audits that don't touch structured data</li>
+        <li><strong>More:</strong> Definitive pillar content, Schema.org markup, entity consistency audits, PR targeting AI-cited outlets, original research</li>
+        <li><strong>Same:</strong> Technical site health, page speed, core web vitals, quality backlink acquisition</li>
+      </ul>
+
+      <h2 id="team">Team Structure: Who Owns AI Visibility?</h2>
+
+      <p>This is the question every CMO asks: who owns this? There are three models that work:</p>
+
+      <h3>Model 1: The Cross-Functional Task Force</h3>
+      <p><strong>Best for:</strong> Companies with existing SEO, PR/comms, and content teams.</p>
+      <p>Create a monthly AI visibility task force with representatives from SEO, PR, content, and analytics. One person leads it (usually the SEO lead or content lead). They own the metrics, coordinate actions, and report to the CMO. Everyone keeps their day jobs but contributes AI visibility work to their existing functions.</p>
+
+      <h3>Model 2: The Dedicated Role</h3>
+      <p><strong>Best for:</strong> Companies where AI visibility is a strategic priority and has budget.</p>
+      <p>Hire or promote an AI Visibility Manager (or Director, depending on scale). This person sits at the intersection of SEO, PR, and content. They own the metrics, direct the strategy, and coordinate with each team. This is emerging as a real role — I've seen it at three Fortune 500 companies in the last six months.</p>
+
+      <h3>Model 3: The Agency/Consultant + Internal Champion</h3>
+      <p><strong>Best for:</strong> Companies that want to move fast but lack internal expertise.</p>
+      <p>Engage an external specialist for strategy, audit, and initial execution. Pair them with an internal champion who learns the discipline and eventually takes it in-house. This is the fastest path to results and the most common model I see.</p>
+
+      <h2 id="tech-stack">The Tech Stack CMOs Need</h2>
+
+      <h3>Essential (Start Here)</h3>
+      <ul>
+        <li><strong>AI Audit Tool:</strong> <a href="https://chatgpt.com/g/g-6904a060fd8c8191bf5cdbc82571fee9-ai-visibility-engine-geo" target="_blank">GEO GPT</a> (free) for baseline audits</li>
+        <li><strong>Schema Validator:</strong> Google Rich Results Test + Schema.org Validator</li>
+        <li><strong>Tracking Spreadsheet:</strong> Monthly Answer Share tracking across platforms (Google Sheets works fine to start)</li>
+        <li><strong>CRM Fields:</strong> AI research used (yes/no), AI recommendation (positive/neutral/negative)</li>
+      </ul>
+
+      <h3>Growth (Quarter 2+)</h3>
+      <ul>
+        <li><strong>Automated Monitoring:</strong> Tools that track AI mentions of your brand and competitors on a schedule</li>
+        <li><strong>Entity Management:</strong> Platform to ensure consistency across all online profiles and listings</li>
+        <li><strong>Content Intelligence:</strong> Tools that analyze which content formats and topics drive AI citations</li>
+        <li><strong>Competitive Dashboard:</strong> Real-time tracking of competitor AI visibility</li>
+      </ul>
+
+      <h3>Enterprise (Year 2+)</h3>
+      <ul>
+        <li><strong>AI API Integration:</strong> Direct queries to AI model APIs for systematic tracking</li>
+        <li><strong>Attribution Modeling:</strong> Connecting AI visibility improvements to pipeline and revenue</li>
+        <li><strong>Predictive Analytics:</strong> Forecasting Answer Share trajectory based on content and PR inputs</li>
+      </ul>
+
+      <h2 id="content-pivot">Content Strategy Pivot: What to Create Differently</h2>
+
+      <p>Your content team is probably creating content that performs well in search but gets ignored by AI models. Here's the pivot:</p>
+
+      <h3>Content That AI Cites (Create More)</h3>
+      <ul>
+        <li><strong>Definitive guides:</strong> "The Complete Guide to [Topic]" — comprehensive, well-structured, 3,000+ words</li>
+        <li><strong>Original research:</strong> Proprietary data, surveys, benchmarks that AI can't get elsewhere</li>
+        <li><strong>Comparison content:</strong> "[Your Product] vs. [Competitor]" with honest, detailed analysis</li>
+        <li><strong>FAQ pages:</strong> Structured Q&A that maps to how people ask AI</li>
+        <li><strong>Frameworks and definitions:</strong> "What is [concept]?" content with clear, citable definitions</li>
+        <li><strong>Expert commentary:</strong> Quotes and perspectives attributed to named experts at your company</li>
+      </ul>
+
+      <h3>Content That AI Ignores (Create Less)</h3>
+      <ul>
+        <li><strong>Thin keyword posts:</strong> 500-word SEO plays with no unique insight</li>
+        <li><strong>Vague thought leadership:</strong> Opinion pieces without data, frameworks, or actionable specifics</li>
+        <li><strong>Gated content:</strong> AI can't access gated whitepapers and ebooks — the content needs to be on the open web</li>
+        <li><strong>Promotional content:</strong> Press releases and product announcements without substance</li>
+      </ul>
+
+      <p>The key insight: <strong>AI models cite content that provides clear, definitive answers with supporting data or frameworks.</strong> They ignore content that's vague, promotional, or derivative. This is actually a forcing function for higher-quality content overall.</p>
+
+      <h2 id="board">Presenting to the Board: AI Visibility ROI in Language CFOs Understand</h2>
+
+      <p>The board presentation framework for CMOs:</p>
+
+      <h3>Slide 1: The Market Shift</h3>
+      <ul>
+        <li>40%+ of B2B purchase decisions now influenced by AI answers (Gartner 2025)</li>
+        <li>59% of executives use AI as first research tool (McKinsey 2025)</li>
+        <li>Our current Answer Share: X% (show your audit data)</li>
+        <li>Our top competitor's Answer Share: Y%</li>
+      </ul>
+
+      <h3>Slide 2: The Financial Impact</h3>
+      <ul>
+        <li>Addressable pipeline influenced by AI: $[your calculation]</li>
+        <li>Current capture rate in AI channel: X%</li>
+        <li>Revenue at risk from AI invisibility: $[conservative estimate]</li>
+        <li>Revenue opportunity from AI visibility improvement: $[target]</li>
+      </ul>
+
+      <h3>Slide 3: The Investment</h3>
+      <ul>
+        <li>Year 1 investment: $[budget] (X% of current marketing budget)</li>
+        <li>Expected Answer Share improvement: X% → Y% within 6 months</li>
+        <li>Expected ROI: 3-5x based on pipeline quality improvements</li>
+        <li>Risk of inaction: competitors building compounding advantage every quarter</li>
+      </ul>
+
+      <p>The language that resonates with CFOs: <strong>"We're spending $X million on marketing channels that 40% of our buyers are bypassing. For Y% of that budget, we can show up in the channel they're actually using."</strong></p>
+
+      <h2 id="benchmarking">Competitive Benchmarking Framework</h2>
+
+      <p>Monthly competitive benchmarking process:</p>
+
+      <ol>
+        <li><strong>Define the query set.</strong> 20-30 queries your buyers ask, organized by: category queries, comparison queries, problem queries, brand queries.</li>
+        <li><strong>Test each competitor.</strong> For each query, track: who's mentioned, what position, what language is used, and what sources are cited.</li>
+        <li><strong>Build the matrix.</strong> Create a simple grid: queries on one axis, companies on the other. Mark each cell as "mentioned" or "not mentioned." Calculate Answer Share for each competitor.</li>
+        <li><strong>Analyze positioning.</strong> When competitors are mentioned, how are they described? What language do AI models use? This reveals how the market perceives each brand in the AI layer.</li>
+        <li><strong>Track trends.</strong> Month over month, who's gaining? Who's losing? Where are the opportunities?</li>
+      </ol>
+
+      <h2 id="martech">Integration with Existing Martech Stack</h2>
+
+      <p>AI visibility doesn't require replacing your martech stack. Here's how it integrates:</p>
+
+      <ul>
+        <li><strong>CRM (Salesforce, HubSpot):</strong> Add AI influence fields to opportunities. Create reports filtering by AI-influenced deals. Track win rate differentials.</li>
+        <li><strong>SEO Tools (Ahrefs, SEMrush):</strong> Use for keyword research that informs your query universe. Track structured data implementation. Monitor backlink profile for entity building.</li>
+        <li><strong>Content Management:</strong> Add an "AI visibility" tag to content pieces optimized for AI citation. Track which tagged content gets cited.</li>
+        <li><strong>Analytics (GA4, Mixpanel):</strong> Track traffic from AI referrals (Perplexity sends referral traffic; ChatGPT browsing sends referral traffic). Create an "AI traffic" segment.</li>
+        <li><strong>PR Tools (Meltwater, Cision):</strong> Add AI visibility to your media monitoring — track mentions in AI-cited outlets specifically.</li>
+      </ul>
+
+      <h2 id="quarterly">Quarterly AI Visibility Review Template</h2>
+
+      <p>Run this review at the end of each quarter:</p>
+
+      <h3>Section 1: Metrics Review (15 minutes)</h3>
+      <ul>
+        <li>Answer Share: current vs. last quarter vs. target</li>
+        <li>Competitive position: any changes in ranking?</li>
+        <li>Entity strength: improved, stable, or declining?</li>
+        <li>AI-influenced pipeline: volume and quality trends</li>
+      </ul>
+
+      <h3>Section 2: What Worked (10 minutes)</h3>
+      <ul>
+        <li>Which content pieces were cited by AI this quarter?</li>
+        <li>Which PR placements moved the needle?</li>
+        <li>Where did Answer Share improve most?</li>
+      </ul>
+
+      <h3>Section 3: What Didn't Work (10 minutes)</h3>
+      <ul>
+        <li>Where did Answer Share stall or decline?</li>
+        <li>What queries are we still losing?</li>
+        <li>Where are competitors outperforming us?</li>
+      </ul>
+
+      <h3>Section 4: Next Quarter Plan (15 minutes)</h3>
+      <ul>
+        <li>Priority queries to target</li>
+        <li>Content calendar aligned with AI crawl cycles (28-day intervals)</li>
+        <li>PR targets: outlets to focus on</li>
+        <li>Budget adjustments needed</li>
+        <li>Team or skill gaps to address</li>
+      </ul>
+
+      <div class="cta-inline">
+        <p><strong>Want the complete CMO toolkit?</strong> Measurement templates, competitive benchmarking framework, board presentation deck, and the GEO GPT audit tool.</p>
+        <a href="https://stan.store/asksarahevans/p/the-aiready-content-writers-toolkit" target="_blank" class="btn">Get the AI-Ready Toolkit — $47 →</a>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-section">
+        <h2 id="faq">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Can my SEO team handle AI visibility?</div>
+          <div class="faq-a"><p>Your SEO team is a critical part of AI visibility, but they can't handle it alone. AI visibility requires skills across SEO (structured data, content), PR (entity building, third-party mentions), content strategy (definitive content, FAQ optimization), and analytics (Answer Share tracking). Most CMOs either upskill their SEO team and add PR collaboration, or create a cross-functional task force with representatives from each area.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">What's the timeline for AI visibility results?</div>
+          <div class="faq-a"><p>Expect measurable improvement in Answer Share within 60-90 days. The first quarter is about building the foundation (structured data, entity consistency, initial content). The second quarter is when compound effects kick in. Plan for a 6-month minimum commitment to see strategic-level results. The competitive advantage compounds — so the sooner you start, the harder it is for competitors to catch up.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">How do I measure ROI on AI visibility?</div>
+          <div class="faq-a"><p>Primary: Answer Share improvement. Secondary: pipeline quality from AI-influenced buyers, close rate differential, entity strength. For the board: calculate (AI-influenced pipeline × close rate improvement × average deal size) vs. program cost. Early adopters report 3-5x ROI within the first year, primarily through pipeline quality improvement and competitive wins.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">How much budget should I shift from SEO to AI visibility?</div>
+          <div class="faq-a"><p>Start with 15-25% of your current SEO budget in Year 1. Much of the work — structured data, content quality, entity building — strengthens both SEO and AI visibility simultaneously, so it's not a pure reallocation. By Year 2, 30-40% of what was traditionally "SEO budget" naturally evolves into "AI visibility budget" as the strategies converge.</p></div>
+        </div>
+      </div>
+
+      <!-- SHARE -->
+      <div class="share-section">
+        <span>Share this guide:</span>
+        <a href="https://twitter.com/intent/tweet?text=The%20CMO%27s%20Guide%20to%20AI%20Visibility%20by%20%40prsarahevans&url=https://asksarah.ai/ai-visibility-cmo-guide" target="_blank" class="share-btn">𝕏 Twitter</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://asksarah.ai/ai-visibility-cmo-guide" target="_blank" class="share-btn">LinkedIn</a>
+      </div>
+
+      <!-- AUTHOR BIO -->
+      <div class="author-bio">
+        <img src="sarah-headshot.png" alt="Sarah Evans">
+        <div class="author-bio-text">
+          <h4>Sarah Evans</h4>
+          <p>Communications Strategist & Technology Builder. 23+ years in PR, Partner at Zen Media, creator of The Before Layer™, Published Monthly™, Answer Share™, and AVOS™. <a href="about.html">Full bio →</a></p>
+        </div>
+      </div>
+
+      <!-- CROSS LINKS -->
+      <div class="cross-links">
+        <h3>Continue Learning</h3>
+        <div class="cross-link-grid">
+          <a href="ai-visibility-guide.html" class="cross-link-card">
+            <h4>The Complete AI Visibility Guide</h4>
+            <p>The definitive deep dive — audit, entity building, 90-day plan.</p>
+          </a>
+          <a href="ai-visibility-business-leaders.html" class="cross-link-card">
+            <h4>AI Visibility for Business Leaders</h4>
+            <p>The CEO/board-level perspective on AI visibility.</p>
+          </a>
+          <a href="ai-visibility-sales.html" class="cross-link-card">
+            <h4>AI & B2B Sales</h4>
+            <p>How AI visibility affects pipeline, close rates, and CRO strategy.</p>
+          </a>
+          <a href="ai-visibility-marketing.html" class="cross-link-card">
+            <h4>AI Visibility Marketing</h4>
+            <p>The discipline definition — where it all started.</p>
+          </a>
+          <a href="ai-visibility-small-business.html" class="cross-link-card">
+            <h4>AI Visibility for Small Business</h4>
+            <p>DIY guide — share with SMB clients and partners.</p>
+          </a>
+          <a href="ai-and-communications.html" class="cross-link-card">
+            <h4>AI & Communications</h4>
+            <p>The practitioner's guide to what's working in 2026.</p>
+          </a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <!-- FREE CHECKLIST CTA -->
+  <section style="position: relative; z-index: 1; padding: 2rem 2rem 3rem;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <a href="https://stan.store/asksarahevans/p/ai-visibility-checklist" target="_blank" style="display: block; background: rgba(6,182,212,0.06); border: 2px solid rgba(6,182,212,0.25); border-radius: 20px; padding: 2rem 2.25rem; text-decoration: none; text-align: center; transition: all 0.3s; box-shadow: 0 0 30px rgba(6,182,212,0.06);">
+        <div style="font-family: Space Grotesk, sans-serif; font-size: 1.15rem; font-weight: 700; color: #f0eef8; margin-bottom: 0.4rem;">Want to put this into practice?</div>
+        <div style="font-size: 0.9rem; color: #c4c0d8; margin-bottom: 1.25rem;">Get the free AI Visibility Checklist — 20 actions you can take this week to show up in ChatGPT, Perplexity, Gemini, and Claude.</div>
+        <span style="display: inline-flex; padding: 0.6rem 1.5rem; border-radius: 100px; font-size: 0.88rem; font-weight: 600; background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a; box-shadow: 0 4px 16px rgba(6,182,212,0.3);">Get the Free AI Visibility Checklist →</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="tools.html">Tools</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="newsletter.html">Newsletter</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a>
+          <a href="https://github.com/sarahevansai" target="_blank">GitHub</a>
+          <a href="https://t.me/sarahevansai" target="_blank">Telegram</a>
+          <a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a>
+        </div>
+        <div class="footer-col">
+          <h4>Built by Sarah Evans</h4>
+          <a href="https://www.zenmedia.com" target="_blank">Partner at Zen Media</a>
+          <a href="https://hackernoon.com/u/sarahevans" target="_blank">HackerNoon Column</a>
+          <a href="https://x.com/prsarahevans" target="_blank">X / Twitter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="/" class="nav-logo" style="opacity: 0.5;">
+          <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="height: 22px;">
+            <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+              <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+            </text>
+          </svg>
+        </a>
+        <p>&copy; <span id="currentYear"></span> Sarah Evans. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      document.getElementById('readingProgress').style.width = pct + '%';
+    });
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = [];
+    tocLinks.forEach(a => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) sections.push({ el, a });
+    });
+    window.addEventListener('scroll', () => {
+      let current = sections[0];
+      sections.forEach(s => { if (s.el.getBoundingClientRect().top < 120) current = s; });
+      tocLinks.forEach(a => a.classList.remove('active'));
+      if (current) current.a.classList.add('active');
+    });
+  </script>
+</body>
+</html>

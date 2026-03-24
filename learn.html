@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://asksarah.ai/og-image.png">
+  <title>Learn — askSarah.ai | AI Visibility Guides & Frameworks</title>
+  <meta name="description" content="Expert guides on AI visibility, vibecoding for communications, the future of PR, and AI visibility marketing. Written by Sarah Evans with 23+ years of practitioner experience.">
+  <meta property="og:title" content="Learn — askSarah.ai | AI Visibility Knowledge Hub">
+  <meta property="og:description" content="Expert guides on AI visibility, vibecoding, the future of PR, and more. Practitioner-level content from Sarah Evans.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/learn">
+  <link rel="canonical" href="https://asksarah.ai/learn">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Learn — AI Visibility Knowledge Hub",
+    "description": "Expert guides on AI visibility, vibecoding for communications, the future of PR, and AI visibility marketing.",
+    "url": "https://asksarah.ai/learn",
+    "author": {
+      "@type": "Person",
+      "name": "Sarah Evans",
+      "jobTitle": "Communications Strategist & Technology Builder",
+      "url": "https://asksarah.ai"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838;
+      --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f;
+      --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(124,58,237,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(6,182,212,0.07); animation: o2 25s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border: none; }
+
+    .page-header { padding: 7rem 2rem 1rem; text-align: center; position: relative; z-index: 1; }
+    .breadcrumb { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .breadcrumb a { color: var(--violet-light); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--cyan-light); }
+    .page-header h1 { font-family: 'Space Grotesk'; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+    .page-header p { color: var(--text); font-size: 1rem; max-width: 560px; margin: 0 auto; }
+
+    /* CARD GRID */
+    .learn-grid { max-width: 1000px; margin: 0 auto; padding: 2rem 2rem 5rem; position: relative; z-index: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .learn-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.3s; text-decoration: none; display: flex; flex-direction: column; }
+    .learn-card:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.3), 0 0 30px rgba(124,58,237,0.08); }
+
+    .card-hero { height: 160px; position: relative; overflow: hidden; }
+    .card-hero-bg { position: absolute; inset: 0; }
+
+    /* Unique patterns per card */
+    .card-1 .card-hero-bg { background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(6,182,212,0.2)); }
+    .card-1 .card-hero-bg::before { content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%; border: 2px solid rgba(167,139,250,0.2); top: -60px; right: -40px; }
+    .card-1 .card-hero-bg::after { content: ''; position: absolute; width: 120px; height: 120px; border-radius: 50%; border: 2px solid rgba(34,211,238,0.15); bottom: -30px; left: 20px; }
+
+    .card-2 .card-hero-bg { background: linear-gradient(160deg, rgba(6,182,212,0.25), rgba(124,58,237,0.15)); }
+    .card-2 .card-hero-bg::before { content: ''; position: absolute; width: 80px; height: 80px; background: rgba(6,182,212,0.1); border-radius: 12px; transform: rotate(45deg); top: 20px; right: 30px; }
+    .card-2 .card-hero-bg::after { content: ''; position: absolute; width: 50px; height: 50px; background: rgba(124,58,237,0.1); border-radius: 8px; transform: rotate(30deg); bottom: 20px; left: 40px; }
+
+    .card-3 .card-hero-bg { background: linear-gradient(180deg, rgba(124,58,237,0.2), rgba(6,182,212,0.25)); }
+    .card-3 .card-hero-bg::before { content: ''; position: absolute; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, rgba(167,139,250,0.3), transparent); top: 50%; }
+    .card-3 .card-hero-bg::after { content: ''; position: absolute; width: 2px; height: 100%; background: linear-gradient(180deg, transparent, rgba(34,211,238,0.2), transparent); left: 40%; }
+
+    .card-4 .card-hero-bg { background: linear-gradient(135deg, rgba(34,211,238,0.2), rgba(167,139,250,0.25)); }
+    .card-4 .card-hero-bg::before { content: ''; position: absolute; inset: 20px; border: 1px solid rgba(167,139,250,0.15); border-radius: 50%; }
+    .card-4 .card-hero-bg::after { content: ''; position: absolute; inset: 40px; border: 1px solid rgba(34,211,238,0.1); border-radius: 50%; }
+
+    .card-5 .card-hero-bg { background: linear-gradient(200deg, rgba(124,58,237,0.25), rgba(6,182,212,0.2)); }
+    .card-5 .card-hero-bg::before { content: ''; position: absolute; width: 150px; height: 3px; background: var(--gradient); top: 40%; left: 10%; border-radius: 2px; }
+    .card-5 .card-hero-bg::after { content: ''; position: absolute; width: 100px; height: 3px; background: linear-gradient(135deg, rgba(34,211,238,0.4), rgba(167,139,250,0.4)); top: 55%; right: 10%; border-radius: 2px; }
+
+    .card-6 .card-hero-bg { background: linear-gradient(145deg, rgba(124,58,237,0.28), rgba(6,182,212,0.15)); }
+    .card-6 .card-hero-bg::before { content: ''; position: absolute; width: 60px; height: 180px; border: 2px solid rgba(167,139,250,0.15); bottom: -20px; right: 20%; border-radius: 8px 8px 0 0; }
+    .card-6 .card-hero-bg::after { content: ''; position: absolute; width: 60px; height: 120px; border: 2px solid rgba(34,211,238,0.1); bottom: -20px; right: 35%; border-radius: 8px 8px 0 0; }
+
+    .card-7 .card-hero-bg { background: linear-gradient(170deg, rgba(6,182,212,0.22), rgba(124,58,237,0.18)); }
+    .card-7 .card-hero-bg::before { content: ''; position: absolute; width: 250px; height: 1px; background: linear-gradient(90deg, transparent, rgba(167,139,250,0.3), transparent); top: 45%; left: 5%; }
+    .card-7 .card-hero-bg::after { content: ''; position: absolute; width: 200px; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,211,238,0.2), transparent); top: 60%; right: 5%; }
+
+    .card-8 .card-hero-bg { background: linear-gradient(155deg, rgba(167,139,250,0.2), rgba(34,211,238,0.15)); }
+    .card-8 .card-hero-bg::before { content: ''; position: absolute; width: 0; height: 0; border-left: 100px solid transparent; border-right: 100px solid transparent; border-top: 160px solid rgba(124,58,237,0.05); top: -10px; right: 10%; }
+    .card-8 .card-hero-bg::after { content: ''; position: absolute; width: 150px; height: 3px; background: linear-gradient(90deg, rgba(34,211,238,0.3), transparent); bottom: 40px; left: 15%; border-radius: 2px; }
+
+    .card-9 .card-hero-bg { background: linear-gradient(130deg, rgba(124,58,237,0.2), rgba(6,182,212,0.22)); }
+    .card-9 .card-hero-bg::before { content: ''; position: absolute; width: 180px; height: 220px; border: 1px solid rgba(167,139,250,0.08); top: -30px; right: 15%; border-radius: 12px; }
+    .card-9 .card-hero-bg::after { content: ''; position: absolute; width: 80px; height: 80px; border: 2px solid rgba(34,211,238,0.1); bottom: 20px; left: 10%; border-radius: 50%; }
+
+    .card-10 .card-hero-bg { background: linear-gradient(140deg, rgba(167,139,250,0.25), rgba(6,182,212,0.2)); }
+    .card-10 .card-hero-bg::before { content: ''; position: absolute; width: 140px; height: 140px; border: 2px solid rgba(167,139,250,0.15); border-radius: 12px; top: 10px; right: 15%; transform: rotate(15deg); }
+    .card-10 .card-hero-bg::after { content: ''; position: absolute; width: 90px; height: 90px; border: 2px solid rgba(34,211,238,0.12); border-radius: 50%; bottom: -10px; left: 20%; }
+
+    .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .card-body h3 { font-family: 'Space Grotesk'; font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; line-height: 1.3; }
+    .card-body p { font-size: 0.84rem; color: var(--text); line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+    .card-meta { display: flex; justify-content: space-between; align-items: center; }
+    .card-read-time { font-size: 0.72rem; color: var(--text-muted); }
+    .card-cta { font-size: 0.8rem; font-weight: 600; color: var(--violet-light); transition: color 0.2s; }
+    .learn-card:hover .card-cta { color: var(--cyan-light); }
+
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
+    @media (max-width: 768px) {
+      .learn-grid { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .page-header { padding: 6rem 1.5rem 1rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+          <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+        </text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="tools.html">Tools</a>
+      <a href="learn.html" class="active">Learn</a>
+      <a href="speaking.html">Speaking</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="connect.html">Connect</a>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="tools.html">Tools</a>
+    <a href="learn.html">Learn</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="connect.html">Connect</a>
+  </div>
+
+  <div class="page-header">
+    <div class="breadcrumb"><a href="/">Home</a> → Learn</div>
+    <h1><span class="gradient-text">Learn</span></h1>
+    <p>Expert guides on AI visibility, communications strategy, and building in the AI era. Written from 23 years of doing the work.</p>
+  </div>
+
+  <div style="max-width: 1000px; margin: 0 auto 2rem; padding: 0 2rem; position: relative; z-index: 1;">
+    <a href="https://stan.store/asksarahevans/p/ai-visibility-checklist" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; background: rgba(6,182,212,0.06); border: 2px solid rgba(6,182,212,0.25); border-radius: 100px; padding: 0.85rem 2rem; text-decoration: none; transition: all 0.3s; box-shadow: 0 0 20px rgba(6,182,212,0.06);">
+      <span style="font-size: 0.88rem; color: #c4c0d8;">Start here → <strong style="color: #22d3ee;">Get the free AI Visibility Checklist</strong> — 20 actions you can take this week.</span>
+    </a>
+  </div>
+
+  <div class="learn-grid">
+    <a href="knowledge-panel-playbook.html" class="learn-card card-10">
+      <div class="card-hero"><div class="card-hero-bg"></div></div>
+      <div class="card-body">
+        <h3>The Knowledge Panel & AI Visibility Playbook</h3>
+        <p>Get your Google Knowledge Panel and Wikipedia article. Step-by-step guide to Wikidata setup, Wikipedia submission, and being discoverable by both humans and AI.</p>
+        <div class="card-meta">
+          <span class="card-read-time">📖 25 min read</span>
+          <span class="card-cta">Read Guide →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="ai-visibility-guide.html" class="learn-card card-1">
+      <div class="card-hero"><div class="card-hero-bg"></div></div>
+      <div class="card-body">
+        <h3>The Complete Guide to AI Visibility</h3>
+        <p>How to show up in ChatGPT, Perplexity, and Gemini. The Before Layer concept, audit process, entity building, and a 90-day action plan.</p>
+        <div class="card-meta">
+          <span class="card-read-time">📖 18 min read</span>
+          <span class="card-cta">Read Guide →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="ai-visibility-business-leaders.html" class="learn-card card-6">
+      <div class="card-hero"><div class="card-hero-bg"></div></div>
+      <div class="card-body">
+        <h3>AI Visibility for Business Leaders</h3>
+        <p>Why your brand is invisible to AI — written for CEOs, founders, and board members. Board presentation framework, budget, and 90-day executive action plan.</p>
+        <div class="card-meta">
+          <span class="card-read-time">📖 20 min read</span>
+          <span class="card-cta">Read Guide →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="ai-visibility-cmo-guide.html" class="learn-card card-7">
+      <div class="card-hero"><div class="card-hero-bg"></div></div>
+      <div class="card-body">
+        <h3>The CMO's Guide to AI Visibility</h3>
+        <p>Beyond SEO in 2026. Budget allocation, measurement frameworks, team structure, tech stack, and presenting AI visibility ROI to your board.</p>
+        <div class="card-meta">
+          <span class="card-read-time">📖 22 min read</span>
+          <span class="card-cta">Read Guide →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="ai-visibility-sales.html" class="learn-card card-8">
+      <div class="card-hero"><div class="card-hero-bg"></div></div>
+      <div class="card-body">
+        <h3>How AI Is Reshaping B2B Sales</h3>
+        <p>The Before Layer and your pipeline. New buyer journey, the ChatGPT objection, Answer Share as a revenue metric, and sales team training playbook.</p>
+        <div class="card-meta">
+          <span class="card-read-time">📖 21 min read</span>
+          <span class="card-cta">Read Guide →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="ai-visibility-small-business.html" class="learn-card card-9">
+      <div class="card-hero"><div class="card-hero-bg"></div></div>
+      <div class="card-body">
+        <h3>AI Visibility for Small Business</h3>
+        <p>The DIY guide to showing up in ChatGPT. Zero-budget weekend tactics, copy-paste schema templates, and a 30-minute monthly maintenance routine.</p>
+        <div class="card-meta">
+          <span class="card-read-time">📖 22 min read</span>
+          <span class="card-cta">Read Guide →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="ai-visibility-marketing.html" class="learn-card card-5">
+      <div class="card-hero"><div class="card-hero-bg"></div></div>
+      <div class="card-body">
+        <h3>AI Visibility Marketing: The New Discipline</h3>
+        <p>The discipline that didn't exist two years ago. Why traditional playbooks fail, content strategy for AI citation, and a 30-day getting started plan.</p>
+        <div class="card-meta">
+          <span class="card-read-time">📖 17 min read</span>
+          <span class="card-cta">Read Guide →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="vibecoding-for-comms.html" class="learn-card card-2">
+      <div class="card-hero"><div class="card-hero-bg"></div></div>
+      <div class="card-body">
+        <h3>What Is Vibecoding for Comms?</h3>
+        <p>The new way PR pros build with AI. From using tools to building tools — real examples, step-by-step guide, and what you can ship in a weekend.</p>
+        <div class="card-meta">
+          <span class="card-read-time">📖 16 min read</span>
+          <span class="card-cta">Read Guide →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="ai-and-communications.html" class="learn-card card-3">
+      <div class="card-hero"><div class="card-hero-bg"></div></div>
+      <div class="card-body">
+        <h3>AI and Communications: The Practitioner's Guide</h3>
+        <p>What's actually working vs. hype in 2026. The AI comms stack, workflow transformations, team structure changes, and a 23-year perspective on disruption.</p>
+        <div class="card-meta">
+          <span class="card-read-time">📖 20 min read</span>
+          <span class="card-cta">Read Guide →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="future-of-public-relations.html" class="learn-card card-4">
+      <div class="card-hero"><div class="card-hero-bg"></div></div>
+      <div class="card-body">
+        <h3>The Future of Public Relations Is AI-Native</h3>
+        <p>PR's evolution through disruption cycles, the new tech stack, how media relations is changing, and the skills PR pros need right now.</p>
+        <div class="card-meta">
+          <span class="card-read-time">📖 19 min read</span>
+          <span class="card-cta">Read Guide →</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="tools.html">Tools</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="newsletter.html">Newsletter</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a>
+          <a href="https://github.com/sarahevansai" target="_blank">GitHub</a>
+          <a href="https://t.me/sarahevansai" target="_blank">Telegram</a>
+          <a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a>
+        </div>
+        <div class="footer-col">
+          <h4>Built by Sarah Evans</h4>
+          <a href="https://www.zenmedia.com" target="_blank">Partner at Zen Media</a>
+          <a href="https://hackernoon.com/u/sarahevans" target="_blank">HackerNoon Column</a>
+          <a href="https://x.com/prsarahevans" target="_blank">X / Twitter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="/" class="nav-logo" style="opacity: 0.5;">
+          <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="height: 22px;">
+            <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+              <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+            </text>
+          </svg>
+        </a>
+        <p>&copy; <span id="currentYear"></span> Sarah Evans. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>

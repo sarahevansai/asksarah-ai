@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "instanceId": "agi-outlet-monitoring-v2-complete",
+    "templateCredsSetupCompleted": false
+  },
+  "name": "AGI Outlet Monitoring Pipeline — COMPLETE",
+  "nodes": [
+    {
+      "id": "node-schedule-trigger",
+      "name": "Schedule: Daily 3:00 AM ET",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        120,
+        300
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 24
+            }
+          ],
+          "activateTime": "03:00",
+          "timezone": "America/New_York"
+        }
+      },
+      "notes": "Fires daily at 3:00 AM Eastern Time (8:00 AM UTC)"
+    },
+    {
+      "id": "node-load-outlets",
+      "name": "Load Outlet List (110 Outlets)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        340,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const fs = require('fs');\nconst OUTLET_PATH = '/Users/sarahevans_zen/.openclaw/workspace/projects/asksarah-ai/agi-outlet-list.json';\n\nlet outletData;\ntry {\n  outletData = JSON.parse(fs.readFileSync(OUTLET_PATH, 'utf8'));\n} catch(e) {\n  throw new Error('Failed to load outlet list: ' + e.message);\n}\n\nconst outlets = outletData.outlets\n  .filter(o => o.rss !== null && o.rss !== undefined)\n  .map(o => ({\n    outlet_id: o.id,\n    outlet_name: o.name,\n    rss_url: o.rss_ai || o.rss,\n    fallback_rss: o.rss,\n    api_type: Array.isArray(o.api) ? o.api.join(',') : (o.api || 'rss'),\n    tier: o.tier,\n    region: o.region || 'Global',\n    topics: (o.topics || []).join(', '),\n    frequency: o.frequency || 'unknown',\n    fetch_started: new Date().toISOString()\n  }));\n\nconsole.log(`[AGI Monitor] Loaded ${outlets.length} outlets from ${outletData.outlets.length} total`);\n\nreturn outlets;"
+      },
+      "notes": "Reads agi-outlet-list.json → outputs one item per outlet (RSS URL, tier, topics)"
+    },
+    {
+      "id": "node-fetch-rss",
+      "name": "Fetch RSS Feed",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        560,
+        300
+      ],
+      "continueOnFail": true,
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $json.rss_url }}",
+        "options": {
+          "timeout": 15000,
+          "redirect": {
+            "redirect": {
+              "followRedirects": true,
+              "maxRedirects": 5
+            }
+          },
+          "response": {
+            "response": {
+              "fullResponse": false,
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 AGI-Monitor-Bot/2.0 (+https://asksarah.ai)"
+            },
+            {
+              "name": "Accept",
+              "value": "application/rss+xml, application/atom+xml, application/xml, text/xml, */*"
+            }
+          ]
+        }
+      },
+      "notes": "Fetches RSS XML for each outlet. 15s timeout, 3 retries. continueOnFail=true to avoid stopping on single outlet error."
+    },
+    {
+      "id": "node-parse-rss",
+      "name": "Parse RSS Articles",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        780,
+        300
+      ],
+      "continueOnFail": true,
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const item = $input.first();\nconst { outlet_id, outlet_name, tier, rss_url } = item.json;\n\nfunction extractTag(text, tag) {\n  const cdataRe = new RegExp('<' + tag + '[^>]*><!\\\\[CDATA\\\\[([\\\\s\\\\S]*?)\\\\]\\\\]></' + tag + '>', 'i');\n  const m = text.match(cdataRe);\n  if (m) return m[1].trim();\n  const tagRe = new RegExp('<' + tag + '[^>]*>([\\\\s\\\\S]*?)</' + tag + '>', 'i');\n  const m2 = text.match(tagRe);\n  return m2 ? m2[1].trim() : null;\n}\n\nfunction extractLink(text) {\n  const atomHref = text.match(/<link[^>]+href=\"([^\"]+)\"/i);\n  if (atomHref) return atomHref[1];\n  const rssLink = text.match(/<link[^>]*>\\s*([^<]+)\\s*<\\/link>/i);\n  if (rssLink) return rssLink[1].trim();\n  return null;\n}\n\nfunction cleanHtml(t) {\n  if (!t) return '';\n  return t.replace(/<[^>]+>/g,'')\n    .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>')\n    .replace(/&quot;/g,'\"').replace(/&#039;/g,\"'\").replace(/&apos;/g,\"'\")\n    .replace(/\\s+/g,' ').trim();\n}\n\n// Get response body\nlet xml = '';\ntry {\n  if (item.json.data !== undefined) {\n    xml = typeof item.json.data === 'string' ? item.json.data : JSON.stringify(item.json.data);\n  } else if (item.json.body !== undefined) {\n    xml = item.json.body;\n  } else if (item.json.error) {\n    return [{ json: { outlet_id, outlet_name, tier, articles: [], article_count: 0, fetch_failed: true, error: item.json.error } }];\n  }\n} catch(e) {\n  return [{ json: { outlet_id, outlet_name, tier, articles: [], article_count: 0, fetch_failed: true, error: e.message } }];\n}\n\nif (!xml || xml.length < 50) {\n  return [{ json: { outlet_id, outlet_name, tier, articles: [], article_count: 0, fetch_failed: true, error: 'Empty response' } }];\n}\n\n// Time cutoff: 48h for tier 1-2, 7d for tier 3-6\nconst cutoffHours = tier <= 2 ? 48 : 168;\nconst cutoff = new Date(Date.now() - cutoffHours * 3600000);\n\nconst itemPattern = /<item[\\s>][\\s\\S]*?<\\/item>|<entry[\\s>][\\s\\S]*?<\\/entry>/gi;\nconst matches = xml.match(itemPattern) || [];\n\nconst articles = [];\nfor (const itemXml of matches.slice(0, 30)) {\n  const title = extractTag(itemXml, 'title');\n  const link = extractLink(itemXml);\n  if (!title || !link) continue;\n\n  const pubRaw = extractTag(itemXml, 'pubDate') ||\n                 extractTag(itemXml, 'published') ||\n                 extractTag(itemXml, 'updated') ||\n                 extractTag(itemXml, 'dc:date');\n\n  let articleDate;\n  try {\n    articleDate = pubRaw ? new Date(pubRaw) : new Date();\n    if (isNaN(articleDate.getTime())) articleDate = new Date();\n  } catch(_) { articleDate = new Date(); }\n\n  if (articleDate < cutoff) continue;\n\n  const description = extractTag(itemXml, 'description') || extractTag(itemXml, 'summary') || '';\n  const author = extractTag(itemXml, 'author') || extractTag(itemXml, 'dc:creator') || '';\n\n  articles.push({\n    outlet_id,\n    outlet_name,\n    tier,\n    headline: cleanHtml(title).substring(0, 300),\n    url: link.trim(),\n    date: articleDate.toISOString().split('T')[0],\n    timestamp: articleDate.toISOString(),\n    description: cleanHtml(description).substring(0, 500),\n    author: cleanHtml(author).substring(0, 100)\n  });\n}\n\nconsole.log(`[${outlet_id}] Parsed ${articles.length} articles from ${matches.length} feed items`);\nreturn [{ json: { outlet_id, outlet_name, tier, articles, article_count: articles.length, fetch_failed: false } }];"
+      },
+      "notes": "Parses RSS/Atom XML → extracts headline, URL, date, author. Max 30 items per outlet, 48h cutoff for tier 1-2."
+    },
+    {
+      "id": "node-deduplicate",
+      "name": "Deduplicate Stories (SHA256)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const crypto = require('crypto');\nconst items = $input.all();\n\nconst allArticles = [];\nlet failedOutlets = 0;\nlet successOutlets = 0;\n\nfor (const item of items) {\n  const d = item.json;\n  if (d.fetch_failed) { failedOutlets++; continue; }\n  successOutlets++;\n  allArticles.push(...(d.articles || []));\n}\n\n// SHA256(normalized_headline + date) → story_id\nconst storyMap = {};\n\nfor (const art of allArticles) {\n  const normalized = art.headline.toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\\s+/g, ' ').trim();\n  const raw = normalized + '::' + art.date;\n  const story_id = crypto.createHash('sha256').update(raw).digest('hex').substring(0, 16);\n\n  if (!storyMap[story_id]) {\n    storyMap[story_id] = {\n      story_id,\n      headline: art.headline,\n      representative_url: art.url,\n      date: art.date,\n      timestamp: art.timestamp,\n      description: art.description,\n      sources: [],\n      source_ids: new Set(),\n      min_tier: art.tier\n    };\n  }\n\n  const s = storyMap[story_id];\n  if (!s.source_ids.has(art.outlet_id)) {\n    s.source_ids.add(art.outlet_id);\n    s.sources.push({ outlet_id: art.outlet_id, outlet_name: art.outlet_name, url: art.url, tier: art.tier });\n    if (art.tier < s.min_tier) s.min_tier = art.tier;\n  }\n}\n\nconst stories = Object.values(storyMap).map(s => ({\n  ...s,\n  source_ids: Array.from(s.source_ids),\n  source_count: s.sources.length,\n  top_voices: [],\n  amplifiers: [],\n  twitter_checked: false,\n  twitter_amplifiers_found: 0\n})).sort((a,b) => b.source_count - a.source_count).slice(0, 300);\n\nconst stats = {\n  run_id: crypto.randomBytes(4).toString('hex'),\n  timestamp: new Date().toISOString(),\n  outlets_checked: items.length,\n  outlets_success: successOutlets,\n  outlets_failed: failedOutlets,\n  total_articles: allArticles.length,\n  unique_stories: stories.length,\n  dedupe_rate: allArticles.length > 0\n    ? ((1 - stories.length / allArticles.length) * 100).toFixed(1) + '%'\n    : '0%'\n};\n\nconsole.log('[AGI Monitor] Dedup stats:', JSON.stringify(stats));\n\n// Emit stats item + story items\nconst output = [{ json: { _type: 'stats', ...stats } }];\nfor (const s of stories) {\n  output.push({ json: { _type: 'story', ...s } });\n}\nreturn output;"
+      },
+      "notes": "SHA256(normalized_headline + date) = story_id. Groups by story_id, counts unique sources. Outputs stats item + story items."
+    },
+    {
+      "id": "node-filter-stories",
+      "name": "Filter Story Items",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const items = $input.all();\nconst stories = items.filter(i => i.json._type === 'story');\nconsole.log(`[AGI Monitor] Filtering: ${stories.length} stories from ${items.length} items`);\nreturn stories;"
+      },
+      "notes": "Removes the stats item, keeps only story items for downstream processing."
+    },
+    {
+      "id": "node-twitter-credibility",
+      "name": "Twitter Search + Credibility Scoring",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// ── Accuracy DB (embedded from accuracy-db.json) ─────────────────────────────\nconst ACCURACY_DB = {\n  \"yann_lecun\": {\n    \"name\": \"Yann LeCun\",\n    \"handle\": \"ylecun\",\n    \"credibility_rating\": 0.77,\n    \"accuracy_score\": 0.87,\n    \"followers\": 12000000\n  },\n  \"sam_altman\": {\n    \"name\": \"Sam Altman\",\n    \"handle\": \"sama\",\n    \"credibility_rating\": 0.88,\n    \"accuracy_score\": 0.91,\n    \"followers\": 8000000\n  },\n  \"demis_hassabis\": {\n    \"name\": \"Demis Hassabis\",\n    \"handle\": \"demishassabis\",\n    \"credibility_rating\": 0.74,\n    \"accuracy_score\": 0.82,\n    \"followers\": 2000000\n  },\n  \"dario_amodei\": {\n    \"name\": \"Dario Amodei\",\n    \"handle\": \"dario_amodei\",\n    \"credibility_rating\": 0.82,\n    \"accuracy_score\": 0.89,\n    \"followers\": 1200000\n  },\n  \"andrew_ng\": {\n    \"name\": \"Andrew Ng\",\n    \"handle\": \"andrewng\",\n    \"credibility_rating\": 0.85,\n    \"accuracy_score\": 0.9,\n    \"followers\": 4200000\n  },\n  \"jensen_huang\": {\n    \"name\": \"Jensen Huang\",\n    \"handle\": \"JensenHuang\",\n    \"credibility_rating\": 0.9,\n    \"accuracy_score\": 0.92,\n    \"followers\": 3100000\n  },\n  \"mira_murati\": {\n    \"name\": \"Mira Murati\",\n    \"handle\": \"miramurati\",\n    \"credibility_rating\": 0.88,\n    \"accuracy_score\": 0.94,\n    \"followers\": 890000\n  },\n  \"hugging_face_team\": {\n    \"name\": \"Hugging Face\",\n    \"handle\": \"huggingface\",\n    \"credibility_rating\": 0.8,\n    \"accuracy_score\": 0.86,\n    \"followers\": 2800000\n  },\n  \"kai_fu_lee\": {\n    \"name\": \"Kai-Fu Lee\",\n    \"handle\": \"kaifulee\",\n    \"credibility_rating\": 0.78,\n    \"accuracy_score\": 0.87,\n    \"followers\": 1900000\n  },\n  \"lex_fridman\": {\n    \"name\": \"Lex Fridman\",\n    \"handle\": \"lexfridman\",\n    \"credibility_rating\": 0.66,\n    \"accuracy_score\": 0.75,\n    \"followers\": 3200000\n  },\n  \"gary_marcus\": {\n    \"name\": \"Gary Marcus\",\n    \"handle\": \"garymarcus\",\n    \"credibility_rating\": 0.55,\n    \"accuracy_score\": 0.58,\n    \"followers\": 380000\n  },\n  \"eliezer_yudkowsky\": {\n    \"name\": \"Eliezer Yudkowsky\",\n    \"handle\": \"eliezer\",\n    \"credibility_rating\": 0.5,\n    \"accuracy_score\": 0.58,\n    \"followers\": 280000\n  },\n  \"connor_leahy\": {\n    \"name\": \"Connor Leahy\",\n    \"handle\": \"leahy_connor\",\n    \"credibility_rating\": 0.71,\n    \"accuracy_score\": 0.78,\n    \"followers\": 420000\n  },\n  \"andrej_karpathy\": {\n    \"name\": \"Andrej Karpathy\",\n    \"handle\": \"karpathy\",\n    \"credibility_rating\": 0.78,\n    \"accuracy_score\": 0.86,\n    \"followers\": 850000\n  },\n  \"melanie_mitchell\": {\n    \"name\": \"Melanie Mitchell\",\n    \"handle\": \"melaniemitchell\",\n    \"credibility_rating\": 0.66,\n    \"accuracy_score\": 0.73,\n    \"followers\": 220000\n  },\n  \"ai_nativity\": {\n    \"name\": \"AI Nativity\",\n    \"handle\": \"ai_nativity\",\n    \"credibility_rating\": 0.78,\n    \"accuracy_score\": 0.86,\n    \"followers\": 180000\n  }\n};\n\nconst handleToVoice = {};\nfor (const [key, v] of Object.entries(ACCURACY_DB)) {\n  handleToVoice[v.handle.toLowerCase()] = { ...v, voice_id: key };\n}\n\n// ── Config ────────────────────────────────────────────────────────────────────\nconst TWITTER_BEARER = $env.TWITTER_BEARER_TOKEN || '';\nconst TWITTER_ENABLED = TWITTER_BEARER.length > 30;\nconst TWITTER_LIMIT  = 40;   // Max Twitter API calls per run (rate limit)\nconst DELAY_MS = 1100;        // ms between Twitter calls\nconst MIN_SOURCES_FOR_TWITTER = 2; // Only check Twitter for 2+ source stories\n\nconst sleep = ms => new Promise(r => setTimeout(r, ms));\n\nconst stories = $input.all().map(i => i.json);\nlet twitterCalls = 0;\n\nconst processed = [];\n\nfor (let idx = 0; idx < stories.length; idx++) {\n  const story = { ...stories[idx] };\n  let amplifiers = [];\n\n  if (TWITTER_ENABLED && twitterCalls < TWITTER_LIMIT && story.source_count >= MIN_SOURCES_FOR_TWITTER) {\n    try {\n      await sleep(DELAY_MS);\n\n      // Build search query\n      const safeHeadline = story.headline.substring(0, 60).replace(/[\"\\']/g, '').trim();\n      const queryParts = [`\"${safeHeadline}\"`, '-is:retweet', 'lang:en'].join(' ');\n      const params = new URLSearchParams({\n        query: queryParts,\n        max_results: '20',\n        expansions: 'author_id',\n        'user.fields': 'public_metrics,username,name',\n        'tweet.fields': 'public_metrics,created_at,author_id'\n      });\n\n      const resp = await fetch(`https://api.twitter.com/2/tweets/search/recent?${params}`, {\n        headers: { Authorization: `Bearer ${TWITTER_BEARER}` }\n      });\n\n      twitterCalls++;\n\n      if (resp.ok) {\n        const tData = await resp.json();\n        const usersById = {};\n        for (const u of (tData.includes?.users || [])) usersById[u.id] = u;\n\n        for (const tweet of (tData.data || [])) {\n          const user = usersById[tweet.author_id];\n          if (!user) continue;\n\n          const likes     = tweet.public_metrics?.like_count || 0;\n          const retweets  = tweet.public_metrics?.retweet_count || 0;\n          const followers = user.public_metrics?.followers_count || 1;\n          const handle    = (user.username || '').toLowerCase();\n\n          const engagement_rate    = (likes + retweets) / Math.max(followers, 1);\n          const weighted_reach     = Math.round(followers * engagement_rate);\n          const known              = handleToVoice[handle];\n          const accuracy_score     = known ? known.accuracy_score     : 0.50;\n          const credibility_rating = known ? known.credibility_rating : 0.50;\n\n          amplifiers.push({\n            twitter_id:          tweet.author_id,\n            username:            user.username,\n            display_name:        known ? known.name : (user.name || user.username),\n            followers,\n            likes,\n            retweets,\n            engagement_rate:     Math.round(engagement_rate * 10000) / 10000,\n            weighted_reach,\n            accuracy_score,\n            credibility_rating,\n            weighted_credibility: Math.round(weighted_reach * credibility_rating),\n            is_known_voice:      !!known,\n            voice_id:            known ? known.voice_id : null\n          });\n        }\n      } else if (resp.status === 429) {\n        console.log('[Twitter] Rate limited — stopping Twitter calls for this run');\n        twitterCalls = TWITTER_LIMIT; // Stop further calls\n      } else {\n        console.log(`[Twitter] HTTP ${resp.status} for story ${story.story_id}`);\n      }\n    } catch(err) {\n      console.log('[Twitter] Error:', err.message);\n    }\n  }\n\n  const top_voices = [...amplifiers]\n    .sort((a,b) => b.weighted_credibility - a.weighted_credibility)\n    .slice(0, 5);\n\n  processed.push({\n    ...story,\n    amplifiers,\n    top_voices,\n    twitter_checked:         TWITTER_ENABLED && story.source_count >= MIN_SOURCES_FOR_TWITTER,\n    twitter_amplifiers_found: amplifiers.length\n  });\n}\n\nconsole.log(`[AGI Monitor] Twitter: ${twitterCalls} API calls, ${processed.length} stories scored`);\nreturn processed.map(s => ({ json: s }));"
+      },
+      "notes": "Calls Twitter API v2 for each story (max 40/run). Matches amplifiers against 18 AGI voices. Computes weighted_credibility = weighted_reach × accuracy_score. Uses TWITTER_BEARER_TOKEN env var."
+    },
+    {
+      "id": "node-write-dashboard",
+      "name": "Write Dashboard JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1660,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const fs   = require('fs');\nconst path = require('path');\n\nconst stories = $input.all().map(i => i.json);\nconst today   = new Date().toISOString().split('T')[0];\n\nconst DASHBOARD_DIR = '/Users/sarahevans_zen/.openclaw/workspace/projects/asksarah-ai/data/dashboard-stories';\nif (!fs.existsSync(DASHBOARD_DIR)) fs.mkdirSync(DASHBOARD_DIR, { recursive: true });\n\nconst dashboardOutput = {\n  generated_at:   new Date().toISOString(),\n  date:           today,\n  total_stories:  stories.length,\n  major_stories:  stories.filter(s => s.source_count >= 10).length,\n  significant:    stories.filter(s => s.source_count >= 5 && s.source_count < 10).length,\n  stories: stories.map(s => ({\n    story_id:          s.story_id,\n    headline:          s.headline,\n    date:              s.date,\n    timestamp:         s.timestamp,\n    source_count:      s.source_count,\n    sources:           s.sources,\n    representative_url: s.representative_url,\n    description:       s.description,\n    top_voices:        (s.top_voices || []).map(v => ({\n      username:             v.username,\n      display_name:         v.display_name,\n      followers:            v.followers,\n      engagement_rate:      v.engagement_rate,\n      weighted_credibility: v.weighted_credibility,\n      accuracy_score:       v.accuracy_score,\n      is_known_voice:       v.is_known_voice\n    })),\n    amplifiers_count:  (s.amplifiers || []).length,\n    twitter_checked:   s.twitter_checked || false,\n    alert_level:       s.source_count >= 10 ? 'major'\n                     : s.source_count >= 5  ? 'significant'\n                     : 'normal',\n    min_tier:          s.min_tier\n  }))\n};\n\n// Write dated file\nconst datedPath = path.join(DASHBOARD_DIR, `dashboard-stories-${today}.json`);\nfs.writeFileSync(datedPath, JSON.stringify(dashboardOutput, null, 2));\n\n// Write latest pointer\nconst latestPath = path.join(DASHBOARD_DIR, 'dashboard-stories-latest.json');\nfs.writeFileSync(latestPath, JSON.stringify(dashboardOutput, null, 2));\n\nconsole.log(`[AGI Monitor] Dashboard written: ${datedPath} (${stories.length} stories)`);\n\nconst majorStories = dashboardOutput.stories.filter(s => s.alert_level === 'major');\nreturn [{ json: {\n  success:      true,\n  filepath:     datedPath,\n  stories_count: stories.length,\n  major_stories: majorStories,\n  all_stories:  dashboardOutput.stories\n} }];"
+      },
+      "notes": "Writes /data/dashboard-stories/dashboard-stories-YYYY-MM-DD.json + latest pointer. Returns major stories list."
+    },
+    {
+      "id": "node-telegram-alerts",
+      "name": "Send Telegram Alerts (Major Stories)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1880,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const TELEGRAM_BOT_TOKEN = $env.TELEGRAM_BOT_TOKEN || '';\nconst TELEGRAM_CHAT_ID   = $env.TELEGRAM_CHAT_ID   || '8206233476';\n\nconst item        = $input.first().json;\nconst majorStories = item.major_stories || [];\n\nif (!TELEGRAM_BOT_TOKEN || TELEGRAM_BOT_TOKEN.length < 10) {\n  console.log('[Telegram] No bot token configured — skipping alerts');\n  return [{ json: { alerts_sent: 0, reason: 'no_token' } }];\n}\nif (majorStories.length === 0) {\n  console.log('[Telegram] No major stories (10+ sources) this run');\n  return [{ json: { alerts_sent: 0, reason: 'no_major_stories' } }];\n}\n\nconst sleep = ms => new Promise(r => setTimeout(r, ms));\nlet alertsSent = 0;\n\nfor (const story of majorStories) {\n  const topNames = (story.top_voices || []).slice(0, 3).map(v => v.display_name).join(', ') || 'None tracked';\n  const sourceList = (story.sources || []).slice(0, 5).map(s => s.outlet_name).join(', ');\n  const moreStr = story.source_count > 5 ? ` +${story.source_count - 5} more` : '';\n\n  const text = [\n    `📰 *AGI Story Alert*`,\n    ``,\n    `*${story.headline.substring(0, 200).replace(/[*_[]()~`>#+=|{}.!-]/g, '\\\\$&')}*`,\n    ``,\n    `🔊 ${story.source_count} sources · Top: ${topNames}`,\n    `🔗 ${story.representative_url}`,\n    ``,\n    `📡 Sources: ${sourceList}${moreStr}`\n  ].join('\\n');\n\n  try {\n    const resp = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {\n      method:  'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body:    JSON.stringify({\n        chat_id:                  TELEGRAM_CHAT_ID,\n        text,\n        parse_mode:               'MarkdownV2',\n        disable_web_page_preview: false\n      })\n    });\n    if (resp.ok) { alertsSent++; }\n    else { console.log('[Telegram] Send failed:', await resp.text()); }\n    await sleep(500);\n  } catch(e) {\n    console.log('[Telegram] Error:', e.message);\n  }\n}\n\nreturn [{ json: { alerts_sent: alertsSent, major_story_count: majorStories.length } }];"
+      },
+      "notes": "Sends Telegram alert for stories with 10+ sources. Format: 📰 Story · 🔊 N sources · Top: Yann, Sam, Demis. Uses TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID env vars."
+    },
+    {
+      "id": "node-success-log",
+      "name": "Write Success Log",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2100,
+        300
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const fs   = require('fs');\nconst path = require('path');\n\nconst LOG_DIR = '/Users/sarahevans_zen/.openclaw/workspace/projects/asksarah-ai/data/logs';\nif (!fs.existsSync(LOG_DIR)) fs.mkdirSync(LOG_DIR, { recursive: true });\n\nconst today   = new Date().toISOString().split('T')[0];\nconst logPath = path.join(LOG_DIR, `monitoring-log-${today}.json`);\n\nconst dashboardItem = $input.first().json;\n\nconst entry = {\n  timestamp:     new Date().toISOString(),\n  success:       dashboardItem.success || false,\n  stories_count: dashboardItem.stories_count || 0,\n  major_stories: (dashboardItem.major_stories || []).length,\n  filepath:      dashboardItem.filepath || '',\n  run_type:      'scheduled'\n};\n\nlet log = [];\nif (fs.existsSync(logPath)) {\n  try { log = JSON.parse(fs.readFileSync(logPath, 'utf8')); } catch(_) {}\n}\nlog.push(entry);\nfs.writeFileSync(logPath, JSON.stringify(log, null, 2));\n\nconsole.log('[AGI Monitor] Run complete:', JSON.stringify(entry));\nreturn [{ json: entry }];"
+      },
+      "notes": "Appends run result to /data/logs/monitoring-log-YYYY-MM-DD.json"
+    },
+    {
+      "id": "node-error-trigger",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        120,
+        500
+      ],
+      "parameters": {},
+      "notes": "Catches workflow-level errors"
+    },
+    {
+      "id": "node-error-handler",
+      "name": "Log Error + Notify",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        340,
+        500
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const fs   = require('fs');\nconst path = require('path');\n\nconst ERR_DIR = '/Users/sarahevans_zen/.openclaw/workspace/projects/asksarah-ai/data/errors';\nif (!fs.existsSync(ERR_DIR)) fs.mkdirSync(ERR_DIR, { recursive: true });\n\nconst today = new Date().toISOString().split('T')[0];\nconst errPath = path.join(ERR_DIR, `errors-${today}.json`);\n\nconst errorItem = $input.first();\nconst errorData = {\n  timestamp:    new Date().toISOString(),\n  workflow:     'agi-outlet-monitoring',\n  error:        errorItem.json?.error || 'Unknown error',\n  node:         errorItem.json?.execution?.lastNodeExecuted || 'Unknown node',\n  raw:          JSON.stringify(errorItem.json || {}).substring(0, 2000)\n};\n\nlet errors = [];\nif (fs.existsSync(errPath)) {\n  try { errors = JSON.parse(fs.readFileSync(errPath, 'utf8')); } catch(_) {}\n}\nerrors.push(errorData);\nfs.writeFileSync(errPath, JSON.stringify(errors, null, 2));\n\n// Also try to send Telegram alert for workflow errors\nconst TELEGRAM_BOT_TOKEN = $env.TELEGRAM_BOT_TOKEN || '';\nconst TELEGRAM_CHAT_ID   = $env.TELEGRAM_CHAT_ID   || '8206233476';\n\nif (TELEGRAM_BOT_TOKEN.length > 10) {\n  try {\n    await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {\n      method:  'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body:    JSON.stringify({\n        chat_id:    TELEGRAM_CHAT_ID,\n        text:       `⚠️ AGI Monitor ERROR\\n\\n${errorData.error}\\n\\nNode: ${errorData.node}`,\n        parse_mode: 'Markdown'\n      })\n    });\n  } catch(_) {}\n}\n\nreturn [{ json: errorData }];"
+      },
+      "notes": "Logs error to /data/errors/errors-YYYY-MM-DD.json and sends Telegram alert."
+    }
+  ],
+  "connections": {
+    "Schedule: Every 6 Hours": {
+      "main": [
+        [
+          {
+            "node": "Load Outlet List (110 Outlets)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Outlet List (110 Outlets)": {
+      "main": [
+        [
+          {
+            "node": "Fetch RSS Feed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch RSS Feed": {
+      "main": [
+        [
+          {
+            "node": "Parse RSS Articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse RSS Articles": {
+      "main": [
+        [
+          {
+            "node": "Deduplicate Stories (SHA256)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deduplicate Stories (SHA256)": {
+      "main": [
+        [
+          {
+            "node": "Filter Story Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Story Items": {
+      "main": [
+        [
+          {
+            "node": "Twitter Search + Credibility Scoring",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Twitter Search + Credibility Scoring": {
+      "main": [
+        [
+          {
+            "node": "Write Dashboard JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write Dashboard JSON": {
+      "main": [
+        [
+          {
+            "node": "Send Telegram Alerts (Major Stories)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Telegram Alerts (Major Stories)": {
+      "main": [
+        [
+          {
+            "node": "Write Success Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Log Error + Notify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [
+    "agi-monitoring",
+    "rss",
+    "twitter",
+    "dashboard"
+  ],
+  "triggerCount": 1,
+  "active": false,
+  "pinData": {},
+  "versionId": "agi-monitoring-v2-complete"
+}

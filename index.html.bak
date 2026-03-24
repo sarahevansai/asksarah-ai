@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>askSarah.ai — The Go-To Source for AI + Business</title>
+  <meta name="description" content="Sarah Evans: AI strategist, digital twin you can talk to, and the mind behind frameworks used by Fortune 100 teams. Ask. Learn. Work together.">
+  
+  <!-- OG / Social sharing -->
+  <meta property="og:title" content="askSarah.ai — Ask. Learn. Build.">
+  <meta property="og:description" content="Talk to Sarah's digital twin. Learn AI strategy. Work with the team building the future of AI-native business.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@prsarahevans">
+  <meta name="twitter:title" content="askSarah.ai — Ask. Learn. Build.">
+  <meta name="twitter:description" content="AI strategist. Digital twin. The go-to source for AI + business.">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0a1a;
+      --surface: #110f24;
+      --card: #16132e;
+      --card-hover: #1c1838;
+      --white: #f0eef8;
+      --text: #c4c0d8;
+      --text-muted: #7a758f;
+      --violet: #7c3aed;
+      --violet-light: #a78bfa;
+      --cyan: #06b6d4;
+      --cyan-light: #22d3ee;
+      --pink: #ec4899;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --border: rgba(124,58,237,0.12);
+      --border-light: rgba(255,255,255,0.06);
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg); color: var(--white);
+      line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+
+    /* BG */
+    .bg-mesh {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent),
+        radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent);
+    }
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0;
+      background-image: linear-gradient(rgba(124,58,237,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 20%, transparent 100%);
+    }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 500px; height: 500px; top: -5%; left: 20%; background: rgba(124,58,237,0.1); animation: o1 18s ease-in-out infinite; }
+    .orb-2 { width: 400px; height: 400px; bottom: 10%; right: 5%; background: rgba(6,182,212,0.08); animation: o2 22s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,20px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-25px,-30px); } }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 0.9rem 2rem; display: flex; justify-content: space-between; align-items: center;
+      backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.75);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-logo { font-family: 'Space Grotesk'; font-size: 1.2rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo span { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.78rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.03em; text-transform: uppercase; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--gradient) !important; color: white !important; padding: 0.45rem 1.2rem; border-radius: 100px; font-weight: 600 !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 0.85rem !important; }
+    .nav-hamburger {
+      display: none; width: 36px; height: 36px; border: 1px solid var(--border);
+      border-radius: 8px; background: transparent; cursor: pointer;
+      flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu {
+      display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99;
+      background: rgba(12,10,26,0.97); backdrop-filter: blur(24px);
+      padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light);
+      flex-direction: column; gap: 1rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500;
+      padding: 0.5rem 0; border-bottom: 1px solid var(--border-light);
+    }
+    .mobile-menu a:last-child { border: none; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 6rem 2rem 3rem; position: relative; z-index: 1;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; }
+    .hero-top {
+      display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: start;
+      margin-bottom: 3rem;
+    }
+
+    /* Twin column */
+    .twin-col { text-align: center; position: relative; padding-top: 1rem; }
+    .twin-glow {
+      position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.2), rgba(6,182,212,0.08), transparent 70%);
+      filter: blur(40px); animation: gp 4s ease-in-out infinite;
+    }
+    @keyframes gp { 0%,100% { opacity: 0.6; transform: translate(-50%,-50%) scale(1); } 50% { opacity: 1; transform: translate(-50%,-50%) scale(1.05); } }
+    .twin-circle {
+      position: relative; width: 200px; height: 200px; border-radius: 50%; overflow: hidden;
+      margin: 0 auto 1rem; border: 2px solid rgba(124,58,237,0.3);
+      box-shadow: 0 0 40px rgba(124,58,237,0.15), 0 0 80px rgba(6,182,212,0.08);
+      background: var(--surface);
+    }
+    .twin-circle img { width: 100%; height: 100%; object-fit: cover; }
+    .twin-orbit { position: absolute; top: 40%; left: 50%; border-radius: 50%; border: 1px solid; transform: translate(-50%,-50%); }
+    .orb-a { width: 240px; height: 240px; border-color: rgba(124,58,237,0.1); animation: os 20s linear infinite; }
+    .orb-b { width: 270px; height: 270px; border-color: rgba(6,182,212,0.07); animation: os 28s linear infinite reverse; }
+    .orb-dot { position: absolute; width: 5px; height: 5px; border-radius: 50%; top: -2.5px; left: 50%; margin-left: -2.5px; }
+    .orb-a .orb-dot { background: var(--violet); box-shadow: 0 0 6px var(--violet); }
+    .orb-b .orb-dot { background: var(--cyan); box-shadow: 0 0 6px var(--cyan); }
+    @keyframes os { 0% { transform: translate(-50%,-50%) rotate(0); } 100% { transform: translate(-50%,-50%) rotate(360deg); } }
+    .twin-name { font-family: 'Space Grotesk'; font-size: 1.3rem; font-weight: 700; position: relative; }
+    .twin-title { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem; position: relative; }
+    .twin-status {
+      display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.7rem; font-weight: 500;
+      background: rgba(6,182,212,0.08); color: var(--cyan-light); padding: 0.25rem 0.7rem; border-radius: 100px; border: 1px solid rgba(6,182,212,0.15); position: relative;
+    }
+    .sdot { width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); animation: bp 2s infinite; }
+    @keyframes bp { 0%,100% { box-shadow: 0 0 0 0 rgba(6,182,212,0.5); } 50% { box-shadow: 0 0 0 5px rgba(6,182,212,0); } }
+    .twin-voice { display: flex; gap: 3px; justify-content: center; margin-top: 0.75rem; position: relative; }
+    .vb { width: 3px; border-radius: 100px; animation: vb 1.3s ease-in-out infinite; }
+    .vb:nth-child(1) { height: 12px; background: var(--violet); animation-delay: 0s; }
+    .vb:nth-child(2) { height: 18px; background: var(--violet-light); animation-delay: 0.1s; }
+    .vb:nth-child(3) { height: 14px; background: var(--cyan); animation-delay: 0.2s; }
+    .vb:nth-child(4) { height: 22px; background: var(--cyan-light); animation-delay: 0.3s; }
+    .vb:nth-child(5) { height: 16px; background: var(--violet); animation-delay: 0.4s; }
+    .vb:nth-child(6) { height: 20px; background: var(--violet-light); animation-delay: 0.5s; }
+    .vb:nth-child(7) { height: 12px; background: var(--cyan); animation-delay: 0.6s; }
+    @keyframes vb { 0%,100% { transform: scaleY(0.4); opacity: 0.4; } 50% { transform: scaleY(1); opacity: 0.9; } }
+
+    /* Chat column */
+    .chat-col { display: flex; flex-direction: column; }
+    .hero-headline {
+      font-family: 'Space Grotesk'; font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700; line-height: 1.12; letter-spacing: -0.03em; margin-bottom: 0.75rem;
+    }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-sub { font-size: 0.95rem; color: var(--text); line-height: 1.6; margin-bottom: 1.25rem; max-width: 480px; }
+    .chat-box {
+      background: var(--card); border: 1px solid var(--border); border-radius: 18px; overflow: hidden;
+      box-shadow: 0 16px 50px rgba(0,0,0,0.3), 0 0 30px rgba(124,58,237,0.05);
+    }
+    .chat-head {
+      display: flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-light); background: rgba(255,255,255,0.01);
+    }
+    .chat-av {
+      width: 30px; height: 30px; border-radius: 50%; background: var(--gradient);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 700; color: white; flex-shrink: 0;
+    }
+    .chat-head-name { font-size: 0.8rem; font-weight: 600; }
+    .chat-head-sub { font-size: 0.62rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.3rem; }
+    .chat-msgs {
+      padding: 1rem; max-height: 280px; min-height: 140px; overflow-y: auto;
+      display: flex; flex-direction: column; gap: 0.6rem;
+      scrollbar-width: thin; scrollbar-color: rgba(124,58,237,0.1) transparent;
+    }
+    .cmsg { display: flex; flex-direction: column; max-width: 88%; }
+    .cmsg.bot { align-self: flex-start; }
+    .cmsg.user { align-self: flex-end; }
+    .cbub { padding: 0.6rem 0.85rem; border-radius: 14px; font-size: 0.82rem; line-height: 1.6; }
+    .cbub.bot-b { background: rgba(124,58,237,0.08); color: var(--text); border-bottom-left-radius: 4px; border: 1px solid rgba(124,58,237,0.1); }
+    .cbub.user-b { background: var(--gradient); color: white; border-bottom-right-radius: 4px; }
+    .listen-btn {
+      display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.4rem;
+      background: rgba(124,58,237,0.06); border: 1px solid rgba(124,58,237,0.15);
+      border-radius: 100px; padding: 0.2rem 0.6rem; font-size: 0.65rem; font-weight: 500;
+      color: var(--violet-light); cursor: pointer; transition: all 0.2s; font-family: inherit;
+    }
+    .listen-btn:hover { background: rgba(124,58,237,0.12); border-color: var(--violet); }
+    .listen-btn.playing { color: var(--cyan-light); border-color: rgba(6,182,212,0.3); background: rgba(6,182,212,0.08); }
+    .listen-btn:disabled { opacity: 0.5; cursor: wait; }
+    .chat-suggs { display: flex; gap: 0.35rem; flex-wrap: wrap; padding: 0 1rem 0.5rem; }
+    .chat-sugg {
+      background: rgba(124,58,237,0.05); border: 1px solid rgba(124,58,237,0.12);
+      border-radius: 100px; padding: 0.3rem 0.7rem; font-size: 0.7rem;
+      color: var(--text-muted); cursor: pointer; transition: all 0.2s; font-family: inherit;
+    }
+    .chat-sugg:hover { border-color: var(--violet); color: var(--violet-light); background: rgba(124,58,237,0.1); }
+    .chat-input {
+      display: flex; gap: 0.4rem; padding: 0.6rem 0.85rem;
+      border-top: 1px solid var(--border-light); background: rgba(255,255,255,0.01);
+    }
+    .chat-input input {
+      flex: 1; background: rgba(124,58,237,0.05); border: 1px solid var(--border);
+      border-radius: 100px; padding: 0.55rem 0.85rem; color: var(--white);
+      font-size: 0.8rem; font-family: inherit; outline: none; transition: border-color 0.2s;
+    }
+    .chat-input input::placeholder { color: var(--text-muted); }
+    .chat-input input:focus { border-color: var(--violet); }
+    .chat-input button {
+      width: 34px; height: 34px; border-radius: 50%; background: var(--gradient);
+      border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      color: white; flex-shrink: 0; transition: all 0.2s;
+    }
+    .chat-input button:hover { transform: scale(1.08); }
+    .typing-ind { display: flex; gap: 4px; padding: 0.6rem 0.85rem; }
+    .typing-ind span { width: 5px; height: 5px; border-radius: 50%; background: var(--violet-light); animation: td 1.4s infinite; }
+    .typing-ind span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-ind span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes td { 0%,60%,100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+
+    /* QUICK JUMP PILLS */
+    .quick-jumps {
+      display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.25rem; justify-content: flex-start;
+    }
+    .quick-jump {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.4rem 0.85rem; border-radius: 100px;
+      background: rgba(124,58,237,0.05); border: 1px solid rgba(124,58,237,0.15);
+      color: var(--text); font-size: 0.75rem; font-weight: 500;
+      text-decoration: none; transition: all 0.2s; cursor: pointer;
+    }
+    .quick-jump:hover { border-color: var(--violet); color: var(--white); background: rgba(124,58,237,0.1); }
+
+    /* SCROLL INDICATOR */
+    .scroll-hint {
+      position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+      color: var(--text-muted); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.05em;
+      animation: scrollFade 2.5s ease-in-out infinite; cursor: pointer; text-decoration: none;
+    }
+    .scroll-hint svg { animation: scrollBounce 2.5s ease-in-out infinite; }
+    @keyframes scrollBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+    @keyframes scrollFade { 0%,100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+
+    /* CONNECT BAR */
+    .connect-bar {
+      position: relative; z-index: 1;
+      padding: 3rem 2rem;
+      background: linear-gradient(180deg, rgba(17,15,36,0.8), var(--bg));
+      border-top: 1px solid var(--border-light);
+    }
+    .connect-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .connect-inner h2 {
+      font-family: 'Space Grotesk'; font-size: 1.5rem; font-weight: 700;
+      margin-bottom: 0.5rem; letter-spacing: -0.02em;
+    }
+    .connect-inner p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .nl-form {
+      display: flex; gap: 0.5rem; max-width: 440px; margin: 0 auto 1.75rem;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .nl-form input {
+      flex: 1; min-width: 200px; padding: 0.7rem 1rem; border-radius: 100px;
+      border: 1px solid var(--border); background: var(--card); color: var(--white);
+      font-size: 0.85rem; font-family: inherit; outline: none;
+    }
+    .nl-form input:focus { border-color: var(--violet); }
+    .nl-form input::placeholder { color: var(--text-muted); }
+    .nl-form button {
+      padding: 0.7rem 1.5rem; border-radius: 100px; background: var(--gradient);
+      color: white; font-weight: 600; font-size: 0.85rem; border: none; cursor: pointer; font-family: inherit;
+      box-shadow: 0 4px 16px rgba(124,58,237,0.2);
+    }
+    .nl-form button:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(124,58,237,0.3); }
+    .nl-note { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.25rem; margin-bottom: 1.5rem; }
+    .channel-row { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+    .channel-pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 1rem; border-radius: 100px;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--text); font-size: 0.78rem; font-weight: 500;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .channel-pill:hover { border-color: var(--violet); color: var(--white); background: var(--card-hover); }
+    .channel-pill .ch-icon { font-size: 1rem; }
+
+    /* THREE DOORS */
+    .three-doors {
+      position: relative; z-index: 1;
+      padding: 5rem 2rem;
+    }
+    .doors-inner { max-width: 1100px; margin: 0 auto; }
+    .doors-header { text-align: center; margin-bottom: 3rem; }
+    .section-label {
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em;
+      font-weight: 600; margin-bottom: 0.6rem;
+      background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    .section-title {
+      font-family: 'Space Grotesk'; font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700; margin-bottom: 0.6rem; line-height: 1.15; letter-spacing: -0.02em;
+    }
+    .section-sub { font-size: 0.9rem; color: var(--text-muted); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+    .doors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .door {
+      background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+      padding: 2rem 1.5rem; transition: all 0.35s; position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .door::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient); opacity: 0; transition: opacity 0.3s; }
+    .door:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-4px); background: var(--card-hover); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .door:hover::before { opacity: 1; }
+    .door-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .door-label {
+      font-family: 'JetBrains Mono'; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--cyan-light); margin-bottom: 0.5rem;
+    }
+    .door h3 { font-family: 'Space Grotesk'; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    .door p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem; flex: 1; }
+    .door-items { list-style: none; margin-bottom: 1.5rem; }
+    .door-items li {
+      font-size: 0.78rem; color: var(--text); padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border-light);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .door-items li:last-child { border: none; }
+    .door-items li::before { content: '→'; color: var(--violet-light); font-size: 0.7rem; }
+    .door-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+      padding: 0.65rem 1.25rem; border-radius: 100px; font-size: 0.82rem; font-weight: 600;
+      text-decoration: none; transition: all 0.25s; font-family: inherit; border: none; cursor: pointer;
+      margin-top: auto;
+    }
+    .door-btn-primary { background: var(--gradient); color: white; box-shadow: 0 4px 16px rgba(124,58,237,0.2); }
+    .door-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(124,58,237,0.3); }
+    .door-btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.1); }
+    .door-btn-ghost:hover { border-color: var(--violet); background: rgba(124,58,237,0.06); }
+
+    /* PROOF BAR */
+    .proof-bar {
+      padding: 1.75rem 2rem; position: relative; z-index: 1;
+      border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);
+    }
+    .proof-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;
+    }
+    .proof-item strong { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); }
+    .proof-div { width: 1px; height: 20px; background: var(--border-light); }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; position: relative; z-index: 1; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+
+    /* GEO GPT CALLOUT */
+    .geo-callout {
+      position: relative; z-index: 1; padding: 0 2rem;
+    }
+    .geo-card {
+      max-width: 900px; margin: 0 auto; position: relative;
+      background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(6,182,212,0.08));
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 24px; padding: 3rem; overflow: hidden; text-align: center;
+    }
+    .geo-glow1 { position: absolute; top: -50%; left: -20%; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(124,58,237,0.15), transparent 70%); filter: blur(60px); pointer-events: none; }
+    .geo-glow2 { position: absolute; bottom: -40%; right: -15%; width: 350px; height: 350px; border-radius: 50%; background: radial-gradient(circle, rgba(6,182,212,0.12), transparent 70%); filter: blur(60px); pointer-events: none; }
+    .geo-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.8rem;
+      border-radius: 100px; background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.2);
+      font-size: 0.68rem; font-weight: 600; color: var(--cyan-light);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.25rem;
+    }
+    .geo-features {
+      display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .geo-feat {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px; padding: 0.6rem 1rem;
+    }
+    .geo-feat-icon { font-size: 1.25rem; }
+    .geo-feat-title { font-size: 0.78rem; font-weight: 600; color: var(--white); }
+    .geo-feat-sub { font-size: 0.65rem; color: var(--text-muted); }
+
+    /* THESIS SECTION */
+    .thesis { position: relative; z-index: 1; padding: 5rem 2rem; }
+    .thesis-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    .thesis-stack {
+      display: flex; flex-direction: column; gap: 0; margin: 2.5rem auto; max-width: 500px;
+    }
+    .thesis-layer {
+      display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.5rem;
+      background: var(--card); border: 1px solid var(--border); position: relative;
+    }
+    .thesis-layer:first-child { border-radius: 14px 14px 0 0; }
+    .thesis-layer:last-child { border-radius: 0 0 14px 14px; }
+    .thesis-layer:not(:last-child) { border-bottom: none; }
+    .thesis-num {
+      font-family: 'Space Grotesk'; font-size: 1.5rem; font-weight: 700;
+      background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      min-width: 30px;
+    }
+    .thesis-layer-text { text-align: left; }
+    .thesis-layer-title { font-family: 'Space Grotesk'; font-size: 0.95rem; font-weight: 600; color: var(--white); }
+    .thesis-layer-sub { font-size: 0.75rem; color: var(--text-muted); }
+    .thesis-arrow {
+      text-align: center; color: var(--violet-light); font-size: 0.7rem; padding: 0.15rem 0;
+      background: var(--card); border-left: 1px solid var(--border); border-right: 1px solid var(--border);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .testimonial-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+      padding: 1.75rem 2rem; position: relative;
+    }
+    .testimonial-quote {
+      font-size: 2.5rem; line-height: 1; color: var(--violet); opacity: 0.3;
+      position: absolute; top: 0.75rem; left: 1.25rem;
+    }
+    .testimonial-text {
+      font-size: 0.92rem; color: var(--white); line-height: 1.75; font-style: italic;
+      margin-bottom: 1rem; padding-top: 0.75rem;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testimonial-av {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--gradient);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 700; color: white;
+    }
+    .testimonial-name { font-size: 0.82rem; font-weight: 600; color: var(--white); }
+    .testimonial-role { font-size: 0.7rem; color: var(--text-muted); }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3.5rem; align-items: start; }
+    .about-text h2 { font-family: 'Space Grotesk'; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.15; letter-spacing: -0.02em; }
+    .about-text p { color: var(--text); font-size: 0.88rem; line-height: 1.75; margin-bottom: 0.75rem; }
+    .coined { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-light); }
+    .coined h4 { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .tag { font-family: 'JetBrains Mono'; font-size: 0.62rem; padding: 0.25rem 0.6rem; border-radius: 5px; background: rgba(124,58,237,0.06); border: 1px solid var(--border); color: var(--violet-light); }
+    .stat-cards { display: flex; flex-direction: column; gap: 0.75rem; }
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 0.9rem 1rem; display: flex; align-items: center; gap: 0.8rem;
+    }
+    .stat-num { font-family: 'Space Grotesk'; font-size: 1.5rem; font-weight: 700; min-width: 50px; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-text { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+
+    /* CTA */
+    .cta { text-align: center; padding: 5rem 2rem; }
+    .cta h2 { font-family: 'Space Grotesk'; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .cta p { color: var(--text-muted); font-size: 0.95rem; max-width: 420px; margin: 0 auto 1.5rem; }
+    .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gradient); color: white; padding: 0.75rem 1.5rem; border-radius: 100px;
+      font-weight: 600; font-size: 0.88rem; text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,58,237,0.35); }
+    .btn-ghost {
+      background: transparent; color: var(--white); padding: 0.75rem 1.5rem; border-radius: 100px;
+      font-weight: 500; font-size: 0.88rem; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--violet); background: rgba(124,58,237,0.06); }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    footer p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
+    @media (max-width: 900px) {
+      .hero-top { grid-template-columns: 1fr; text-align: center; }
+      .twin-col { order: -1; }
+      .hero-sub { margin: 0 auto 1.25rem; }
+      .doors-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      section, .three-doors, .thesis { padding: 3.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-mesh"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <nav>
+    <a href="#" class="nav-logo">ask<span>Sarah</span>.ai</a>
+    <div class="nav-links">
+      <a href="#content-hub">Content</a>
+      <a href="#about">About</a>
+      <a href="https://www.linkedin.com/newsletters/pr-ctical-linkedin-edition-7389663104709779456/" target="_blank" class="nav-cta">Subscribe</a>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#paths" onclick="document.getElementById('mobileMenu').classList.remove('open')">How to Work With Me</a>
+    <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+    <a href="#connect" onclick="document.getElementById('mobileMenu').classList.remove('open')">Subscribe to PR@ctical</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HERO: Twin + Chat                          -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div class="twin-col">
+          <div class="twin-glow"></div>
+          <div class="twin-orbit orb-a"><div class="orb-dot"></div></div>
+          <div class="twin-orbit orb-b"><div class="orb-dot"></div></div>
+          <div class="twin-circle"><img src="sarah-nobg.png" alt="Sarah Evans"></div>
+          <div class="twin-name">Sarah Evans</div>
+          <div class="twin-title">AI Strategist · Partner, Zen Media</div>
+          <div class="twin-status"><span class="sdot"></span> Digital twin online</div>
+          <div class="twin-voice">
+            <div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div>
+          </div>
+
+        </div>
+        <div class="chat-col">
+          <h1 class="hero-headline">The go-to source for <span class="gradient-text">AI + business.</span></h1>
+          <p class="hero-sub">I help companies navigate the AI economy — from how AI sees you, to how it works for you, to how it sells for you. Ask my digital twin anything to start.</p>
+          <div class="chat-box">
+            <div class="chat-head">
+              <div class="chat-av">SE</div>
+              <div>
+                <div class="chat-head-name">Sarah's Digital Twin</div>
+                <div class="chat-head-sub"><span class="sdot"></span> Ready to chat</div>
+              </div>
+            </div>
+            <div class="chat-msgs" id="chatMessages">
+              <div class="cmsg bot"><div class="cbub bot-b">Hey 👋 I'm Sarah's digital twin. I know a lot about how AI is reshaping business — visibility, workflows, commerce, communications. Ask me something real and I'll teach you what I've learned.</div></div>
+            </div>
+            <div class="chat-suggs" id="chatSuggestions">
+              <button class="chat-sugg" onclick="askQ(this.textContent)">What is The Before Layer?</button>
+              <button class="chat-sugg" onclick="askQ(this.textContent)">How is this different from SEO?</button>
+              <button class="chat-sugg" onclick="askQ(this.textContent)">Where do I start?</button>
+              <button class="chat-sugg" onclick="askQ(this.textContent)">Does this actually work?</button>
+            </div>
+            <form class="chat-input" id="chatForm">
+              <input type="text" id="chatInput" placeholder="Ask Sarah anything..." autocomplete="off">
+              <button type="submit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+            </form>
+          </div>
+          <!-- FREE TOOLS + LINKS under chat -->
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem;">
+            <a href="https://chatgpt.com/g/g-6904a060fd8c8191bf5cdbc82571fee9-ai-visibility-engine-geo" target="_blank" class="quick-jump">🎯 Try GEO GPT</a>
+            <a href="https://chatgpt.com/g/g-68d694bd670c8191a38c11b6d509c31f-genai-press-release-builder-from-zen-media" target="_blank" class="quick-jump">📰 Press Release Builder</a>
+            <a href="https://www.linkedin.com/newsletters/pr-ctical-linkedin-edition-7389663104709779456/" target="_blank" class="quick-jump">📧 PR@ctical Newsletter</a>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.35rem;">
+            <a href="#content-hub" class="quick-jump" onclick="document.getElementById('content-hub').scrollIntoView({behavior:'smooth'});return false;">📚 Content Hub</a>
+            <a href="https://www.zenmedia.com" target="_blank" class="quick-jump">🚀 Zen Media</a>
+            <a href="https://github.com/sarahevansai" target="_blank" class="quick-jump">🐙 GitHub</a>
+            <a href="#about" class="quick-jump" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'});return false;">👋 About</a>
+          </div>
+        </div>
+      </div>
+      <a href="#connect" class="scroll-hint" onclick="document.getElementById('connect').scrollIntoView({behavior:'smooth'});return false;">
+        More to explore
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- CONNECT — newsletter + channels             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="connect-bar" id="connect">
+    <div class="connect-inner">
+      <h2>Stay in the loop.</h2>
+      <p>Get PR@ctical every Monday — AI-era strategy for comms, marketing, and business leaders.</p>
+      <a href="https://www.linkedin.com/newsletters/pr-ctical-linkedin-edition-7389663104709779456/" target="_blank" class="btn-primary" style="text-decoration: none; font-family: inherit; font-size: 1rem; padding: 0.8rem 2rem; display: inline-block; margin-bottom: 1rem;">Subscribe on LinkedIn →</a>
+      <p class="nl-note" style="margin-top: 0; margin-bottom: 1.5rem;">Free forever · Every Monday · Subscribe on LinkedIn</p>
+      <div class="channel-row">
+        <a href="https://www.linkedin.com/in/prsarahevans" class="channel-pill" target="_blank"><span class="ch-icon">💼</span> LinkedIn</a>
+        <a href="https://x.com/prsarahevans" class="channel-pill" target="_blank"><span class="ch-icon">𝕏</span> Twitter / X</a>
+        <a href="#" class="channel-pill"><span class="ch-icon">▶️</span> YouTube</a>
+        <a href="https://stan.store/asksarahevans" class="channel-pill" target="_blank"><span class="ch-icon">🛍️</span> Stan Store</a>
+        <a href="https://github.com/sarahevansai" class="channel-pill" target="_blank"><span class="ch-icon">🐙</span> GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- THE THESIS — three layers of AI             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="thesis">
+    <div class="thesis-inner">
+      <div class="section-label">The Thesis</div>
+      <h2 class="section-title">AI is reshaping business in <span class="gradient-text">three layers.</span></h2>
+      <p class="section-sub">Most companies are stuck on layer one. I help you see — and capture — all three.</p>
+
+      <div class="thesis-stack">
+        <div class="thesis-layer">
+          <div class="thesis-num">1</div>
+          <div class="thesis-layer-text">
+            <div class="thesis-layer-title">Be seen by AI</div>
+            <div class="thesis-layer-sub">Visibility — show up in AI-generated answers, recommendations, and search</div>
+          </div>
+        </div>
+        <div class="thesis-arrow">▼</div>
+        <div class="thesis-layer">
+          <div class="thesis-num">2</div>
+          <div class="thesis-layer-text">
+            <div class="thesis-layer-title">Be powered by AI</div>
+            <div class="thesis-layer-sub">Workflows — internal ops, automation, agents, and AI-native processes</div>
+          </div>
+        </div>
+        <div class="thesis-arrow">▼</div>
+        <div class="thesis-layer">
+          <div class="thesis-num">3</div>
+          <div class="thesis-layer-text">
+            <div class="thesis-layer-title">Be sold by AI</div>
+            <div class="thesis-layer-sub">Commerce — agentic transactions, AI-native buying, and the agent economy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- proof bar removed -->
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- CONTENT HUB — all resources in one place    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="content-hub" style="padding: 4rem 2rem;">
+    <div class="container" style="max-width: 1100px; margin: 0 auto;">
+      <div class="section-header" style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="section-label">Content Hub</div>
+        <h2 class="section-title">Everything I'm building, <span class="gradient-text">all in one place.</span></h2>
+        <p style="color: var(--text); max-width: 600px; margin: 0.75rem auto 0; font-size: 0.95rem; line-height: 1.6;">Columns, newsletters, live shows, free tools, and trainings. No paywalls on the knowledge — just on the done-for-you execution.</p>
+      </div>
+
+      <!-- CONTENT GRID -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
+
+        <!-- PR@ctical Newsletter -->
+        <a href="https://www.linkedin.com/newsletters/pr-ctical-linkedin-edition-7389663104709779456/" target="_blank" style="text-decoration: none; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: all 0.2s; display: block;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.5rem;">📧</span>
+            <div>
+              <div style="font-weight: 700; color: var(--white); font-size: 1rem;">PR@ctical</div>
+              <div style="font-size: 0.75rem; color: var(--violet-light);">Weekly Newsletter · LinkedIn</div>
+            </div>
+          </div>
+          <p style="color: var(--text); font-size: 0.85rem; line-height: 1.5; margin: 0;">Your executive brief on what's next for comms and visibility. Every Monday. The playbook is changing — this keeps you current.</p>
+        </a>
+
+        <!-- The Visibility Equation -->
+        <a href="https://www.linkedin.com/in/prsarahevans" target="_blank" style="text-decoration: none; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: all 0.2s; display: block;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.5rem;">🎙️</span>
+            <div>
+              <div style="font-weight: 700; color: var(--white); font-size: 1rem;">The Visibility Equation</div>
+              <div style="font-size: 0.75rem; color: var(--cyan-light);">Live Show · Every Other Week</div>
+            </div>
+          </div>
+          <p style="color: var(--text); font-size: 0.85rem; line-height: 1.5; margin: 0;">Live on LinkedIn + YouTube. Real frameworks, real conversations about AI visibility, PR, and the future of discovery. Broadcasts via StreamYard.</p>
+        </a>
+
+        <!-- HackerNoon Column -->
+        <a href="https://hackernoon.com/u/sarahevans" target="_blank" style="text-decoration: none; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: all 0.2s; display: block;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.5rem;">💚</span>
+            <div>
+              <div style="font-weight: 700; color: var(--white); font-size: 1rem;">HackerNoon Column</div>
+              <div style="font-size: 0.75rem; color: var(--violet-light);">Top Writer · Deep Dives</div>
+            </div>
+          </div>
+          <p style="color: var(--text); font-size: 0.85rem; line-height: 1.5; margin: 0;">Long-form pieces on AI visibility, The Before Layer, press releases in the AI age, and why your brand mention is now your backlink.</p>
+        </a>
+
+        <!-- Solutions Review -->
+        <a href="https://solutionsreview.com" target="_blank" style="text-decoration: none; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: all 0.2s; display: block;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.5rem;">📊</span>
+            <div>
+              <div style="font-weight: 700; color: var(--white); font-size: 1rem;">Solutions Review</div>
+              <div style="font-size: 0.75rem; color: var(--cyan-light);">Contributor · Industry Analysis</div>
+            </div>
+          </div>
+          <p style="color: var(--text); font-size: 0.85rem; line-height: 1.5; margin: 0;">Expert insights on marketing technology, GEO strategy, and how AI is reshaping the competitive landscape for brands.</p>
+        </a>
+
+        <!-- Stan Store -->
+        <a href="https://stan.store/asksarahevans" target="_blank" style="text-decoration: none; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: all 0.2s; display: block;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.5rem;">🛍️</span>
+            <div>
+              <div style="font-weight: 700; color: var(--white); font-size: 1rem;">Trainings & Workshops</div>
+              <div style="font-size: 0.75rem; color: var(--violet-light);">Stan Store · On-Demand</div>
+            </div>
+          </div>
+          <p style="color: var(--text); font-size: 0.85rem; line-height: 1.5; margin: 0;">Generative Search Playbook, team trainings, virtual sessions, and deep-dive guides. Hands-on, tactical, no theory fluff.</p>
+        </a>
+
+      </div>
+
+      <!-- FREE TOOLS ROW -->
+      <div style="margin-top: 2rem;">
+        <h3 style="font-family: 'Space Grotesk'; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; text-align: center;">🛠️ Free Tools — Try Them Now</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+          
+          <div style="background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(6,182,212,0.05)); border: 1px solid rgba(124,58,237,0.2); border-radius: var(--radius); padding: 1.5rem; text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎯</div>
+            <h4 style="font-family: 'Space Grotesk'; font-weight: 700; color: var(--white); margin-bottom: 0.5rem;">AI Visibility Engine (GEO GPT)</h4>
+            <p style="color: var(--text); font-size: 0.8rem; line-height: 1.5; margin-bottom: 1rem;">Audit how AI sees your brand. Uses Answer Share™ and Prompt Discovery Index™.</p>
+            <a href="https://chatgpt.com/g/g-6904a060fd8c8191bf5cdbc82571fee9-ai-visibility-engine-geo" target="_blank" class="btn-primary" style="text-decoration: none; font-family: inherit; font-size: 0.85rem; padding: 0.6rem 1.5rem; display: inline-block;">Launch GEO GPT →</a>
+          </div>
+
+          <div style="background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(124,58,237,0.05)); border: 1px solid rgba(6,182,212,0.2); border-radius: var(--radius); padding: 1.5rem; text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📰</div>
+            <h4 style="font-family: 'Space Grotesk'; font-weight: 700; color: var(--white); margin-bottom: 0.5rem;">GenAI Press Release Builder</h4>
+            <p style="color: var(--text); font-size: 0.8rem; line-height: 1.5; margin-bottom: 1rem;">Write press releases AI actually cites. Entity-first, machine-readable structure.</p>
+            <a href="https://chatgpt.com/g/g-68d694bd670c8191a38c11b6d509c31f-genai-press-release-builder-from-zen-media" target="_blank" class="btn-primary" style="text-decoration: none; font-family: inherit; font-size: 0.85rem; padding: 0.6rem 1.5rem; display: inline-block; background: linear-gradient(135deg, #06b6d4, #7c3aed);">Try Press Release Builder →</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CHALLENGE BOX -->
+      <div style="margin-top: 2.5rem; background: linear-gradient(135deg, rgba(236,72,153,0.06), rgba(124,58,237,0.06)); border: 1px solid rgba(236,72,153,0.15); border-radius: var(--radius); padding: 2rem; text-align: center;">
+        <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
+        <h3 style="font-family: 'Space Grotesk'; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; font-size: 1.3rem;">Challenge me.</h3>
+        <p style="color: var(--text); font-size: 0.9rem; line-height: 1.6; max-width: 550px; margin: 0 auto 1.25rem;">Tell me your biggest workflow pain point. I've been vibe coding solutions — building tools in hours that used to take weeks. If your problem is interesting enough, I might build something for it.</p>
+        <a href="mailto:sarah@evans-global.com?subject=Challenge%20Accepted%3A%20Here%27s%20My%20Biggest%20Pain%20Point&body=Hey%20Sarah%2C%0A%0AI%20saw%20your%20challenge%20on%20askSarah.ai%20and%20I%27m%20taking%20you%20up%20on%20it.%0A%0AMy%20biggest%20workflow%20pain%20point%3A%0A%5BDescribe%20your%20pain%20point%20here%5D%0A%0AWhat%20I%27ve%20tried%20so%20far%3A%0A%5BAnything%20you%27ve%20attempted%5D%0A%0AThanks%2C%0A%5BYour%20name%5D" class="btn-primary" style="text-decoration: none; font-family: inherit; font-size: 0.9rem; padding: 0.7rem 2rem; display: inline-block;">Send Me Your Pain Point →</a>
+      </div>
+
+      <!-- WORK WITH US — compact -->
+      <div style="margin-top: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+        <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
+          <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🎓</div>
+          <h4 style="font-family: 'Space Grotesk'; font-weight: 700; color: var(--white); margin-bottom: 0.5rem;">Learn With Me</h4>
+          <p style="color: var(--text); font-size: 0.8rem; line-height: 1.5; margin-bottom: 0.75rem;">Keynotes, team trainings, virtual sessions. I come to your team and make AI visibility practical.</p>
+          <a href="https://stan.store/asksarahevans" target="_blank" style="color: var(--violet-light); font-size: 0.85rem; font-weight: 600; text-decoration: none;">Browse options →</a>
+        </div>
+        <div style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem;">
+          <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🚀</div>
+          <h4 style="font-family: 'Space Grotesk'; font-weight: 700; color: var(--white); margin-bottom: 0.5rem;">Work With Zen Media</h4>
+          <p style="color: var(--text); font-size: 0.8rem; line-height: 1.5; margin-bottom: 0.75rem;">Published Monthly™, GEO strategy, AI visibility engines. The agency behind the frameworks.</p>
+          <a href="https://www.zenmedia.com" target="_blank" style="color: var(--cyan-light); font-size: 0.85rem; font-weight: 600; text-decoration: none;">Visit Zen Media →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TESTIMONIALS                                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">What People Say</div>
+        <h2 class="section-title">The results speak.</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">In about 5 minutes you dropped thousands of dollars in value in how to be recognized by AI and returned in results. I am still stunned.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-av">AB</div>
+            <div>
+              <div class="testimonial-name">Ann Byington</div>
+              <div class="testimonial-role">Product Manager & Pricing Expert</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">Sarah's content is living in 2030 and that's the point. Most communications professionals are moving launch to launch thinking a quarter out. Sarah is thinking ahead with practical tips to how our industry is moving into the next decade.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-av">💬</div>
+            <div>
+              <div class="testimonial-name">LinkedIn Endorsement</div>
+              <div class="testimonial-role">Communications Professional</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">If there's one thing everyone on PR LinkedIn seems to agree on, it's that Sarah is leading the industry on AI. She's absolutely saying almost everything first in the most value-add way, in such detail that anyone can take the information and use it.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-av">💬</div>
+            <div>
+              <div class="testimonial-name">LinkedIn Endorsement</div>
+              <div class="testimonial-role">PR Firm Owner</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">Sarah is always in tune with what is happening in the AI — PR/Comms industry as it is today for business leaders to implement and action on today, no fluff just follow the leader.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-av">💬</div>
+            <div>
+              <div class="testimonial-name">LinkedIn Endorsement</div>
+              <div class="testimonial-role">Business Leader</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ABOUT                                       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-label">About</div>
+          <h2>Building at the intersection of AI and business.</h2>
+          <p>Nearly two decades in communications — from traditional PR to the AI-native era. Named one of the 100 Most Influential PR Professionals for three consecutive years. Regular tech contributor for CBS Las Vegas and top writer on HackerNoon.</p>
+          <p>I created the frameworks that organizations from startups to Fortune 100 teams use to navigate AI-driven visibility. Now I'm building what's next: AI workflows, agentic commerce, and the systems that will power business in the AI economy.</p>
+          <div class="coined">
+            <h4>Coined & Created</h4>
+            <div class="tags">
+              <span class="tag">Answer Share™</span><span class="tag">Dual Pathway PR™</span>
+              <span class="tag">Generative Search Visibility™</span><span class="tag">GenAI Wire™</span>
+              <span class="tag">AVOS™</span><span class="tag">Prompt Discovery Index™</span>
+            </div>
+          </div>
+        </div>
+        <div class="stat-cards">
+          <div class="stat-card"><div class="stat-num">3×</div><div class="stat-text">Propel 100 Most Influential PR Pros</div></div>
+          <div class="stat-card"><div class="stat-num">500+</div><div class="stat-text">Media placements per year</div></div>
+          <div class="stat-card"><div class="stat-num">32K</div><div class="stat-text">LinkedIn followers</div></div>
+          <div class="stat-card"><div class="stat-num">📺</div><div class="stat-text">CBS Las Vegas tech contributor</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- CTA                                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="cta">
+    <h2>Ready to navigate the <span class="gradient-text">AI economy</span>?</h2>
+    <p>Ask the twin. Learn the frameworks. Or bring in the team.</p>
+    <div class="cta-btns">
+      <a href="https://www.zenmedia.com" target="_blank" class="btn-primary">Work With Us</a>
+      <a href="https://stan.store/asksarahevans" class="btn-ghost" target="_blank">Browse Trainings</a>
+      <a href="#" class="btn-ghost" onclick="window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>document.querySelector('#chatInput').focus(),600);return false;">Ask My Twin</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a>
+        <a href="https://x.com/prsarahevans" target="_blank">X</a>
+        <a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a>
+        <a href="https://github.com/sarahevansai" target="_blank">GitHub</a>
+        <a href="https://www.zenmedia.com" target="_blank">Zen Media</a>
+        <a href="mailto:sarah@zenmedia.com">Contact</a>
+      </div>
+      <p>&copy; 2026 Sarah Evans. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // CHAT ENGINE v3 — Gemini-powered, 10-question limit per session
+    let msgCount = 0;
+    let chatHistory = [];
+    const MAX_QUESTIONS = 10;
+
+    const starters = [
+      "Your brand has a new homepage. And you didn't build it. It's whatever ChatGPT, Gemini, and Perplexity say about you when someone asks.\n\nI've been calling this The Before Layer. The AI-generated answer people see before they ever click a link or visit your site. It exists whether you're managing it or not.\n\nMost companies haven't even checked. The ones that have are usually shocked.\n\nWhat are you working on? I can get specific if I know your world.",
+      "Here's the thing. The companies winning in the AI economy aren't using the most AI tools. They're redesigning their businesses to be AI-native.\n\nThree layers: how you get discovered, how you operate, how you sell. Most people are still in the 'which chatbot should I use?' phase.\n\nWhat's your world?",
+    ];
+
+    let currentAudio = null;
+
+    function addMsg(text, type) {
+      const m = document.getElementById('chatMessages');
+      const w = document.createElement('div');
+      w.className = `cmsg ${type}`;
+      const b = document.createElement('div');
+      b.className = `cbub ${type === 'bot' ? 'bot-b' : 'user-b'}`;
+      if (type === 'bot') {
+        b.innerHTML = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      } else {
+        b.textContent = text;
+      }
+      w.appendChild(b);
+      if (type === 'bot') {
+        const btn = document.createElement('button');
+        btn.className = 'listen-btn';
+        btn.innerHTML = '🔊 Listen';
+        btn.onclick = () => playTTS(text, btn);
+        w.appendChild(btn);
+      }
+      m.appendChild(w);
+      m.scrollTop = m.scrollHeight;
+    }
+
+    async function playTTS(text, btn) {
+      // Stop any currently playing audio
+      if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+      // If this button was playing, just stop
+      if (btn.classList.contains('playing')) {
+        btn.classList.remove('playing');
+        btn.innerHTML = '🔊 Listen';
+        return;
+      }
+      // Reset all other buttons
+      document.querySelectorAll('.listen-btn.playing').forEach(b => {
+        b.classList.remove('playing'); b.innerHTML = '🔊 Listen';
+      });
+      btn.disabled = true; btn.innerHTML = '⏳ Loading...';
+      try {
+        const resp = await fetch('/api/tts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text })
+        });
+        if (!resp.ok) throw new Error('TTS failed');
+        const blob = await resp.blob();
+        const url = URL.createObjectURL(blob);
+        currentAudio = new Audio(url);
+        btn.disabled = false; btn.classList.add('playing'); btn.innerHTML = '⏸️ Playing...';
+        currentAudio.play();
+        currentAudio.onended = () => {
+          btn.classList.remove('playing'); btn.innerHTML = '🔊 Listen';
+          currentAudio = null; URL.revokeObjectURL(url);
+        };
+      } catch (e) {
+        btn.disabled = false; btn.innerHTML = '🔊 Listen';
+        console.error('TTS error:', e);
+      }
+    }
+
+    function showFollowUps() {
+      const s = document.getElementById('chatSuggestions');
+      s.innerHTML = '';
+      if (msgCount >= MAX_QUESTIONS) return;
+      const topics = [
+        'What is The Before Layer?',
+        'How is this different from SEO?',
+        'What is agentic commerce?',
+        'Tell me about Answer Share™',
+        'How is PR changing?',
+        'Where do I start?',
+        "What's the PRCR framework?",
+        "What's the 90-day system?",
+        'How long does it take to see results?',
+        'Can small companies compete with big brands?',
+        'What makes your approach different?',
+        'What if AI says something wrong about my brand?',
+        'Tell me about Dual Pathway PR',
+        'Does this actually work?'
+      ];
+      const picks = topics.sort(() => Math.random() - 0.5).slice(0, 4);
+      picks.forEach(t => {
+        const btn = document.createElement('button');
+        btn.className = 'chat-sugg';
+        btn.textContent = t;
+        btn.onclick = () => askQ(t);
+        s.appendChild(btn);
+      });
+    }
+
+    function showTyping() {
+      const m = document.getElementById('chatMessages');
+      const typing = document.createElement('div');
+      typing.className = 'cmsg bot';
+      typing.id = 'typing-indicator';
+      typing.innerHTML = '<div class="typing-ind"><span></span><span></span><span></span></div>';
+      m.appendChild(typing);
+      m.scrollTop = m.scrollHeight;
+    }
+
+    function hideTyping() {
+      const el = document.getElementById('typing-indicator');
+      if (el) el.remove();
+    }
+
+    function showCounter() {
+      const remaining = MAX_QUESTIONS - msgCount;
+      let counter = document.getElementById('question-counter');
+      if (!counter) {
+        counter = document.createElement('div');
+        counter.id = 'question-counter';
+        counter.style.cssText = 'text-align:center;font-size:0.7rem;color:var(--text-muted);padding:4px 0;';
+        const form = document.getElementById('chatForm');
+        form.parentNode.insertBefore(counter, form);
+      }
+      if (remaining <= 3 && remaining > 0) {
+        counter.textContent = `${remaining} question${remaining === 1 ? '' : 's'} remaining`;
+      } else if (remaining <= 0) {
+        counter.textContent = 'Session complete — thanks for chatting!';
+        document.getElementById('chatInput').disabled = true;
+        document.getElementById('chatInput').placeholder = 'Session complete';
+      } else {
+        counter.textContent = '';
+      }
+    }
+
+    async function askQ(text) {
+      if (msgCount >= MAX_QUESTIONS) return;
+      
+      addMsg(text, 'user');
+      document.getElementById('chatSuggestions').innerHTML = '';
+      
+      // Disable input while waiting
+      const input = document.getElementById('chatInput');
+      input.disabled = true;
+      
+      showTyping();
+
+      // Add to history
+      chatHistory.push({ role: 'user', text: text });
+
+      try {
+        const resp = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: text,
+            history: chatHistory.slice(-8),
+            questionCount: msgCount
+          })
+        });
+
+        const data = await resp.json();
+        hideTyping();
+
+        if (data.error) {
+          addMsg("Something went sideways on my end. Try again in a sec?", 'bot');
+        } else {
+          msgCount++;
+          chatHistory.push({ role: 'model', text: data.reply });
+          addMsg(data.reply, 'bot');
+          showCounter();
+          
+          if (!data.limitReached) {
+            setTimeout(() => showFollowUps(), 300);
+          }
+        }
+      } catch (err) {
+        hideTyping();
+        addMsg("Connection hiccup. Give it another shot?", 'bot');
+      }
+
+      input.disabled = false;
+      input.focus();
+    }
+
+    // Initial greeting
+    setTimeout(() => {
+      const greeting = starters[Math.floor(Math.random() * starters.length)];
+      addMsg(greeting, 'bot');
+      setTimeout(() => showFollowUps(), 300);
+    }, 800);
+
+    document.getElementById('chatForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      askQ(text);
+    });
+  </script>
+
+</body>
+</html>

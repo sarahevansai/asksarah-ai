@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://asksarah.ai/og-image.png">
+  <title>PR@ctical Newsletter — askSarah.ai | AI Visibility & Modern PR</title>
+  <meta name="description" content="PR@ctical: Your executive brief on AI visibility, modern PR, and what's actually working right now. Free weekly newsletter from Sarah Evans.">
+  <meta property="og:title" content="PR@ctical Newsletter — askSarah.ai">
+  <meta property="og:description" content="Your executive brief on AI visibility, modern PR, and what's actually working right now. Free weekly from Sarah Evans.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/newsletter">
+  <link rel="canonical" href="https://asksarah.ai/newsletter">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838;
+      --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f;
+      --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(124,58,237,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(6,182,212,0.07); animation: o2 25s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border: none; }
+
+    .section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 0.6rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+    .section-title { font-family: 'Space Grotesk'; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 0.6rem; line-height: 1.15; letter-spacing: -0.02em; }
+
+    .page-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+
+    /* HERO */
+    .nl-hero { text-align: center; margin-bottom: 4rem; }
+    .nl-hero h1 { font-family: 'Space Grotesk'; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.5rem; }
+    .nl-hero h1 .at { color: var(--cyan); }
+    .nl-hero p { color: var(--text); font-size: 1.05rem; max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.6; }
+
+    /* SUBSCRIBE EMBED */
+    .subscribe-embed { display: flex; justify-content: center; margin-bottom: 4rem; }
+    .subscribe-embed iframe { border-radius: 12px; border: 1px solid var(--border) !important; max-width: 100%; background: var(--card) !important; }
+
+    /* TIERS */
+    .tiers { margin-bottom: 5rem; }
+    .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+    .tier-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 1.5rem; position: relative; overflow: hidden; transition: all 0.2s; }
+    .tier-card:hover { border-color: rgba(124,58,237,0.25); }
+    .tier-card.featured { border-color: var(--violet); }
+    .tier-card.featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient); }
+    .tier-name { font-family: 'Space Grotesk'; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .tier-price { font-size: 0.85rem; color: var(--cyan-light); font-weight: 600; margin-bottom: 1rem; }
+    .tier-features { list-style: none; }
+    .tier-features li { font-size: 0.8rem; color: var(--text); padding: 0.3rem 0; padding-left: 1.2rem; position: relative; line-height: 1.5; }
+    .tier-features li::before { content: '✓'; position: absolute; left: 0; color: var(--violet-light); font-weight: 700; font-size: 0.75rem; }
+    .tier-btn { display: inline-block; margin-top: 1.25rem; padding: 0.55rem 1.2rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; text-decoration: none; transition: all 0.2s; font-family: inherit; }
+    .tier-btn-primary { background: var(--gradient); color: white; box-shadow: 0 4px 16px rgba(124,58,237,0.2); }
+    .tier-btn-primary:hover { transform: translateY(-1px); }
+    .tier-btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.1); }
+    .tier-btn-ghost:hover { border-color: var(--violet); }
+
+    /* SECTIONS BREAKDOWN */
+    .sections-breakdown { margin-bottom: 5rem; }
+    .sections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .section-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; }
+    .section-card h3 { font-family: 'Space Grotesk'; font-size: 0.9rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+    .section-card .badge { display: inline-block; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.15rem 0.4rem; border-radius: 4px; font-weight: 600; margin-left: 0.4rem; vertical-align: middle; }
+    .badge-free { background: rgba(6,182,212,0.15); color: var(--cyan-light); }
+    .badge-paid { background: rgba(124,58,237,0.15); color: var(--violet-light); }
+    .section-card p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* RECENT ISSUES */
+    .recent-issues { margin-bottom: 4rem; }
+    .issues-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .issue-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s; text-decoration: none; }
+    .issue-item:hover { border-color: rgba(124,58,237,0.25); background: var(--card-hover); }
+    .issue-title { font-size: 0.88rem; font-weight: 600; color: var(--white); }
+    .issue-date { font-size: 0.72rem; color: var(--text-muted); flex-shrink: 0; margin-left: 1rem; }
+    .issue-arrow { color: var(--violet-light); font-size: 0.85rem; flex-shrink: 0; margin-left: 0.5rem; }
+    .issues-loading { text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 2rem; }
+    .archive-link { text-align: center; margin-top: 1.5rem; }
+    .archive-link a { color: var(--violet-light); font-family: 'Space Grotesk'; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: color 0.2s; }
+    .archive-link a:hover { color: var(--cyan-light); }
+
+    /* FADE IN */
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
+    @media (max-width: 768px) {
+      .tier-grid { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .page-content { padding: 6rem 1.5rem 3rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+          <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+        </text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="tools.html">Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="speaking.html">Speaking</a>
+      <a href="newsletter.html" class="active">Newsletter</a>
+      <a href="connect.html">Connect</a>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="tools.html">Tools</a>
+    <a href="learn.html">Learn</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="connect.html">Connect</a>
+  </div>
+
+  <div class="page-content">
+
+    <!-- HERO -->
+    <div class="nl-hero">
+      <h1>PR<span class="at">@</span>ctical</h1>
+      <p>Your executive brief on AI visibility, modern PR, and what's actually working right now.</p>
+    </div>
+
+    <!-- SUBSCRIBE EMBED -->
+    <div class="subscribe-embed">
+      <iframe src="https://prsarahevans.substack.com/embed" width="480" height="320" style="border: 1px solid rgba(124,58,237,0.2); background: #16132e;" frameborder="0" scrolling="no"></iframe>
+    </div>
+
+    <!-- FREE CHECKLIST COMPANION -->
+    <div style="margin-bottom: 3rem;">
+      <a href="https://stan.store/asksarahevans/p/ai-visibility-checklist" target="_blank" style="display: block; background: rgba(6,182,212,0.06); border: 2px solid rgba(6,182,212,0.25); border-radius: 20px; padding: 1.75rem 2rem; text-decoration: none; text-align: center; transition: all 0.3s; box-shadow: 0 0 20px rgba(6,182,212,0.06);">
+        <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.4rem;"><span style="background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">Free Companion Resource</span></div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #f0eef8; margin-bottom: 0.3rem;">✅ AI Visibility Checklist — 20 Actions You Can Take This Week</div>
+        <div style="font-size: 0.82rem; color: #c4c0d8; margin-bottom: 0.75rem;">Pair this with the newsletter for a complete AI visibility playbook.</div>
+        <span style="display: inline-flex; padding: 0.5rem 1.2rem; border-radius: 100px; font-size: 0.82rem; font-weight: 600; background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a;">Get the Free Checklist →</span>
+      </a>
+    </div>
+
+    <!-- TIERS -->
+    <div class="tiers fade-in">
+      <div style="text-align: center;">
+        <div class="section-label">Choose Your Level</div>
+        <h2 class="section-title">Three ways to <span class="gradient-text">stay ahead.</span></h2>
+      </div>
+      <div class="tier-grid">
+        <div class="tier-card">
+          <div class="tier-name">Free</div>
+          <div class="tier-price">$0 / forever</div>
+          <ul class="tier-features">
+            <li>Weekly newsletter every Monday</li>
+            <li>THE BRIEF — headline stories</li>
+            <li>THE EDIT — what to read, watch, listen to</li>
+            <li>ON AIR — latest episodes</li>
+          </ul>
+          <a href="https://prsarahevans.substack.com/subscribe" target="_blank" class="tier-btn tier-btn-ghost">Subscribe Free →</a>
+        </div>
+        <div class="tier-card featured">
+          <div class="tier-name">Paid</div>
+          <div class="tier-price">$8 / month</div>
+          <ul class="tier-features">
+            <li>Everything in Free</li>
+            <li>THE RECEIPTS — full analysis & data</li>
+            <li>REPORT DROP — industry report breakdowns</li>
+            <li>PLATFORM MOVES — what changed this week</li>
+            <li>HOUSE OF ZEN — insider ops & lessons</li>
+            <li>Monthly trend memo</li>
+            <li>Early access to new tools</li>
+          </ul>
+          <a href="https://prsarahevans.substack.com/subscribe" target="_blank" class="tier-btn tier-btn-primary">Go Paid →</a>
+        </div>
+        <div class="tier-card">
+          <div class="tier-name">Inner Circle</div>
+          <div class="tier-price">$240 / year</div>
+          <ul class="tier-features">
+            <li>Everything in Paid</li>
+            <li>Quarterly live Q&A with Sarah</li>
+            <li>First look at new products & frameworks</li>
+            <li>Annual discount (save vs. monthly)</li>
+          </ul>
+          <a href="https://prsarahevans.substack.com/subscribe" target="_blank" class="tier-btn tier-btn-ghost">Join Inner Circle →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTIONS BREAKDOWN -->
+    <div class="sections-breakdown fade-in">
+      <div style="text-align: center;">
+        <div class="section-label">Inside Each Issue</div>
+        <h2 class="section-title">What you <span class="gradient-text">get.</span></h2>
+      </div>
+      <div class="sections-grid">
+        <div class="section-card">
+          <h3>THE BRIEF <span class="badge badge-free">Free</span></h3>
+          <p>The 3-5 stories that actually matter this week in AI, PR, and business visibility. No filler.</p>
+        </div>
+        <div class="section-card">
+          <h3>THE RECEIPTS <span class="badge badge-paid">Paid</span></h3>
+          <p>The data behind the headlines. Numbers, case studies, and proof that backs up the strategy.</p>
+        </div>
+        <div class="section-card">
+          <h3>REPORT DROP <span class="badge badge-paid">Paid</span></h3>
+          <p>Industry reports broken down into what you need to know. Key takeaways without reading 40 pages.</p>
+        </div>
+        <div class="section-card">
+          <h3>PLATFORM MOVES <span class="badge badge-paid">Paid</span></h3>
+          <p>What changed this week across Google, OpenAI, Meta, LinkedIn, and the platforms that matter. Feature launches, algorithm shifts, policy changes.</p>
+        </div>
+        <div class="section-card">
+          <h3>HOUSE OF ZEN <span class="badge badge-paid">Paid</span></h3>
+          <p>Insider view into how we run Zen Media. Real ops, real tools, real lessons from building in the AI era.</p>
+        </div>
+        <div class="section-card">
+          <h3>THE EDIT <span class="badge badge-free">Free</span></h3>
+          <p>What to read, watch, and listen to this week. Curated picks from across the industry.</p>
+        </div>
+        <div class="section-card">
+          <h3>ON AIR <span class="badge badge-free">Free</span></h3>
+          <p>Latest episodes of The Visibility Equation and other appearances worth catching.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECENT ISSUES -->
+    <div class="recent-issues fade-in">
+      <div style="text-align: center;">
+        <div class="section-label">Latest</div>
+        <h2 class="section-title">Recent <span class="gradient-text">issues.</span></h2>
+      </div>
+      <div class="issues-list" id="issuesList">
+        <div class="issues-loading">Loading recent issues...</div>
+      </div>
+      <div class="archive-link">
+        <a href="https://prsarahevans.substack.com/archive" target="_blank">Browse the full archive →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="tools.html">Tools</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="newsletter.html">Newsletter</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a>
+          <a href="https://github.com/sarahevansai" target="_blank">GitHub</a>
+          <a href="https://t.me/sarahevansai" target="_blank">Telegram</a>
+          <a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a>
+        </div>
+        <div class="footer-col">
+          <h4>Built by Sarah Evans</h4>
+          <a href="https://www.zenmedia.com" target="_blank">Partner at Zen Media</a>
+          <a href="https://hackernoon.com/u/sarahevans" target="_blank">HackerNoon Column</a>
+          <a href="https://x.com/prsarahevans" target="_blank">X / Twitter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="/" class="nav-logo" style="opacity: 0.5;">
+          <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="height: 22px;">
+            <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+              <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+            </text>
+          </svg>
+        </a>
+        <p>&copy; <span id="currentYear"></span> Sarah Evans. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Scroll-triggered fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Fetch recent issues from Substack RSS via a CORS proxy
+    async function loadRecentIssues() {
+      const container = document.getElementById('issuesList');
+      try {
+        // Try fetching RSS directly (works if same-origin or CORS allowed)
+        // Fall back to a public CORS proxy if needed
+        const feedUrl = 'https://prsarahevans.substack.com/feed';
+        let response;
+        try {
+          response = await fetch(feedUrl);
+        } catch {
+          // Try via allorigins proxy
+          response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(feedUrl)}`);
+        }
+
+        if (!response.ok) throw new Error('Feed fetch failed');
+        const text = await response.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(text, 'text/xml');
+        const items = xml.querySelectorAll('item');
+
+        if (items.length === 0) throw new Error('No items');
+
+        container.innerHTML = '';
+        const count = Math.min(items.length, 5);
+        for (let i = 0; i < count; i++) {
+          const item = items[i];
+          const title = item.querySelector('title')?.textContent || 'Untitled';
+          const link = item.querySelector('link')?.textContent || '#';
+          const pubDate = item.querySelector('pubDate')?.textContent;
+          const dateStr = pubDate ? new Date(pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+
+          const a = document.createElement('a');
+          a.className = 'issue-item';
+          a.href = link;
+          a.target = '_blank';
+          a.innerHTML = `
+            <span class="issue-title">${title}</span>
+            <span class="issue-date">${dateStr}</span>
+            <span class="issue-arrow">→</span>
+          `;
+          container.appendChild(a);
+        }
+      } catch (e) {
+        // Fallback: link to archive
+        container.innerHTML = `
+          <a href="https://prsarahevans.substack.com/archive" target="_blank" class="issue-item">
+            <span class="issue-title">View all issues on Substack</span>
+            <span class="issue-arrow">→</span>
+          </a>
+        `;
+      }
+    }
+
+    loadRecentIssues();
+  </script>
+</body>
+</html>

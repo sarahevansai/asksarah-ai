@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://asksarah.ai/og-image.png">
+  <title>Book Sarah Evans — AI Visibility Speaker, Trainer & Host | askSarah.ai</title>
+  <meta name="description" content="Book Sarah Evans for keynotes, workshops, panels, and hosted events on AI visibility, generative search, and the future of PR. 23+ years in communications. 3× Propel 100. Marketing Brew, Ragan, G2 featured.">
+  <meta property="og:title" content="Book Sarah Evans — AI Visibility Speaker & Trainer">
+  <meta property="og:description" content="Keynotes, workshops, panels & hosted events on AI visibility, generative search, and the future of communications. 23+ years. 3× Propel 100.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/speaking">
+  <link rel="canonical" href="https://asksarah.ai/speaking">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sarah Evans",
+    "jobTitle": "Communications Strategist & Technology Builder",
+    "description": "Communications Strategist & Technology Builder. 23+ years in communications. Partner at Zen Media. Creator of The Before Layer™, Published Monthly™, GenAI Wire™. Keynote speaker on AI visibility, generative search, and the future of PR.",
+    "url": "https://asksarah.ai/speaking",
+    "sameAs": ["https://www.linkedin.com/in/prsarahevans", "https://x.com/prsarahevans", "https://hackernoon.com/u/sarahevans"]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838;
+      --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f;
+      --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(124,58,237,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(6,182,212,0.07); animation: o2 25s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border: none; }
+
+    .section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 0.6rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+    .section-title { font-family: 'Space Grotesk'; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 0.6rem; line-height: 1.15; letter-spacing: -0.02em; }
+
+    /* HERO */
+    .hero { position: relative; z-index: 1; padding: 9rem 2rem 4rem; text-align: center; }
+    .hero-inner { max-width: 800px; margin: 0 auto; }
+    .hero h1 { font-family: 'Space Grotesk'; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .hero-sub { font-size: 1.05rem; color: var(--text); max-width: 600px; margin: 0 auto 2rem; line-height: 1.7; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: var(--gradient); border-radius: 100px; color: white; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s; box-shadow: 0 4px 20px rgba(124,58,237,0.3); }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,58,237,0.4); }
+    .hero-stats { display: flex; justify-content: center; gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-family: 'Space Grotesk'; font-size: 1.8rem; font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-stat-label { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.15rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* FEATURED IN */
+    .featured-in { position: relative; z-index: 1; padding: 3rem 2rem 4rem; }
+    .featured-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .logo-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; margin-top: 1.5rem; align-items: center; }
+    .logo-pill { font-family: 'Space Grotesk'; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.02em; padding: 0.55rem 1.1rem; border: 1px solid var(--border); border-radius: 100px; transition: all 0.3s; white-space: nowrap; }
+    .logo-pill:hover { color: var(--white); border-color: rgba(124,58,237,0.3); background: rgba(124,58,237,0.05); }
+
+    /* WHAT I DO */
+    .offerings { position: relative; z-index: 1; padding: 5rem 2rem; }
+    .offerings-inner { max-width: 900px; margin: 0 auto; }
+    .offer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+    .offer-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; position: relative; overflow: hidden; transition: all 0.3s; }
+    .offer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient); }
+    .offer-card:hover { border-color: rgba(124,58,237,0.25); transform: translateY(-3px); }
+    .offer-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .offer-card h3 { font-family: 'Space Grotesk'; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .offer-card p { font-size: 0.84rem; color: var(--text); line-height: 1.65; }
+
+    /* TOPICS */
+    .topics { position: relative; z-index: 1; padding: 5rem 2rem; }
+    .topics-inner { max-width: 900px; margin: 0 auto; }
+    .topic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-top: 2rem; }
+    .topic-tag { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; font-size: 0.88rem; font-weight: 500; transition: all 0.2s; display: flex; align-items: center; gap: 0.6rem; }
+    .topic-tag:hover { border-color: rgba(124,58,237,0.3); background: var(--card-hover); }
+    .topic-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gradient); flex-shrink: 0; }
+
+    /* GALLERY */
+    .gallery { position: relative; z-index: 1; padding: 5rem 2rem; }
+    .gallery-inner { max-width: 1100px; margin: 0 auto; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .gallery-item { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16/10; cursor: pointer; transition: all 0.3s; }
+    .gallery-item:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(124,58,237,0.15); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem; background: linear-gradient(transparent, rgba(12,10,26,0.95)); }
+    .gallery-title { font-family: 'Space Grotesk'; font-size: 0.8rem; font-weight: 600; color: var(--white); }
+    .gallery-sub { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.15rem; }
+    .gallery-item.featured { grid-column: span 2; aspect-ratio: 2/1; }
+
+    /* TESTIMONIALS */
+    .testimonials { position: relative; z-index: 1; padding: 5rem 2rem; }
+    .testimonials-inner { max-width: 900px; margin: 0 auto; }
+    .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+    .test-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 2rem; position: relative; overflow: hidden; }
+    .test-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gradient); }
+    .test-quote { font-size: 2rem; color: var(--violet); opacity: 0.3; line-height: 1; margin-bottom: 0.5rem; }
+    .test-text { font-size: 0.88rem; color: var(--white); line-height: 1.75; font-style: italic; margin-bottom: 1.25rem; }
+    .test-author { font-size: 0.82rem; font-weight: 600; }
+    .test-role { font-size: 0.7rem; color: var(--text-muted); }
+
+    /* CTA SECTION */
+    .cta-section { position: relative; z-index: 1; padding: 5rem 2rem; }
+    .cta-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .cta-card { background: var(--card); border: 1px solid rgba(124,58,237,0.2); border-radius: 24px; padding: 3.5rem 2.5rem; position: relative; overflow: hidden; }
+    .cta-card::before { content: ''; position: absolute; inset: -1px; border-radius: 24px; background: var(--gradient); z-index: -1; opacity: 0.15; }
+    .cta-card h2 { font-family: 'Space Grotesk'; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .cta-card p { color: var(--text); font-size: 0.92rem; margin-bottom: 2rem; line-height: 1.7; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; border-radius: 100px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; }
+    .cta-btn.primary { background: var(--gradient); color: white; box-shadow: 0 4px 20px rgba(124,58,237,0.3); }
+    .cta-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,58,237,0.4); }
+    .cta-btn.secondary { border: 1px solid var(--border); color: var(--white); background: transparent; }
+    .cta-btn.secondary:hover { border-color: rgba(124,58,237,0.4); background: rgba(124,58,237,0.05); }
+
+    /* LIGHTBOX */
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.92); backdrop-filter: blur(16px); align-items: center; justify-content: center; cursor: zoom-out; }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+    .lightbox-caption { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); text-align: center; }
+    .lightbox-caption h3 { font-family: 'Space Grotesk'; font-size: 1rem; font-weight: 600; }
+    .lightbox-caption p { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .lightbox-close { position: fixed; top: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: white; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+    /* FADE */
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* FOOTER */
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
+    @media (max-width: 768px) {
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .hero-stats { gap: 1.5rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.featured { grid-column: span 1; aspect-ratio: 16/10; }
+      .test-grid { grid-template-columns: 1fr; }
+      .cta-card { padding: 2.5rem 1.5rem; }
+      .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .logo-bar { gap: 0.75rem; }
+      .logo-pill { font-size: 0.72rem; padding: 0.4rem 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+          <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+        </text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="tools.html">Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="speaking.html" class="active">Speaking</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="connect.html">Connect</a>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="tools.html">Tools</a>
+    <a href="learn.html">Learn</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="connect.html">Connect</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero fade-in">
+    <div class="hero-inner">
+      <div class="section-label">Speaking · Training · Hosting</div>
+      <h1>The person your audience needs to hear on <span class="gradient-text">AI visibility.</span></h1>
+      <p class="hero-sub">Keynotes, workshops, panels, and hosted events that help teams understand how AI is reshaping how businesses get discovered, evaluated, and chosen.</p>
+      <a href="mailto:sarah@evans-global.com?subject=Speaking%20Inquiry%20—%20Sarah%20Evans" class="hero-cta">📩 Book Sarah</a>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">23+</div>
+          <div class="hero-stat-label">Years in PR</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3×</div>
+          <div class="hero-stat-label">Propel 100</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-label">Placements/Year</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">📺</div>
+          <div class="hero-stat-label">CBS Contributor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED IN -->
+  <section class="featured-in fade-in">
+    <div class="featured-inner">
+      <div class="section-label">Featured In & Presented At</div>
+      <div class="logo-bar">
+        <span class="logo-pill">Marketing Brew</span>
+        <span class="logo-pill">Propel 100</span>
+        <span class="logo-pill">G2</span>
+        <span class="logo-pill">Ragan</span>
+        <span class="logo-pill">PRNEWS</span>
+        <span class="logo-pill">HackerNoon</span>
+        <span class="logo-pill">CBS Las Vegas</span>
+        <span class="logo-pill">Notified</span>
+        <span class="logo-pill">Insight Jam</span>
+        <span class="logo-pill">IPN Summit</span>
+        <span class="logo-pill">City of North Las Vegas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I OFFER -->
+  <section class="offerings fade-in">
+    <div class="offerings-inner">
+      <div style="text-align: center;">
+        <div class="section-label">What I Offer</div>
+        <h2 class="section-title">Four ways to bring <span class="gradient-text">this to your stage.</span></h2>
+      </div>
+      <div class="offer-grid">
+        <div class="offer-card">
+          <div class="offer-icon">🎤</div>
+          <h3>Keynotes</h3>
+          <p>30–60 minute talks that reframe how your audience thinks about visibility, AI, and the future of business discovery. High energy, frameworks-driven, no fluff.</p>
+        </div>
+        <div class="offer-card">
+          <div class="offer-icon">🛠️</div>
+          <h3>Workshops & Training</h3>
+          <p>Half-day to multi-session deep dives. Your team walks out with tools they can use Monday morning — not just concepts. Hands-on, interactive, tailored to your industry.</p>
+        </div>
+        <div class="offer-card">
+          <div class="offer-icon">🎙️</div>
+          <h3>Panels & Moderation</h3>
+          <p>I moderate panels the way they should be run — sharp questions, zero filler, real tension. Recent: Insight Jam alongside Neil Patel, Ragan Communications, PRNEWS Strategic Series.</p>
+        </div>
+        <div class="offer-card">
+          <div class="offer-icon">📡</div>
+          <h3>Hosted Events & Shows</h3>
+          <p>Host of The Visibility Equation on LinkedIn Live. Available to host branded virtual or in-person events — bring the format, energy, and audience engagement built-in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE TOPICS -->
+  <section class="topics fade-in">
+    <div class="topics-inner">
+      <div style="text-align: center;">
+        <div class="section-label">Signature Topics</div>
+        <h2 class="section-title">What I talk <span class="gradient-text">about.</span></h2>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 0.5rem;">Every talk is customized. These are starting points — not scripts.</p>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-tag"><span class="topic-dot"></span>The Before Layer™ — Your Brand's New Homepage</div>
+        <div class="topic-tag"><span class="topic-dot"></span>AI Visibility: Why SEO Alone Won't Save You</div>
+        <div class="topic-tag"><span class="topic-dot"></span>Generative Engine Optimization (GEO)</div>
+        <div class="topic-tag"><span class="topic-dot"></span>How AI Is Choosing Winners (And Losers)</div>
+        <div class="topic-tag"><span class="topic-dot"></span>The Future of PR in an AI-Native World</div>
+        <div class="topic-tag"><span class="topic-dot"></span>Answer Share™ — The New Market Share</div>
+        <div class="topic-tag"><span class="topic-dot"></span>Building AI Workflows for Comms Teams</div>
+        <div class="topic-tag"><span class="topic-dot"></span>From Content to Citation: The New Funnel</div>
+        <div class="topic-tag"><span class="topic-dot"></span>Agentic Commerce & The Agent Economy</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery fade-in">
+    <div class="gallery-inner">
+      <div style="text-align: center;">
+        <div class="section-label">In Action</div>
+        <h2 class="section-title">Recent <span class="gradient-text">appearances.</span></h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item featured" onclick="openLightbox(this)">
+          <img src="credibility/morning-brew-4layer.png" alt="Marketing Brew — The Art & Science of AI in Marketing" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-title">The Art & Science of AI in Marketing</div>
+            <div class="gallery-sub">Marketing Brew · Feb 2026 · New York</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="credibility/propel-100.png" alt="Propel 100 Most Influential PR Pros 2025" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Most Influential PR Pros</div>
+            <div class="gallery-sub">Propel 100 · 2025 · 3× Honoree</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="credibility/speaking-stage.jpg" alt="Sarah Evans keynoting at IPN Summit" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Keynote: AI in Marketing</div>
+            <div class="gallery-sub">IPN Summit · Jan 2026 · Houston, TX</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="credibility/insight-jam-promo.png" alt="Expert Panel with Neil Patel" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Moderator: Competing With AI</div>
+            <div class="gallery-sub">Insight Jam · With Neil Patel & panel</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="credibility/g2-feature.png" alt="Featured on G2" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-title">PR & SEO Teams + AI Visibility</div>
+            <div class="gallery-sub">G2 · Featured contributor</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="credibility/visibility-equation.png" alt="The Visibility Equation show" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-title">The Visibility Equation</div>
+            <div class="gallery-sub">LinkedIn Live · 2× monthly show</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="credibility/ragan-webinar.png" alt="Ragan webinar panel" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-title">AI Strategies for PR Leaders</div>
+            <div class="gallery-sub">Ragan Communications · Panel</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="credibility/notified-article.png" alt="Notified article on GenAI Wire" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-title">Redefining PR with GenAI Wire™</div>
+            <div class="gallery-sub">Notified / GlobeNewswire</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="credibility/hackernoon-top-writer.png" alt="HackerNoon #1 Business Writer" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-title">#1 Business Writer</div>
+            <div class="gallery-sub">HackerNoon · Top Writer rankings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials fade-in">
+    <div class="testimonials-inner">
+      <div style="text-align: center;">
+        <div class="section-label">What People Say</div>
+        <h2 class="section-title">After they <span class="gradient-text">hear me speak.</span></h2>
+      </div>
+      <div class="test-grid">
+        <div class="test-card">
+          <div class="test-quote">"</div>
+          <p class="test-text">I followed her instructions to a T, and it turned out to be one of the most successful announcements we've had in a while. The results were recognized by our CMO and presented to the board.</p>
+          <div class="test-author">Nikki Plati Ziolo</div>
+          <div class="test-role">Head of Product & Tech Comms, Samsara · Ex-PayPal</div>
+        </div>
+        <div class="test-card">
+          <div class="test-quote">"</div>
+          <p class="test-text">Sarah's content is living in 2030 and that's the point. Most communications professionals are moving launch to launch thinking a quarter out. Sarah is thinking ahead with practical tips.</p>
+          <div class="test-author">Amanda Coffee</div>
+          <div class="test-role">Communications Leader · PRWeek 40 Under 40</div>
+        </div>
+        <div class="test-card">
+          <div class="test-quote">"</div>
+          <p class="test-text">Sarah literally is writing the book of the future of PR. I will be leveraging many of your learnings on AEO, Writing PR for AI, et al.</p>
+          <div class="test-author">Gene King, APR</div>
+          <div class="test-role">Fractional CCO · PR Writing Educator</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section fade-in">
+    <div class="cta-inner">
+      <div class="cta-card">
+        <div class="section-label">Let's Work Together</div>
+        <h2>Bring AI visibility to <span class="gradient-text">your audience.</span></h2>
+        <p>Whether it's a 2,000-person keynote, a 20-person executive workshop, or a virtual panel — I bring frameworks, energy, and takeaways your audience will actually use.</p>
+        <div class="cta-buttons">
+          <a href="mailto:sarah@evans-global.com?subject=Speaking%20Inquiry%20—%20Sarah%20Evans" class="cta-btn primary">📩 Book Sarah</a>
+          <a href="https://www.linkedin.com/in/prsarahevans" target="_blank" class="cta-btn secondary">View LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE CHECKLIST CTA -->
+  <section style="position: relative; z-index: 1; padding: 0 2rem 3rem;">
+    <div style="max-width: 700px; margin: 0 auto;">
+      <a href="https://stan.store/asksarahevans/p/ai-visibility-checklist" target="_blank" style="display: block; background: rgba(6,182,212,0.06); border: 2px solid rgba(6,182,212,0.25); border-radius: 20px; padding: 2rem; text-decoration: none; text-align: center; transition: all 0.3s; box-shadow: 0 0 30px rgba(6,182,212,0.06);">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #f0eef8; margin-bottom: 0.4rem;">📋 Free Resource for Your Team</div>
+        <div style="font-size: 0.88rem; color: #c4c0d8; margin-bottom: 1rem;">AI Visibility Checklist — 20 actions you can take this week to show up in ChatGPT, Perplexity, Gemini, and Claude.</div>
+        <span style="display: inline-flex; padding: 0.55rem 1.4rem; border-radius: 100px; font-size: 0.85rem; font-weight: 600; background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a;">Get the Free AI Visibility Checklist →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption">
+      <h3 id="lightbox-title"></h3>
+      <p id="lightbox-sub"></p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="tools.html">Tools</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="newsletter.html">Newsletter</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a>
+          <a href="https://github.com/sarahevansai" target="_blank">GitHub</a>
+          <a href="https://t.me/sarahevansai" target="_blank">Telegram</a>
+          <a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a>
+        </div>
+        <div class="footer-col">
+          <h4>Built by Sarah Evans</h4>
+          <a href="https://www.zenmedia.com" target="_blank">Partner at Zen Media</a>
+          <a href="https://hackernoon.com/u/sarahevans" target="_blank">HackerNoon Column</a>
+          <a href="https://x.com/prsarahevans" target="_blank">X / Twitter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="/" class="nav-logo" style="opacity: 0.5;">
+          <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="height: 22px;">
+            <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+              <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+            </text>
+          </svg>
+        </a>
+        <p>&copy; <span id="currentYear"></span> Sarah Evans. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      const title = el.querySelector('.gallery-title');
+      const sub = el.querySelector('.gallery-sub');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-title').textContent = title ? title.textContent : '';
+      document.getElementById('lightbox-sub').textContent = sub ? sub.textContent : '';
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+</body>
+</html>

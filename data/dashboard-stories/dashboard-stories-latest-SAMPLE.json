@@ -1,0 +1,491 @@
+{
+  "generated_at": "2026-03-23T12:00:00.000Z",
+  "date": "2026-03-23",
+  "total_stories": 47,
+  "major_stories": 3,
+  "significant": 8,
+  "stories": [
+    {
+      "story_id": "a3f8c2d1e9b4701f",
+      "headline": "OpenAI's Sam Altman says AGI is closer than expected — could arrive within 12 months",
+      "date": "2026-03-23",
+      "timestamp": "2026-03-23T08:15:00.000Z",
+      "source_count": 14,
+      "representative_url": "https://techcrunch.com/2026/03/23/openai-agi-12-months",
+      "description": "OpenAI CEO Sam Altman made a bold claim during a keynote that AGI could be achieved within 12 months, citing rapid scaling and new training paradigms.",
+      "sources": [
+        {
+          "outlet_id": "techcrunch",
+          "outlet_name": "TechCrunch",
+          "url": "https://techcrunch.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "wired",
+          "outlet_name": "Wired",
+          "url": "https://wired.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "the_verge",
+          "outlet_name": "The Verge",
+          "url": "https://theverge.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "mit_tech_review",
+          "outlet_name": "MIT Technology Review",
+          "url": "https://technologyreview.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "bloomberg_tech",
+          "outlet_name": "Bloomberg Technology",
+          "url": "https://bloomberg.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "nyt_tech",
+          "outlet_name": "New York Times Tech",
+          "url": "https://nytimes.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "ars_technica",
+          "outlet_name": "Ars Technica",
+          "url": "https://arstechnica.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "venturebeat",
+          "outlet_name": "VentureBeat",
+          "url": "https://venturebeat.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "reuters_tech",
+          "outlet_name": "Reuters Technology",
+          "url": "https://reuters.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "bbc_tech",
+          "outlet_name": "BBC Technology",
+          "url": "https://bbc.com/...",
+          "tier": 5
+        },
+        {
+          "outlet_id": "cnbc_tech",
+          "outlet_name": "CNBC Technology",
+          "url": "https://cnbc.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "import_ai",
+          "outlet_name": "Import AI (Jack Clark)",
+          "url": "https://jack-clark.net/...",
+          "tier": 4
+        },
+        {
+          "outlet_id": "bens_bites",
+          "outlet_name": "Ben's Bites",
+          "url": "https://bensbites.co/...",
+          "tier": 2
+        },
+        {
+          "outlet_id": "tldr_ai",
+          "outlet_name": "TLDR AI",
+          "url": "https://tldr.tech/ai/...",
+          "tier": 2
+        }
+      ],
+      "top_voices": [
+        {
+          "username": "sama",
+          "display_name": "Sam Altman",
+          "followers": 8000000,
+          "engagement_rate": 0.0312,
+          "weighted_credibility": 223872,
+          "accuracy_score": 0.91,
+          "is_known_voice": true
+        },
+        {
+          "username": "ylecun",
+          "display_name": "Yann LeCun",
+          "followers": 12000000,
+          "engagement_rate": 0.0187,
+          "weighted_credibility": 173592,
+          "accuracy_score": 0.87,
+          "is_known_voice": true
+        },
+        {
+          "username": "demishassabis",
+          "display_name": "Demis Hassabis",
+          "followers": 2000000,
+          "engagement_rate": 0.0241,
+          "weighted_credibility": 35708,
+          "accuracy_score": 0.82,
+          "is_known_voice": true
+        },
+        {
+          "username": "andrewng",
+          "display_name": "Andrew Ng",
+          "followers": 4200000,
+          "engagement_rate": 0.0156,
+          "weighted_credibility": 55692,
+          "accuracy_score": 0.9,
+          "is_known_voice": true
+        },
+        {
+          "username": "karpathy",
+          "display_name": "Andrej Karpathy",
+          "followers": 850000,
+          "engagement_rate": 0.0198,
+          "weighted_credibility": 13107,
+          "accuracy_score": 0.86,
+          "is_known_voice": true
+        }
+      ],
+      "amplifiers_count": 23,
+      "twitter_checked": true,
+      "alert_level": "major",
+      "min_tier": 1
+    },
+    {
+      "story_id": "b7e2a9f1c3d04815",
+      "headline": "Google DeepMind releases Gemini Ultra 2 benchmark results — outperforms GPT-4 on all tasks",
+      "date": "2026-03-23",
+      "timestamp": "2026-03-23T06:30:00.000Z",
+      "source_count": 11,
+      "representative_url": "https://deepmind.google/blog/gemini-ultra-2",
+      "description": "DeepMind's Gemini Ultra 2 achieves state-of-the-art on MMLU, HumanEval, and MATH benchmarks, according to official benchmarking results released today.",
+      "sources": [
+        {
+          "outlet_id": "deepmind_blog",
+          "outlet_name": "Google DeepMind Blog",
+          "url": "https://deepmind.google/...",
+          "tier": 3
+        },
+        {
+          "outlet_id": "techcrunch",
+          "outlet_name": "TechCrunch",
+          "url": "https://techcrunch.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "wired",
+          "outlet_name": "Wired",
+          "url": "https://wired.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "the_verge",
+          "outlet_name": "The Verge",
+          "url": "https://theverge.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "venturebeat",
+          "outlet_name": "VentureBeat",
+          "url": "https://venturebeat.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "bloomberg_tech",
+          "outlet_name": "Bloomberg Technology",
+          "url": "https://bloomberg.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "mit_tech_review",
+          "outlet_name": "MIT Technology Review",
+          "url": "https://technologyreview.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "ars_technica",
+          "outlet_name": "Ars Technica",
+          "url": "https://arstechnica.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "bens_bites",
+          "outlet_name": "Ben's Bites",
+          "url": "https://bensbites.co/...",
+          "tier": 2
+        },
+        {
+          "outlet_id": "arxiv_ai",
+          "outlet_name": "arXiv AI/ML",
+          "url": "https://arxiv.org/...",
+          "tier": 3
+        },
+        {
+          "outlet_id": "papers_with_code",
+          "outlet_name": "Papers With Code",
+          "url": "https://paperswithcode.com/...",
+          "tier": 3
+        }
+      ],
+      "top_voices": [
+        {
+          "username": "demishassabis",
+          "display_name": "Demis Hassabis",
+          "followers": 2000000,
+          "engagement_rate": 0.0289,
+          "weighted_credibility": 42776,
+          "accuracy_score": 0.82,
+          "is_known_voice": true
+        },
+        {
+          "username": "JensenHuang",
+          "display_name": "Jensen Huang",
+          "followers": 3100000,
+          "engagement_rate": 0.0201,
+          "weighted_credibility": 56079,
+          "accuracy_score": 0.92,
+          "is_known_voice": true
+        },
+        {
+          "username": "andrewng",
+          "display_name": "Andrew Ng",
+          "followers": 4200000,
+          "engagement_rate": 0.0143,
+          "weighted_credibility": 51051,
+          "accuracy_score": 0.9,
+          "is_known_voice": true
+        },
+        {
+          "username": "huggingface",
+          "display_name": "Hugging Face",
+          "followers": 2800000,
+          "engagement_rate": 0.0167,
+          "weighted_credibility": 37408,
+          "accuracy_score": 0.8,
+          "is_known_voice": true
+        },
+        {
+          "username": "karpathy",
+          "display_name": "Andrej Karpathy",
+          "followers": 850000,
+          "engagement_rate": 0.0211,
+          "weighted_credibility": 13976,
+          "accuracy_score": 0.86,
+          "is_known_voice": true
+        }
+      ],
+      "amplifiers_count": 18,
+      "twitter_checked": true,
+      "alert_level": "major",
+      "min_tier": 1
+    },
+    {
+      "story_id": "c4d8f3a2b6e51907",
+      "headline": "EU AI Act enforcement begins — OpenAI and Google face compliance deadline",
+      "date": "2026-03-23",
+      "timestamp": "2026-03-23T09:45:00.000Z",
+      "source_count": 10,
+      "representative_url": "https://politico.com/2026/03/23/eu-ai-act-enforcement",
+      "description": "The European Union's AI Act officially enters enforcement phase today, with major AI providers including OpenAI and Google required to comply with high-risk AI system requirements.",
+      "sources": [
+        {
+          "outlet_id": "politico_tech",
+          "outlet_name": "Politico Tech",
+          "url": "https://politico.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "reuters_tech",
+          "outlet_name": "Reuters Technology",
+          "url": "https://reuters.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "the_guardian_tech",
+          "outlet_name": "The Guardian Tech",
+          "url": "https://theguardian.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "financial_times",
+          "outlet_name": "Financial Times Tech",
+          "url": "https://ft.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "bbc_tech",
+          "outlet_name": "BBC Technology",
+          "url": "https://bbc.com/...",
+          "tier": 5
+        },
+        {
+          "outlet_id": "eu_ai_act_monitor",
+          "outlet_name": "EU AI Act Monitor",
+          "url": "https://artificialintelligenceact.eu/...",
+          "tier": 5
+        },
+        {
+          "outlet_id": "heise_online",
+          "outlet_name": "Heise Online",
+          "url": "https://heise.de/...",
+          "tier": 5
+        },
+        {
+          "outlet_id": "brookings_ai",
+          "outlet_name": "Brookings AI",
+          "url": "https://brookings.edu/...",
+          "tier": 3
+        },
+        {
+          "outlet_id": "cset",
+          "outlet_name": "CSET",
+          "url": "https://cset.georgetown.edu/...",
+          "tier": 3
+        },
+        {
+          "outlet_id": "algorithm_watch",
+          "outlet_name": "AlgorithmWatch",
+          "url": "https://algorithmwatch.org/...",
+          "tier": 6
+        }
+      ],
+      "top_voices": [
+        {
+          "username": "garymarcus",
+          "display_name": "Gary Marcus",
+          "followers": 380000,
+          "engagement_rate": 0.0178,
+          "weighted_credibility": 3706,
+          "accuracy_score": 0.58,
+          "is_known_voice": true
+        },
+        {
+          "username": "ylecun",
+          "display_name": "Yann LeCun",
+          "followers": 12000000,
+          "engagement_rate": 0.0098,
+          "weighted_credibility": 90904,
+          "accuracy_score": 0.87,
+          "is_known_voice": true
+        },
+        {
+          "username": "eliezer",
+          "display_name": "Eliezer Yudkowsky",
+          "followers": 280000,
+          "engagement_rate": 0.0213,
+          "weighted_credibility": 2982,
+          "accuracy_score": 0.58,
+          "is_known_voice": true
+        },
+        {
+          "username": "ai_nativity",
+          "display_name": "AI Nativity",
+          "followers": 180000,
+          "engagement_rate": 0.0154,
+          "weighted_credibility": 2162,
+          "accuracy_score": 0.86,
+          "is_known_voice": true
+        },
+        {
+          "username": "leahy_connor",
+          "display_name": "Connor Leahy",
+          "followers": 420000,
+          "engagement_rate": 0.0191,
+          "weighted_credibility": 5696,
+          "accuracy_score": 0.78,
+          "is_known_voice": true
+        }
+      ],
+      "amplifiers_count": 12,
+      "twitter_checked": true,
+      "alert_level": "major",
+      "min_tier": 1
+    },
+    {
+      "story_id": "d1a5b9c7e2f30684",
+      "headline": "Anthropic's Claude 4 achieves state-of-the-art on coding benchmarks",
+      "date": "2026-03-23",
+      "timestamp": "2026-03-23T11:20:00.000Z",
+      "source_count": 7,
+      "representative_url": "https://anthropic.com/news/claude-4",
+      "description": "Anthropic has released Claude 4, achieving top scores on HumanEval, SWE-bench, and AIME 2024, the company announced.",
+      "sources": [
+        {
+          "outlet_id": "anthropic_news",
+          "outlet_name": "Anthropic News",
+          "url": "https://anthropic.com/...",
+          "tier": 3
+        },
+        {
+          "outlet_id": "techcrunch",
+          "outlet_name": "TechCrunch",
+          "url": "https://techcrunch.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "the_verge",
+          "outlet_name": "The Verge",
+          "url": "https://theverge.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "venturebeat",
+          "outlet_name": "VentureBeat",
+          "url": "https://venturebeat.com/...",
+          "tier": 1
+        },
+        {
+          "outlet_id": "bens_bites",
+          "outlet_name": "Ben's Bites",
+          "url": "https://bensbites.co/...",
+          "tier": 2
+        },
+        {
+          "outlet_id": "tldr_ai",
+          "outlet_name": "TLDR AI",
+          "url": "https://tldr.tech/...",
+          "tier": 2
+        },
+        {
+          "outlet_id": "interconnects",
+          "outlet_name": "Interconnects",
+          "url": "https://interconnects.ai/...",
+          "tier": 4
+        }
+      ],
+      "top_voices": [
+        {
+          "username": "dario_amodei",
+          "display_name": "Dario Amodei",
+          "followers": 1200000,
+          "engagement_rate": 0.0267,
+          "weighted_credibility": 26218,
+          "accuracy_score": 0.89,
+          "is_known_voice": true
+        },
+        {
+          "username": "karpathy",
+          "display_name": "Andrej Karpathy",
+          "followers": 850000,
+          "engagement_rate": 0.0198,
+          "weighted_credibility": 13107,
+          "accuracy_score": 0.86,
+          "is_known_voice": true
+        },
+        {
+          "username": "huggingface",
+          "display_name": "Hugging Face",
+          "followers": 2800000,
+          "engagement_rate": 0.0134,
+          "weighted_credibility": 29968,
+          "accuracy_score": 0.8,
+          "is_known_voice": true
+        }
+      ],
+      "amplifiers_count": 9,
+      "twitter_checked": true,
+      "alert_level": "significant",
+      "min_tier": 1
+    }
+  ]
+}

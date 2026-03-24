@@ -1,0 +1,236 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AGI Outlet Monitoring Data Schema",
+  "description": "Complete data schema for all layers of the AGI monitoring pipeline",
+  "version": "2.0",
+  "last_updated": "2026-03-23",
+
+  "layers": {
+
+    "L1_outlet_config": {
+      "description": "Input: Outlet configuration loaded from agi-outlet-list.json",
+      "source_file": "agi-outlet-list.json",
+      "per_item_schema": {
+        "outlet_id":    { "type": "string", "example": "techcrunch", "description": "Unique outlet identifier" },
+        "outlet_name":  { "type": "string", "example": "TechCrunch" },
+        "rss_url":      { "type": "string", "example": "https://techcrunch.com/category/artificial-intelligence/feed/", "description": "Primary RSS URL (rss_ai preferred, fallback to rss)" },
+        "fallback_rss": { "type": "string", "description": "General outlet RSS if rss_ai not available" },
+        "api_type":     { "type": "string", "example": "rss", "description": "Access method: rss, arxiv_api, guardian_open_api, etc." },
+        "tier":         { "type": "integer", "minimum": 1, "maximum": 6, "description": "Outlet tier (1=major media, 6=niche vertical)" },
+        "region":       { "type": "string", "example": "US" },
+        "topics":       { "type": "string", "description": "Comma-separated topic tags" },
+        "frequency":    { "type": "string", "example": "multiple/day" },
+        "fetch_started": { "type": "string", "format": "date-time" }
+      }
+    },
+
+    "L2_raw_articles": {
+      "description": "Per-outlet parsed articles after RSS fetching and XML parsing",
+      "produced_by": "Parse RSS Articles node",
+      "per_item_schema": {
+        "outlet_id":      { "type": "string" },
+        "outlet_name":    { "type": "string" },
+        "tier":           { "type": "integer" },
+        "articles":       {
+          "type": "array",
+          "items": {
+            "outlet_id":    { "type": "string" },
+            "outlet_name":  { "type": "string" },
+            "tier":         { "type": "integer" },
+            "headline":     { "type": "string", "maxLength": 300 },
+            "url":          { "type": "string", "format": "uri" },
+            "date":         { "type": "string", "format": "date", "example": "2026-03-23" },
+            "timestamp":    { "type": "string", "format": "date-time" },
+            "description":  { "type": "string", "maxLength": 500 },
+            "author":       { "type": "string", "maxLength": 100 }
+          }
+        },
+        "article_count":  { "type": "integer" },
+        "fetch_failed":   { "type": "boolean" },
+        "error":          { "type": "string", "description": "Error message if fetch_failed=true" }
+      },
+      "time_cutoff": "48h for tier 1-2, 168h (7d) for tier 3-6"
+    },
+
+    "L3_deduplication": {
+      "description": "Stories after SHA256 deduplication — unique stories with source arrays",
+      "produced_by": "Deduplicate Stories (SHA256) node",
+      "dedup_algorithm": {
+        "step1": "Normalize headline: lowercase, remove non-alphanumeric, collapse whitespace",
+        "step2": "Create hash key: normalized_headline + '::' + date",
+        "step3": "SHA256(hash_key) → take first 16 hex chars as story_id",
+        "step4": "Group articles by story_id, deduplicate sources by outlet_id",
+        "step5": "Sort by source_count descending, cap at 300 stories"
+      },
+      "stats_item_schema": {
+        "_type":           { "const": "stats" },
+        "run_id":          { "type": "string", "description": "8-char hex unique run identifier" },
+        "timestamp":       { "type": "string", "format": "date-time" },
+        "outlets_checked": { "type": "integer" },
+        "outlets_success": { "type": "integer" },
+        "outlets_failed":  { "type": "integer" },
+        "total_articles":  { "type": "integer", "description": "Total articles across all outlets before dedup" },
+        "unique_stories":  { "type": "integer", "description": "Stories after deduplication" },
+        "dedupe_rate":     { "type": "string", "example": "67.3%", "description": "Percentage of articles that were duplicates" }
+      },
+      "story_item_schema": {
+        "_type":              { "const": "story" },
+        "story_id":           { "type": "string", "description": "16-char SHA256 hex of normalized(headline+date)" },
+        "headline":           { "type": "string" },
+        "representative_url": { "type": "string", "format": "uri", "description": "URL from first outlet that reported this story" },
+        "date":               { "type": "string", "format": "date" },
+        "timestamp":          { "type": "string", "format": "date-time" },
+        "description":        { "type": "string" },
+        "sources":            {
+          "type": "array",
+          "description": "Unique outlets covering this story",
+          "items": {
+            "outlet_id":   { "type": "string" },
+            "outlet_name": { "type": "string" },
+            "url":         { "type": "string" },
+            "tier":        { "type": "integer" }
+          }
+        },
+        "source_ids":      { "type": "array", "items": { "type": "string" } },
+        "source_count":    { "type": "integer", "description": "Number of unique outlets covering story" },
+        "min_tier":        { "type": "integer", "description": "Lowest tier number (highest prestige) outlet covering story" },
+        "top_voices":      { "type": "array", "description": "Populated by L4 — empty at this stage" },
+        "amplifiers":      { "type": "array", "description": "Populated by L4 — empty at this stage" }
+      }
+    },
+
+    "L4_amplification_credibility": {
+      "description": "Stories with Twitter amplification data and credibility scores",
+      "produced_by": "Twitter Search + Credibility Scoring node",
+      "twitter_search": {
+        "endpoint":    "GET https://api.twitter.com/2/tweets/search/recent",
+        "query":       "\"<60-char headline>\" -is:retweet lang:en",
+        "max_results": 20,
+        "expansions":  "author_id",
+        "user_fields": "public_metrics,username,name",
+        "tweet_fields":"public_metrics,created_at,author_id",
+        "rate_limit":  "40 calls per run, 1.1s delay between calls"
+      },
+      "scoring_formulas": {
+        "engagement_rate":     "(likes + retweets) / max(followers, 1)",
+        "weighted_reach":      "followers × engagement_rate",
+        "weighted_credibility": "weighted_reach × credibility_rating"
+      },
+      "amplifier_schema": {
+        "twitter_id":           { "type": "string" },
+        "username":             { "type": "string" },
+        "display_name":         { "type": "string", "description": "Known voice name if matched, else Twitter name" },
+        "followers":            { "type": "integer" },
+        "likes":                { "type": "integer" },
+        "retweets":             { "type": "integer" },
+        "engagement_rate":      { "type": "number", "description": "(likes+retweets)/followers" },
+        "weighted_reach":       { "type": "integer", "description": "followers × engagement_rate" },
+        "accuracy_score":       { "type": "number", "minimum": 0, "maximum": 1, "description": "Historical prediction accuracy from accuracy-db.json, default 0.50 for unknowns" },
+        "credibility_rating":   { "type": "number", "minimum": 0, "maximum": 1 },
+        "weighted_credibility": { "type": "integer", "description": "weighted_reach × credibility_rating" },
+        "is_known_voice":       { "type": "boolean", "description": "True if matched against accuracy-db.json" },
+        "voice_id":             { "type": ["string", "null"], "description": "Key in accuracy-db.json if is_known_voice=true" }
+      },
+      "top_voices": {
+        "description": "Top 5 amplifiers by weighted_credibility",
+        "count": 5,
+        "sorted_by": "weighted_credibility DESC"
+      }
+    },
+
+    "L5_dashboard_output": {
+      "description": "Final dashboard JSON — ready to be consumed by frontend",
+      "produced_by": "Write Dashboard JSON node",
+      "file_locations": {
+        "dated":   "data/dashboard-stories/dashboard-stories-YYYY-MM-DD.json",
+        "latest":  "data/dashboard-stories/dashboard-stories-latest.json"
+      },
+      "root_schema": {
+        "generated_at":  { "type": "string", "format": "date-time" },
+        "date":          { "type": "string", "format": "date" },
+        "total_stories": { "type": "integer" },
+        "major_stories": { "type": "integer", "description": "Stories with source_count >= 10" },
+        "significant":   { "type": "integer", "description": "Stories with source_count 5-9" },
+        "stories":       { "type": "array", "items": { "$ref": "#/layers/L5_dashboard_output/story_schema" } }
+      },
+      "story_schema": {
+        "story_id":            { "type": "string" },
+        "headline":            { "type": "string" },
+        "date":                { "type": "string", "format": "date" },
+        "timestamp":           { "type": "string", "format": "date-time" },
+        "source_count":        { "type": "integer" },
+        "sources":             { "type": "array", "description": "Full source objects (outlet_id, outlet_name, url, tier)" },
+        "representative_url":  { "type": "string" },
+        "description":         { "type": "string" },
+        "top_voices":          {
+          "type": "array",
+          "maxItems": 5,
+          "items": {
+            "username":             { "type": "string" },
+            "display_name":         { "type": "string" },
+            "followers":            { "type": "integer" },
+            "engagement_rate":      { "type": "number" },
+            "weighted_credibility": { "type": "integer" },
+            "accuracy_score":       { "type": "number" },
+            "is_known_voice":       { "type": "boolean" }
+          }
+        },
+        "amplifiers_count":    { "type": "integer" },
+        "twitter_checked":     { "type": "boolean" },
+        "alert_level":         { "type": "string", "enum": ["major", "significant", "normal"], "description": "major=10+ sources, significant=5-9, normal=<5" },
+        "min_tier":            { "type": "integer" }
+      },
+      "alert_levels": {
+        "major":       { "source_count": "≥ 10", "action": "Telegram alert sent immediately" },
+        "significant": { "source_count": "5-9", "action": "Included in daily digest (future feature)" },
+        "normal":      { "source_count": "< 5",  "action": "No alert, available in dashboard" }
+      }
+    },
+
+    "L6_logs_errors": {
+      "description": "Operational logs and error tracking",
+      "log_file": {
+        "path": "data/logs/monitoring-log-YYYY-MM-DD.json",
+        "schema": {
+          "timestamp":     { "type": "string", "format": "date-time" },
+          "success":       { "type": "boolean" },
+          "stories_count": { "type": "integer" },
+          "major_stories": { "type": "integer" },
+          "filepath":      { "type": "string" },
+          "run_type":      { "type": "string", "enum": ["scheduled", "manual"] }
+        }
+      },
+      "error_file": {
+        "path": "data/errors/errors-YYYY-MM-DD.json",
+        "schema": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "workflow":  { "type": "string" },
+          "error":     { "type": "string" },
+          "node":      { "type": "string" },
+          "raw":       { "type": "string", "description": "Raw error context (first 2000 chars)" }
+        }
+      }
+    }
+  },
+
+  "telegram_alert_format": {
+    "description": "Format of Telegram messages for major stories",
+    "template": "📰 *AGI Story Alert*\n\n*{headline}*\n\n🔊 {source_count} sources · Top: {top_voice_1}, {top_voice_2}, {top_voice_3}\n🔗 {representative_url}\n\n📡 Sources: {source_1}, {source_2}, {source_3}, {source_4}, {source_5} +N more",
+    "example": "📰 *AGI Story Alert*\n\n*OpenAI announces AGI milestone with GPT-6 capabilities*\n\n🔊 14 sources · Top: Sam Altman, Yann LeCun, Demis Hassabis\n🔗 https://techcrunch.com/2026/03/23/openai-agi-milestone\n\n📡 Sources: TechCrunch, Wired, MIT Tech Review, Ars Technica, VentureBeat +9 more"
+  },
+
+  "data_flow": {
+    "description": "End-to-end data pipeline",
+    "stages": [
+      { "step": 1, "node": "Load Outlet List",           "input": "agi-outlet-list.json",     "output": "~108 outlet config items" },
+      { "step": 2, "node": "Fetch RSS Feed",              "input": "outlet_config.rss_url",    "output": "Raw XML per outlet" },
+      { "step": 3, "node": "Parse RSS Articles",          "input": "Raw XML",                  "output": "Normalized article arrays" },
+      { "step": 4, "node": "Deduplicate Stories",         "input": "All article arrays",       "output": "stats_item + story_items (sorted by source_count)" },
+      { "step": 5, "node": "Filter Story Items",          "input": "Mixed items",              "output": "Story items only" },
+      { "step": 6, "node": "Twitter + Credibility",       "input": "Story items",              "output": "Stories with amplifiers + top_voices" },
+      { "step": 7, "node": "Write Dashboard JSON",        "input": "Scored stories",           "output": "dashboard-stories-YYYY-MM-DD.json" },
+      { "step": 8, "node": "Send Telegram Alerts",        "input": "Major stories list",       "output": "Telegram messages" },
+      { "step": 9, "node": "Write Success Log",           "input": "Dashboard write result",   "output": "monitoring-log-YYYY-MM-DD.json entry" }
+    ]
+  }
+}

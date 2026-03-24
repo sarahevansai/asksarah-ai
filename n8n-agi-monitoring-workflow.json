@@ -1,0 +1,186 @@
+{
+  "name": "AGI Outlet Monitoring Pipeline",
+  "description": "Real-time tracking of AGI coverage across 100+ outlets. Dedupes stories, counts sources, tracks amplification.",
+  "nodes": [
+    {
+      "name": "Cron Trigger",
+      "type": "n8n-nodes-base.cron",
+      "position": [250, 300],
+      "parameters": {
+        "cronExpression": "0 */6 * * *",
+        "timezone": "America/Los_Angeles"
+      },
+      "notes": "Runs every 6 hours (00:00, 06:00, 12:00, 18:00 UTC)"
+    },
+    {
+      "name": "Load Outlet List",
+      "type": "n8n-nodes-base.readLocalFile",
+      "position": [450, 300],
+      "parameters": {
+        "filePath": "/Users/sarahevans_zen/.openclaw/workspace/projects/asksarah-ai/agi-outlet-list.json"
+      },
+      "notes": "Reads 100+ outlet definitions with RSS/API endpoints"
+    },
+    {
+      "name": "Poll RSS Feeds",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [650, 250],
+      "parameters": {
+        "method": "GET",
+        "url": "={% for outlet in $json.outlets %}{{ outlet.rss }}{% endfor %}"
+      },
+      "notes": "Parallel requests to RSS endpoints. Parse feed, extract articles."
+    },
+    {
+      "name": "Poll APIs",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [650, 350],
+      "parameters": {
+        "method": "GET",
+        "url": "={% for outlet in $json.outlets %}{{ outlet.api_endpoint }}{% endfor %}"
+      },
+      "notes": "API calls for outlets with direct endpoints (e.g., Medium, Substack)"
+    },
+    {
+      "name": "Web Scraping (fallback)",
+      "type": "n8n-nodes-base.executeCode",
+      "position": [650, 450],
+      "parameters": {
+        "language": "javascript",
+        "code": "// Use Cheerio to scrape outlets without RSS/API\nconst cheerio = require('cheerio');\nconst axios = require('axios');\n// Scrape headlines, publish dates, authors from outlet pages\nreturn { scraped_articles: [] };"
+      },
+      "notes": "For outlets requiring web scraping (lower tier, niche)"
+    },
+    {
+      "name": "Merge & Clean Articles",
+      "type": "n8n-nodes-base.merge",
+      "position": [850, 330],
+      "parameters": {
+        "mode": "append"
+      },
+      "notes": "Combine results from RSS, API, and scraping. Normalize fields."
+    },
+    {
+      "name": "Deduplicate Stories",
+      "type": "n8n-nodes-base.executeCode",
+      "position": [1050, 330],
+      "parameters": {
+        "language": "javascript",
+        "code": "// Create story_id = SHA256(headline + date)\n// Group by story_id, count unique outlets\n// Output: deduplicated stories with source_count\nconst crypto = require('crypto');\nconst stories = $json.articles;\nconst seen = {};\nconst deduped = [];\nstories.forEach(article => {\n  const hash = crypto.createHash('sha256')\n    .update(article.headline + article.date)\n    .digest('hex');\n  if (!seen[hash]) {\n    seen[hash] = { ...article, story_id: hash, sources: [article.outlet_id] };\n    deduped.push(seen[hash]);\n  } else {\n    seen[hash].sources.push(article.outlet_id);\n  }\n});\nreturn { stories: deduped };"
+      },
+      "notes": "Eliminate duplicate coverage. Count unique sources per story."
+    },
+    {
+      "name": "Save Raw Coverage",
+      "type": "n8n-nodes-base.writeLocalFile",
+      "position": [1250, 250],
+      "parameters": {
+        "filePath": "/Users/sarahevans_zen/.openclaw/workspace/projects/asksarah-ai/data/raw-coverage/{{ now.toISOString().split('T')[0] }}/{{ $json.story_id }}.json"
+      },
+      "notes": "Archive raw data by date for historical tracking"
+    },
+    {
+      "name": "Track Story to Social",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1250, 350],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.twitter.com/2/tweets/search/recent",
+        "headers": {
+          "Authorization": "Bearer ${{ secrets.TWITTER_API_KEY }}"
+        },
+        "body": {
+          "query": "=url:{{ $json.url }} OR '{{ $json.headline }}'"
+        }
+      },
+      "notes": "Search Twitter for mentions of story URL. Extract amplifiers."
+    },
+    {
+      "name": "Extract Amplifiers",
+      "type": "n8n-nodes-base.executeCode",
+      "position": [1450, 350],
+      "parameters": {
+        "language": "javascript",
+        "code": "// Parse Twitter results\n// Extract: author, followers, engagement\n// Look for known AGI voices (Yann, Sam, Demis, etc.)\n// Calculate weighted reach\nconst tweets = $json.tweets;\nconst amplifiers = tweets.map(tweet => ({\n  author: tweet.author_id,\n  followers: tweet.public_metrics.followers_count,\n  engagement: tweet.public_metrics.like_count + tweet.public_metrics.retweet_count,\n  engagement_rate: (tweet.public_metrics.like_count + tweet.public_metrics.retweet_count) / tweet.public_metrics.followers_count,\n  weighted_reach: tweet.public_metrics.followers_count * ((tweet.public_metrics.like_count + tweet.public_metrics.retweet_count) / tweet.public_metrics.followers_count)\n}));\nreturn { amplifiers };"
+      },
+      "notes": "Calculate weighted reach for each amplifier"
+    },
+    {
+      "name": "Load Accuracy Scores",
+      "type": "n8n-nodes-base.readLocalFile",
+      "position": [1450, 450],
+      "parameters": {
+        "filePath": "/Users/sarahevans_zen/.openclaw/workspace/projects/asksarah-ai/data/accuracy-db.json"
+      },
+      "notes": "Fetch historical accuracy scores for key voices"
+    },
+    {
+      "name": "Merge Credibility",
+      "type": "n8n-nodes-base.executeCode",
+      "position": [1650, 400],
+      "parameters": {
+        "language": "javascript",
+        "code": "// Combine amplifiers with accuracy scores\n// weighted_credibility = weighted_reach * accuracy_score\n// Sort by weighted_credibility\nconst amplifiers = $json.amplifiers;\nconst accuracy = $json.accuracy;\nconst credible = amplifiers.map(amp => ({\n  ...amp,\n  accuracy_score: accuracy[amp.author] || 0.5,\n  weighted_credibility: amp.weighted_reach * (accuracy[amp.author] || 0.5)\n})).sort((a,b) => b.weighted_credibility - a.weighted_credibility);\nreturn { top_voices: credible.slice(0, 5) };"
+      },
+      "notes": "Top 5 voices by credibility (reach × accuracy)"
+    },
+    {
+      "name": "Build Dashboard Update",
+      "type": "n8n-nodes-base.executeCode",
+      "position": [1850, 400],
+      "parameters": {
+        "language": "javascript",
+        "code": "// Format for dashboard injection\nconst story = $json.story;\nconst voices = $json.top_voices;\nreturn {\n  story_id: story.story_id,\n  headline: story.headline,\n  source_count: story.sources.length,\n  sources: story.sources,\n  top_voices: voices.map(v => ({ name: v.author, followers: v.followers, accuracy: v.accuracy_score })),\n  dashboard_ready: true\n};"
+      },
+      "notes": "Format story data for dashboard consumption"
+    },
+    {
+      "name": "Update Dashboard Data",
+      "type": "n8n-nodes-base.writeLocalFile",
+      "position": [2050, 400],
+      "parameters": {
+        "filePath": "/Users/sarahevans_zen/.openclaw/workspace/projects/asksarah-ai/data/deduped-stories/{{ now.toISOString().split('T')[0] }}-stories.json"
+      },
+      "notes": "Write latest stories to file. Dashboard reads this."
+    },
+    {
+      "name": "Notify Sarah",
+      "type": "n8n-nodes-base.telegram",
+      "position": [2050, 500],
+      "parameters": {
+        "chatId": "8206233476",
+        "message": "=🌊 **AGI Monitoring Update** ({{ now.toLocaleString() }})\n\n📰 {{ $json.source_count }} sources covering: {{ $json.headline }}\n\n🎤 Top voices: {{ $json.top_voices.map(v => v.name).join(', ') }}"
+      },
+      "notes": "Daily or on major stories only (configurable)"
+    }
+  ],
+  "connections": {
+    "Cron Trigger": [["Load Outlet List"]],
+    "Load Outlet List": [["Poll RSS Feeds"], ["Poll APIs"], ["Web Scraping (fallback)"]],
+    "Poll RSS Feeds": [["Merge & Clean Articles"]],
+    "Poll APIs": [["Merge & Clean Articles"]],
+    "Web Scraping (fallback)": [["Merge & Clean Articles"]],
+    "Merge & Clean Articles": [["Deduplicate Stories"]],
+    "Deduplicate Stories": [["Save Raw Coverage"], ["Track Story to Social"]],
+    "Track Story to Social": [["Extract Amplifiers"]],
+    "Extract Amplifiers": [["Load Accuracy Scores"]],
+    "Load Accuracy Scores": [["Merge Credibility"]],
+    "Merge Credibility": [["Build Dashboard Update"]],
+    "Build Dashboard Update": [["Update Dashboard Data"], ["Notify Sarah"]]
+  },
+  "metadata": {
+    "status": "skeleton",
+    "requires": [
+      "agi-outlet-list.json",
+      "accuracy-db.json (seeded with 20+ key figures)",
+      "Twitter API v2 credentials",
+      "n8n instance with Telegram node"
+    ],
+    "next_steps": [
+      "Wait for Sonnet outlet research",
+      "Implement each node with actual API calls",
+      "Test with 10 outlets, then scale to 100+",
+      "Integrate with dashboard frontend"
+    ]
+  }
+}
