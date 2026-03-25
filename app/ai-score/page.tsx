@@ -163,8 +163,8 @@ export default function AIScorePage() {
           transition={{ delay: 0.1 }}
           className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-4"
         >
-          Is Your Website{' '}
-          <span className="text-brand-accent">Visible to AI?</span>
+          Is Your Content{' '}
+          <span className="text-brand-accent">AI Visible?</span>
         </motion.h1>
 
         {/* Sub */}
@@ -174,8 +174,7 @@ export default function AIScorePage() {
           transition={{ delay: 0.2 }}
           className="text-brand-subtext text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
         >
-          Score your site&apos;s AI visibility in seconds. See exactly why ChatGPT, Perplexity,
-          and Google AI Overviews aren&apos;t citing you — and how to fix it.
+          Score any content&apos;s AI visibility in seconds. Press releases, articles, thought leadership, newsroom posts — see exactly why ChatGPT, Perplexity, and Claude aren&apos;t citing you.
         </motion.p>
 
         {/* Trust signals */}
