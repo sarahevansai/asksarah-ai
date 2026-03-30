@@ -221,36 +221,21 @@ export default function SarahChatbot() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Question Selector */}
-            <div className="border-t border-brand-border p-4 max-h-[200px] overflow-y-auto">
-              <button
-                onClick={() => setSelectedQA(selectedQA === null ? null : null)}
-                className="w-full mb-2 p-2 bg-brand-surface border border-brand-border rounded text-sm text-brand-text hover:border-brand-cyan transition-colors flex items-center justify-between"
-              >
-                <span>Browse Questions</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${selectedQA !== null ? 'rotate-180' : ''}`} />
-              </button>
-              
-              <AnimatePresence>
-                {selectedQA === null && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="space-y-2"
+            {/* Question Bubbles */}
+            <div className="border-t border-brand-border p-3 max-h-[120px] overflow-y-auto">
+              <div className="flex flex-wrap gap-2">
+                {qaData.map(qa => (
+                  <motion.button
+                    key={qa.id}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    onClick={() => handleSelectQuestion(qa)}
+                    className="px-3 py-1 text-xs bg-brand-surface border border-brand-border rounded-full text-brand-text hover:bg-brand-cyan hover:text-brand-black hover:border-brand-cyan transition-all whitespace-nowrap"
                   >
-                    {qaData.map(qa => (
-                      <button
-                        key={qa.id}
-                        onClick={() => handleSelectQuestion(qa)}
-                        className="w-full p-2 text-left bg-brand-surface/50 border border-brand-border/50 rounded text-xs text-brand-text hover:bg-brand-surface hover:border-brand-cyan transition-colors"
-                      >
-                        {qa.question}
-                      </button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    {qa.question.substring(0, 30)}...
+                  </motion.button>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
