@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import FAQSection from '@/components/FAQSection'
 
 export default function Home() {
   return (
@@ -80,9 +79,6 @@ export default function Home() {
           Start Your Analysis
         </Link>
       </section>
-
-      {/* FAQ Section */}
-      <FAQSection />
 
       {/* Footer */}
       <footer className="border-t border-brand-cyan/20 py-12 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
