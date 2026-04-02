@@ -337,49 +337,37 @@
     }, { threshold: 0.15 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Fetch recent issues from Substack RSS via a CORS proxy
+    // Fetch recent issues via server-side proxy (avoids CORS issues)
     async function loadRecentIssues() {
       const container = document.getElementById('issuesList');
       try {
-        // Try fetching RSS directly (works if same-origin or CORS allowed)
-        // Fall back to a public CORS proxy if needed
-        const feedUrl = 'https://prsarahevans.substack.com/feed';
-        let response;
-        try {
-          response = await fetch(feedUrl);
-        } catch {
-          // Try via allorigins proxy
-          response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(feedUrl)}`);
-        }
+        const resp = await fetch('/api/newsletter-feed');
+        if (!resp.ok) throw new Error('Feed fetch failed');
+        const data = await resp.json();
 
-        if (!response.ok) throw new Error('Feed fetch failed');
-        const text = await response.text();
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(text, 'text/xml');
-        const items = xml.querySelectorAll('item');
-
-        if (items.length === 0) throw new Error('No items');
+        if (!data.items || data.items.length === 0) throw new Error('No items');
 
         container.innerHTML = '';
-        const count = Math.min(items.length, 5);
-        for (let i = 0; i < count; i++) {
-          const item = items[i];
-          const title = item.querySelector('title')?.textContent || 'Untitled';
-          const link = item.querySelector('link')?.textContent || '#';
-          const pubDate = item.querySelector('pubDate')?.textContent;
-          const dateStr = pubDate ? new Date(pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+        data.items.forEach(item => {
+          const dateStr = item.pubDate
+            ? new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+            : '';
+          const preview = item.preview || '';
 
           const a = document.createElement('a');
           a.className = 'issue-item';
-          a.href = link;
+          a.href = item.link;
           a.target = '_blank';
           a.innerHTML = `
-            <span class="issue-title">${title}</span>
+            <div style="flex: 1; min-width: 0;">
+              <span class="issue-title">${item.title}</span>
+              ${preview ? `<p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${preview}</p>` : ''}
+            </div>
             <span class="issue-date">${dateStr}</span>
             <span class="issue-arrow">→</span>
           `;
           container.appendChild(a);
-        }
+        });
       } catch (e) {
         // Fallback: link to archive
         container.innerHTML = `

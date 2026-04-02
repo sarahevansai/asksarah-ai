@@ -321,6 +321,8 @@
         <button class="starter-chip" onclick="askQ(this.textContent)">What are you building right now?</button>
         <button class="starter-chip" onclick="askQ(this.textContent)">What's The Before Layer?</button>
         <button class="starter-chip" onclick="askQ(this.textContent)">What's agentic commerce?</button>
+        <button class="starter-chip" onclick="askQ(this.textContent)">Tell me about Answer Share™</button>
+        <button class="starter-chip" onclick="askQ(this.textContent)">Where do I start?</button>
       </div>
     </div>
   </section>
@@ -382,15 +384,49 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
     // ═══════════════════════════════════════════
-    // CHAT ENGINE v3 — Gemini-powered, 10-question limit per session
+    // CHAT ENGINE — Pre-drafted Q&A (no API dependency)
     // ═══════════════════════════════════════════
-    let msgCount = 0;
-    let chatHistory = [];
-    const MAX_QUESTIONS = 10;
-
-    const starters = [
-      "I wrote my first program in 6th grade. I created #journchat and changed how journalists and PR pros found each other. I built the first media wiki on Twitter. Every platform shift since, I haven't waited for the playbook — I've rewritten it.\n\nNow I'm doing it with AI. Not just adopting tools — reimagining how businesses make decisions.\n\nWhat are you working on? I can get specific if I know your world.",
-      "Most people adopt new technology. I rebuild the infrastructure around it.\n\nI've been doing this since before most people had a Twitter account — and right now, the shift is bigger than anything I've seen. AI is changing how businesses get discovered, how they operate, and how they sell.\n\nWhat's your world?",
+    const qaData = [
+      {
+        question: "What have you built?",
+        answer: "I wrote my first program in 6th grade. I created #journchat — the first live Twitter chat connecting journalists and PR pros — and it ran for years. I built the first media wiki on Twitter. I founded Sevans PR, grew it, and it was acquired by Zen Media where I'm now Partner and Head of PR.\n\nBut the building never stopped. Right now I'm creating AI visibility tools, developing the Published Monthly™ framework, and shipping things like SourceVault™, GEO GPT, and the ZAVI™ platform. Every platform shift, I don't wait for the playbook — I rewrite it."
+      },
+      {
+        question: "How is AI changing how businesses make decisions?",
+        answer: "The biggest shift isn't that AI can answer questions — it's that AI is becoming the first layer between a customer and a business. I call it **The Before Layer**.\n\nPeople aren't Googling and scrolling through ten blue links anymore. They're asking ChatGPT, Perplexity, and Gemini direct questions and getting direct answers. If your brand isn't in those answers, you don't exist in that conversation. 43% of Google searches already end without a click. When AI Mode is active, that jumps to 93%.\n\nThe companies that understand this are rebuilding their entire content and distribution strategy around it. The ones that don't? They're optimizing for yesterday."
+      },
+      {
+        question: "What was #journchat?",
+        answer: "It was a weekly live Twitter chat I created in 2008 that connected journalists with PR professionals in real-time. First of its kind.\n\nBefore #journchat, if a journalist needed a source, they worked their Rolodex. If a PR person had a story, they cold-pitched and hoped. I built a public space where both sides could find each other live, every week.\n\nIt ran for years, had thousands of participants, trended nationally, and fundamentally changed how the PR industry thought about social media as a professional tool — not just a marketing channel. It proved that you could build real professional infrastructure on social platforms. That same instinct is what I'm applying to AI now."
+      },
+      {
+        question: "What are you building right now?",
+        answer: "A lot. Here's the short list:\n\n• **Published Monthly™** — a systematic 5-part framework for AI visibility: owned content, SEO, generative search, digital PR, and sales alignment.\n• **ZAVI™** — a platform that tracks your Answer Share across AI engines over time.\n• **SourceVault™** — a tool that helps journalists discover expert sources.\n• **GEO GPT** — a free tool to audit your AI visibility across ChatGPT, Gemini, Perplexity, and Claude.\n• **The AGI Intelligence Dashboard** — real-time monitoring of AGI developments across research labs.\n\nI'm also shipping the PR@ctical newsletter, writing for HackerNoon, and helping clients at Zen Media navigate this shift. I build because that's how I think."
+      },
+      {
+        question: "What's The Before Layer?",
+        answer: "The Before Layer is the AI-generated answer people see before they ever click a link. It's your brand's new homepage — except you didn't build it, and you probably don't even know what it says.\n\nWhen someone asks ChatGPT \"what's the best B2B PR agency\" or \"who's leading AI visibility strategy,\" the AI generates an answer. That answer is now the first impression. Before your website. Before your LinkedIn. Before anything you control.\n\nThis is the single biggest shift in how businesses get discovered since Google. And most brands have zero strategy for it. That's the gap I'm working to close."
+      },
+      {
+        question: "What's agentic commerce?",
+        answer: "Agentic commerce is what happens when AI agents start making purchasing decisions on behalf of humans. And it's not someday — it's starting now.\n\nThink about it: if your AI assistant can book your flights, compare insurance plans, and recommend software for your team, the \"customer\" isn't a person browsing your website anymore. It's an AI evaluating whether your product is worth recommending.\n\nThis changes everything about how you need to show up. Your content, your reputation, your structured data — it all needs to be optimized for machine evaluation, not just human persuasion. The brands that figure this out first will have a massive advantage. The ones that wait will wonder where their pipeline went."
+      },
+      {
+        question: "How is this different from SEO?",
+        answer: "SEO gets you ranked in a list. AI visibility gets you cited in an answer.\n\nWith SEO, you're optimizing to appear in search results — fighting for position on a page of links. With AI visibility (also called AEO or Answer Engine Optimization), you're optimizing to be the source an AI model pulls from when it generates a direct answer.\n\nDifferent mechanics entirely. Google rewards backlinks, keywords, and domain authority. AI models reward structured, authoritative, citable content: clear claims, named experts, specific data points, and consistent information across multiple trusted sources.\n\nGoogle's March 2026 core update actually made these worlds closer by rewarding original expertise. But they're still not the same game. You can crush it on Google and be invisible to AI. I see it every single day."
+      },
+      {
+        question: "What makes your approach different?",
+        answer: "I build the infrastructure. I don't consult from a slide deck.\n\nMost people in this space are either talking about AI visibility or selling audits. I'm building the tools, shipping the frameworks, and running the programs with real clients. Published Monthly™ isn't a concept — it's a system with measurable results. ZAVI™ isn't a pitch — it's a working platform.\n\nI also come at this from a practitioner's perspective, not an academic one. I've been first to every platform shift for two decades. I built tools on Twitter before there was a playbook. I'm doing the same with AI. The difference is I move fast and I ship."
+      },
+      {
+        question: "Tell me about Answer Share™",
+        answer: "Answer Share™ is a comprehensive metric that measures the probability of your brand showing up in AI-generated answers — both from the model's memory (training data) and from real-time retrieval.\n\nWe run defined prompt sets across ChatGPT, Perplexity, Gemini, and other models. For each prompt: Are you mentioned? By name or generically? Is the info accurate? Are you the primary recommendation or a secondary mention? Are competitors showing up instead?\n\nMost brands we baseline have close to zero Answer Share. That's actually the opportunity — the brands moving on it now are building an advantage that's going to be very hard to catch later. It's share of voice for the AI era, but with precision."
+      },
+      {
+        question: "Where do I start?",
+        answer: "Start by doing something most brands haven't done yet: go ask AI about yourself.\n\nOpen ChatGPT, Perplexity, and Gemini. Ask the questions your customers would ask. See who shows up. See if it's you. I guarantee the results will surprise you.\n\nOnce you know where you stand, the path is clear:\n\n1. **Audit your visibility** — use the free GEO GPT tool on my Tools page.\n2. **Subscribe to PR@ctical** — my newsletter covers what's actually working every week.\n3. **Get the AI Visibility Checklist** — 20 actions you can take this week.\n4. **Reach out** — if you want to go deeper, connect with me on LinkedIn or through Zen Media.\n\nThe brands that act now will own this space. Don't wait for the playbook — help me write it."
+      }
     ];
 
     let currentAudio = null;
@@ -407,66 +443,20 @@
         b.textContent = text;
       }
       w.appendChild(b);
-      if (type === 'bot') {
-        const btn = document.createElement('button');
-        btn.className = 'listen-btn';
-        btn.innerHTML = '🔊 Listen';
-        btn.onclick = () => playTTS(text, btn);
-        w.appendChild(btn);
-      }
       m.appendChild(w);
       m.scrollTop = m.scrollHeight;
     }
 
-    async function playTTS(text, btn) {
-      if (currentAudio) { currentAudio.pause(); currentAudio = null; }
-      if (btn.classList.contains('playing')) {
-        btn.classList.remove('playing'); btn.innerHTML = '🔊 Listen'; return;
-      }
-      document.querySelectorAll('.listen-btn.playing').forEach(b => {
-        b.classList.remove('playing'); b.innerHTML = '🔊 Listen';
-      });
-      btn.disabled = true; btn.innerHTML = '⏳ Loading...';
-      try {
-        const resp = await fetch('/api/tts', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text })
-        });
-        if (!resp.ok) throw new Error('TTS failed');
-        const blob = await resp.blob();
-        const url = URL.createObjectURL(blob);
-        currentAudio = new Audio(url);
-        btn.disabled = false; btn.classList.add('playing'); btn.innerHTML = '⏸️ Playing...';
-        currentAudio.play();
-        currentAudio.onended = () => {
-          btn.classList.remove('playing'); btn.innerHTML = '🔊 Listen';
-          currentAudio = null; URL.revokeObjectURL(url);
-        };
-      } catch (e) {
-        btn.disabled = false; btn.innerHTML = '🔊 Listen'; console.error('TTS error:', e);
-      }
-    }
-
-    function showFollowUps() {
+    function showQuestionChips() {
       const s = document.getElementById('chatSuggestions');
       s.innerHTML = '';
-      if (msgCount >= MAX_QUESTIONS) return;
-      const topics = [
-        'What is The Before Layer?', 'How is this different from SEO?',
-        'What is agentic commerce?', 'Tell me about Answer Share™',
-        'How is PR changing?', 'Where do I start?',
-        "What's the PRCR framework?", "What's the 90-day system?",
-        'How long does it take to see results?',
-        'Can small companies compete with big brands?',
-        'What makes your approach different?',
-        'What if AI says something wrong about my brand?',
-        'Tell me about Dual Pathway PR', 'Does this actually work?'
-      ];
-      const picks = topics.sort(() => Math.random() - 0.5).slice(0, 4);
-      picks.forEach(t => {
+      // Show up to 4 random questions
+      const shuffled = [...qaData].sort(() => Math.random() - 0.5).slice(0, 4);
+      shuffled.forEach(qa => {
         const btn = document.createElement('button');
-        btn.className = 'chat-sugg'; btn.textContent = t;
-        btn.onclick = () => askQ(t);
+        btn.className = 'chat-sugg';
+        btn.textContent = qa.question;
+        btn.onclick = () => askQ(qa.question);
         s.appendChild(btn);
       });
     }
@@ -484,62 +474,34 @@
       if (el) el.remove();
     }
 
-    function showCounter() {
-      const remaining = MAX_QUESTIONS - msgCount;
-      let counter = document.getElementById('question-counter');
-      if (!counter) {
-        counter = document.createElement('div');
-        counter.id = 'question-counter';
-        counter.style.cssText = 'text-align:center;font-size:0.7rem;color:var(--text-muted);padding:4px 0;';
-        const form = document.getElementById('chatForm');
-        form.parentNode.insertBefore(counter, form);
-      }
-      if (remaining <= 3 && remaining > 0) {
-        counter.textContent = `${remaining} question${remaining === 1 ? '' : 's'} remaining`;
-      } else if (remaining <= 0) {
-        counter.textContent = 'Session complete — thanks for chatting!';
-        document.getElementById('chatInput').disabled = true;
-        document.getElementById('chatInput').placeholder = 'Session complete';
-      } else {
-        counter.textContent = '';
-      }
-    }
-
-    async function askQ(text) {
-      if (msgCount >= MAX_QUESTIONS) return;
+    function askQ(text) {
       addMsg(text, 'user');
       document.getElementById('chatSuggestions').innerHTML = '';
-      const input = document.getElementById('chatInput');
-      input.disabled = true;
-      showTyping();
-      chatHistory.push({ role: 'user', text: text });
-      try {
-        const resp = await fetch('/api/chat', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: text, history: chatHistory.slice(-8), questionCount: msgCount })
-        });
-        const data = await resp.json();
-        hideTyping();
-        if (data.error) {
-          addMsg("Something went sideways on my end. Try again in a sec?", 'bot');
-        } else {
-          msgCount++;
-          chatHistory.push({ role: 'model', text: data.reply });
-          addMsg(data.reply, 'bot');
-          showCounter();
-          if (!data.limitReached) { setTimeout(() => showFollowUps(), 300); }
-        }
-      } catch (err) {
-        hideTyping();
-        addMsg("Connection hiccup. Give it another shot?", 'bot');
+
+      // Find the matching pre-drafted answer
+      const qa = qaData.find(q => q.question.toLowerCase() === text.toLowerCase());
+      if (qa) {
+        showTyping();
+        // Simulate brief typing delay for natural feel
+        setTimeout(() => {
+          hideTyping();
+          addMsg(qa.answer, 'bot');
+          setTimeout(() => showQuestionChips(), 300);
+        }, 600 + Math.random() * 400);
+      } else {
+        // For typed questions that don't match, show a helpful redirect
+        showTyping();
+        setTimeout(() => {
+          hideTyping();
+          addMsg("Great question! I've got pre-loaded answers for the topics below — pick one to get started. For anything else, connect with me directly on LinkedIn or through the Connect page.", 'bot');
+          setTimeout(() => showQuestionChips(), 300);
+        }, 500);
       }
-      input.disabled = false; input.focus();
     }
 
+    // Initial greeting + show question chips
     setTimeout(() => {
-      const greeting = starters[Math.floor(Math.random() * starters.length)];
-      addMsg(greeting, 'bot');
-      setTimeout(() => showFollowUps(), 300);
+      showQuestionChips();
     }, 800);
 
     document.getElementById('chatForm').addEventListener('submit', function(e) {

@@ -1,7 +1,8 @@
 {
   "rewrites": [
     { "source": "/api/chat", "destination": "/api/chat.js" },
-    { "source": "/api/tts", "destination": "/api/tts.js" }
+    { "source": "/api/tts", "destination": "/api/tts.js" },
+    { "source": "/api/newsletter-feed", "destination": "/api/newsletter-feed.js" }
   ],
   "cleanUrls": true
 }
