@@ -1,8 +1,10 @@
 import Link from 'next/link'
+import SarahChatbot from '@/components/SarahChatbot'
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <SarahChatbot />
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 bg-brand-dark/80 backdrop-blur border-b border-brand-cyan/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
@@ -10,7 +12,6 @@ export default function Home() {
           <div className="flex gap-8">
             <Link href="/ai-score" className="hover:text-brand-cyan transition">Tools</Link>
             <Link href="/articles" className="hover:text-brand-cyan transition">Articles</Link>
-            <Link href="/advisory" className="hover:text-brand-cyan transition">Advisory</Link>
             <a href="https://stan.store/asksarahevans" target="_blank" className="hover:text-brand-cyan transition">Shop</a>
           </div>
         </div>
