@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The PR Pro's Guide to Setting Up & Using Claude Code — askSarah.ai</title>
+  <meta name="description" content="Step-by-step guide for communications professionals on how to set up and use Claude Code to build AI tools, enhance visibility, and automate PR workflows.">
+  <meta property="og:title" content="The PR Pro's Guide to Setting Up & Using Claude Code — askSarah.ai">
+  <meta property="og:description" content="A complete guide on how PR and Comms experts can leverage Anthropic's Claude Code for AI visibility tooling and advanced system building.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://asksarah.ai/claude-code-guide">
+  <link rel="canonical" href="https://asksarah.ai/claude-code-guide">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The PR Pro's Guide to Setting Up & Using Claude Code",
+    "description": "Step-by-step guide on how communications professionals can set up and use Anthropic's new CLI tool, Claude Code, to automate systems and build AI visibility frameworks.",
+    "author": { "@type": "Person", "name": "Sarah Evans", "jobTitle": "Communications Strategist & Technology Builder", "url": "https://asksarah.ai" },
+    "publisher": { "@type": "Organization", "name": "askSarah.ai", "url": "https://asksarah.ai" },
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "url": "https://asksarah.ai/claude-code-guide",
+    "wordCount": 2100
+  }
+  </script>
+
+  <style>
+    :root { --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838; --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f; --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee; --gradient: linear-gradient(135deg, #7c3aed, #06b6d4); --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee); --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06); --radius: 16px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--gradient); z-index: 200; transition: width 0.1s; }
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(124,58,237,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(6,182,212,0.07); animation: o2 25s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border: none; }
+    
+    .article-hero { position: relative; z-index: 1; padding: 8rem 2rem 3rem; }
+    .article-hero-inner { max-width: 800px; margin: 0 auto; }
+    .article-hero-deco { position: absolute; top: 0; left: 0; right: 0; height: 400px; overflow: hidden; z-index: -1; }
+    .article-hero-deco::before { content: ''; position: absolute; width: 100px; height: 100px; background: rgba(6,182,212,0.08); border-radius: 16px; transform: rotate(45deg); top: 100px; right: 15%; }
+    .article-hero-deco::after { content: ''; position: absolute; width: 60px; height: 60px; background: rgba(124,58,237,0.08); border-radius: 10px; transform: rotate(30deg); top: 180px; left: 10%; }
+    .breadcrumb { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--violet-light); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--cyan-light); }
+    .article-meta { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+    .article-meta span { font-size: 0.75rem; color: var(--text-muted); }
+    .article-hero h1 { font-family: 'Space Grotesk'; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .article-hero-sub { font-size: 1.05rem; color: var(--text); max-width: 600px; line-height: 1.7; }
+    .article-layout { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; position: relative; z-index: 1; }
+    
+    .toc { position: sticky; top: 5rem; align-self: start; }
+    .toc h4 { font-family: 'Space Grotesk'; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 600; }
+    .toc a { display: block; font-size: 0.78rem; color: var(--text-muted); text-decoration: none; padding: 0.3rem 0; padding-left: 0.75rem; border-left: 2px solid var(--border); transition: all 0.2s; line-height: 1.4; }
+    .toc a:hover, .toc a.active { color: var(--white); border-left-color: var(--violet); }
+    .toc-mobile { display: none; position: relative; z-index: 1; max-width: 800px; margin: 0 auto 2rem; padding: 0 2rem; }
+    .toc-mobile-toggle { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0.75rem 1rem; color: var(--white); font-family: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .toc-mobile-content { display: none; background: var(--card); border: 1px solid var(--border); border-radius: 0 0 12px 12px; margin-top: -1px; padding: 0.5rem 1rem 0.75rem; }
+    .toc-mobile-content.open { display: block; }
+    .toc-mobile-content a { display: block; font-size: 0.82rem; color: var(--text); text-decoration: none; padding: 0.4rem 0; border-bottom: 1px solid var(--border-light); }
+    .toc-mobile-content a:last-child { border: none; }
+    
+    .article-content { max-width: 720px; }
+    .article-content h2 { font-family: 'Space Grotesk'; font-size: 1.6rem; font-weight: 700; margin: 2.5rem 0 1rem; line-height: 1.2; letter-spacing: -0.02em; scroll-margin-top: 5rem; }
+    .article-content h3 { font-family: 'Space Grotesk'; font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--white); scroll-margin-top: 5rem; }
+    .article-content p { color: var(--text); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.25rem; }
+    .article-content strong { color: var(--white); }
+    .article-content ul, .article-content ol { color: var(--text); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    .article-content li { margin-bottom: 0.4rem; }
+    .article-content a { color: var(--violet-light); text-decoration: none; border-bottom: 1px solid rgba(167,139,250,0.3); transition: all 0.2s; }
+    .article-content a:hover { color: var(--cyan-light); border-bottom-color: var(--cyan); }
+    .article-content blockquote { border-left: 3px solid var(--cyan); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(6,182,212,0.06); border-radius: 0 12px 12px 0; }
+    .article-content blockquote p { margin-bottom: 0; color: var(--white); font-style: italic; }
+    
+    .code-block { background: rgba(0,0,0,0.3); padding: 1.2rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem; color: #a78bfa; margin: 1.5rem 0; overflow-x: auto; border: 1px solid var(--border-light); }
+
+    .callout { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+    .callout h4 { font-family: 'Space Grotesk'; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+    .callout p { margin-bottom: 0; }
+    
+    .cta-inline { background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.08)); border: 1px solid rgba(124,58,237,0.2); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0; text-align: center; }
+    .cta-inline p { margin-bottom: 0.75rem; }
+    .cta-inline a.btn { display: inline-block; background: var(--gradient); color: white; padding: 0.6rem 1.5rem; border-radius: 100px; font-weight: 600; font-size: 0.85rem; text-decoration: none; border: none; }
+    
+    .faq-section { margin-top: 3rem; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+    .faq-q { font-family: 'Space Grotesk'; font-weight: 600; font-size: 1rem; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--violet-light); transition: transform 0.2s; }
+    .faq-q.open::after { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-a.open { max-height: 500px; }
+    .faq-a p { padding-top: 0.75rem; font-size: 0.9rem; }
+    
+    .share-section { display: flex; gap: 0.75rem; align-items: center; margin: 2rem 0; flex-wrap: wrap; }
+    .share-section span { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+    .share-btn { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 0.8rem; border-radius: 100px; font-size: 0.75rem; font-weight: 500; text-decoration: none; border: 1px solid var(--border); color: var(--text); transition: all 0.2s; }
+    .share-btn:hover { border-color: var(--violet); color: var(--white); }
+    
+    .author-bio { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 3rem 0; }
+    .author-bio img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .author-bio-text h4 { font-family: 'Space Grotesk'; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .author-bio-text p { font-size: 0.82rem; color: var(--text); line-height: 1.6; margin-bottom: 0; }
+    
+    .cross-links { margin: 3rem 0; }
+    .cross-links h3 { font-family: 'Space Grotesk'; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+    .cross-link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; }
+    .cross-link-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; transition: all 0.2s; }
+    .cross-link-card:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-2px); }
+    .cross-link-card h4 { font-family: 'Space Grotesk'; font-size: 0.85rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+    .cross-link-card p { font-size: 0.75rem; color: var(--text-muted); margin: 0; }
+    
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+    
+    @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .toc { display: none; } .toc-mobile { display: block; } }
+    @media (max-width: 768px) { .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; } .nav-links { display: none; } .nav-hamburger { display: flex; } .article-hero { padding: 6rem 1.5rem 2rem; } .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; } .author-bio { flex-direction: column; align-items: center; text-align: center; } }
+  </style>
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <nav>
+    <a href="/" class="nav-logo"><svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg"><text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30"><tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan></text></svg></a>
+    <div class="nav-links">
+      <a href="/">Home</a><a href="about.html">About</a><a href="tools.html">Tools</a><a href="learn.html" class="active">Learn</a><a href="speaking.html">Speaking</a><a href="newsletter.html">Newsletter</a><a href="connect.html">Connect</a>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a><a href="about.html">About</a><a href="tools.html">Tools</a><a href="learn.html">Learn</a><a href="speaking.html">Speaking</a><a href="newsletter.html">Newsletter</a><a href="connect.html">Connect</a>
+  </div>
+
+  <section class="article-hero">
+    <div class="article-hero-deco"></div>
+    <div class="article-hero-inner">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="learn.html">Learn</a> → Setting Up Claude Code</div>
+      <div class="article-meta">
+        <span>📖 18 min read</span>
+        <span>Published April 14, 2026</span>
+        <span>By Sarah Evans</span>
+      </div>
+      <h1>The PR Pro's Guide to Setting Up & Using <span class="gradient-text">Claude Code</span></h1>
+      <p class="article-hero-sub">How PR experts, visibility specialists, and communications strategists can leverage Anthropic's breakthrough agentic CLI tool to construct AI-driven workflows—no advanced developer degree required.</p>
+    </div>
+  </section>
+
+  <div class="toc-mobile">
+    <button class="toc-mobile-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Table of Contents <span>▾</span></button>
+    <div class="toc-mobile-content">
+      <a href="#what-is">What is Claude Code?</a>
+      <a href="#why-comms">Why Comms Needs It</a>
+      <a href="#prerequisites">The Prerequisites</a>
+      <a href="#installation">Installation Steps</a>
+      <a href="#first-command">Your First Command</a>
+      <a href="#visibility-tools">Building AI Visibility Tools</a>
+      <a href="#limitations">Knowing the Limits</a>
+    </div>
+  </div>
+
+  <div class="article-layout">
+    <aside class="toc">
+      <h4>Contents</h4>
+      <a href="#what-is">What is Claude Code?</a>
+      <a href="#why-comms">Why Comms Needs It</a>
+      <a href="#prerequisites">The Prerequisites</a>
+      <a href="#installation">Installation Steps</a>
+      <a href="#first-command">Your First Command</a>
+      <a href="#visibility-tools">Building AI Visibility Tools</a>
+      <a href="#limitations">Knowing the Limits</a>
+    </aside>
+
+    <article class="article-content">
+
+      <h2 id="what-is">What is Claude Code? And Why Am I Looking at a Terminal?</h2>
+
+      <p>If you've been following my journey on <strong>AI Visibility</strong> and <strong>Vibecoding</strong>, you know I strongly advocate for shifting from being a strict "tool user" to a "tool builder." Anthropic's new tool, <strong>Claude Code</strong>, takes this to an unprecedented level.</p>
+
+      <p>Claude Code is an agentic command-line interface (CLI) tool. This means instead of typing inside a standard web browser chat interface (like ChatGPT or Claude.ai), you interact with Claude directly within your computer’s terminal. Claude Code has direct read and write access to your local files, enabling it to write, run, and test code, search up documentation, and deploy entirely autonomous projects on your behalf.</p>
+
+      <p>To many PR professionals, opening the terminal application (that scary black screen with the blinking cursor) feels like crossing a technical red line. But the "Terminal" is simply a direct line to your computer's brain. And when you give Claude access to that direct line, you can command it to generate fully fledged PR tools and dashboards natively.</p>
+
+      <h2 id="why-comms">Why Are PR and AI Economy Experts Using It?</h2>
+
+      <p>In the new AI economy, <strong>Generative Engine Optimization (GEO)</strong> and deep AI Visibility depend on speed. As a communications strategist, you might realize you need a tool to bulk-test brand sentiment across AI search engines, or a dashboard that tracks your client's exact visibility metrics over time.</p>
+      
+      <p>The standard way is to pay a software developer thousands of dollars and wait three months. The vibecoding way was to generate the code in Claude.ai, copy/paste it into an editor, and figure out how to piece things together. <strong>Claude Code bypasses both.</strong> Let's see some concrete examples of what happens when a seasoned pro sets this up:</p>
+
+      <ul>
+        <li><strong>Automated Answer Share Scrapers:</strong> Tell Claude Code, "Build me a script that reads my Excel sheet of 100 media keywords, pings the Perplexity and Gemini APIs in the background, and scores my brand's Answer Share natively into a CSV." Claude Code will figure out modern packages, install them, run the code to get API keys, execute it, fix any bugs it crashes on, and hand you the finished spreadsheet.</li>
+        <li><strong>Complete Visibility Dashboards:</strong> Start by typing "Build me a fully functioning React application to track AI citations across platforms, and ensure it runs on localhost." Give it ten minutes, and a working app opens up locally on your laptop.</li>
+        <li><strong>Automated Press Pitching Pipelines:</strong> Connect a local folder containing your client research parameters to a script Claude Code generates that evaluates PR opportunities.</li>
+      </ul>
+
+      <h2 id="prerequisites">The Prerequisites: What You Need First</h2>
+
+      <p>Because Claude Code operates via your command line, you need a minor bit of prep work. I promise it takes under five minutes.</p>
+
+      <ol>
+        <li><strong>Node.js & npm:</strong> This is the backbone environment required for it to run. Go to the official Node.js website, download the standard installer, and click through it exactly as you would install any other application.</li>
+        <li><strong>An Anthropic Console Account:</strong> You need an API key from Anthropic so Claude can charge fractions of pennies for the smarts it brings. Sign up at console.anthropic.com and add $10 directly to your account credits.</li>
+        <li><strong>Your Terminal App:</strong> Simply hit `Cmd + Space` (on a Mac), type "Terminal" and press Enter. Welcome to the command line!</li>
+      </ol>
+
+      <div class="callout">
+        <h4>⚡ Important Note on Billing</h4>
+        <p>Claude Code uses Anthropic's API billing, which acts entirely separately from any existing Claude Pro ($20/mo) consumer subscription you might have.</p>
+      </div>
+
+      <h2 id="installation">The Installation Steps</h2>
+
+      <p>Once you have Node.js installed, open that Terminal window and type exactly this, then hit Enter:</p>
+
+      <div class="code-block">npm install -g @anthropic-ai/claude-code</div>
+
+      <p>Your computer will spin its wheels for twenty seconds, placing the intelligence of a senior software architect directly on your hard drive.</p>
+      
+      <p>After it finishes, you officially have Claude loaded natively into your system. To launch your new builder, simply navigate to the file folder you wish to work on, and type:</p>
+
+      <div class="code-block">claude</div>
+
+      <p>The first time you start, it will prompt you for an authorization token. A browser window will pop open, asking you to log into Anthropic and click authorize. Once handled, you are permanently good to go.</p>
+
+      <h2 id="first-command">Running Your First Command</h2>
+
+      <p>Say you want to build a Python tool that analyzes sentiment for an upcoming PR campaign. Navigate your terminal by typing <code>cd Desktop</code> or wherever you'd like your new tool built. Then launch the program by typing <code>claude</code>.</p>
+      <p>At the prompt, simply type plain English:</p>
+
+      <blockquote><p>"Hey Claude. I need you to create a Python application that fetches the latest news articles relating to 'Generative AI Workflows' and runs basic sentiment analysis on them. Put everything in a new directory, create the required requirements.txt for installing packages, and fully implement the script."</p></blockquote>
+
+      <p>You can literally watch the matrix unfold before you. Claude will recursively execute shell commands, create folders (<code>mkdir</code>), scaffold Python documents, pull in required dependencies (like BeautifulSoup for web scraping and HuggingFace or standard NLTK packages for sentiment logic), and automatically debug any tracebook errors that pop up during execution.</p>
+      
+      <h2 id="visibility-tools">Building AI Visibility Tools with Claude Code</h2>
+
+      <p>Here at Zen Media, we lean heavily into AI visibility mapping. We typically use tools like GEO GPT to surface visibility gaps, but having Claude Code has allowed us to immediately scaffold single-use auditing tools to deeply assess our custom entity profiles.</p>
+      
+      <p>For PR professionals looking to map a client's <strong>"Before Layer"</strong>, having an autonomous agent write code to batch evaluate AI chatbot behavior provides you with robust reporting capabilities not easily done via manual ChatGPT prompting. When your agency says, "How does the competitive landscape compare internally?" you can now type a few sentences into Claude Code and have it produce a multi-layered dashboard parsing actual token probabilities.</p>
+
+      <h2 id="limitations">Knowing the Limits & Safety</h2>
+
+      <p>When you start wielding agentic workflows, things move extremely fast.</p>
+
+      <ul>
+        <li><strong>File Permissions:</strong> Claude Code inherently interacts with whatever directory you boot it inside. DO NOT boot it in your root system directory. Go to your desktop, make an empty folder, and boot inside that sandbox.</li>
+        <li><strong>API Costs:</strong> Because Claude thinks and reasons through loops, it can execute fifty queries while debugging a stubborn issue without you stopping it. While usually quite cheap, these queries can rack up a handful of dollars if left entirely unsupervised on complex multi-tier applications. Keep an eye on costs internally from the Anthropic console.</li>
+        <li><strong>Human Oversight:</strong> Claude is still heavily constrained by what it "sees" locally. It's powerful, but it still requires the clear, structured communication directives that PR strategists are uniquely qualified to deploy.</li>
+      </ul>
+
+      <p>To PR professionals looking to lead the era of automated communications structure: stop fearing the terminal. Step up, install Claude, and direct your vision to life.</p>
+      
+      <div class="cta-inline">
+        <p><strong>Mastering AI Workflows?</strong> Dive deeper into applying AI to shape narrative and scale thought leadership.</p>
+        <a href="vibecoding-for-comms.html" class="btn">Read: Vibecoding for Comms →</a>
+      </div>
+
+      <!-- SHARE -->
+      <div class="share-section">
+        <span>Share this guide:</span>
+        <a href="https://twitter.com/intent/tweet?text=The%20PR%20Pro's%20Guide%20to%20Setting%20Up%20Claude%20Code%20by%20%40prsarahevans&url=https://asksarah.ai/claude-code-guide" target="_blank" class="share-btn">𝕏 Twitter</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://asksarah.ai/claude-code-guide" target="_blank" class="share-btn">LinkedIn</a>
+      </div>
+
+      <!-- AUTHOR BIO -->
+      <div class="author-bio">
+        <img src="sarah-headshot.png" alt="Sarah Evans">
+        <div class="author-bio-text">
+          <h4>Sarah Evans</h4>
+          <p>Communications Strategist & Technology Builder. 23+ years in PR, Partner at Zen Media. Architect of AI visible systems and vibecoded infrastructure. <a href="about.html">Full bio →</a></p>
+        </div>
+      </div>
+
+      <!-- CROSS LINKS -->
+      <div class="cross-links">
+        <h3>Continue Learning</h3>
+        <div class="cross-link-grid">
+          <a href="ai-visibility-guide.html" class="cross-link-card">
+            <h4>AI Visibility Guide</h4>
+            <p>The complete guide to showing up in AI answers.</p>
+          </a>
+          <a href="vibecoding-for-comms.html" class="cross-link-card">
+            <h4>Vibecoding for Comms</h4>
+            <p>The new way PR pros build with AI.</p>
+          </a>
+          <a href="ai-visibility-cmo-guide.html" class="cross-link-card">
+            <h4>CMO's Guide to AI Visibility</h4>
+            <p>Budget, measurement, and team structure.</p>
+          </a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col"><h4>Navigation</h4><a href="/">Home</a><a href="about.html">About</a><a href="tools.html">Tools</a><a href="learn.html">Learn</a><a href="speaking.html">Speaking</a><a href="newsletter.html">Newsletter</a></div>
+        <div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a><a href="https://github.com/sarahevansai" target="_blank">GitHub</a><a href="https://t.me/sarahevansai" target="_blank">Telegram</a><a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a></div>
+        <div class="footer-col"><h4>Built by Sarah Evans</h4><a href="https://www.zenmedia.com" target="_blank">Partner at Zen Media</a><a href="https://hackernoon.com/u/sarahevans" target="_blank">HackerNoon Column</a><a href="https://x.com/prsarahevans" target="_blank">X / Twitter</a></div>
+      </div>
+      <div class="footer-bottom">
+        <a href="/" class="nav-logo" style="opacity: 0.5;"><svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="height: 22px;"><text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30"><tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan></text></svg></a>
+        <p>&copy; <span id="currentYear"></span> Sarah Evans. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      document.getElementById('readingProgress').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%';
+    });
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = [];
+    tocLinks.forEach(a => { const el = document.getElementById(a.getAttribute('href').slice(1)); if (el) sections.push({ el, a }); });
+    window.addEventListener('scroll', () => { let c = sections[0]; sections.forEach(s => { if (s.el.getBoundingClientRect().top < 120) c = s; }); tocLinks.forEach(a => a.classList.remove('active')); if (c) c.a.classList.add('active'); });
+  </script>
+</body>
+</html>
