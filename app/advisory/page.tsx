@@ -90,7 +90,7 @@ export default function AdvisoryPage() {
                     <strong>Typical outcomes:</strong> Clarity on competitive positioning, validated AI visibility strategy, quarterly milestone achievement.
                   </p>
                   <a
-                    href="mailto:sarah@zenmedia.com?subject=Strategic%20Retainer%20Inquiry&body=I%27m%20interested%20in%20discussing%20a%20strategic%20retainer%20engagement."
+                    href="mailto:sarah@evans-global.com?subject=Strategic%20Retainer%20Inquiry&body=I%27m%20interested%20in%20discussing%20a%20strategic%20retainer%20engagement."
                     className="inline-block px-6 py-3 bg-brand-cyan text-brand-dark font-bold rounded-lg hover:bg-brand-blue transition"
                   >
                     Schedule a Conversation
@@ -150,7 +150,7 @@ export default function AdvisoryPage() {
                     <strong>Typical outcomes:</strong> Clear positioning statement, validated AI visibility strategy, implementation roadmap for next 90 days.
                   </p>
                   <a
-                    href="mailto:sarah@zenmedia.com?subject=VIP%20Strategy%20Day%20Inquiry&body=I%27m%20interested%20in%20scheduling%20a%20VIP%20Strategy%20Day."
+                    href="mailto:sarah@evans-global.com?subject=VIP%20Strategy%20Day%20Inquiry&body=I%27m%20interested%20in%20scheduling%20a%20VIP%20Strategy%20Day."
                     className="inline-block px-6 py-3 bg-brand-cyan text-brand-dark font-bold rounded-lg hover:bg-brand-blue transition"
                   >
                     Schedule a Day
@@ -327,7 +327,7 @@ export default function AdvisoryPage() {
           Strategic advisory for leaders building authority in the AI era. Let's talk about what's possible for you.
         </p>
         <a
-          href="mailto:sarah@zenmedia.com?subject=Advisory%20Services%20Inquiry&body=I%27m%20interested%20in%20learning%20more%20about%20your%20advisory%20services."
+          href="mailto:sarah@evans-global.com?subject=Advisory%20Services%20Inquiry&body=I%27m%20interested%20in%20learning%20more%20about%20your%20advisory%20services."
           className="inline-block px-10 py-5 bg-brand-cyan text-brand-dark font-bold text-lg rounded-lg hover:bg-brand-blue transition glow-cyan"
         >
           Schedule a Conversation
