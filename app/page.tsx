@@ -10,7 +10,6 @@ export default function Home() {
           <div className="flex gap-8">
             <Link href="/ai-score" className="hover:text-brand-cyan transition">Tools</Link>
             <Link href="/articles" className="hover:text-brand-cyan transition">Articles</Link>
-            <Link href="/advisory" className="hover:text-brand-cyan transition">Advisory</Link>
             <a href="https://stan.store/asksarahevans" target="_blank" className="hover:text-brand-cyan transition">Shop</a>
           </div>
         </div>
