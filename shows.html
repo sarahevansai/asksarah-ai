@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Shows — askSarah.ai | Sarah Evans</title>
+  <meta name="description" content="Watch Sarah Evans live — The Visibility Equation every other Friday on LinkedIn Live, and the new daily show 6MOA with Duran Inci launching April 21, 2026.">
+
+  <meta property="og:title" content="Live Shows — askSarah.ai">
+  <meta property="og:description" content="The Visibility Equation (LinkedIn Live) + 6MOA with Duran Inci. Two shows. One strategy: Six months out. Already.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/shows">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@prsarahevans">
+
+  <link rel="canonical" href="https://asksarah.ai/shows">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838;
+      --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f;
+      --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
+      --radius: 16px;
+      /* 6MOA brand */
+      --lime: #CCFF00; --lime-dim: rgba(204,255,0,0.15); --lime-border: rgba(204,255,0,0.35);
+      /* TVE brand */
+      --tve-pink: #e91e8c; --tve-cyan: #06b6d4;
+      --tve-gradient: linear-gradient(135deg, #e91e8c, #06b6d4);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* BG EFFECTS */
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(124,58,237,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(6,182,212,0.07); animation: o2 25s ease-in-out infinite; }
+    .orb-lime { width: 400px; height: 400px; top: 60%; left: 50%; background: rgba(204,255,0,0.03); animation: o1 35s ease-in-out infinite reverse; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta { background: var(--gradient) !important; color: white !important; padding: 0.45rem 1.2rem; border-radius: 100px; font-weight: 600 !important; font-size: 0.82rem !important; }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border: none; }
+
+    /* PAGE HEADER */
+    .page-header { padding: 7rem 2rem 2rem; text-align: center; position: relative; z-index: 1; }
+    .page-header-label { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.2); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet-light); margin-bottom: 1rem; }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #ef4444; flex-shrink: 0; animation: live-pulse 1.5s ease-in-out infinite; }
+    @keyframes live-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.6); } 50% { box-shadow: 0 0 0 6px rgba(239,68,68,0); } }
+    .page-header h1 { font-family: 'Space Grotesk'; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.5rem; }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .page-header p { font-size: 0.95rem; color: var(--text); max-width: 520px; margin: 0 auto; }
+
+    /* ══════════════════════════════════════════
+       TWO-SHOW SIDE-BY-SIDE LAYOUT
+    ══════════════════════════════════════════ */
+    .shows-hub { padding: 2rem 2rem 1rem; position: relative; z-index: 1; }
+    .shows-hub-inner { max-width: 1100px; margin: 0 auto; }
+
+    /* Column grid: two show columns */
+    .shows-columns { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0; align-items: start; }
+    .shows-col-divider { background: linear-gradient(180deg, transparent, var(--border-light) 20%, var(--border-light) 80%, transparent); margin: 0 2.5rem; }
+
+    /* Each show column */
+    .show-col { padding: 1.5rem 0; }
+    .show-col-tve { padding-right: 2.5rem; }
+    .show-col-6moa { padding-left: 2.5rem; }
+
+    /* SHOW BADGE */
+    .show-badge { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 100px; padding: 0.3rem 0.9rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .badge-tve { background: rgba(233,30,140,0.1); border: 1px solid rgba(233,30,140,0.3); color: var(--tve-pink); }
+    .badge-6moa { background: var(--lime-dim); border: 1px solid var(--lime-border); color: var(--lime); }
+
+    /* ─── TVE styles ─── */
+    .tve-title { font-family: 'Space Grotesk'; font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.5rem; }
+    .tve-tm { font-size: 0.6em; vertical-align: super; color: var(--text-muted); font-weight: 400; }
+    .tve-card-visual { background: linear-gradient(145deg, #0d1b2e, #091523); border: 1px solid rgba(233,30,140,0.15); border-radius: 16px; overflow: hidden; aspect-ratio: 16/9; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.25rem; position: relative; margin: 1rem 0; }
+    .tve-card-visual::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(233,30,140,0.05), rgba(6,182,212,0.05)); }
+    .tve-wave-container { position: absolute; bottom: 0; left: 0; right: 0; height: 60%; overflow: hidden; }
+    .tve-wave { position: absolute; bottom: 0; left: -10%; right: -10%; }
+    .tve-next-badge { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(233,30,140,0.15); border: 1px solid rgba(233,30,140,0.3); border-radius: 8px; padding: 0.35rem 0.65rem; font-size: 0.67rem; font-weight: 600; color: var(--tve-pink); margin-bottom: 0.5rem; letter-spacing: 0.04em; }
+    .tve-ep-title { position: relative; z-index: 2; font-family: 'Space Grotesk'; font-size: 0.95rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.25rem; }
+    .tve-ep-guest { position: relative; z-index: 2; font-size: 0.72rem; color: var(--tve-cyan); font-weight: 500; }
+    .tve-linkedin-logo { position: absolute; top: 0.85rem; right: 0.85rem; z-index: 2; background: #0a66c2; border-radius: 6px; padding: 0.25rem 0.45rem; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.04em; color: white; }
+    .tve-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .tve-meta-tag { display: flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; color: var(--text-muted); }
+    .tve-meta-tag svg { width: 11px; height: 11px; flex-shrink: 0; }
+    .tve-divider-vertical { width: 1px; height: 12px; background: var(--border-light); }
+    .tve-desc { color: var(--text); font-size: 0.88rem; line-height: 1.65; margin-bottom: 1.2rem; }
+    .tve-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--tve-gradient); color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 100px; font-size: 0.82rem; font-weight: 600; transition: all 0.25s; white-space: nowrap; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(233,30,140,0.25); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; border: 1px solid var(--border-light); color: var(--text); text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 100px; font-size: 0.82rem; font-weight: 500; transition: all 0.25s; white-space: nowrap; }
+    .btn-ghost:hover { border-color: var(--violet); color: var(--white); }
+    .btn-lime { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--lime); color: #050505; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 100px; font-size: 0.82rem; font-weight: 700; transition: all 0.25s; white-space: nowrap; font-family: 'Inter', sans-serif; }
+    .btn-lime:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(204,255,0,0.3); background: #d6ff1a; }
+
+    /* ─── Episode grid ─── */
+    .section-label { font-size: 0.67rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.85rem; }
+    .episode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .episode-card { background: var(--card); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.9rem; text-decoration: none; transition: all 0.25s; position: relative; overflow: hidden; }
+    .episode-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(233,30,140,0.04), rgba(6,182,212,0.02)); opacity: 0; transition: opacity 0.25s; }
+    .episode-card:hover { border-color: rgba(233,30,140,0.3); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    .episode-card:hover::before { opacity: 1; }
+    .ep-num { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; color: var(--tve-pink); text-transform: uppercase; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.3rem; }
+    .ep-title { font-size: 0.78rem; font-weight: 600; line-height: 1.4; color: var(--white); margin-bottom: 0.3rem; }
+    .ep-guest { font-size: 0.68rem; color: var(--text-muted); }
+    .ep-date { font-size: 0.62rem; color: var(--text-muted); margin-top: 0.5rem; display: flex; align-items: center; gap: 0.3rem; }
+    .ep-watch { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.6rem; font-size: 0.67rem; font-weight: 600; color: var(--tve-cyan); }
+    .ep-watch svg { width: 10px; height: 10px; }
+    .episode-card.placeholder { border-style: dashed; opacity: 0.4; cursor: default; pointer-events: none; }
+    .episode-card.placeholder:hover { transform: none; box-shadow: none; }
+    .tve-cta-row { text-align: right; margin-top: 0.5rem; }
+
+    /* ─── 6MOA styles ─── */
+    .sixmoa-logo-wrap { background: #050505; border: 1px solid rgba(204,255,0,0.2); border-radius: 16px; padding: 1.5rem; display: flex; align-items: center; justify-content: center; aspect-ratio: 16/9; position: relative; overflow: hidden; margin: 1rem 0; }
+    .sixmoa-logo-wrap::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(204,255,0,0.06), transparent 70%); pointer-events: none; }
+    .sixmoa-logo-wrap svg { width: 90%; height: auto; }
+    .sixmoa-title { font-family: 'Georgia', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+    .sixmoa-subtitle { font-style: italic; font-size: 0.95rem; color: var(--lime); margin-bottom: 0.75rem; font-family: 'Georgia', serif; }
+    .sixmoa-hosts { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem; flex-wrap: wrap; }
+    .host-pill { display: flex; align-items: center; gap: 0.45rem; background: rgba(255,255,255,0.04); border: 1px solid var(--border-light); border-radius: 100px; padding: 0.3rem 0.7rem; font-size: 0.75rem; font-weight: 500; }
+    .host-av { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-size: 0.5rem; font-weight: 700; color: white; flex-shrink: 0; overflow: hidden; }
+    .host-x { color: var(--text-muted); font-size: 0.75rem; font-weight: 300; }
+    .sixmoa-desc { color: var(--text); font-size: 0.88rem; line-height: 1.65; margin-bottom: 1rem; }
+    .sixmoa-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+    .tag { display: inline-block; background: rgba(255,255,255,0.04); border: 1px solid var(--border-light); border-radius: 100px; padding: 0.2rem 0.6rem; font-size: 0.65rem; color: var(--text-muted); font-weight: 500; }
+    .sixmoa-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+
+    /* COUNTDOWN — compact inline */
+    .countdown-wrap { background: linear-gradient(135deg, rgba(204,255,0,0.05), rgba(0,0,0,0.2)); border: 1px solid var(--lime-border); border-radius: 14px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .countdown-label { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime); flex-shrink: 0; }
+    .countdown-units { display: flex; gap: 0.6rem; align-items: flex-end; }
+    .c-unit { text-align: center; }
+    .c-num { font-family: 'Space Grotesk'; font-size: 1.6rem; font-weight: 700; color: var(--lime); line-height: 1; display: block; min-width: 2ch; }
+    .c-label { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 600; }
+    .c-sep { font-size: 1.2rem; color: var(--lime-border); line-height: 1.6; padding-bottom: 0.2rem; }
+    .countdown-launch { font-size: 0.75rem; color: var(--text); margin-left: auto; text-align: right; }
+    .countdown-launch strong { color: var(--white); display: block; }
+
+    /* FORMAT CARDS — horizontal in the column */
+    .format-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+    .format-card { background: #050505; border: 1px solid rgba(204,255,0,0.1); border-radius: 12px; padding: 0.9rem 1rem; display: flex; align-items: flex-start; gap: 0.75rem; transition: border-color 0.25s; }
+    .format-card:hover { border-color: var(--lime-border); }
+    .format-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .format-title { font-size: 0.8rem; font-weight: 700; color: var(--white); margin-bottom: 0.15rem; }
+    .format-desc { font-size: 0.7rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* FOOTER */
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .shows-columns { grid-template-columns: 1fr; }
+      .shows-col-divider { display: none; }
+      .show-col-tve, .show-col-6moa { padding: 0; }
+      .show-col + .show-col { border-top: 1px solid var(--border-light); padding-top: 2.5rem; margin-top: 1rem; }
+      .episode-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+    @media (max-width: 540px) {
+      .episode-grid { grid-template-columns: 1fr; }
+      .countdown-wrap { flex-direction: column; gap: 0.75rem; }
+      .countdown-launch { margin-left: 0; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-lime"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+          <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+        </text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="https://www.linkedin.com/in/prsarahevans/recent-activity/all/" target="_blank">Daily AI Briefings</a>
+      <a href="about.html">About</a>
+      <a href="tools.html">Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="speaking.html">Speaking</a>
+      <a href="shows.html" class="active">Live Shows</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="connect.html">Connect</a>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="document.getElementById('mobileMenu').classList.remove('open')">Home</a>
+    <a href="about.html">About</a>
+    <a href="tools.html">Tools</a>
+    <a href="learn.html">Learn</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="shows.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Live Shows</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="connect.html">Connect</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-label">
+      <span class="live-dot"></span>
+      Live Shows
+    </div>
+    <h1>Watch <span class="gradient-text">Sarah Live</span></h1>
+    <p>Two shows. Real conversations. Zero fluff. The signals moving the AI economy — live and unfiltered.</p>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       TWO-COLUMN SHOW HUB
+  ══════════════════════════════════════ -->
+  <main class="shows-hub">
+    <div class="shows-hub-inner">
+      <div class="shows-columns">
+
+        <!-- ─────────── THE VISIBILITY EQUATION ─────────── -->
+        <div class="show-col show-col-tve" id="tve">
+
+          <div class="show-badge badge-tve">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><circle cx="4" cy="4" r="3" fill="#e91e8c"/></svg>
+            LinkedIn Live · Every Other Friday
+          </div>
+
+          <h2 class="tve-title">The Visibility<br>Equation<span class="tve-tm">™</span></h2>
+
+          <div class="tve-meta">
+            <span class="tve-meta-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Bi-weekly Fridays · 8 AM PT
+            </span>
+            <span class="tve-divider-vertical"></span>
+            <span class="tve-meta-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              ~45 min
+            </span>
+            <span class="tve-divider-vertical"></span>
+            <span class="tve-meta-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96C1 8.12 1 12 1 12s0 3.88.46 5.58a2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95C23 15.88 23 12 23 12s0-3.88-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02"/></svg>
+              Also on YouTube
+            </span>
+          </div>
+
+          <!-- Next episode visual card -->
+          <div class="tve-card-visual">
+            <div class="tve-wave-container">
+              <svg class="tve-wave" viewBox="0 0 1440 200" preserveAspectRatio="none" style="height:200px;">
+                <path d="M0,80 C200,140 400,20 600,80 C800,140 1000,20 1200,80 C1350,130 1400,100 1440,90 L1440,200 L0,200 Z" fill="rgba(233,30,140,0.06)"/>
+                <path d="M0,120 C180,60 360,160 540,120 C720,80 900,160 1080,110 C1260,60 1380,130 1440,120 L1440,200 L0,200 Z" fill="rgba(6,182,212,0.05)"/>
+              </svg>
+            </div>
+            <div class="tve-linkedin-logo">LinkedIn Live</div>
+            <div class="tve-next-badge">
+              <span class="live-dot" style="width:5px;height:5px;"></span>
+              Next · Apr 17, 2026
+            </div>
+            <div class="tve-ep-title">Visibility Is Just Phase One: Inside the AI Economy</div>
+            <div class="tve-ep-guest">Noah Greenberg · CEO & Founder, Stacker</div>
+          </div>
+
+          <p class="tve-desc">Sarah Evans goes deep with executives, founders, and practitioners on AI visibility, brand authority, and what's actually working right now — every other Friday, live.</p>
+
+          <div class="tve-actions">
+            <a href="https://www.linkedin.com/in/prsarahevans/" target="_blank" id="tve-watch-live" class="btn-primary">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              Follow on LinkedIn
+            </a>
+            <a href="https://www.linkedin.com/in/prsarahevans/recent-activity/all/" target="_blank" id="tve-all-replays" class="btn-ghost">
+              View Replays →
+            </a>
+          </div>
+
+          <!-- Episode Replays -->
+          <div class="section-label" style="margin-top:1.5rem;">📼 Episodes</div>
+          <div class="episode-grid" id="tveEpisodeGrid">
+            <a href="https://www.linkedin.com/in/prsarahevans/" target="_blank" class="episode-card" id="tve-ep-upcoming">
+              <div class="ep-num"><span class="live-dot" style="width:5px;height:5px;"></span> Upcoming</div>
+              <div class="ep-title">Visibility Is Just Phase One: Inside the AI Economy</div>
+              <div class="ep-guest">Noah Greenberg · CEO, Stacker</div>
+              <div class="ep-date">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Apr 17, 2026 · 8 AM PT
+              </div>
+              <div class="ep-watch">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21 5,3"/></svg>
+                Set Reminder
+              </div>
+            </a>
+            <div class="episode-card placeholder">
+              <div class="ep-num">Replay</div>
+              <div class="ep-title">Add replay link</div>
+              <div class="ep-guest">Guest name & title</div>
+              <div class="ep-date">Date · Time PT</div>
+            </div>
+          </div>
+          <div class="tve-cta-row">
+            <a href="https://www.linkedin.com/in/prsarahevans/recent-activity/all/" target="_blank" id="tve-all-episodes-btn" class="btn-ghost" style="font-size:0.75rem;padding:0.45rem 1rem;">
+              All replays on LinkedIn →
+            </a>
+          </div>
+
+        </div>
+
+        <!-- COLUMN DIVIDER -->
+        <div class="shows-col-divider" aria-hidden="true"></div>
+
+        <!-- ─────────── 6MOA ─────────── -->
+        <div class="show-col show-col-6moa" id="sixmoa">
+
+          <div class="show-badge badge-6moa">
+            <span class="live-dot"></span>
+            Daily Show · Launching April 21
+          </div>
+
+          <h2 class="sixmoa-title">6MOA</h2>
+          <div class="sixmoa-subtitle">Six Months Ahead.</div>
+
+          <div class="sixmoa-hosts">
+            <div class="host-pill">
+              <img src="sarah-headshot.png" alt="Sarah Evans" class="host-av">
+              Sarah Evans
+            </div>
+            <span class="host-x">×</span>
+            <div class="host-pill">
+              <div class="host-av" style="background:linear-gradient(135deg,#CCFF00,#9BE000);color:#050505;font-weight:800;font-size:0.5rem;display:flex;align-items:center;justify-content:center;">DI</div>
+              Duran Inci
+            </div>
+          </div>
+
+          <!-- 6MOA Logo -->
+          <div class="sixmoa-logo-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 900" width="100%" height="100%">
+              <defs>
+                <filter id="limeGlow2" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="14" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <radialGradient id="limeCore2" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#E8FFB0"/>
+                  <stop offset="40%" stop-color="#CCFF00"/>
+                  <stop offset="100%" stop-color="#9BE000"/>
+                </radialGradient>
+              </defs>
+              <rect width="1800" height="900" fill="transparent"/>
+              <text x="200" y="640" font-family="Georgia,'Times New Roman',serif" font-size="500" font-weight="700" fill="#FAFAFA">6</text>
+              <text x="500" y="640" font-family="Georgia,'Times New Roman',serif" font-size="380" font-style="italic" font-weight="400" fill="#FAFAFA">m</text>
+              <g transform="translate(1090,480)">
+                <circle cx="0" cy="0" r="210" fill="none" stroke="#CCFF00" stroke-width="4" opacity="0.35" filter="url(#limeGlow2)"/>
+                <circle cx="0" cy="0" r="175" fill="none" stroke="#FAFAFA" stroke-width="46"/>
+                <circle cx="0" cy="0" r="135" fill="#050505"/>
+                <g filter="url(#limeGlow2)"><polygon points="-55,55 -55,-70 35,20 -10,20 20,75" fill="url(#limeCore2)" stroke="#E8FFB0" stroke-width="3" stroke-linejoin="round"/></g>
+              </g>
+              <text x="1280" y="640" font-family="Georgia,'Times New Roman',serif" font-size="500" font-weight="700" fill="#FAFAFA">A</text>
+              <line x1="120" y1="760" x2="1680" y2="760" stroke="#FAFAFA" stroke-width="2"/>
+              <text x="120" y="810" font-family="Georgia,'Times New Roman',serif" font-size="34" font-style="italic" font-weight="400" fill="#FAFAFA">Six months out. Already.</text>
+              <text x="1680" y="810" font-family="'Courier New',monospace" font-size="22" font-weight="700" fill="#FAFAFA" letter-spacing="6" text-anchor="end">DURAN INCI <tspan fill="#CCFF00" filter="url(#limeGlow2)">×</tspan> SARAH EVANS</text>
+            </svg>
+          </div>
+
+          <p class="sixmoa-desc">Daily intelligence for the people who can't afford to be six months behind. Sarah Evans and Duran Inci break down the signals shaping the AI economy — every single day, before the mainstream catches on.</p>
+
+          <div class="sixmoa-tags">
+            <span class="tag">Daily</span>
+            <span class="tag">AI Economy</span>
+            <span class="tag">Strategic Intelligence</span>
+            <span class="tag">Agentic Commerce</span>
+          </div>
+
+          <div class="sixmoa-actions">
+            <a href="https://www.linkedin.com/in/prsarahevans/" target="_blank" id="sixmoa-notify-btn" class="btn-lime">🔔 Get Notified at Launch</a>
+            <a href="https://www.linkedin.com/in/prsarahevans/" target="_blank" id="sixmoa-linkedin-btn" class="btn-ghost">Follow on LinkedIn →</a>
+          </div>
+
+          <!-- Countdown -->
+          <div class="countdown-wrap" id="countdownSection">
+            <div class="countdown-label">⏳ Launching In</div>
+            <div class="countdown-units">
+              <div class="c-unit"><span class="c-num" id="cd-days">—</span><span class="c-label">Days</span></div>
+              <span class="c-sep">:</span>
+              <div class="c-unit"><span class="c-num" id="cd-hours">—</span><span class="c-label">Hrs</span></div>
+              <span class="c-sep">:</span>
+              <div class="c-unit"><span class="c-num" id="cd-mins">—</span><span class="c-label">Min</span></div>
+              <span class="c-sep">:</span>
+              <div class="c-unit"><span class="c-num" id="cd-secs">—</span><span class="c-label">Sec</span></div>
+            </div>
+            <div class="countdown-launch"><strong>Mon Apr 21, 2026</strong>Daily on LinkedIn</div>
+          </div>
+
+          <!-- What to expect -->
+          <div class="section-label">What to Expect</div>
+          <div class="format-grid">
+            <div class="format-card">
+              <span class="format-icon">⚡</span>
+              <div>
+                <div class="format-title">The Signal</div>
+                <div class="format-desc">One move that matters right now — dissected in minutes.</div>
+              </div>
+            </div>
+            <div class="format-card">
+              <span class="format-icon">🧠</span>
+              <div>
+                <div class="format-title">The Thesis</div>
+                <div class="format-desc">Sarah & Duran's take on what it means six months from now.</div>
+              </div>
+            </div>
+            <div class="format-card">
+              <span class="format-icon">🎯</span>
+              <div>
+                <div class="format-title">The Action</div>
+                <div class="format-desc">One thing you can do today. Not theory. Actual moves.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- end .shows-columns -->
+    </div><!-- end .shows-hub-inner -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="tools.html">Tools</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="shows.html">Live Shows</a>
+          <a href="newsletter.html">Newsletter</a>
+        </div>
+        <div class="footer-col">
+          <h4>Live Shows</h4>
+          <a href="shows.html#tve">The Visibility Equation™</a>
+          <a href="shows.html#sixmoa">6MOA with Duran Inci</a>
+          <a href="https://www.linkedin.com/in/prsarahevans/" target="_blank">Watch on LinkedIn Live</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a>
+          <a href="https://github.com/sarahevansai" target="_blank">GitHub</a>
+          <a href="https://t.me/sarahevansai" target="_blank">Telegram</a>
+          <a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="/" class="nav-logo" style="opacity: 0.5;">
+          <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="height: 22px;">
+            <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+              <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+            </text>
+          </svg>
+        </a>
+        <p>© <span id="currentYear"></span> Sarah Evans. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // ─── COUNTDOWN TIMER ───────────────────────────────────────────────
+    const launchDate = new Date('2026-04-21T08:00:00-07:00'); // 8AM PT Monday
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = launchDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdownSection').innerHTML = `
+          <div class="countdown-label" style="color:var(--lime)">🎉 6MOA is LIVE!</div>
+          <a href="https://www.linkedin.com/in/prsarahevans/" target="_blank" class="btn-lime" style="margin-left:1rem;">Watch Now →</a>
+        `;
+        return;
+      }
+
+      const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cd-days').textContent  = String(days).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cd-mins').textContent  = String(mins).padStart(2, '0');
+      document.getElementById('cd-secs').textContent  = String(secs).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 900" width="1800" height="900">
+  <defs>
+    <filter id="limeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="limeCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8FFB0"/>
+      <stop offset="40%" stop-color="#CCFF00"/>
+      <stop offset="100%" stop-color="#9BE000"/>
+    </radialGradient>
+  </defs>
+  <rect width="1800" height="900" fill="#050505"/>
+
+  <!-- 6 -->
+  <text x="200" y="640" font-family="Georgia,'Times New Roman',serif" font-size="500" font-weight="700" fill="#FAFAFA">6</text>
+
+  <!-- m (italic lowercase serif) — moved left, more breathing room before O -->
+  <text x="500" y="640" font-family="Georgia,'Times New Roman',serif" font-size="380" font-style="italic" font-weight="400" fill="#FAFAFA">m</text>
+
+  <!-- O as a "BUY" / checkout ring with an agent cursor inside.
+       Commerce meaning: the round button is the transaction.
+       The cursor inside is the AI AGENT executing it — agentic commerce, literalized.
+       Cursor points up-and-forward = future, six months out. -->
+  <g transform="translate(1090,480)">
+    <!-- Ethereal lime outer halo -->
+    <circle cx="0" cy="0" r="210" fill="none" stroke="#CCFF00" stroke-width="4" opacity="0.35" filter="url(#limeGlow)"/>
+    <!-- Main ring (white, heavy serif weight to match letters) -->
+    <circle cx="0" cy="0" r="175" fill="none" stroke="#FAFAFA" stroke-width="46"/>
+    <!-- Inner dark -->
+    <circle cx="0" cy="0" r="135" fill="#050505"/>
+    <!-- Agent cursor — lime arrow inside the ring, pointing up-right (future/forward) -->
+    <g filter="url(#limeGlow)">
+      <polygon points="-55,55 -55,-70 35,20 -10,20 20,75"
+               fill="url(#limeCore)" stroke="#E8FFB0" stroke-width="3" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- A -->
+  <text x="1280" y="640" font-family="Georgia,'Times New Roman',serif" font-size="500" font-weight="700" fill="#FAFAFA">A</text>
+
+  <!-- BOTTOM RULE + FOOTER -->
+  <line x1="120" y1="760" x2="1680" y2="760" stroke="#FAFAFA" stroke-width="2"/>
+  <text x="120" y="810" font-family="Georgia,'Times New Roman',serif" font-size="34" font-style="italic" font-weight="400" fill="#FAFAFA">Six months out. Already.</text>
+  <text x="1680" y="810" font-family="'Courier New',monospace" font-size="22" font-weight="700" fill="#FAFAFA" letter-spacing="6" text-anchor="end">DURAN INCI <tspan fill="#CCFF00" filter="url(#limeGlow)">×</tspan> SARAH EVANS</text>
+</svg>
