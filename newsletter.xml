@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:media="http://search.yahoo.com/mrss/">
+
+  <channel>
+    <title>PR@ctical — The AI Visibility Newsletter by Sarah Evans</title>
+    <link>https://asksarah.ai/newsletter</link>
+    <atom:link href="https://asksarah.ai/newsletter.xml" rel="self" type="application/rss+xml"/>
+    <description>Your executive brief on AI visibility, modern PR, and what's actually working right now. Free weekly newsletter from Sarah Evans, Partner at Zen Media. Published every Monday.</description>
+    <language>en-us</language>
+    <copyright>Copyright 2026 Sarah Evans. All rights reserved.</copyright>
+    <managingEditor>sarah@zenmedia.com (Sarah Evans)</managingEditor>
+    <webMaster>sarah@zenmedia.com (Sarah Evans)</webMaster>
+    <lastBuildDate>Mon, 13 Apr 2026 07:00:00 -0700</lastBuildDate>
+    <pubDate>Mon, 13 Apr 2026 07:00:00 -0700</pubDate>
+    <ttl>10080</ttl>
+    <image>
+      <url>https://asksarah.ai/og-image.png</url>
+      <title>PR@ctical — Sarah Evans</title>
+      <link>https://asksarah.ai/newsletter</link>
+    </image>
+
+    <!-- ═══════════════════════════════════════════
+         ISSUE: Apr 13, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>PR@ctical — April 13, 2026: The AI Citation Playbook</title>
+      <link>https://prsarahevans.substack.com/archive</link>
+      <guid isPermaLink="false">practical-2026-04-13</guid>
+      <pubDate>Mon, 13 Apr 2026 07:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Visibility</category>
+      <category>PR Strategy</category>
+      <description>This week: the frameworks and tactics that are actually moving the needle on AI citation share — plus what's working right now for brands trying to show up in generative answers.</description>
+      <content:encoded><![CDATA[
+        <p><strong>PR@ctical</strong> is Sarah Evans' weekly brief on AI visibility, modern PR, and what's actually working.</p>
+        <p>This week covers the citation playbook — how the brands showing up in AI-generated answers are structured differently than the ones that aren't.</p>
+        <p><a href="https://prsarahevans.substack.com/archive">Read the full issue on Substack →</a></p>
+        <p><a href="https://prsarahevans.substack.com/subscribe">Subscribe free →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         ISSUE: Apr 6, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>PR@ctical — April 6, 2026: The Before Layer Is Now</title>
+      <link>https://prsarahevans.substack.com/archive</link>
+      <guid isPermaLink="false">practical-2026-04-06</guid>
+      <pubDate>Mon, 06 Apr 2026 07:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Visibility</category>
+      <category>The Before Layer</category>
+      <description>The AI-generated answer people see before they ever click a link is your brand's new homepage — and most companies have no strategy for it. This week: what The Before Layer is, why it matters, and the first three moves to make.</description>
+      <content:encoded><![CDATA[
+        <p><strong>PR@ctical</strong> is Sarah Evans' weekly brief on AI visibility, modern PR, and what's actually working.</p>
+        <p>The Before Layer is the AI-generated answer people see before they ever click a link. It's your brand's new homepage — except you didn't build it, and you probably don't know what it says.</p>
+        <p><a href="https://prsarahevans.substack.com/archive">Read the full issue on Substack →</a></p>
+        <p><a href="https://prsarahevans.substack.com/subscribe">Subscribe free →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         ISSUE: Mar 30, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>PR@ctical — March 30, 2026: Answer Share Is the New Market Share</title>
+      <link>https://prsarahevans.substack.com/archive</link>
+      <guid isPermaLink="false">practical-2026-03-30</guid>
+      <pubDate>Mon, 30 Mar 2026 07:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Visibility</category>
+      <category>Answer Share</category>
+      <description>Answer Share™ — the percentage of times your brand shows up in AI-generated answers — is replacing share of voice as the metric that matters. This week: how to measure it, what good looks like, and why the brands moving now are building a moat.</description>
+      <content:encoded><![CDATA[
+        <p><strong>PR@ctical</strong> is Sarah Evans' weekly brief on AI visibility, modern PR, and what's actually working.</p>
+        <p>Answer Share™ is the new market share. Most brands we baseline have close to zero. That's both the problem and the opportunity.</p>
+        <p><a href="https://prsarahevans.substack.com/archive">Read the full issue on Substack →</a></p>
+        <p><a href="https://prsarahevans.substack.com/subscribe">Subscribe free →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         ISSUE: Mar 23, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>PR@ctical — March 23, 2026: The GenAI Wire Release</title>
+      <link>https://prsarahevans.substack.com/archive</link>
+      <guid isPermaLink="false">practical-2026-03-23</guid>
+      <pubDate>Mon, 23 Mar 2026 07:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>PR</category>
+      <category>Press Release</category>
+      <category>AI</category>
+      <description>We tested 50 traditional press releases against AI models. Only 3 got cited by any AI. This week: the structural differences that make a release AI-ready — and a template you can use immediately.</description>
+      <content:encoded><![CDATA[
+        <p><strong>PR@ctical</strong> is Sarah Evans' weekly brief on AI visibility, modern PR, and what's actually working.</p>
+        <p>50 traditional press releases. Only 3 cited by AI. This week covers exactly what makes the difference — and a format you can implement immediately.</p>
+        <p><a href="https://prsarahevans.substack.com/archive">Read the full issue on Substack →</a></p>
+        <p><a href="https://prsarahevans.substack.com/subscribe">Subscribe free →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         ISSUE: Mar 16, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>PR@ctical — March 16, 2026: Generative Engine Optimization 101</title>
+      <link>https://prsarahevans.substack.com/archive</link>
+      <guid isPermaLink="false">practical-2026-03-16</guid>
+      <pubDate>Mon, 16 Mar 2026 07:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>GEO</category>
+      <category>AI Visibility</category>
+      <category>SEO</category>
+      <description>GEO is not SEO. This week: what Generative Engine Optimization actually means, how it differs from traditional search optimization, and the first five things any brand should do to start building AI visibility.</description>
+      <content:encoded><![CDATA[
+        <p><strong>PR@ctical</strong> is Sarah Evans' weekly brief on AI visibility, modern PR, and what's actually working.</p>
+        <p>GEO is not SEO. You can rank on Google and be completely invisible to AI. This week covers what's different and where to start.</p>
+        <p><a href="https://prsarahevans.substack.com/archive">Read the full issue on Substack →</a></p>
+        <p><a href="https://prsarahevans.substack.com/subscribe">Subscribe free →</a></p>
+      ]]></content:encoded>
+    </item>
+
+  </channel>
+</rss>

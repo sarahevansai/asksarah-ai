@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:media="http://search.yahoo.com/mrss/">
+
+  <channel>
+    <title>The Visibility Equation™ — Live Show by Sarah Evans</title>
+    <link>https://asksarah.ai/shows</link>
+    <atom:link href="https://asksarah.ai/shows.xml" rel="self" type="application/rss+xml"/>
+    <description>Sarah Evans goes deep with executives, founders, and practitioners on AI visibility, brand authority, and what's actually working right now — every other Friday on LinkedIn Live.</description>
+    <language>en-us</language>
+    <copyright>Copyright 2026 Sarah Evans. All rights reserved.</copyright>
+    <managingEditor>sarah@zenmedia.com (Sarah Evans)</managingEditor>
+    <webMaster>sarah@zenmedia.com (Sarah Evans)</webMaster>
+    <lastBuildDate>Thu, 17 Apr 2026 08:00:00 -0700</lastBuildDate>
+    <pubDate>Thu, 17 Apr 2026 08:00:00 -0700</pubDate>
+    <ttl>1440</ttl>
+    <image>
+      <url>https://asksarah.ai/og-image.png</url>
+      <title>The Visibility Equation™ — Sarah Evans</title>
+      <link>https://asksarah.ai/shows</link>
+    </image>
+
+    <!-- ═══════════════════════════════════════════
+         EP: NOAH GREENBERG — Apr 17, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>Visibility Is Just Phase One: Inside the AI Economy — Noah Greenberg, CEO &amp; Founder of Stacker</title>
+      <link>https://www.linkedin.com/feed/update/urn:li:activity:7448390713026822144</link>
+      <guid isPermaLink="true">https://www.linkedin.com/feed/update/urn:li:activity:7448390713026822144</guid>
+      <pubDate>Thu, 17 Apr 2026 08:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Visibility</category>
+      <category>AI Economy</category>
+      <category>Content Strategy</category>
+      <description>Sarah Evans sits down with Noah Greenberg, CEO &amp; Founder of Stacker, to explore what comes after you achieve visibility in the AI economy — and why phase one is just the beginning. Live on LinkedIn.</description>
+      <content:encoded><![CDATA[
+        <p><strong>Guest:</strong> Noah Greenberg, CEO &amp; Founder, Stacker</p>
+        <p><strong>Show:</strong> The Visibility Equation™ with Sarah Evans</p>
+        <p><strong>Air Date:</strong> April 17, 2026 · LinkedIn Live</p>
+        <p>Sarah Evans sits down with Noah Greenberg to explore what comes after you achieve visibility in the AI economy — and why getting found is just phase one.</p>
+        <p><a href="https://www.linkedin.com/feed/update/urn:li:activity:7448390713026822144">Watch the replay on LinkedIn →</a></p>
+        <p><a href="https://asksarah.ai/shows">More episodes at askSarah.ai/shows →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         EP: SAMANTHA RIEL — Apr 3, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>Where Leaders Actually Start with AI — Samantha Riel, Founder of Scale Without Chaos</title>
+      <link>https://www.linkedin.com/posts/prsarahevans_you-know-ai-matters-youre-just-not-sure-activity-7442209125645611008-B8q6</link>
+      <guid isPermaLink="true">https://www.linkedin.com/posts/prsarahevans_you-know-ai-matters-youre-just-not-sure-activity-7442209125645611008-B8q6</guid>
+      <pubDate>Fri, 03 Apr 2026 08:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Strategy</category>
+      <category>Leadership</category>
+      <description>You know AI matters. You're just not sure where to start. Samantha Riel, Founder of Scale Without Chaos, joins Sarah to map out where business leaders actually begin their AI journey — and what separates the ones who get traction from the ones who stall.</description>
+      <content:encoded><![CDATA[
+        <p><strong>Guest:</strong> Samantha Riel, Founder, Scale Without Chaos</p>
+        <p><strong>Show:</strong> The Visibility Equation™ with Sarah Evans</p>
+        <p><strong>Air Date:</strong> April 3, 2026 · LinkedIn Live</p>
+        <p>You know AI matters. You're just not sure where to start. Samantha maps out where business leaders actually begin their AI journey — and what separates the ones who get traction from the ones who stall.</p>
+        <p><a href="https://www.linkedin.com/posts/prsarahevans_you-know-ai-matters-youre-just-not-sure-activity-7442209125645611008-B8q6">Watch the replay on LinkedIn →</a></p>
+        <p><a href="https://asksarah.ai/shows">More episodes at askSarah.ai/shows →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         EP: ALPHAEMETRICX — Mar 20, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>See, Track &amp; Act on Brand Visibility in LLMs — Aparajita Dutta &amp; Vishal Bhandary, AlphaMetricx</title>
+      <link>https://www.linkedin.com/posts/prsarahevans_get-ready-the-visibility-equation-is-happening-activity-7439324648334487552-oZFK</link>
+      <guid isPermaLink="true">https://www.linkedin.com/posts/prsarahevans_get-ready-the-visibility-equation-is-happening-activity-7439324648334487552-oZFK</guid>
+      <pubDate>Fri, 20 Mar 2026 08:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Visibility</category>
+      <category>LLMs</category>
+      <category>Brand Tracking</category>
+      <description>Aparajita Dutta and Vishal Bhandary from AlphaMetricx join Sarah to break down how to see, track, and act on your brand's visibility inside large language models — and what the data actually shows about who is and isn't showing up.</description>
+      <content:encoded><![CDATA[
+        <p><strong>Guests:</strong> Aparajita Dutta &amp; Vishal Bhandary, AlphaMetricx</p>
+        <p><strong>Show:</strong> The Visibility Equation™ with Sarah Evans</p>
+        <p><strong>Air Date:</strong> March 20, 2026 · LinkedIn Live</p>
+        <p>How do you measure your brand's visibility inside ChatGPT, Perplexity, and Gemini? Aparajita and Vishal break down the methodology, the metrics, and what actionable looks like.</p>
+        <p><a href="https://www.linkedin.com/posts/prsarahevans_get-ready-the-visibility-equation-is-happening-activity-7439324648334487552-oZFK">Watch the replay on LinkedIn →</a></p>
+        <p><a href="https://asksarah.ai/shows">More episodes at askSarah.ai/shows →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         EP: ANDREW WYATT — Feb 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>Turning Coverage Into Your Next Pitch — Andrew Wyatt, Coverage Activation Workflow</title>
+      <link>https://www.linkedin.com/posts/prsarahevans_communications-media-reporting-activity-7429185302029729792-7mS4</link>
+      <guid isPermaLink="true">https://www.linkedin.com/posts/prsarahevans_communications-media-reporting-activity-7429185302029729792-7mS4</guid>
+      <pubDate>Fri, 20 Feb 2026 08:00:00 -0800</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>PR</category>
+      <category>Media Relations</category>
+      <category>Communications</category>
+      <description>Andrew Wyatt joins Sarah to break down the coverage activation workflow — how to take earned media and turn it into your next pitch, your next client, and your next opportunity. This is the piece most PR teams skip.</description>
+      <content:encoded><![CDATA[
+        <p><strong>Guest:</strong> Andrew Wyatt, Coverage Activation Workflow</p>
+        <p><strong>Show:</strong> The Visibility Equation™ with Sarah Evans</p>
+        <p><strong>Air Date:</strong> February 2026 · LinkedIn Live</p>
+        <p>This is the piece most PR teams skip: what to do with coverage after you get it. Andrew breaks down the workflow that turns one placement into a repeatable asset.</p>
+        <p><a href="https://www.linkedin.com/posts/prsarahevans_communications-media-reporting-activity-7429185302029729792-7mS4">Watch the replay on LinkedIn →</a></p>
+        <p><a href="https://asksarah.ai/shows">More episodes at askSarah.ai/shows →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         EP: JIMMY KROPELIN — Jan 30, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>The GenAI Wire Press Release — Jimmy Kropelin, Notified</title>
+      <link>https://www.linkedin.com/posts/prsarahevans_ai-comms-pressrelease-activity-7420860492707184640-xVcH</link>
+      <guid isPermaLink="true">https://www.linkedin.com/posts/prsarahevans_ai-comms-pressrelease-activity-7420860492707184640-xVcH</guid>
+      <pubDate>Fri, 30 Jan 2026 08:00:00 -0800</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>PR</category>
+      <category>Press Release</category>
+      <category>GenAI</category>
+      <description>Jimmy Kropelin from Notified joins Sarah to break down the GenAI wire press release — what makes a release structurally optimized for AI citation, why only 3 of 50 traditional releases they tested got cited by any AI model, and what to do differently.</description>
+      <content:encoded><![CDATA[
+        <p><strong>Guest:</strong> Jimmy Kropelin, Notified</p>
+        <p><strong>Show:</strong> The Visibility Equation™ with Sarah Evans</p>
+        <p><strong>Air Date:</strong> January 30, 2026 · LinkedIn Live</p>
+        <p>Only 3 of 50 traditional press releases they tested got cited by any AI model. Jimmy breaks down exactly what the other 47 got wrong — and how to write one that AI actually uses.</p>
+        <p><a href="https://www.linkedin.com/posts/prsarahevans_ai-comms-pressrelease-activity-7420860492707184640-xVcH">Watch the replay on LinkedIn →</a></p>
+        <p><a href="https://asksarah.ai/shows">More episodes at askSarah.ai/shows →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         EP: GREGORY GALANT — Jan 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>What Is AI Reading? — Gregory Galant, CEO of Muck Rack</title>
+      <link>https://www.linkedin.com/posts/prsarahevans_pr-comms-journalism-activity-7415412548033949696-mkK5</link>
+      <guid isPermaLink="true">https://www.linkedin.com/posts/prsarahevans_pr-comms-journalism-activity-7415412548033949696-mkK5</guid>
+      <pubDate>Fri, 09 Jan 2026 08:00:00 -0800</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>PR</category>
+      <category>AI</category>
+      <category>Journalism</category>
+      <description>Gregory Galant, CEO of Muck Rack, joins Sarah to answer the question every PR and comms team should be asking: what is AI actually reading, and what does that mean for where you place your stories?</description>
+      <content:encoded><![CDATA[
+        <p><strong>Guest:</strong> Gregory Galant, CEO, Muck Rack</p>
+        <p><strong>Show:</strong> The Visibility Equation™ with Sarah Evans</p>
+        <p><strong>Air Date:</strong> January 2026 · LinkedIn Live</p>
+        <p>What is AI actually reading? Gregory Galant breaks down the media sources AI models pull from — and why where you place your stories now determines whether AI finds you at all.</p>
+        <p><a href="https://www.linkedin.com/posts/prsarahevans_pr-comms-journalism-activity-7415412548033949696-mkK5">Watch the replay on LinkedIn →</a></p>
+        <p><a href="https://asksarah.ai/shows">More episodes at askSarah.ai/shows →</a></p>
+      ]]></content:encoded>
+    </item>
+
+  </channel>
+</rss>

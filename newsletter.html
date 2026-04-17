@@ -12,6 +12,7 @@
   <meta property="og:description" content="Your executive brief on AI visibility, modern PR, and what's actually working right now. Free weekly from Sarah Evans.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://asksarah.ai/newsletter">
+  <link rel="alternate" type="application/rss+xml" title="PR@ctical — The AI Visibility Newsletter by Sarah Evans" href="https://asksarah.ai/newsletter.xml">
   <link rel="canonical" href="https://asksarah.ai/newsletter">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +42,7 @@
     nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
     .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
     .nav-logo svg { height: 28px; }
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
     .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
@@ -50,6 +51,16 @@
     .mobile-menu.open { display: flex; }
     .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
     .mobile-menu a:last-child { border: none; }
+    /* Dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-btn { color: var(--text-muted); background: none; border: none; font-size: 0.8rem; font-weight: 500; cursor: pointer; font-family: inherit; letter-spacing: 0.02em; display: flex; align-items: center; gap: 0.3rem; transition: color 0.2s; padding: 0; }
+    .nav-dropdown-btn:hover { color: var(--white); }
+    .nav-dropdown-btn svg { transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-btn svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); right: 0; min-width: 180px; background: rgba(17,15,36,0.97); backdrop-filter: blur(24px); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.4rem; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.55rem 0.85rem; border-radius: 8px; transition: all 0.15s; }
+    .nav-dropdown-menu a:hover { background: rgba(124,58,237,0.1); color: var(--white); }
 
     .section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 0.6rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
     .section-title { font-family: 'Space Grotesk'; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: 0.6rem; line-height: 1.15; letter-spacing: -0.02em; }
@@ -144,13 +155,22 @@
       </svg>
     </a>
     <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="about.html">About</a>
-      <a href="tools.html">Tools</a>
-      <a href="learn.html">Learn</a>
-      <a href="speaking.html">Speaking</a>
       <a href="newsletter.html" class="active">Newsletter</a>
-      <a href="connect.html">Connect</a>
+      <a href="shows.html">Live Shows</a>
+      <a href="tools.html">Tools</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn" aria-haspopup="true" aria-expanded="false">
+          More
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="connect.html">Connect</a>
+        </div>
+      </div>
     </div>
     <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -158,11 +178,12 @@
   </nav>
   <div class="mobile-menu" id="mobileMenu">
     <a href="/">Home</a>
-    <a href="about.html">About</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="shows.html">Live Shows</a>
     <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
     <a href="learn.html">Learn</a>
     <a href="speaking.html">Speaking</a>
-    <a href="newsletter.html">Newsletter</a>
     <a href="connect.html">Connect</a>
   </div>
 
@@ -179,15 +200,8 @@
       <iframe src="https://prsarahevans.substack.com/embed" width="480" height="320" style="border: 1px solid rgba(124,58,237,0.2); background: #16132e;" frameborder="0" scrolling="no"></iframe>
     </div>
 
-    <!-- FREE CHECKLIST COMPANION -->
-    <div style="margin-bottom: 3rem;">
-      <a href="https://stan.store/asksarahevans/p/ai-visibility-checklist" target="_blank" style="display: block; background: rgba(6,182,212,0.06); border: 2px solid rgba(6,182,212,0.25); border-radius: 20px; padding: 1.75rem 2rem; text-decoration: none; text-align: center; transition: all 0.3s; box-shadow: 0 0 20px rgba(6,182,212,0.06);">
-        <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.4rem;"><span style="background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">Free Companion Resource</span></div>
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: #f0eef8; margin-bottom: 0.3rem;">✅ AI Visibility Checklist — 20 Actions You Can Take This Week</div>
-        <div style="font-size: 0.82rem; color: #c4c0d8; margin-bottom: 0.75rem;">Pair this with the newsletter for a complete AI visibility playbook.</div>
-        <span style="display: inline-flex; padding: 0.5rem 1.2rem; border-radius: 100px; font-size: 0.82rem; font-weight: 600; background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a;">Get the Free Checklist →</span>
-      </a>
-    </div>
+    <!-- (AI Visibility Checklist removed — product taken down) -->
+
 
     <!-- TIERS -->
     <div class="tiers fade-in">
@@ -285,6 +299,12 @@
       <div class="archive-link">
         <a href="https://prsarahevans.substack.com/archive" target="_blank">Browse the full archive →</a>
       </div>
+      <div style="text-align:center;margin-top:1rem;">
+        <a href="/newsletter.xml" target="_blank" style="display:inline-flex;align-items:center;gap:0.45rem;background:rgba(255,102,0,0.08);border:1px solid rgba(255,102,0,0.3);color:#ff9a6c;text-decoration:none;padding:0.5rem 1rem;border-radius:100px;font-size:0.78rem;font-weight:600;transition:all 0.25s;" onmouseover="this.style.background='rgba(255,102,0,0.15)'" onmouseout="this.style.background='rgba(255,102,0,0.08)'">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+          Subscribe via RSS Feed
+        </a>
+      </div>
     </div>
 
   </div>
@@ -380,6 +400,14 @@
     }
 
     loadRecentIssues();
+
+    // Dropdown toggle
+    const dd = document.getElementById('navDropdown');
+    const ddBtn = document.getElementById('navDropdownBtn');
+    if (dd && ddBtn) {
+      ddBtn.addEventListener('click', (e) => { e.stopPropagation(); dd.classList.toggle('open'); ddBtn.setAttribute('aria-expanded', dd.classList.contains('open')); });
+      document.addEventListener('click', () => { dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded', 'false'); });
+    }
   </script>
 </body>
 </html>
