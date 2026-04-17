@@ -160,7 +160,7 @@
     nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
     .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
     .nav-logo svg { height: 28px; }
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
     .nav-cta { background: var(--gradient) !important; color: white !important; padding: 0.45rem 1.2rem; border-radius: 100px; font-weight: 600 !important; font-size: 0.82rem !important; }
@@ -170,6 +170,16 @@
     .mobile-menu.open { display: flex; }
     .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
     .mobile-menu a:last-child { border: none; }
+    /* Dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-btn { color: var(--text-muted); background: none; border: none; font-size: 0.8rem; font-weight: 500; cursor: pointer; font-family: inherit; letter-spacing: 0.02em; display: flex; align-items: center; gap: 0.3rem; transition: color 0.2s; padding: 0; }
+    .nav-dropdown-btn:hover { color: var(--white); }
+    .nav-dropdown-btn svg { transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-btn svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); right: 0; min-width: 180px; background: rgba(17,15,36,0.97); backdrop-filter: blur(24px); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.4rem; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.55rem 0.85rem; border-radius: 8px; transition: all 0.15s; white-space: nowrap; }
+    .nav-dropdown-menu a:hover { background: rgba(124,58,237,0.1); color: var(--white); }
 
     /* HERO */
     .hero { min-height: 100vh; display: flex; align-items: center; padding: 7rem 2rem 3rem; position: relative; z-index: 1; }
@@ -225,6 +235,17 @@
     .starter-chip { background: rgba(124,58,237,0.06); border: 1px solid rgba(124,58,237,0.15); border-radius: 100px; padding: 0.4rem 0.85rem; font-size: 0.74rem; font-weight: 500; color: var(--text); cursor: pointer; transition: all 0.2s; font-family: inherit; }
     .starter-chip:hover { border-color: var(--violet); color: var(--white); background: rgba(124,58,237,0.12); }
 
+    /* ANNOUNCEMENT BANNER */
+    .announcement-bar { position: relative; z-index: 99; background: linear-gradient(90deg, rgba(6,182,212,0.12), rgba(124,58,237,0.12), rgba(6,182,212,0.12)); border-bottom: 1px solid rgba(6,182,212,0.25); padding: 0.6rem 2rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; animation: bar-glow 3s ease-in-out infinite; flex-wrap: wrap; text-align: center; }
+    @keyframes bar-glow { 0%,100% { box-shadow: 0 1px 20px rgba(6,182,212,0.04); } 50% { box-shadow: 0 1px 30px rgba(6,182,212,0.12); } }
+    .announcement-bar-text { font-size: 0.78rem; color: var(--text); line-height: 1.4; }
+    .announcement-bar-text strong { color: var(--white); }
+    .announcement-bar-text a { color: var(--cyan-light); font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
+    .announcement-bar-text a:hover { opacity: 0.8; text-decoration: underline; }
+    .announcement-bar-close { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1rem; line-height: 1; padding: 0.2rem 0.4rem; border-radius: 4px; transition: color 0.2s; font-family: inherit; }
+    .announcement-bar-close:hover { color: var(--white); }
+    .announcement-bar.hidden { display: none; }
+
     /* FOOTER */
     footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
     .footer-inner { max-width: 900px; margin: 0 auto; }
@@ -261,14 +282,22 @@
     </a>
     <div class="nav-links">
       <a href="/" class="active">Home</a>
-      <a href="https://www.linkedin.com/in/prsarahevans/recent-activity/all/" target="_blank">Daily AI Briefings</a>
-      <a href="about.html">About</a>
-      <a href="tools.html">Tools</a>
-      <a href="learn.html">Learn</a>
-      <a href="speaking.html">Speaking</a>
-      <a href="shows.html">Live Shows</a>
+      <a href="briefings.html">Daily AI Briefings</a>
       <a href="newsletter.html">Newsletter</a>
-      <a href="connect.html">Connect</a>
+      <a href="shows.html">Live Shows</a>
+      <a href="tools.html">Tools</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn" aria-haspopup="true" aria-expanded="false">
+          More
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="about.html">About</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="connect.html">Connect</a>
+        </div>
+      </div>
     </div>
     <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -276,13 +305,24 @@
   </nav>
   <div class="mobile-menu" id="mobileMenu">
     <a href="/" onclick="document.getElementById('mobileMenu').classList.remove('open')">Home</a>
-    <a href="about.html">About</a>
+    <a href="briefings.html">Daily AI Briefings</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="shows.html">Live Shows</a>
     <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
     <a href="learn.html">Learn</a>
     <a href="speaking.html">Speaking</a>
-    <a href="shows.html">Live Shows</a>
-    <a href="newsletter.html">Newsletter</a>
     <a href="connect.html">Connect</a>
+  </div>
+
+  <!-- ANNOUNCEMENT BANNER -->
+  <div class="announcement-bar" id="announcementBar">
+    <span style="font-size:1rem;">⚡</span>
+    <span class="announcement-bar-text">
+      <strong>The Morning AI Briefing is ready!</strong> I also have the full repository on AskSarah.
+      For now, enjoy Friday: <a href="briefings.html" id="announcementLink">Read today's briefing →</a>
+    </span>
+    <button class="announcement-bar-close" onclick="dismissBanner()" aria-label="Dismiss">×</button>
   </div>
 
   <section class="hero">
@@ -386,6 +426,16 @@
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
+    // Announcement banner dismiss
+    function dismissBanner() {
+      const bar = document.getElementById('announcementBar');
+      if (bar) { bar.style.display = 'none'; sessionStorage.setItem('briefing-banner-dismissed', '1'); }
+    }
+    if (sessionStorage.getItem('briefing-banner-dismissed')) {
+      const bar = document.getElementById('announcementBar');
+      if (bar) bar.style.display = 'none';
+    }
+
     // ═══════════════════════════════════════════
     // CHAT ENGINE — Pre-drafted Q&A (no API dependency)
     // ═══════════════════════════════════════════
@@ -428,7 +478,7 @@
       },
       {
         question: "Where do I start?",
-        answer: "Start by doing something most brands haven't done yet: go ask AI about yourself.\n\nOpen ChatGPT, Perplexity, and Gemini. Ask the questions your customers would ask. See who shows up. See if it's you. I guarantee the results will surprise you.\n\nOnce you know where you stand, the path is clear:\n\n1. **Audit your visibility** — use the free GEO GPT tool on my Tools page.\n2. **Subscribe to PR@ctical** — my newsletter covers what's actually working every week.\n3. **Get the AI Visibility Checklist** — 20 actions you can take this week.\n4. **Reach out** — if you want to go deeper, connect with me on LinkedIn or through Zen Media.\n\nThe brands that act now will own this space. Don't wait for the playbook — help me write it."
+        answer: "Start by doing something most brands haven't done yet: go ask AI about yourself.\n\nOpen ChatGPT, Perplexity, and Gemini. Ask the questions your customers would ask. See who shows up. See if it's you. I guarantee the results will surprise you.\n\nOnce you know where you stand, the path is clear:\n\n1. **Audit your visibility** — use the free GEO GPT tool on my Tools page.\n2. **Read the Daily AI Briefings** — five signals every weekday morning at asksarah.ai/briefings.\n3. **Subscribe to PR@ctical** — my newsletter covers what's actually working every week.\n4. **Reach out** — if you want to go deeper, connect with me on LinkedIn.\n\nThe brands that act now will own this space. Don't wait for the playbook — help me write it."
       }
     ];
 
@@ -515,6 +565,14 @@
       input.value = '';
       askQ(text);
     });
+
+    // Dropdown toggle
+    const dd = document.getElementById('navDropdown');
+    const ddBtn = document.getElementById('navDropdownBtn');
+    if (dd && ddBtn) {
+      ddBtn.addEventListener('click', (e) => { e.stopPropagation(); dd.classList.toggle('open'); ddBtn.setAttribute('aria-expanded', dd.classList.contains('open')); });
+      document.addEventListener('click', () => { dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded', 'false'); });
+    }
   </script>
 
 </body>
