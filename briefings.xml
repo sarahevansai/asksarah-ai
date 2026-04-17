@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:media="http://search.yahoo.com/mrss/">
+
+  <channel>
+    <title>Daily AI Briefings by Sarah Evans — askSarah.ai</title>
+    <link>https://asksarah.ai/briefings</link>
+    <atom:link href="https://asksarah.ai/briefings.xml" rel="self" type="application/rss+xml"/>
+    <description>Five AI signals that matter to business leaders — with exactly what to do about each one. Published every weekday by Sarah Evans, Partner at Zen Media.</description>
+    <language>en-us</language>
+    <copyright>Copyright 2026 Sarah Evans. All rights reserved.</copyright>
+    <managingEditor>sarah@zenmedia.com (Sarah Evans)</managingEditor>
+    <webMaster>sarah@zenmedia.com (Sarah Evans)</webMaster>
+    <lastBuildDate>Fri, 17 Apr 2026 06:00:00 -0700</lastBuildDate>
+    <pubDate>Fri, 17 Apr 2026 06:00:00 -0700</pubDate>
+    <ttl>480</ttl>
+    <image>
+      <url>https://asksarah.ai/og-image.png</url>
+      <title>Daily AI Briefings by Sarah Evans</title>
+      <link>https://asksarah.ai/briefings</link>
+    </image>
+
+    <!-- ═══════════════════════════════════════════
+         APRIL 17, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>AI Brief — April 17, 2026: Google Says Rebuild for AI Agents. 93% of Searches End Without a Click.</title>
+      <link>https://asksarah.ai/briefings#april-17-2026</link>
+      <guid isPermaLink="true">https://asksarah.ai/briefings#april-17-2026</guid>
+      <pubDate>Fri, 17 Apr 2026 06:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Strategy</category>
+      <category>AEO</category>
+      <category>Search</category>
+      <description>Google's AI director published "Agentic Engine Optimization." 93% of AI searches end without a click. Data tables earn 25% more AI citations. HubSpot: splitting SEO and AEO costs 40% citation share. Bing now weights content depth over backlinks.</description>
+      <content:encoded><![CDATA[
+        <h2>⚡ 1. GOOGLE JUST TOLD YOU TO REBUILD YOUR CONTENT FOR AI AGENTS, NOT HUMANS</h2>
+        <p>Google AI director Addy Osmani published a new framework called "Agentic Engine Optimization." AI agents don't scroll, don't click, and don't engage with your UI. They fetch your page, strip the HTML, count the tokens, and either use it or discard it. Your site now needs an llms.txt file (a sitemap for AI agents), clean markdown, and pages under 25K tokens.</p>
+        <p><strong>→ Check if your site has an llms.txt file. If it doesn't, you're invisible to AI agents. That's the new front door.</strong></p>
+
+        <h2>⚡ 2. 93% OF AI SEARCHES END WITHOUT A CLICK. CITATIONS ARE THE NEW RANKING.</h2>
+        <p>Semrush data shows 93% of searches in Google's AI Mode end without a single click to any website. Ahrefs confirmed AI Overviews now reduce clicks to the #1 result by 58%. Here's the flip side: a domain cited in 40% of AI responses to a keyword outperforms the #2 organic ranking, and that traffic converts at 4.4x the rate.</p>
+        <p><strong>→ If your team is still reporting search rankings and not AI citation share, the metric that matters just changed underneath you.</strong></p>
+
+        <h2>⚡ 3. DATA TABLES GET 25% MORE AI CITATIONS THAN PARAGRAPHS</h2>
+        <p>AI models extract information from tables at over 96% accuracy. Comparison pages with at least 3 HTML tables earn 25.7% more AI citations. Each table row is a self-contained claim with clear edges, which is exactly how models prefer to pull and cite information.</p>
+        <p><strong>→ Find your top 5 comparison or "how to choose" pages. Add HTML tables. This is the fastest AI visibility win most teams are sleeping on.</strong></p>
+
+        <h2>⚡ 4. HUBSPOT SAYS SPLITTING SEO AND AEO IS COSTING YOU 40% OF YOUR CITATIONS</h2>
+        <p>HubSpot's latest AEO research found that brands running separate SEO and Answer Engine Optimization strategies lose 40% citation share. Their unified framework drove 40% more AI citations and 4x higher conversion from AI referral traffic.</p>
+        <p><strong>→ Run your top 10 pages through HubSpot's AEO Grader this week. It's free and you'll see exactly where AI can and can't find you.</strong></p>
+
+        <h2>⚡ 5. THE TOOLS TO TRACK YOUR AI VISIBILITY ARE GROWING</h2>
+        <p>Semrush One now tracks your brand across ChatGPT, AI Overviews, AI Mode, Perplexity, and Gemini from one dashboard. Ahrefs launched Brand Radar (6 AI platforms). And, of course, Zen Media has all of this and more.</p>
+        <p><strong>→ Competitors who moved early already have an 8-week data advantage.</strong></p>
+
+        <h2>⚡ 6. BING JUST MADE CONTENT DEPTH MORE IMPORTANT THAN LINKS</h2>
+        <p>Bing's April 2026 algorithm update now weights context signals, user behavior, and content depth heavier than backlinks in AI-assisted results. They call it "generative relevance scoring." It checks how well your page answers the full question and intent, not just the surface topic.</p>
+        <p><strong>→ AI search optimization is not a Google-only game anymore.</strong></p>
+
+        <p><a href="https://asksarah.ai/briefings#april-17-2026">Read on askSarah.ai →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         APRIL 16, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>AI Brief — April 16, 2026: Snap Laid Off 1,000 and Blamed AI. Allbirds Pivoted to AI Compute and Jumped 582%.</title>
+      <link>https://asksarah.ai/briefings#april-16-2026</link>
+      <guid isPermaLink="true">https://asksarah.ai/briefings#april-16-2026</guid>
+      <pubDate>Wed, 16 Apr 2026 06:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Economy</category>
+      <category>Snap</category>
+      <category>Reddit</category>
+      <description>Snap cut 16% of staff and cited AI. Allbirds ditched shoes for GPU compute and stock jumped 582%. Google's AI director launched Agentic Engine Optimization. Reddit is AI's #1 social citation. LinkedIn's Depth Score now rewards carousels and long-form.</description>
+      <content:encoded><![CDATA[
+        <h2>⚡ 1. SNAP JUST LAID OFF 1,000 PEOPLE AND SAID AI DID IT</h2>
+        <p>Snap cut 16% of staff. CEO Evan Spiegel's memo pinned it on "rapid advancements in artificial intelligence" cutting repetitive work. $500M in annualized savings by H2. Stock jumped 7%.</p>
+        <p><strong>→ Your goal is to show how you can use AI to increase the value of your output.</strong></p>
+
+        <h2>⚡ 2. ALLBIRDS DITCHED SHOES, PIVOTED TO AI, STOCK POPPED 582% IN A DAY</h2>
+        <p>The sneaker brand sold its footwear for $39M and renamed itself "NewBird AI." Plan: buy GPUs, rent out compute. Shares went from under $3 to $17. Market cap jumped from $21M to $148M overnight.</p>
+        <p><strong>→ Think about your own "AI pivot" and what it means for what you do, how you work, and new creative outlets.</strong></p>
+
+        <h2>⚡ 3. GOOGLE'S AI DIRECTOR: ANSWER ENGINES ARE OUT, AGENTIC ENGINES ARE IN</h2>
+        <p>Addy Osmani dropped a new content playbook. Put the answer in the first 500 tokens. Keep pages compact. Serve clean Markdown next to HTML. This rewrites SEO.</p>
+        <p><strong>→ Rewrite your top 3 traffic pages this week so the answer lands in the first paragraph.</strong></p>
+
+        <h2>⚡ 4. REDDIT IS NOW AI'S #1 SOCIAL CITATION AND SEARCH IS BLEEDING 25%</h2>
+        <p>Tinuiti's Q1 2026 AI Citations Report: Reddit is 24% of Perplexity citations and 5%+ on ChatGPT. Gartner already forecast traditional search volume would drop 25% by year-end.</p>
+        <p><strong>→ Find your top 3 category subreddits. If there is an opportunity to integrate organically, now is the time.</strong></p>
+
+        <h2>⚡ 5. CLAUDE WENT DOWN, ANTIGRAVITY DID NOT, AND THAT IS THE POINT</h2>
+        <p>Anthropic's Claude had its 6th April outage. 40 minutes of full downtime, 73 minutes partial. Multi-model platforms fall back automatically. Single-vendor AI stacks are the new single point of failure.</p>
+        <p><strong>→ Treat your AI stack like your power grid. Get on a multi-model platform before the next outage costs you a deadline.</strong></p>
+
+        <h2>⚡ 6. LINKEDIN'S "DEPTH SCORE" ALGORITHM NOW REWARDS CAROUSELS AND LONG-FORM</h2>
+        <p>Depth Score is the metric that matters now. Posts hitting 61+ seconds see 15.6% distribution vs 1.2% for fast scrollers. Carousels win because they keep eyes on the feed.</p>
+        <p><strong>→ Swap one text post this week for a 6-slide carousel and measure the delta.</strong></p>
+
+        <p><a href="https://asksarah.ai/briefings#april-16-2026">Read on askSarah.ai →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         APRIL 15, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>AI Brief — April 15, 2026: LinkedIn Pays $150/hr to Train AI. Uber Burned Its Full-Year Budget in 4 Months.</title>
+      <link>https://asksarah.ai/briefings#april-15-2026</link>
+      <guid isPermaLink="true">https://asksarah.ai/briefings#april-15-2026</guid>
+      <pubDate>Tue, 15 Apr 2026 06:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Economy</category>
+      <category>LinkedIn</category>
+      <category>Meta</category>
+      <description>LinkedIn launched a $150/hr AI Labor Marketplace. AI-generated video is slipping into news with zero gatekeeping. Uber burned its full-year AI budget in 4 months — 72% of code is now AI-generated. Meta is about to dethrone Google in ad revenue for the first time.</description>
+      <content:encoded><![CDATA[
+        <h2>⚡ 1. LINKEDIN WILL NOW PAY YOU $150 AN HOUR TO TRAIN AI</h2>
+        <p>LinkedIn launched an AI Labor Marketplace. Senior engineers: $150/hr. Nurses, linguists, finance experts: up to $100/hr. Your domain expertise is now a product.</p>
+        <p><strong>→ Post this week: "LinkedIn will pay $150/hr to train AI on [your specialty]."</strong></p>
+
+        <h2>⚡ 2. AI VIDEO SLOP IS MAKING IT INTO THE NEWS AND NO ONE IS STOPPING IT</h2>
+        <p>AI-generated video is slipping into mainstream news coverage with zero gatekeeping. Your brand can get quoted in a fabricated clip and scraped into an AI citation 48 hours later.</p>
+        <p><strong>→ Draft a 24-hour correction protocol this week.</strong></p>
+
+        <h2>⚡ 3. UBER BURNED ITS ENTIRE 2026 AI BUDGET IN FOUR MONTHS</h2>
+        <p>Uber CTO Praveen Neppalli Naga gave 5,000 engineers Claude Code in December. By February, 63% used it daily. By April, the full-year budget was gone. 72% of code in Uber's IDEs is now AI-generated.</p>
+        <p><strong>→ Pull your team's AI usage report tomorrow. If per-seat spend is up more than 3x from Q1, tell your CFO before the invoice does.</strong></p>
+
+        <h2>⚡ 4. ANTHROPIC RIPPED UP ITS ENTERPRISE PRICING</h2>
+        <p>The flat seat fee is dead. Every Claude, Claude Code, and Cowork action now gets billed by what your team actually uses.</p>
+        <p><strong>→ Count daily-active Claude seats vs total seats. If less than half your people use it daily, Team tier beats Enterprise on the new math.</strong></p>
+
+        <h2>⚡ 5. META IS ABOUT TO DETHRONE GOOGLE IN AD REVENUE FOR THE FIRST TIME EVER</h2>
+        <p>eMarketer: Meta hits $243.46B in 2026 net ad revenue, edging Google's $239.54B. Meta growth 24.1%. Google 11.9%.</p>
+        <p><strong>→ Shift 20% of next month's Google search test budget to Meta Reels AI creative. Track CAC for 30 days.</strong></p>
+
+        <h2>⚡ 6. STOP WRITING ONE-OFF PROMPTS. BUILD A PROMPT SYSTEM THIS WEEK.</h2>
+        <p>Teams getting real ROI are turning prompts into reusable templates the whole team runs.</p>
+        <p><strong>→ Your 3 most-repeated prompts this week become a team template — or better yet, a GPT, skill, or project.</strong></p>
+
+        <p><a href="https://asksarah.ai/briefings#april-15-2026">Read on askSarah.ai →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         APRIL 14, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>AI Brief — April 14, 2026: GitHub Lets You Steer an AI Agent from Your Phone. AI Is Upskilling Expertise, Not Replacing It.</title>
+      <link>https://asksarah.ai/briefings#april-14-2026</link>
+      <guid isPermaLink="true">https://asksarah.ai/briefings#april-14-2026</guid>
+      <pubDate>Mon, 14 Apr 2026 06:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Tools</category>
+      <category>GitHub</category>
+      <category>OpenAI</category>
+      <description>GitHub released remote sessions for Copilot CLI — steer a running AI agent from your phone. Handshake went $0 to $100M ARR in 8 months with an AI data arm. MIT Tech Review: 12 charts that explain the entire AI economy. OpenAI confirmed customers can now run its models on any cloud.</description>
+      <content:encoded><![CDATA[
+        <h2>⚡ 1. GITHUB DROPPED A TOOL THAT LETS YOU STEER AN AI CODING AGENT FROM YOUR PHONE</h2>
+        <p>GitHub released remote sessions for Copilot CLI. You scan a QR code on your laptop and control a running AI agent from your phone on the train, between meetings, from a beach chair.</p>
+        <p><strong>→ Send this to one person on your team who keeps saying "AI needs a programmer to use."</strong></p>
+
+        <h2>⚡ 2. THE INFORMATION SAID AI IS UPSKILLING HUMAN EXPERTISE INSTEAD OF REPLACING IT</h2>
+        <p>Handshake spun up an AI data arm eight months ago and went from $0 to $100M in annualized revenue. Mercor hit $500M ARR at a $10B valuation. Their customers are OpenAI, Anthropic, Google, and Meta.</p>
+        <p><strong>→ This week: Think about what you do that is both repeatable and has value.</strong></p>
+
+        <h2>⚡ 3. MIT TECH REVIEW: 12 CHARTS THAT EXPLAIN THE ENTIRE AI ECONOMY</h2>
+        <p>Three that matter: 1) Generative AI hit 53% of the US population in 3 years — faster than the internet or the PC. 2) The median dollar value per AI user TRIPLED between 2025 and 2026. 3) The top 4 AI models are now separated by less than 3% on benchmarks.</p>
+        <p><strong>→ AI adoption is faster than the internet, the per-user value is tripling, and vendors are now competing on your terms.</strong></p>
+
+        <h2>⚡ 4. A CHINESE CODING AGENT IS 5X CHEAPER THAN CLAUDE ON THE SAME WORK</h2>
+        <p>Moonshot AI rolled Kimi K2.6. On raw coding benchmarks it is competitive with Claude Sonnet. Where Claude still wins: reliability on multi-step agent loops and complex English instruction following.</p>
+        <p><strong>→ If security and compliance are top of mind at your org, stick with Claude (or Copilot).</strong></p>
+
+        <h2>⚡ 5. OPENAI JUST SAID THE QUIET PART OUT LOUD: YOU ARE NOT LOCKED IN TO ONE AI VENDOR ANYMORE</h2>
+        <p>OpenAI sent an internal memo telling staff they want customers running OpenAI models on Microsoft Azure, Amazon Bedrock, AND Google Cloud interchangeably.</p>
+        <p><strong>→ If your vendor told you last year "we only work with X cloud," call them this week.</strong></p>
+
+        <p><a href="https://asksarah.ai/briefings#april-14-2026">Read on askSarah.ai →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         APRIL 11, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>AI Brief — April 11, 2026: Anthropic Built a Model So Powerful the US Government Called an Emergency Meeting.</title>
+      <link>https://asksarah.ai/briefings#april-11-2026</link>
+      <guid isPermaLink="true">https://asksarah.ai/briefings#april-11-2026</guid>
+      <pubDate>Sat, 11 Apr 2026 06:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Economy</category>
+      <category>Anthropic</category>
+      <category>Amazon</category>
+      <description>Anthropic's Mythos triggered a government emergency meeting. Amazon AWS AI is at $15B ARR — 260x ahead of where cloud was at the same stage. Google released Gemma 4 on-device with a 256K context window. Your leadership team is probably judging AI by the free tier.</description>
+      <content:encoded><![CDATA[
+        <h2>⚡ 1. ANTHROPIC BUILT A MODEL SO POWERFUL THE US GOVERNMENT CALLED AN EMERGENCY MEETING</h2>
+        <p>Treasury Secretary Bessent and Fed Chair Powell pulled Wall Street's biggest bank CEOs into an emergency session over a single AI model. Anthropic's Mythos can find and exploit vulnerabilities in any software stack without a human in the loop. It's currently deployed at 12 organizations.</p>
+        <p><strong>→ The government's threat assessment is a "need to know."</strong></p>
+
+        <h2>⚡ 2. AMAZON IS MAKING $15 BILLION A YEAR FROM AI</h2>
+        <p>AWS AI: $15 billion annual run rate. At this exact stage in AWS cloud's history, the run rate was $58 million. AI is 260x ahead of that pace.</p>
+        <p><strong>→ If your company is still in pilot mode, time to move.</strong></p>
+
+        <h2>⚡ 3. ANTHROPIC IS ABOUT TO OVERTAKE OPENAI IN REVENUE</h2>
+        <p>Anthropic is on pace to pass OpenAI in enterprise revenue for the first time. Claude is already running inside Carta, Zoom, and hundreds of enterprise stacks.</p>
+        <p><strong>→ At the very least, your team should have Claude Team accounts.</strong></p>
+
+        <h2>⚡ 4. GOOGLE JUST SOLVED THE "WE CAN'T SEND CLIENT DATA TO AI" PROBLEM</h2>
+        <p>Google dropped Gemma 4. Apache 2.0 license, free, zero usage restrictions, runs fully on-device. 256K context window. Native vision and audio. Works on a smartphone.</p>
+        <p><strong>→ Every team sitting on sensitive client data now has a path to run AI locally without sending anything anywhere.</strong></p>
+
+        <h2>⚡ 5. YOUR LEADERSHIP TEAM IS JUDGING AI BY THE WORST VERSION OF IT</h2>
+        <p>The free tier is so far behind paid tiers that they are effectively different products. Most executive teams are building AI strategy around the version that costs nothing and performs accordingly.</p>
+        <p><strong>→ Run the same prompt in free ChatGPT, then in Claude Pro. Screenshot both. Show your leadership team side by side.</strong></p>
+
+        <p><a href="https://asksarah.ai/briefings#april-11-2026">Read on askSarah.ai →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <!-- ═══════════════════════════════════════════
+         APRIL 10, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>AI Brief — April 10, 2026: OpenAI Launches $100/Month Pro Tier. Anthropic Revenue Triples to $30B Run Rate.</title>
+      <link>https://asksarah.ai/briefings#april-10-2026</link>
+      <guid isPermaLink="true">https://asksarah.ai/briefings#april-10-2026</guid>
+      <pubDate>Thu, 10 Apr 2026 06:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>AI Economy</category>
+      <category>OpenAI</category>
+      <category>Anthropic</category>
+      <description>OpenAI launches a $100/month ChatGPT Pro tier with 10x Codex. Meta debuts Muse Spark and drops open source. Anthropic revenue triples to a $30B run rate with 1,000+ enterprise customers spending $1M+/year. Claude Mythos finds zero-days in every major OS.</description>
+      <content:encoded><![CDATA[
+        <h2>⚡ 1. OPENAI LAUNCHES $100/MONTH CHATGPT PRO TIER</h2>
+        <p>OpenAI rolled out a new $100/month ChatGPT Pro plan. Pro subscribers get 5x more Codex usage than Plus, with a limited-time bump to 10x through May 31. Sam Altman confirmed Codex now has three million weekly users.</p>
+        <p><strong>→ If your team is using ChatGPT Plus and hitting limits, evaluate the new Pro tier against Claude Max before the promo ends May 31.</strong></p>
+
+        <h2>⚡ 2. META DEBUTS MUSE SPARK, ABANDONS OPEN SOURCE</h2>
+        <p>Meta released Muse Spark from its new Superintelligence Labs team. This model is closed-source — a hard break from Meta's open-weight Llama strategy. It will roll out across WhatsApp, Instagram, Facebook, Messenger, and Meta AI glasses.</p>
+        <p><strong>→ If your marketing runs on Meta platforms, the tools are about to change. Start testing Meta AI ad features now.</strong></p>
+
+        <h2>⚡ 3. OPENAI CLAIMS COMPUTE EDGE OVER ANTHROPIC</h2>
+        <p>OpenAI told investors it has Anthropic "meaningfully smaller" on compute. OpenAI plans to have 30 gigawatts of compute capacity by 2030.</p>
+        <p><strong>→ Ask both OpenAI and Anthropic directly about uptime guarantees and capacity commitments before signing annual contracts.</strong></p>
+
+        <h2>⚡ 4. ANTHROPIC REVENUE TRIPLES TO $30B RUN RATE</h2>
+        <p>Anthropic's annual revenue run rate hit $30 billion, up from $9 billion at end of 2025. The company now has more than 1,000 enterprise customers spending over $1 million annually.</p>
+        <p><strong>→ If Claude is not on your enterprise AI shortlist, you are leaving optionality on the table.</strong></p>
+
+        <h2>⚡ 5. CLAUDE MYTHOS FINDS ZERO-DAYS IN EVERY MAJOR OS AND BROWSER</h2>
+        <p>Anthropic's Claude Mythos Preview has already discovered thousands of zero-day vulnerabilities in every major operating system and web browser.</p>
+        <p><strong>→ If your company handles sensitive data, ask your CISO what AI-powered vulnerability scanning looks like in your stack today.</strong></p>
+
+        <h2>⚡ 6. OPENAI RAISING AD REVENUE EXPECTATIONS THROUGH 2030</h2>
+        <p>OpenAI is raising internal expectations for advertising revenue through 2030. Tubi became the latest company to bring streaming directly into ChatGPT. OpenAI has surpassed $25 billion in annualized revenue.</p>
+        <p><strong>→ If you run brand campaigns, start thinking about ChatGPT as an ad platform.</strong></p>
+
+        <p><a href="https://asksarah.ai/briefings#april-10-2026">Read on askSarah.ai →</a></p>
+      ]]></content:encoded>
+    </item>
+
+  </channel>
+</rss>
