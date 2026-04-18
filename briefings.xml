@@ -13,14 +13,57 @@
     <copyright>Copyright 2026 Sarah Evans. All rights reserved.</copyright>
     <managingEditor>sarah@zenmedia.com (Sarah Evans)</managingEditor>
     <webMaster>sarah@zenmedia.com (Sarah Evans)</webMaster>
-    <lastBuildDate>Fri, 17 Apr 2026 06:00:00 -0700</lastBuildDate>
-    <pubDate>Fri, 17 Apr 2026 06:00:00 -0700</pubDate>
+    <lastBuildDate>Sat, 18 Apr 2026 06:00:00 -0700</lastBuildDate>
+    <pubDate>Sat, 18 Apr 2026 06:00:00 -0700</pubDate>
     <ttl>480</ttl>
     <image>
       <url>https://asksarah.ai/og-image.png</url>
       <title>Daily AI Briefings by Sarah Evans</title>
       <link>https://asksarah.ai/briefings</link>
     </image>
+
+    <!-- ═══════════════════════════════════════════
+         APRIL 18, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>AI Brief — April 18, 2026: Meta 8,000 Layoffs. Anthropic Opus 4.7. 68% of TV Producers Want AI-Optimized Pitches.</title>
+      <link>https://asksarah.ai/briefings#april-18-2026</link>
+      <guid isPermaLink="true">https://asksarah.ai/briefings#april-18-2026</guid>
+      <pubDate>Sat, 18 Apr 2026 06:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>Meta</category>
+      <category>Anthropic</category>
+      <category>PR Strategy</category>
+      <description>Meta confirmed 8,000 layoffs starting May 20 in sales, recruiting, and operations. Anthropic shipped Opus 4.7 with a new design tool. 68% of TV producers prefer AI-optimized pitches. LinkedIn Depth Score rewards carousels. Super-commenter strategy beats cold publishing. Brands shifting 20-30% of ad spend to owned media.</description>
+      <content:encoded><![CDATA[
+        <h2>⚡ 1. META CONFIRMED MAY 20 LAYOFFS. 8,000 JOBS. THE CUTS ARE IN SALES, RECRUITING, AND OPERATIONS.</h2>
+        <p>Meta will cut ~10% of its 75,000 employees starting May 20, with more rounds later this year. Zuckerberg's internal message: "projects that used to require big teams can now be accomplished by a single very talented person."</p>
+        <p><strong>→ If you're in sales, recruiting, or operations, pick your most manual weekly deliverable. Build a workflow in ChatGPT or Claude that cuts it from 3 hours to 30 minutes. Show your manager the before-and-after.</strong></p>
+
+        <h2>⚡ 2. ANTHROPIC SHIPPED OPUS 4.7 AND A DESIGN TOOL</h2>
+        <p>Anthropic released Claude Opus 4.7 on Thursday. Two things matter. First: Claude now generates websites and presentations from plain-English prompts. Second: there is no single "best" AI anymore.</p>
+        <p><strong>→ Stop using one AI for everything. ChatGPT for brainstorming and research. Claude for writing, long documents, and now design. Gemini for images and real-time data.</strong></p>
+
+        <h2>⚡ 3. 68% OF TV PRODUCERS NOW PREFER PITCHES OPTIMIZED FOR AI SEARCH</h2>
+        <p>Doug Simon of DS Simon Media surveyed local TV producers and found 68% prefer story pitches structured for AI discoverability. 89% of AI-generated search answers already come from earned media. Producers aren't just thinking about what airs — they're thinking about whether the segment will get picked up by ChatGPT and Perplexity after it runs.</p>
+        <p><strong>→ Add one line to your next pitch: "This story is structured for AI search." Write suggested interview questions the way someone would ask AI. Include one original stat.</strong></p>
+
+        <h2>⚡ 4. LINKEDIN'S DEPTH SCORE NOW REWARDS CAROUSELS AND LONG-FORM</h2>
+        <p>The March 2026 "Authenticity Update" is in full effect. Posts hitting 61+ seconds of dwell time see 15.6% distribution vs. 1.2% for fast scrollers. AI comment spam is being penalized.</p>
+        <p><strong>→ Swap one text post this week for a 6-slide carousel.</strong></p>
+
+        <h2>⚡ 5. THE SUPER-COMMENTER STRATEGY IS OUTPACING COLD PUBLISHING</h2>
+        <p>10 quality comments per day increases profile views by 40%. The sweet spot: creators with 10K to 50K followers. Their audiences are engaged, but comment sections aren't crowded yet.</p>
+        <p><strong>→ Before you write your next post, leave 5 smart comments on high-traffic posts in your niche.</strong></p>
+
+        <h2>⚡ 6. BRANDS ARE SHIFTING 20-30% OF AD BUDGETS TO OWNED MEDIA AND AI VISIBILITY</h2>
+        <p>Clients are asking for publication placements and AI discoverability as a line item, not an afterthought. 73% of marketers now prioritize content optimized for AI-generated answers.</p>
+        <p><strong>→ PR teams need to include owned content as part of the strategy in a way they've never done before: anchor articles, pillar pages, etc.</strong></p>
+
+        <p><a href="https://asksarah.ai/briefings#april-18-2026">Read on askSarah.ai →</a></p>
+        <p><a href="https://www.linkedin.com/posts/prsarahevans_ai-brief-april-18-activity-7451281371517612032-DHwp">View original post on LinkedIn →</a></p>
+      ]]></content:encoded>
+    </item>
 
     <!-- ═══════════════════════════════════════════
          APRIL 17, 2026
