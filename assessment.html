@@ -152,9 +152,15 @@
     .intro-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
     .intro-pill { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 0.3rem 0.85rem; font-size: 0.72rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.02em; }
     .intro-pill svg { opacity: 0.6; }
-    .intro-meta { font-size: 0.72rem; color: var(--text-muted); margin-top: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .intro-meta { font-size: 0.72rem; color: var(--text-muted); margin-top: 1.5rem; display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; }
     .intro-meta-avatar { width: 26px; height: 26px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-size: 0.62rem; font-weight: 700; color: white; flex-shrink: 0; }
-    .intro-meta strong { color: var(--text); }
+    .intro-meta-text { font-size: 0.72rem; color: var(--text-muted); }
+    .intro-meta-text strong { color: var(--text); }
+    .intro-meta-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.1); flex-shrink: 0; }
+    .zm-badge { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.18); border-radius: 6px; padding: 0.25rem 0.6rem; }
+    .zm-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--violet-light); flex-shrink: 0; }
+    .zm-badge-label { font-size: 0.58rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .zm-badge-name { font-size: 0.68rem; font-weight: 700; color: var(--white); letter-spacing: 0.02em; }
     .btn-start { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--gradient); border: none; border-radius: 100px; padding: 0.9rem 2.25rem; font-size: 0.92rem; font-weight: 700; color: white; cursor: pointer; font-family: inherit; margin-top: 1.75rem; transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 0 0 0 rgba(124,58,237,0); }
     .btn-start:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.35); }
 
@@ -288,7 +294,14 @@
       </div>
       <div class="intro-meta">
         <div class="intro-meta-avatar">SE</div>
-        <span>By <strong>Sarah Evans</strong>, Partner at Zen Media</span>
+        <span class="intro-meta-text">By <strong>Sarah Evans</strong></span>
+        <div class="intro-meta-sep"></div>
+        <div class="zm-badge">
+          <div class="zm-badge-dot"></div>
+          <span class="zm-badge-label">A</span>
+          <span class="zm-badge-name">Zen Media</span>
+          <span class="zm-badge-label">Practice</span>
+        </div>
       </div>
     </div>
 
@@ -600,7 +613,7 @@
       <div class="framework-panel stagger" style="animation-delay:0.05s">
         <div class="framework-header">
           <span class="framework-title">AI Visibility Framework</span>
-          <span class="framework-brand">askSarah.ai</span>
+          <span class="framework-brand">Zen Media</span>
         </div>
         <div id="framework-pillars"></div>
       </div>
