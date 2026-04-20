@@ -629,7 +629,7 @@
           <p style="font-size:0.68rem;color:var(--text-muted);margin-top:0.65rem;">We won't add you to a list.</p>
         </div>
       </div>
-      <p class="results-note">
+      <p class="results-note" id="results-note">
         Questions right now? <a href="mailto:sarah@evans-global.com">sarah@evans-global.com</a>
       </p>
     </div>
@@ -1011,8 +1011,9 @@
       document.getElementById('rec-cta').href             = route.href;
 
       // ── 100-prompt snapshot note ──
-      if (state.company) {
-        document.getElementById('results-note').innerHTML =
+      const noteEl = document.getElementById('results-note');
+      if (noteEl && state.company) {
+        noteEl.innerHTML =
           `When you connect with our team, we\'ll run a <strong>100-prompt snapshot</strong> — ` +
           `auditing how <strong>${state.company}</strong> appears across the major AI engines. ` +
           `You\'ll see exactly what your buyers see.<br><br>` +
