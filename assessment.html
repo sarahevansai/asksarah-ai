@@ -250,6 +250,8 @@
     .results-note { margin-top: 1.25rem; font-size: 0.75rem; color: var(--text-muted); text-align: center; line-height: 1.7; }
     .results-note a { color: var(--cyan); text-decoration: none; }
     .results-note strong { color: var(--white); }
+    .btn-restart { display: inline-flex; align-items: center; gap: 0.45rem; background: none; border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 0.5rem 1.1rem; font-size: 0.72rem; font-weight: 600; color: var(--text-muted); cursor: pointer; font-family: inherit; margin-top: 1rem; transition: border-color 0.2s, color 0.2s; }
+    .btn-restart:hover { border-color: rgba(255,255,255,0.25); color: var(--white); }
 
     /* DA WARNING BANNER */
     .da-warning { display: none; background: rgba(245,158,11,0.06); border: 1.5px solid rgba(245,158,11,0.25); border-radius: 14px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem; }
@@ -749,8 +751,14 @@
         </div>
       </div>
       <p class="results-note" id="results-note">
-        Questions right now? <a href="mailto:sarah@evans-global.com">sarah@evans-global.com</a>
+        Questions right now? <a href="mailto:sarah@zenmedia.com">sarah@zenmedia.com</a>
       </p>
+      <div style="text-align:center;">
+        <button class="btn-restart" onclick="location.reload()">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+          Run for another brand
+        </button>
+      </div>
     </div>
 
   </main>
@@ -1259,7 +1267,7 @@
           `When you connect with our team, we\'ll run a <strong>100-prompt snapshot</strong>, ` +
           `auditing how <strong>${state.company}</strong> appears across the major AI engines. ` +
           `You\'ll see exactly what your buyers see.<br><br>` +
-          `Questions now? <a href="mailto:sarah@evans-global.com">sarah@evans-global.com</a>`;
+          `Questions now? <a href="mailto:sarah@zenmedia.com">sarah@zenmedia.com</a>`;
       }
     }
 
