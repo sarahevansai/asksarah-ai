@@ -186,6 +186,12 @@
     .results-note { margin-top: 1.5rem; font-size: 0.72rem; color: var(--text-muted); text-align: center; line-height: 1.6; }
     .results-note a { color: var(--cyan); text-decoration: none; }
 
+    /* INLINE CONTACT BLOCK (results screen) */
+    .results-contact { margin-top: 1.5rem; }
+    .results-contact-inner { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 1.5rem; }
+    .results-contact-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+    .results-contact-sub { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem; }
+
     /* STAGGER ANIMATION FOR RESULTS */
     .stagger { opacity: 0; transform: translateY(12px); animation: staggerIn 0.4s ease forwards; }
     @keyframes staggerIn { to { opacity: 1; transform: translateY(0); } }
@@ -268,18 +274,16 @@
     <!-- ===== SCREEN 1: BUSINESS ===== -->
     <div class="screen" id="screen-business">
       <div class="step-label"><span class="step-dot"></span> Step 1 of 7</div>
-      <div class="q-text">Let's start with who we're looking at.</div>
-      <div class="q-sub">We'll use this context when we review your results.</div>
+      <div class="q-text">First — what are we looking at?</div>
+      <div class="q-sub">Three fields. That's it.</div>
 
-      <div class="field-row">
-        <div class="field-group">
-          <label class="field-label" for="f-company">Company name</label>
-          <input class="field-input" id="f-company" type="text" placeholder="Acme Corp" autocomplete="organization">
-        </div>
-        <div class="field-group">
-          <label class="field-label" for="f-website">Website</label>
-          <input class="field-input" id="f-website" type="url" placeholder="acmecorp.com" autocomplete="url">
-        </div>
+      <div class="field-group">
+        <label class="field-label" for="f-company">Company name</label>
+        <input class="field-input" id="f-company" type="text" placeholder="Acme Corp" autocomplete="organization">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="f-website">Website</label>
+        <input class="field-input" id="f-website" type="url" placeholder="acmecorp.com" autocomplete="url">
       </div>
       <div class="field-group">
         <label class="field-label" for="f-industry">Industry</label>
@@ -297,23 +301,7 @@
         </select>
       </div>
 
-      <div class="buyer-label">Who are you actually trying to reach?</div>
-      <p class="buyer-hint">Not org chart titles. Describe the person who signs — or influences — the deal.</p>
-
-      <div class="field-group">
-        <label class="field-label" for="f-b1">Buyer 1</label>
-        <input class="field-input" id="f-b1" type="text" placeholder="e.g. CMO at a Series B SaaS company scaling their first marketing team">
-      </div>
-      <div class="field-group">
-        <label class="field-label" for="f-b2">Buyer 2</label>
-        <input class="field-input" id="f-b2" type="text" placeholder="e.g. VP Communications at a PE-backed healthcare company">
-      </div>
-      <div class="field-group">
-        <label class="field-label" for="f-b3">Buyer 3 <span style="opacity:0.5;font-weight:400">(optional)</span></label>
-        <input class="field-input" id="f-b3" type="text" placeholder="e.g. Founder who runs comms themselves">
-      </div>
-
-      <div class="btn-row">
+      <div class="btn-row" style="margin-top:1.25rem;">
         <button class="btn-back" onclick="goBack()">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           Back
@@ -573,78 +561,25 @@
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           Back
         </button>
-        <button class="btn-next" id="btn-recency" onclick="goNext()">
-          Next — get my results
+        <button class="btn-next" id="btn-recency" onclick="showResults()">
+          See my results
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
     </div>
 
-    <!-- ===== SCREEN 8: CONTACT ===== -->
-    <div class="screen" id="screen-contact">
-      <div class="step-label"><span class="step-dot"></span> Last step</div>
-      <div class="q-text">Where do we send your results?</div>
-      <div class="q-sub">We'll identify exactly which team can close your specific gaps. No nurture sequences. Just the gaps and the next step.</div>
-
-      <div class="field-row">
-        <div class="field-group">
-          <label class="field-label" for="f-fname">First name</label>
-          <input class="field-input" id="f-fname" type="text" placeholder="Sarah" autocomplete="given-name">
-        </div>
-        <div class="field-group">
-          <label class="field-label" for="f-email">Work email</label>
-          <input class="field-input" id="f-email" type="email" placeholder="you@company.com" autocomplete="email">
-        </div>
-      </div>
-
-      <div class="field-group">
-        <label class="field-label" for="f-challenge">What's your biggest AI visibility challenge right now? <span style="opacity:0.5;font-weight:400">(optional)</span></label>
-        <textarea class="field-textarea" id="f-challenge" placeholder="e.g. We're visible in traditional search but completely absent from AI-generated answers..."></textarea>
-      </div>
-
-      <div class="field-group" style="margin-top:1.25rem;">
-        <label class="field-label" style="margin-bottom:0.75rem;">How quickly are you looking to move on this?</label>
-        <div class="urgency-grid" id="urgency-grid">
-          <div class="urgency-card" data-val="exploring" onclick="selectUrgency(this)">
-            <span class="urgency-title">Just exploring</span>
-            <span class="urgency-sub">Building a picture</span>
-          </div>
-          <div class="urgency-card" data-val="90days" onclick="selectUrgency(this)">
-            <span class="urgency-title">Within 90 days</span>
-            <span class="urgency-sub">Evaluating options</span>
-          </div>
-          <div class="urgency-card" data-val="now" onclick="selectUrgency(this)">
-            <span class="urgency-title">We need to move now</span>
-            <span class="urgency-sub">Ready to start</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="btn-row" style="margin-top:1.5rem;">
-        <button class="btn-back" onclick="goBack()">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          Back
-        </button>
-        <button class="btn-next" id="btn-contact" onclick="submitAndShowResults()">
-          Get my results
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-      <p style="font-size:0.68rem;color:var(--text-muted);margin-top:0.75rem;">By submitting you agree to be contacted by the askSarah.ai team. We won't spam you.</p>
-    </div>
-
-    <!-- ===== SCREEN 9: RESULTS ===== -->
+    <!-- ===== SCREEN 8: RESULTS ===== -->
     <div class="screen" id="screen-results">
       <div class="results-header">
-        <h2>Here's where you stand, <span id="results-name" class="gradient-text"></span></h2>
-        <p>Based on your answers — a straightforward read on your AI visibility gaps and the right next step.</p>
+        <h2>Here's where <span id="results-name" class="gradient-text"></span> stands.</h2>
+        <p>Based on your answers — your AI visibility gaps and the clearest next move.</p>
       </div>
       <div class="results-grid">
-        <div class="results-signals stagger" style="animation-delay:0.1s">
+        <div class="results-signals stagger" style="animation-delay:0.05s">
           <h3>Signal Checklist</h3>
           <div id="signal-list"></div>
         </div>
-        <div class="results-rec stagger" style="animation-delay:0.25s">
+        <div class="results-rec stagger" style="animation-delay:0.18s">
           <div class="results-rec-label" id="rec-label">Our Recommendation</div>
           <h3 id="rec-heading"></h3>
           <p id="rec-body"></p>
@@ -654,8 +589,36 @@
           </a>
         </div>
       </div>
-      <p class="results-note" id="results-note">
-        Your results have been sent to our team. Expect to hear from us within 1 business day.<br>
+
+      <!-- Inline contact capture — optional, not a gate -->
+      <div class="results-contact stagger" style="animation-delay:0.35s" id="results-contact-block">
+        <div class="results-contact-inner">
+          <div class="results-contact-label">Want a team review?</div>
+          <p class="results-contact-sub">Leave your info and the right person from our team will reach out — no pitch, just the next step based on your specific gaps.</p>
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="f-fname">First name</label>
+              <input class="field-input" id="f-fname" type="text" placeholder="Sarah" autocomplete="given-name">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="f-email">Work email</label>
+              <input class="field-input" id="f-email" type="email" placeholder="you@company.com" autocomplete="email">
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="f-challenge">Biggest challenge right now <span style="opacity:0.5;font-weight:400">(optional)</span></label>
+            <textarea class="field-textarea" id="f-challenge" placeholder="e.g. Visible in Google, invisible in AI answers..."></textarea>
+          </div>
+          <div class="btn-row" style="margin-top:0.75rem;">
+            <button class="btn-next enabled" onclick="submitReview()" id="btn-review">
+              Send to our team
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+          <p style="font-size:0.68rem;color:var(--text-muted);margin-top:0.65rem;">We won't add you to a list.</p>
+        </div>
+      </div>
+      <p class="results-note">
         Questions right now? <a href="mailto:sarah@evans-global.com">sarah@evans-global.com</a>
       </p>
     </div>
@@ -672,11 +635,11 @@
       fname: '', email: '', challenge: '', urgency: null
     };
 
-    // Screen IDs in order
+    // Screen IDs in order — contact is no longer a gate; results shown immediately after Q7
     const SCREENS = [
       'intro', 'business', 'prompts', 'da',
       'llmstxt', 'deeplinks', 'ainotices', 'recency',
-      'contact', 'results'
+      'results'
     ];
     let current = 0;
 
@@ -910,17 +873,18 @@
       state.company  = document.getElementById('f-company').value.trim();
       state.website  = document.getElementById('f-website').value.trim();
       state.industry = document.getElementById('f-industry').value;
-      state.buyers   = [
-        document.getElementById('f-b1').value.trim(),
-        document.getElementById('f-b2').value.trim(),
-        document.getElementById('f-b3').value.trim()
-      ];
       buildPromptPreview(); // populate Step 2 before navigating
       goNext();
     }
 
-    // ─── CONTACT + SUBMIT ────────────────────────────────────────────────────
-    function submitAndShowResults() {
+    // ─── SHOW RESULTS (no gate) ──────────────────────────────────────────────
+    function showResults() {
+      renderResults();
+      goNext();
+    }
+
+    // ─── INLINE REVIEW SUBMIT (optional, from results screen) ────────────────
+    function submitReview() {
       state.fname     = document.getElementById('f-fname').value.trim();
       state.email     = document.getElementById('f-email').value.trim();
       state.challenge = document.getElementById('f-challenge').value.trim();
@@ -931,10 +895,16 @@
         return;
       }
 
-      // Send via mailto (fire and show results)
       sendLeadEmail();
-      renderResults();
-      goNext();
+
+      // Replace form with confirmation
+      const block = document.getElementById('results-contact-block');
+      block.innerHTML = `
+        <div class="results-contact-inner" style="text-align:center;padding:1.5rem;">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem;">✓</div>
+          <div style="font-size:0.9rem;font-weight:700;color:var(--white);margin-bottom:0.35rem;">Sent.</div>
+          <div style="font-size:0.78rem;color:var(--text-muted);">Expect to hear from us within 1 business day.</div>
+        </div>`;
     }
 
     function sendLeadEmail() {
