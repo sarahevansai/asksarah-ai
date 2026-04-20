@@ -818,6 +818,9 @@
       const arrowSVG = `<svg class="pathway-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
 
       // Prompt index is already promoted as primary CTA, so only show DA fix and call
+      const MAILTO_1 = 'mailto:sarah@zenmedia.com?subject=' + encodeURIComponent('SEO + AI Foundation, AI Visibility Assessment');
+      const MAILTO_2 = 'mailto:sarah@zenmedia.com?subject=' + encodeURIComponent('Ready to Start, AI Visibility Assessment');
+
       const pathways = [
         {
           num: '1',
@@ -825,20 +828,19 @@
           label: lowDA ? 'Action required' : 'Foundation',
           title: lowDA
             ? 'Your domain authority is under 60. Our SEO & AI team needs to fix this first.'
-            : 'Work on your domain authority and AI infrastructure with our team.',
-          onclick: `openMailto('mailto:sarah@zenmedia.com?subject=${encodeURIComponent('SEO + AI Foundation, AI Visibility Assessment')}')`
+            : 'Work on your domain authority and AI infrastructure with our team.'
         },
         {
           num: '2',
           urgent: false,
           label: 'Ready to move',
-          title: 'Set up a call with our team to start building your AI visibility strategy.',
-          onclick: `openMailto('mailto:sarah@zenmedia.com?subject=${encodeURIComponent('Ready to Start, AI Visibility Assessment')}')`
+          title: 'Set up a call with our team to start building your AI visibility strategy.'
         }
       ];
 
-      document.getElementById('results-pathways').innerHTML = pathways.map(p => `
-        <div class="pathway-card${p.urgent ? ' urgent' : ''}" onclick="${p.onclick}">
+      const pathwaysEl = document.getElementById('results-pathways');
+      pathwaysEl.innerHTML = pathways.map((p, i) => `
+        <div class="pathway-card${p.urgent ? ' urgent' : ''}" data-pathway="${i}">
           <div class="pathway-num">${p.num}</div>
           <div class="pathway-info">
             <div class="pathway-label">${p.label}</div>
@@ -846,6 +848,13 @@
           </div>
           ${arrowSVG}
         </div>`).join('');
+
+      // Attach listeners after render — avoids inline onclick context issues
+      pathwaysEl.querySelectorAll('[data-pathway]').forEach(card => {
+        const idx = parseInt(card.dataset.pathway, 10);
+        const url = idx === 0 ? MAILTO_1 : MAILTO_2;
+        card.addEventListener('click', function() { openMailto(url); });
+      });
     }
 
     // ─── NAVIGATION ──────────────────────────────────────────────────────────
@@ -1184,10 +1193,18 @@
           <div class="da-warning-title">Your domain authority is ${daLabel}. AI visibility needs a stronger floor.</div>
           <div class="da-warning-body">At this DA level, AI engines don't have enough trust signal to cite your brand consistently, regardless of content quality. Our SEO + AI team runs a parallel track: building your domain authority toward 60+ over 90 days while simultaneously activating your AI visibility strategy. You don't wait for one to finish before starting the other.</div>
         </div>
-        <button class="da-warning-btn" onclick="openMailto('mailto:sarah@zenmedia.com?subject=${encodeURIComponent('SEO + AI Foundation, DA Under 60')}')">
+        <button class="da-warning-btn" id="da-warning-btn">
           Talk to our SEO team
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>`;
+
+      // Attach event listener directly — inline onclick in innerHTML strings is unreliable
+      const btn = document.getElementById('da-warning-btn');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          openMailto('mailto:sarah@zenmedia.com?subject=' + encodeURIComponent('SEO + AI Foundation, DA Under 60'));
+        });
+      }
     }
 
     // ─── RESULTS ─────────────────────────────────────────────────────────────
