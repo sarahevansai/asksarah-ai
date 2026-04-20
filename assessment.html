@@ -771,16 +771,18 @@
       ];
 
       document.getElementById('results-pathways').innerHTML = pathways.map(p => {
-        const attrs = p.external ? ' target="_blank" rel="noopener"' : '';
+        const handler = p.external
+          ? `onclick="window.open('${p.href}','_blank')"`
+          : `onclick="window.location.href='${p.href}'"`;
         return `
-        <a href="${p.href}" class="pathway-card${p.urgent ? ' urgent' : ''}"${attrs}>
+        <div class="pathway-card${p.urgent ? ' urgent' : ''}" ${handler} style="cursor:pointer;">
           <div class="pathway-num">${p.num}</div>
           <div class="pathway-info">
             <div class="pathway-label">${p.label}</div>
             <div class="pathway-title">${p.title}</div>
           </div>
           ${arrowSVG}
-        </a>`;
+        </div>`;
       }).join('');
     }
 
