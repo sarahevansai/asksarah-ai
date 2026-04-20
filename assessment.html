@@ -183,8 +183,15 @@
     .results-share-txt { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.5rem; }
     .results-share-btn { background: none; border: 1px solid var(--border-light); border-radius: 100px; padding: 0.45rem 1rem; font-size: 0.72rem; font-weight: 600; color: var(--text); cursor: pointer; font-family: inherit; transition: all 0.2s; }
     .results-share-btn:hover { border-color: rgba(124,58,237,0.3); color: var(--white); }
-    .results-note { margin-top: 1.5rem; font-size: 0.72rem; color: var(--text-muted); text-align: center; line-height: 1.6; }
+    .results-note { margin-top: 1.5rem; font-size: 0.78rem; color: var(--text-muted); text-align: center; line-height: 1.7; }
     .results-note a { color: var(--cyan); text-decoration: none; }
+    .results-note strong { color: var(--white); }
+
+    /* CONCERNS BLOCK */
+    .results-concerns { margin-bottom: 1.5rem; }
+    .concern-item { background: rgba(244,63,94,0.05); border: 1px solid rgba(244,63,94,0.12); border-left: 3px solid rgba(244,63,94,0.4); border-radius: 0 10px 10px 0; padding: 0.9rem 1rem; margin-bottom: 0.65rem; font-size: 0.82rem; color: var(--text); line-height: 1.65; }
+    .concern-item strong { color: var(--white); display: block; margin-bottom: 0.2rem; font-size: 0.84rem; }
+    .concern-item:last-child { margin-bottom: 0; }
 
     /* INLINE CONTACT BLOCK (results screen) */
     .results-contact { margin-top: 1.5rem; }
@@ -574,6 +581,10 @@
         <h2>Here's where <span id="results-name" class="gradient-text"></span> stands.</h2>
         <p>Based on your answers — your AI visibility gaps and the clearest next move.</p>
       </div>
+
+      <!-- Prescriptive concerns -->
+      <div class="results-concerns stagger" style="animation-delay:0.05s" id="results-concerns"></div>
+
       <div class="results-grid">
         <div class="results-signals stagger" style="animation-delay:0.05s">
           <h3>Signal Checklist</h3>
@@ -917,7 +928,6 @@
         `Name: ${state.fname}\nEmail: ${state.email}\n` +
         `Company: ${state.company}\nWebsite: ${state.website}\n` +
         `Industry: ${state.industry}\n\n` +
-        `Buyers:\n${state.buyers.filter(Boolean).map((b,i)=>`  ${i+1}. ${b}`).join('\n')}\n\n` +
         `DIAGNOSTIC RESULTS\n` +
         `Routing: ${route.toUpperCase()}\n` +
         `Gaps: ${gapCount} of 6 signals\n\n` +
@@ -927,12 +937,10 @@
         `  llms.txt: ${state.llmstxt}\n` +
         `  Deep links: ${state.deeplinks}\n` +
         `  AI Notices: ${state.ainotices}\n` +
-        `  Recency: ${state.recency}\n` +
-        `  Urgency: ${state.urgency}\n\n` +
+        `  Recency: ${state.recency}\n\n` +
         `Challenge: ${state.challenge || 'Not provided'}`
       );
 
-      // Open mailto in background (fire and forget)
       const link = document.createElement('a');
       link.href  = `mailto:sarah@zenmedia.com?subject=${encodeURIComponent('New AI Visibility Diagnostic Lead — ' + (state.company || state.fname))}&body=${body}`;
       link.style.display = 'none';
@@ -943,10 +951,12 @@
 
     // ─── RESULTS ─────────────────────────────────────────────────────────────
     function renderResults() {
-      // Name greeting
-      document.getElementById('results-name').textContent = state.fname || 'there';
+      const co = state.company || 'your brand';
 
-      // Signal list
+      // Header
+      document.getElementById('results-name').textContent = co;
+
+      // ── Signal checklist ──
       const signals  = buildSignals();
       const signalEl = document.getElementById('signal-list');
       const icons    = { ok: '✓', warn: '≈', gap: '✗' };
@@ -959,36 +969,63 @@
           </div>
         </div>`).join('');
 
-      // Routing recommendation
-      const route = ROUTES[getRoute()];
-      document.getElementById('rec-label').textContent   = route.label;
-      document.getElementById('rec-heading').textContent = route.heading;
-      document.getElementById('rec-body').textContent    = route.body;
-      document.getElementById('rec-cta-text').textContent = route.cta;
-      document.getElementById('rec-cta').href            = route.href;
+      // ── Prescriptive concerns ──
+      const concerns = [];
 
-      // Personalized note
+      if (state.prompts === 'checked' || state.prompts === 'no') {
+        concerns.push(`<strong>Prompt coverage unknown.</strong> ${co} may be named — or missed entirely — in the AI answers your buyers are seeing right now. That gap is invisible until you run the prompts.`);
+      }
+      if (state.da === 'under30' || state.da === 'unknown') {
+        concerns.push(`<strong>Domain authority is a blocker.</strong> At sub-30 DA, AI engines don\'t have enough trust signal to cite ${co} consistently. Visibility work built on this will underperform until the foundation is fixed.`);
+      } else if (state.da === '30-59') {
+        concerns.push(`<strong>Domain authority is in the danger zone.</strong> DA 30–59 is the range where AI citations are inconsistent — you may show up in some answers and disappear from others. DA and AI strategy need to run simultaneously here.`);
+      }
+      if (state.llmstxt !== 'yes') {
+        concerns.push(`<strong>No llms.txt file detected.</strong> Without it, AI crawlers have no structured map of what ${co} does or wants to be cited for. It\'s one of the fastest technical wins available.`);
+      }
+      if (state.deeplinks === 'homepage' || state.deeplinks === 'donttrack') {
+        concerns.push(`<strong>Citation pattern is weak.</strong> Homepage-only links tell AI that ${co} exists. They don\'t build topical authority. AI engines cite expertise — not home pages.`);
+      }
+      if (state.ainotices !== 'yes') {
+        concerns.push(`<strong>No AI Notices in your content mix.</strong> Traditional press releases aren\'t structured for AI citation. AI Notices are written specifically to be surfaced in LLM answers — and most brands aren\'t publishing them yet.`);
+      }
+      if (state.recency === 'lastmonth' || state.recency === 'inconsistent') {
+        concerns.push(`<strong>Recency gap detected.</strong> AI engines weight freshness. A gap beyond 28 days starts to degrade ${co}\'s presence in AI-generated answers — even when the underlying content is solid.`);
+      }
+
+      const concernsEl = document.getElementById('results-concerns');
+      if (concerns.length === 0) {
+        concernsEl.innerHTML = `<p style="font-size:0.85rem;color:var(--ok);font-weight:600;">Strong signal profile. Your gaps are marginal — the opportunity is to compound what\'s working.</p>`;
+      } else {
+        concernsEl.innerHTML = concerns.map(c =>
+          `<div class="concern-item">${c}</div>`
+        ).join('');
+      }
+
+      // ── Routing recommendation ──
+      const route = ROUTES[getRoute()];
+      document.getElementById('rec-label').textContent    = route.label;
+      document.getElementById('rec-heading').textContent  = route.heading;
+      document.getElementById('rec-body').textContent     = route.body;
+      document.getElementById('rec-cta-text').textContent = route.cta;
+      document.getElementById('rec-cta').href             = route.href;
+
+      // ── 100-prompt snapshot note ──
       if (state.company) {
         document.getElementById('results-note').innerHTML =
-          `Your results for <strong>${state.company}</strong> have been sent to our team. Expect to hear from us within 1 business day.<br>` +
-          `Questions right now? <a href="mailto:sarah@evans-global.com">sarah@evans-global.com</a>`;
+          `When you connect with our team, we\'ll run a <strong>100-prompt snapshot</strong> — ` +
+          `auditing how <strong>${state.company}</strong> appears across the major AI engines. ` +
+          `You\'ll see exactly what your buyers see.<br><br>` +
+          `Questions now? <a href="mailto:sarah@evans-global.com">sarah@evans-global.com</a>`;
       }
     }
 
-    // ─── CONTACT VALIDATION ──────────────────────────────────────────────────
+    // ─── INIT ─────────────────────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', () => {
-      const emailInput = document.getElementById('f-email');
-      const nameInput  = document.getElementById('f-fname');
-      const contactBtn = document.getElementById('btn-contact');
-
-      function checkContactReady() {
-        const ready = emailInput.value.trim().length > 3 && nameInput.value.trim().length > 0;
-        if (ready) contactBtn.classList.add('enabled');
-        else contactBtn.classList.remove('enabled');
-      }
-      emailInput.addEventListener('input', checkContactReady);
-      nameInput.addEventListener('input', checkContactReady);
-      emailInput.addEventListener('focus', () => { emailInput.style.borderColor = ''; });
+      // Reset email border on focus (for inline review contact block)
+      document.getElementById('f-email').addEventListener('focus', () => {
+        document.getElementById('f-email').style.borderColor = '';
+      });
     });
 
     updateProgress();
