@@ -826,14 +826,14 @@
           title: lowDA
             ? 'Your domain authority is under 60. Our SEO & AI team needs to fix this first.'
             : 'Work on your domain authority and AI infrastructure with our team.',
-          onclick: `window.location.href='mailto:sarah@zenmedia.com?subject=${encodeURIComponent('SEO + AI Foundation, AI Visibility Assessment')}'`
+          onclick: `openMailto('mailto:sarah@zenmedia.com?subject=${encodeURIComponent('SEO + AI Foundation, AI Visibility Assessment')}')`
         },
         {
           num: '2',
           urgent: false,
           label: 'Ready to move',
           title: 'Set up a call with our team to start building your AI visibility strategy.',
-          onclick: `window.location.href='mailto:sarah@zenmedia.com?subject=${encodeURIComponent('Ready to Start, AI Visibility Assessment')}'`
+          onclick: `openMailto('mailto:sarah@zenmedia.com?subject=${encodeURIComponent('Ready to Start, AI Visibility Assessment')}')`
         }
       ];
 
@@ -870,6 +870,16 @@
 
     function goBack() {
       if (current > 0) showScreen(current - 1, 'back');
+    }
+
+    // Reliable cross-browser mailto trigger
+    function openMailto(url) {
+      const a = document.createElement('a');
+      a.href = url;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
 
     function updateProgress() {
@@ -1174,7 +1184,7 @@
           <div class="da-warning-title">Your domain authority is ${daLabel}. AI visibility needs a stronger floor.</div>
           <div class="da-warning-body">At this DA level, AI engines don't have enough trust signal to cite your brand consistently, regardless of content quality. Our SEO + AI team runs a parallel track: building your domain authority toward 60+ over 90 days while simultaneously activating your AI visibility strategy. You don't wait for one to finish before starting the other.</div>
         </div>
-        <button class="da-warning-btn" onclick="window.location.href='mailto:sarah@zenmedia.com?subject=${encodeURIComponent('SEO + AI Foundation, DA Under 60')}'">
+        <button class="da-warning-btn" onclick="openMailto('mailto:sarah@zenmedia.com?subject=${encodeURIComponent('SEO + AI Foundation, DA Under 60')}')">
           Talk to our SEO team
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>`;
