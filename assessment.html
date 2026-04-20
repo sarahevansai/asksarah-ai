@@ -94,16 +94,17 @@
     .prompt-bias-note svg { flex-shrink: 0; margin-top: 1px; color: var(--warn); }
 
     /* ANSWER CARDS */
-    .choice-list { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.5rem; }
-    .choice-card { position: relative; background: var(--card); border: 1.5px solid var(--border-light); border-radius: 14px; padding: 1.1rem 3.5rem 1.1rem 1.35rem; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; font-weight: 500; color: var(--text); text-align: left; }
-    .choice-card:hover { border-color: rgba(124,58,237,0.35); background: var(--card-hover); color: var(--white); transform: translateX(3px); }
-    .choice-card.selected { border-color: var(--violet); background: rgba(124,58,237,0.08); color: var(--white); transform: translateX(3px); }
+    .choice-list { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem; }
+    .choice-card { position: relative; background: rgba(22,19,46,0.7); border: 1.5px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 1.15rem 3.5rem 1.15rem 1.4rem; cursor: pointer; transition: all 0.18s cubic-bezier(0.4,0,0.2,1); font-size: 0.9rem; font-weight: 500; color: var(--text); text-align: left; }
+    .choice-card:hover { border-color: rgba(124,58,237,0.4); background: rgba(28,24,56,0.9); color: var(--white); transform: translateX(4px); box-shadow: 0 2px 16px rgba(124,58,237,0.08); }
+    .choice-card.selected { border-color: rgba(124,58,237,0.7); background: rgba(124,58,237,0.07); color: var(--white); transform: translateX(4px); box-shadow: 0 4px 20px rgba(124,58,237,0.12); }
     .choice-card.selected::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gradient); border-radius: 14px 0 0 14px; }
-    .choice-card .check-icon { position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--border-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
-    .choice-card.selected .check-icon { background: var(--gradient); border-color: transparent; }
+    .choice-card .check-icon { position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.18s; background: rgba(255,255,255,0.03); }
+    .choice-card:hover .check-icon { border-color: rgba(124,58,237,0.4); }
+    .choice-card.selected .check-icon { background: var(--gradient); border-color: transparent; box-shadow: 0 0 0 3px rgba(124,58,237,0.2); }
     .choice-card .check-icon svg { display: none; }
     .choice-card.selected .check-icon svg { display: block; }
-    .choice-card.dimmed { opacity: 0.4; }
+    .choice-card.dimmed { opacity: 0.35; transform: none; }
 
     /* REACTION */
     .reaction-box { background: rgba(124,58,237,0.07); border-left: 2px solid rgba(124,58,237,0.5); border-radius: 0 10px 10px 0; padding: 0.75rem 1rem; margin-bottom: 1.5rem; font-size: 0.82rem; color: var(--text); line-height: 1.65; animation: reactionFadeIn 0.3s ease; display: none; }
@@ -122,14 +123,14 @@
 
     /* FORM FIELDS */
     .field-group { margin-bottom: 1rem; }
-    .field-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.4rem; display: block; }
-    .field-input, .field-select, .field-textarea { width: 100%; background: var(--card); border: 1.5px solid var(--border-light); border-radius: 10px; padding: 0.75rem 1rem; font-size: 0.88rem; color: var(--white); font-family: inherit; outline: none; transition: border-color 0.2s; }
-    .field-input::placeholder, .field-textarea::placeholder { color: var(--text-muted); }
-    .field-input:focus, .field-select:focus, .field-textarea:focus { border-color: rgba(124,58,237,0.5); }
+    .field-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem; display: block; }
+    .field-input, .field-select, .field-textarea { width: 100%; background: rgba(22,19,46,0.8); border: 1.5px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 0.8rem 1.1rem; font-size: 0.88rem; color: var(--white); font-family: inherit; outline: none; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; }
+    .field-input::placeholder, .field-textarea::placeholder { color: rgba(122,117,143,0.6); }
+    .field-input:focus, .field-select:focus, .field-textarea:focus { border-color: rgba(124,58,237,0.55); background: rgba(22,19,46,1); box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
     .field-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4' stroke='%237a758f' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
     .field-select option { background: #16132e; color: var(--white); }
-    .field-textarea { resize: none; height: 80px; line-height: 1.5; }
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .field-textarea { resize: none; height: 90px; line-height: 1.6; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
     .buyer-hint { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.75rem; font-style: italic; }
     .buyer-label { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; color: var(--white); margin: 1.25rem 0 0.35rem; }
 
@@ -144,17 +145,18 @@
 
     /* INTRO SCREEN */
     .intro-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.2); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet-light); margin-bottom: 1.5rem; }
-    .intro-h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; color: var(--white); letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem; }
+    .intro-h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.9rem, 4.5vw, 2.8rem); font-weight: 700; color: var(--white); letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 1.1rem; }
     .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .intro-sub { font-size: 0.95rem; color: var(--text); line-height: 1.7; margin-bottom: 0.75rem; max-width: 540px; }
-    .intro-meta { font-size: 0.72rem; color: var(--text-muted); margin-top: 1rem; }
+    .intro-sub { font-size: 0.95rem; color: var(--text); line-height: 1.75; margin-bottom: 0rem; max-width: 560px; }
+    .intro-divider { height: 1px; background: var(--border-light); margin: 1.75rem 0; max-width: 560px; }
+    .intro-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .intro-pill { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 0.3rem 0.85rem; font-size: 0.72rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.02em; }
+    .intro-pill svg { opacity: 0.6; }
+    .intro-meta { font-size: 0.72rem; color: var(--text-muted); margin-top: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .intro-meta-avatar { width: 26px; height: 26px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; font-size: 0.62rem; font-weight: 700; color: white; flex-shrink: 0; }
     .intro-meta strong { color: var(--text); }
-    .btn-start { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--gradient); border: none; border-radius: 100px; padding: 0.85rem 2rem; font-size: 0.9rem; font-weight: 700; color: white; cursor: pointer; font-family: inherit; margin-top: 2rem; transition: opacity 0.2s, transform 0.2s; }
-    .btn-start:hover { opacity: 0.9; transform: translateY(-2px); }
-    .intro-stats { display: flex; gap: 2rem; margin-top: 2rem; }
-    .intro-stat { text-align: center; }
-    .intro-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; }
-    .intro-stat-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+    .btn-start { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--gradient); border: none; border-radius: 100px; padding: 0.9rem 2.25rem; font-size: 0.92rem; font-weight: 700; color: white; cursor: pointer; font-family: inherit; margin-top: 1.75rem; transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 0 0 0 rgba(124,58,237,0); }
+    .btn-start:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.35); }
 
     /* RESULTS SCREEN */
     .results-header { margin-bottom: 2rem; }
@@ -234,30 +236,33 @@
         <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         AI Visibility Diagnostic
       </div>
-      <h1 class="intro-h1">Your brand is either showing up<br>in AI search — <span class="gradient-text">or it isn't.</span></h1>
-      <p class="intro-sub">This diagnostic tells you which one, and exactly where the gaps are. No fake scores. No fluff. Just a clear read on your AI visibility and who closes the gaps.</p>
-      <p class="intro-sub" style="font-size:0.82rem;color:var(--text-muted);">Built for CMOs and PR directors who need real answers, not more reports.</p>
+      <h1 class="intro-h1">Your brand is either<br>showing up in AI search —<br><span class="gradient-text">or it isn't.</span></h1>
+      <p class="intro-sub">7 questions. A clear read on exactly where your AI visibility stands — and which team closes the gaps.</p>
+      <div class="intro-divider"></div>
+      <div class="intro-pills">
+        <span class="intro-pill">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          ~3 minutes
+        </span>
+        <span class="intro-pill">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          7 diagnostic questions
+        </span>
+        <span class="intro-pill">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          Built for CMOs &amp; PR directors
+        </span>
+      </div>
       <div>
         <button class="btn-start" id="btnStart" onclick="goNext()">
           Start the diagnostic
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
-      <div class="intro-stats">
-        <div class="intro-stat">
-          <span class="intro-stat-num">7</span>
-          <span class="intro-stat-label">Questions</span>
-        </div>
-        <div class="intro-stat">
-          <span class="intro-stat-num">3 min</span>
-          <span class="intro-stat-label">Average time</span>
-        </div>
-        <div class="intro-stat">
-          <span class="intro-stat-num">0</span>
-          <span class="intro-stat-label">Fake scores</span>
-        </div>
+      <div class="intro-meta">
+        <div class="intro-meta-avatar">SE</div>
+        <span>By <strong>Sarah Evans</strong>, Partner at Zen Media</span>
       </div>
-      <p class="intro-meta">By <strong>Sarah Evans</strong>, Partner at Zen Media.</p>
     </div>
 
     <!-- ===== SCREEN 1: BUSINESS ===== -->
