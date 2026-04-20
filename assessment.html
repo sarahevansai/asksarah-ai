@@ -78,6 +78,21 @@
     .q-explainer { background: rgba(124,58,237,0.06); border: 1px solid rgba(124,58,237,0.15); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.75rem; font-size: 0.82rem; color: var(--text); line-height: 1.7; font-style: italic; }
     .q-explainer strong { color: var(--violet-light); font-style: normal; }
 
+    /* PROMPT TEST BLOCK (Step 2) */
+    .prompt-test-block { background: var(--card); border: 1px solid var(--border-light); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.5rem; }
+    .prompt-test-label { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .prompt-test-query { font-size: 0.88rem; color: var(--white); font-style: italic; line-height: 1.5; margin-bottom: 1rem; border-left: 2px solid var(--violet); padding-left: 0.75rem; }
+    .prompt-test-btns { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+    .btn-perplexity { display: inline-flex; align-items: center; gap: 0.45rem; background: var(--gradient); border: none; border-radius: 100px; padding: 0.6rem 1.25rem; font-size: 0.78rem; font-weight: 700; color: white; cursor: pointer; font-family: inherit; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
+    .btn-perplexity:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-incognito { display: inline-flex; align-items: center; gap: 0.45rem; background: none; border: 1.5px solid var(--border-light); border-radius: 100px; padding: 0.6rem 1.25rem; font-size: 0.78rem; font-weight: 600; color: var(--text); cursor: pointer; font-family: inherit; text-decoration: none; transition: all 0.2s; position: relative; }
+    .btn-incognito:hover { border-color: rgba(124,58,237,0.4); color: var(--white); }
+    .incognito-tip { display: none; position: absolute; bottom: calc(100% + 8px); left: 0; right: 0; background: rgba(17,15,36,0.98); border: 1px solid var(--border-light); border-radius: 10px; padding: 0.75rem 1rem; font-size: 0.72rem; color: var(--text); line-height: 1.6; white-space: nowrap; z-index: 10; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    .incognito-tip kbd { background: rgba(255,255,255,0.08); border: 1px solid var(--border-light); border-radius: 4px; padding: 0.1rem 0.4rem; font-family: monospace; font-size: 0.7rem; color: var(--white); }
+    .btn-incognito:hover .incognito-tip { display: block; }
+    .prompt-bias-note { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.5; }
+    .prompt-bias-note svg { flex-shrink: 0; margin-top: 1px; color: var(--warn); }
+
     /* ANSWER CARDS */
     .choice-list { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.5rem; }
     .choice-card { position: relative; background: var(--card); border: 1.5px solid var(--border-light); border-radius: 14px; padding: 1.1rem 3.5rem 1.1rem 1.35rem; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; font-weight: 500; color: var(--text); text-align: left; }
@@ -308,20 +323,47 @@
     <!-- ===== SCREEN 2: PROMPTS CHECK ===== -->
     <div class="screen" id="screen-prompts">
       <div class="step-label"><span class="step-dot"></span> Step 2 of 7 — The Reality Check</div>
-      <div class="q-text">Open a new tab. Ask ChatGPT or Perplexity: "Who are the top [your service type] firms to hire?"</div>
-      <div class="q-sub">We'll wait. Come back when you have a result.</div>
+      <div class="q-text">What does AI say about your brand right now?</div>
+      <div class="q-sub">Run the test below — but do it outside your own account. AI personalizes results based on your history. What you see isn't what your buyers see.</div>
 
+      <!-- Prompt test block -->
+      <div class="prompt-test-block">
+        <div class="prompt-test-label">Your test prompt</div>
+        <div class="prompt-test-query" id="prompt-preview">"Who are the top professional services firms I should consider hiring?"</div>
+        <div class="prompt-bias-note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Searching from your own ChatGPT account gives biased results based on your prior conversations. Use Perplexity (no login needed) or open an incognito window.
+        </div>
+        <div class="prompt-test-btns">
+          <a id="perplexity-link" href="#" target="_blank" rel="noopener" class="btn-perplexity">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Test in Perplexity — no login required
+          </a>
+          <div class="btn-incognito" tabindex="0">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            ChatGPT in incognito
+            <div class="incognito-tip">
+              Mac: <kbd>⌘ Shift N</kbd>&nbsp; Windows: <kbd>Ctrl Shift N</kbd><br>
+              Open incognito → go to chatgpt.com → paste the prompt above.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:1.25rem;">Want the full prompt library for your brand? <a href="https://prompts.zenmedia.com/" target="_blank" rel="noopener" style="color:var(--cyan);font-weight:600;text-decoration:none;">prompts.zenmedia.com →</a></div>
+
+      <div style="font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:0.65rem;">What did you find?</div>
       <div class="choice-list" id="choices-prompts">
         <button class="choice-card" data-q="prompts" data-val="yes" onclick="selectChoice(this)">
           We show up — and I know exactly what it says.
           <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
         </button>
         <button class="choice-card" data-q="prompts" data-val="checked" onclick="selectChoice(this)">
-          I've checked. We're not showing up consistently.
+          We're showing up inconsistently — or not at all.
           <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
         </button>
         <button class="choice-card" data-q="prompts" data-val="no" onclick="selectChoice(this)">
-          I haven't done this yet.
+          I haven't run the test yet — I'll do it after.
           <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
         </button>
       </div>
@@ -827,6 +869,37 @@
       document.getElementById('btn-contact').classList.add('enabled');
     }
 
+    // ─── INDUSTRY → PROMPT MAP ───────────────────────────────────────────────
+    const INDUSTRY_PROMPTS = {
+      'B2B Technology / SaaS':     'Who are the top B2B SaaS companies I should consider for [your use case]?',
+      'Professional Services':     'What professional services firms should I hire for strategic advisory?',
+      'Healthcare / Life Sciences':'Which healthcare technology companies are leading in patient engagement?',
+      'Financial Services':        'What financial services firms should I consider for wealth management?',
+      'Consumer / Retail':         'Which consumer brands are considered best in class for customer experience?',
+      'Manufacturing / Industrial':'What industrial technology companies are leading in smart manufacturing?',
+      'Agency / Marketing':        'Which marketing agencies should I consider for an AI-driven PR strategy?',
+      'Nonprofit / Education':     'What education technology organizations are most trusted for outcomes?',
+      'Other':                     'What companies in [your industry] should I consider hiring or partnering with?'
+    };
+
+    function buildPromptPreview() {
+      const industry = state.industry || 'Professional Services';
+      const company  = state.company  || '';
+      const prompt   = INDUSTRY_PROMPTS[industry] || INDUSTRY_PROMPTS['Other'];
+      const fullPrompt = company
+        ? `"${prompt}" (then follow up: "Have you heard of ${company}?")` 
+        : `"${prompt}"`;
+
+      document.getElementById('prompt-preview').textContent = fullPrompt;
+
+      // Build Perplexity URL
+      const baseQuery = company
+        ? `${prompt} Have you heard of ${company}?`
+        : prompt;
+      document.getElementById('perplexity-link').href =
+        'https://www.perplexity.ai/search?q=' + encodeURIComponent(baseQuery.replace(/"/g, ''));
+    }
+
     // ─── BUSINESS STEP ───────────────────────────────────────────────────────
     function saveBusiness() {
       state.company  = document.getElementById('f-company').value.trim();
@@ -837,6 +910,7 @@
         document.getElementById('f-b2').value.trim(),
         document.getElementById('f-b3').value.trim()
       ];
+      buildPromptPreview(); // populate Step 2 before navigating
       goNext();
     }
 
