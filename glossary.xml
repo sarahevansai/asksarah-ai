@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>AI Glossary Updates | askSarah.ai</title>
+    <link>https://asksarah.ai/glossary</link>
+    <description>New terms added to the AI Visibility and AEO Glossary by Sarah Evans, Partner at Zen Media. Covering AEO, GEO, earned media, AI strategy, and original frameworks.</description>
+    <language>en-us</language>
+    <managingEditor>sarah@zenmedia.com (Sarah Evans)</managingEditor>
+    <webMaster>sarah@zenmedia.com (Sarah Evans)</webMaster>
+    <pubDate>Sun, 20 Apr 2026 07:00:00 -0700</pubDate>
+    <lastBuildDate>Sun, 20 Apr 2026 07:00:00 -0700</lastBuildDate>
+    <atom:link href="https://asksarah.ai/glossary.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://asksarah.ai/og-image.png</url>
+      <title>AI Glossary | askSarah.ai</title>
+      <link>https://asksarah.ai/glossary</link>
+    </image>
+
+    <item>
+      <title>56 Terms Now Defined: AI Notices, Dual Pathway PR, Vibe Coding, Shadow AI and More</title>
+      <link>https://asksarah.ai/glossary</link>
+      <guid isPermaLink="true">https://asksarah.ai/glossary#update-20260420</guid>
+      <pubDate>Sun, 20 Apr 2026 07:00:00 -0700</pubDate>
+      <dc:creator>Sarah Evans</dc:creator>
+      <description><![CDATA[
+        <p>The AI Glossary at askSarah.ai now covers 56 terms spanning AEO, GEO, AI strategy, PR, LinkedIn, and the AI economy. New additions this update include:</p>
+        <ul>
+          <li><strong>AI Notices</strong> — citations and brand mentions inside AI-generated answers (naming credit: Gab Ferree)</li>
+          <li><strong>Dual Pathway PR</strong> — Sarah Evans' framework combining traditional earned media with GEO and AEO</li>
+          <li><strong>Answer Share</strong> — updated definition: composite data grouping measuring AI citation probability</li>
+          <li><strong>Vibe Coding</strong> — building software through natural language conversation with AI</li>
+          <li><strong>Shadow AI</strong> — employees using unauthorized AI tools; governance and communications risk</li>
+          <li><strong>AI Slop</strong> — low-quality AI-generated content published at scale</li>
+          <li><strong>AI Washing</strong> — overstating or fabricating AI capabilities in marketing and communications</li>
+          <li><strong>Deepfake</strong> — synthetic media using AI to replace a person's likeness or voice</li>
+          <li><strong>Dark Social</strong> — private content sharing invisible to standard analytics</li>
+          <li><strong>E-E-A-T</strong> — Google's quality framework: Experience, Expertise, Authoritativeness, Trustworthiness</li>
+          <li><strong>Jagged Frontier</strong> — the uneven, unpredictable nature of AI capability (Stanford/HBS concept)</li>
+          <li><strong>RAG, MCP, LLM, Agentic AI</strong> — foundational AI infrastructure terms for business leaders</li>
+        </ul>
+        <p><a href="https://asksarah.ai/glossary">View the full glossary</a></p>
+      ]]></description>
+    </item>
+
+    <item>
+      <title>Glossary Launched: 30 Core Terms in AI Visibility, AEO, and Earned Media</title>
+      <link>https://asksarah.ai/glossary</link>
+      <guid isPermaLink="true">https://asksarah.ai/glossary#update-20260420-launch</guid>
+      <pubDate>Sun, 20 Apr 2026 06:00:00 -0700</pubDate>
+      <dc:creator>Sarah Evans</dc:creator>
+      <description><![CDATA[
+        <p>Launching the AI Glossary at askSarah.ai — every term you need to navigate AEO, GEO, earned media, and the AI economy.</p>
+        <p>Initial glossary covers: AEO, GEO, The Before Layer, Answer Share, AI Notices, Citation Share, Zero-Click Search, llms.txt, Agentic Engine Optimization, Topical Authority, Structured Content, Pillar Page, Earned Media, Owned Media, Share of Voice, Perplexity, Brand Radar, Depth Score, Super-Commenter Strategy, Multi-Model Stack, Generative Relevance Scoring, Context Signals, Token Budget, Unified AEO/SEO Strategy, and more.</p>
+        <p><a href="https://asksarah.ai/glossary">View the full glossary</a></p>
+      ]]></description>
+    </item>
+
+  </channel>
+</rss>

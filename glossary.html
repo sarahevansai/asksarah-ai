@@ -19,6 +19,7 @@
   <meta name="author" content="Sarah Evans">
 
   <link rel="alternate" type="application/rss+xml" title="Daily AI Briefings by Sarah Evans" href="https://asksarah.ai/briefings.xml">
+  <link rel="alternate" type="application/rss+xml" title="AI Glossary Updates by Sarah Evans" href="https://asksarah.ai/glossary.xml">
   <link rel="canonical" href="https://asksarah.ai/glossary">
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
@@ -76,6 +77,21 @@
       ]
     }
   ]
+
+    // Share
+    async function shareGlossary() {
+      const btn = document.getElementById('shareNative');
+      const data = { title: 'AI Glossary | askSarah.ai', text: '56 AI terms every business leader needs: AEO, GEO, The Before Layer, Answer Share, Dual Pathway PR and more.', url: 'https://asksarah.ai/glossary' };
+      if (navigator.share) {
+        try { await navigator.share(data); } catch(e) {}
+      } else {
+        navigator.clipboard.writeText('https://asksarah.ai/glossary');
+        btn.textContent = 'Link copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share this page'; btn.classList.remove('copied'); }, 2000);
+      }
+    }
+
   </script>
 
   <style>
@@ -202,6 +218,17 @@
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
     .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
 
+
+    /* SHARE BAR */
+    .share-bar { display: flex; align-items: center; gap: 0.75rem; justify-content: center; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .share-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+    .share-btn { display: inline-flex; align-items: center; gap: 0.45rem; background: var(--card); border: 1px solid var(--border-light); border-radius: 100px; padding: 0.45rem 1rem; font-size: 0.75rem; font-weight: 600; color: var(--text); text-decoration: none; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+    .share-btn:hover { border-color: rgba(124,58,237,0.35); color: var(--white); background: var(--card-hover); transform: translateY(-1px); }
+    .share-btn svg { flex-shrink: 0; }
+    .share-btn.copied { border-color: rgba(6,182,212,0.4); color: var(--cyan); }
+    .rss-btn { border-color: rgba(251,146,60,0.3); color: #fb923c; }
+    .rss-btn:hover { border-color: rgba(251,146,60,0.5); color: #fdba74; background: rgba(251,146,60,0.05); }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -273,13 +300,35 @@
         AI Glossary
       </div>
       <h1>AI Glossary: The Language of <span class="gradient-text">AI Visibility</span></h1>
-      <p>Every term you need to navigate AEO, GEO, earned media, and the AI economy — defined clearly, without the hype. Built for business leaders, not engineers.</p>
+      <p>Every term you need to navigate AEO, GEO, earned media, and the AI economy.</p>
     </div>
 
     <!-- SEARCH -->
     <div class="search-wrap">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
       <input type="text" id="glossarySearch" placeholder="Search terms… e.g. AEO, The Before Layer, llms.txt" autocomplete="off">
+    </div>
+
+
+    <!-- SHARE BAR -->
+    <div class="share-bar">
+      <span class="share-label">Share</span>
+      <button class="share-btn" id="shareNative" onclick="shareGlossary()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        Share this page
+      </button>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fasksarah.ai%2Fglossary" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fasksarah.ai%2Fglossary&text=The+AI+Glossary+every+business+leader+needs+%E2%80%94+56+terms+defined+by+%40prsarahevans" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.733l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X / Twitter
+      </a>
+      <a class="share-btn rss-btn" href="/glossary.xml" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1" fill="currentColor"/></svg>
+        RSS Updates
+      </a>
     </div>
 
     <!-- STATS -->
@@ -1011,6 +1060,21 @@
       ddBtn.addEventListener('click', e => { e.stopPropagation(); dd.classList.toggle('open'); ddBtn.setAttribute('aria-expanded', dd.classList.contains('open')); });
       document.addEventListener('click', () => { dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded', 'false'); });
     }
+
+    // Share
+    async function shareGlossary() {
+      const btn = document.getElementById('shareNative');
+      const data = { title: 'AI Glossary | askSarah.ai', text: '56 AI terms every business leader needs: AEO, GEO, The Before Layer, Answer Share, Dual Pathway PR and more.', url: 'https://asksarah.ai/glossary' };
+      if (navigator.share) {
+        try { await navigator.share(data); } catch(e) {}
+      } else {
+        navigator.clipboard.writeText('https://asksarah.ai/glossary');
+        btn.textContent = 'Link copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share this page'; btn.classList.remove('copied'); }, 2000);
+      }
+    }
+
   </script>
 
 </body>
