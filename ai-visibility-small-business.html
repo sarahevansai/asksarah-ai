@@ -211,26 +211,38 @@
         </text>
       </svg>
     </a>
-    <div class="nav-links">
+        <div class="nav-links">
       <a href="/">Home</a>
-      <a href="about.html">About</a>
-      <a href="tools.html">Tools</a>
-      <a href="learn.html" class="active">Learn</a>
-      <a href="speaking.html">Speaking</a>
+      <a href="briefings.html">Daily AI Briefings</a>
       <a href="newsletter.html">Newsletter</a>
-      <a href="connect.html">Connect</a>
+      <a href="shows.html">Live Shows</a>
+      <a href="tools.html">Tools</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn" aria-haspopup="true" aria-expanded="false">
+          More
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="about.html">About</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="connect.html">Connect</a>
+        </div>
+      </div>
     </div>
     <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
-  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu">
     <a href="/">Home</a>
-    <a href="about.html">About</a>
+    <a href="briefings.html">Daily AI Briefings</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="shows.html">Live Shows</a>
     <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
     <a href="learn.html">Learn</a>
     <a href="speaking.html">Speaking</a>
-    <a href="newsletter.html">Newsletter</a>
     <a href="connect.html">Connect</a>
   </div>
 

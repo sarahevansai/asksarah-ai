@@ -6,10 +6,10 @@
   <meta property="og:image" content="https://asksarah.ai/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://asksarah.ai/og-image.png">
-  <title>Tools — askSarah.ai | Free AI Visibility & Workflow Tools</title>
-  <meta name="description" content="Free tools built by Sarah Evans: GEO GPT, GenAI Press Release Builder, Command Center Hub, and more. Open source AI visibility and workflow tools.">
-  <meta property="og:title" content="Tools — askSarah.ai">
-  <meta property="og:description" content="Free AI visibility and workflow tools built by Sarah Evans.">
+  <title>AI Tools by Sarah Evans — askSarah.ai</title>
+  <meta name="description" content="AI visibility tools, workflow blueprints, and open source projects built by Sarah Evans. GEO GPT, SourceVault, Fractional AI Chief of Staff, Tier-1 Pitch Enhancer, and more.">  
+  <meta property="og:title" content="AI Tools by Sarah Evans — askSarah.ai">
+  <meta property="og:description" content="AI visibility tools and workflow blueprints built by Sarah Evans. Free audits, open source projects, and paid blueprints for PR, marketing, and business leaders.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://asksarah.ai/tools">
   <link rel="canonical" href="https://asksarah.ai/tools">
@@ -41,7 +41,7 @@
     nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
     .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
     .nav-logo svg { height: 28px; }
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
     .nav-links a.active { color: var(--white); }
@@ -51,6 +51,16 @@
     .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+    /* Dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-btn { color: var(--text-muted); background: none; border: none; font-size: 0.8rem; font-weight: 500; cursor: pointer; font-family: inherit; letter-spacing: 0.02em; display: flex; align-items: center; gap: 0.3rem; transition: color 0.2s; padding: 0; }
+    .nav-dropdown-btn:hover { color: var(--white); }
+    .nav-dropdown-btn svg { transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-btn svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); right: 0; min-width: 180px; background: rgba(17,15,36,0.97); backdrop-filter: blur(24px); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.4rem; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.55rem 0.85rem; border-radius: 8px; transition: all 0.15s; white-space: nowrap; }
+    .nav-dropdown-menu a:hover { background: rgba(124,58,237,0.1); color: var(--white); }
 
     .page-header { padding: 7rem 2rem 3rem; text-align: center; position: relative; z-index: 1; }
     .page-header h1 { font-family: 'Space Grotesk'; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
@@ -103,26 +113,38 @@
         </text>
       </svg>
     </a>
-    <div class="nav-links">
+        <div class="nav-links">
       <a href="/">Home</a>
-      <a href="about.html">About</a>
-      <a href="tools.html" class="active">Tools</a>
-      <a href="learn.html">Learn</a>
-      <a href="speaking.html">Speaking</a>
+      <a href="briefings.html">Daily AI Briefings</a>
       <a href="newsletter.html">Newsletter</a>
-      <a href="connect.html">Connect</a>
+      <a href="shows.html">Live Shows</a>
+      <a href="tools.html" class="active">Tools</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn" aria-haspopup="true" aria-expanded="false">
+          More
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="about.html">About</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="connect.html">Connect</a>
+        </div>
+      </div>
     </div>
     <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
-  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu">
     <a href="/">Home</a>
-    <a href="about.html">About</a>
+    <a href="briefings.html">Daily AI Briefings</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="shows.html">Live Shows</a>
     <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
     <a href="learn.html">Learn</a>
     <a href="speaking.html">Speaking</a>
-    <a href="newsletter.html">Newsletter</a>
     <a href="connect.html">Connect</a>
   </div>
 
@@ -197,12 +219,13 @@
       <a href="https://github.com/sarahevansai/genai-wire-builder" target="_blank" class="tool-btn tool-btn-ghost">View on GitHub →</a>
     </div>
 
-    <div class="tool-card">
-      <div class="tool-icon">✍️</div>
-      <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;"><span style="background: linear-gradient(135deg, #7c3aed, #06b6d4); color: white; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">$47</span></div>
-      <h3>AI-Ready Content Writer's Toolkit</h3>
-      <p>Write content AI actually cites. 43-page guide, custom GPT, worksheets, and tool stack.</p>
-      <a href="https://stan.store/asksarahevans/p/the-aiready-content-writers-toolkit" target="_blank" class="tool-btn tool-btn-primary">Get the Toolkit →</a>
+    <div class="tool-card" style="border-color: rgba(16,185,129,0.3); box-shadow: 0 0 30px rgba(16,185,129,0.06);">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(135deg, #10b981, #34d399);"></div>
+      <div class="tool-icon">🎯</div>
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;"><span style="background: linear-gradient(135deg, #10b981, #34d399); color: #0c0a1a; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">Blueprint</span></div>
+      <h3>The Tier-1 Pitch Enhancer</h3>
+      <p>Score your pitch across 7 journalist criteria. Get a rewritten subject line, first paragraph, and one critical fix — in 60 seconds.</p>
+      <a href="https://stan.store/asksarahevans/p/the-tier1-pitch-enhancer-blueprint" target="_blank" class="tool-btn" style="background: linear-gradient(135deg, #10b981, #34d399); color: #0c0a1a; box-shadow: 0 4px 16px rgba(16,185,129,0.2);">Get the Blueprint →</a>
     </div>
   </div>
 
@@ -223,15 +246,6 @@
       <h3>GEO GPT — AI Visibility Engine</h3>
       <p>Find out what ChatGPT, Gemini, and Perplexity say about your brand — and what they're getting wrong. Free, 5 minutes.</p>
       <a href="https://chatgpt.com/g/g-6904a060fd8c8191bf5cdbc82571fee9-ai-visibility-engine-geo" target="_blank" class="tool-btn tool-btn-primary">Run Your Free Audit →</a>
-    </div>
-
-    <div class="tool-card" style="border-color: rgba(6,182,212,0.3); box-shadow: 0 0 30px rgba(6,182,212,0.06);">
-      <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(135deg, #06b6d4, #22d3ee);"></div>
-      <div class="tool-icon">✅</div>
-      <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;"><span style="background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">Free</span></div>
-      <h3>AI Visibility Checklist</h3>
-      <p>20 specific actions to show up in ChatGPT, Perplexity, Gemini, and Claude.</p>
-      <a href="https://stan.store/asksarahevans/p/ai-visibility-checklist" target="_blank" class="tool-btn" style="background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a; box-shadow: 0 4px 16px rgba(6,182,212,0.2);">Get the Free Checklist →</a>
     </div>
   </div>
 
@@ -268,6 +282,15 @@
       <h3>Command Center Hub</h3>
       <p>One place to find every doc, board, login, and tool your team uses. No more digging through Slack or bookmarks.</p>
       <a href="https://github.com/sarahevansai/command-center-hub" target="_blank" class="tool-btn tool-btn-ghost">Get It Free →</a>
+    </div>
+
+    <div class="tool-card" style="border-color: rgba(124,58,237,0.3); box-shadow: 0 0 30px rgba(124,58,237,0.06);">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(135deg, #7c3aed, #a78bfa);"></div>
+      <div class="tool-icon">👔</div>
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;"><span style="background: linear-gradient(135deg, #7c3aed, #a78bfa); color: white; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">Blueprint</span></div>
+      <h3>The Fractional AI Chief of Staff</h3>
+      <p>Install an elite AI operator to manage priorities and eliminate blind spots. A complete blueprint for executive AI leverage.</p>
+      <a href="https://stan.store/asksarahevans/p/the-fractional-ai-chief-of-staff-blueprint" target="_blank" class="tool-btn" style="background: linear-gradient(135deg, #7c3aed, #a78bfa); color: white; box-shadow: 0 4px 16px rgba(124,58,237,0.2);">Get the Blueprint →</a>
     </div>
   </div>
 
@@ -382,6 +405,15 @@
       </div>
     </div>
   </footer>
-  <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    // Dropdown toggle
+    const dd = document.getElementById('navDropdown');
+    const ddBtn = document.getElementById('navDropdownBtn');
+    if (dd && ddBtn) {
+      ddBtn.addEventListener('click', (e) => { e.stopPropagation(); dd.classList.toggle('open'); ddBtn.setAttribute('aria-expanded', dd.classList.contains('open')); });
+      document.addEventListener('click', () => { dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded', 'false'); });
+    }
+  </script>
 </body>
 </html>
