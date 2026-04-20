@@ -245,7 +245,7 @@
     <!-- STATS -->
     <div class="stats-bar" id="statsBar">
       <div class="stat-item">
-        <span class="stat-num" id="termCount">43</span>
+        <span class="stat-num" id="termCount">54</span>
         <div class="stat-label">Terms Defined</div>
       </div>
       <div class="stat-item">
@@ -717,6 +717,7 @@
 
       // R (additional)
       {
+{
         letter: 'R',
         term: 'RAG',
         full: 'Retrieval-Augmented Generation',
@@ -725,20 +726,133 @@
         why: 'RAG is the primary tool for making LLMs reliable on your specific domain knowledge. An LLM without RAG answers from its training data (which has a cutoff and may hallucinate). An LLM with RAG answers from your documents, your databases, your policies — dramatically reducing hallucination and improving accuracy for business applications.',
         also: ['LLM', 'AI Hallucination', 'MCP', 'Agentic AI']
       },
-
-      // Rr (additional)
       {
         letter: 'R',
         term: 'Responsible AI',
         full: null,
         badges: ['ai', 'pr'],
         definition: 'A strategic and operational framework for developing and deploying AI systems that are ethical, transparent, fair, accountable, and designed to minimize harm. Encompasses bias detection and mitigation, explainability, human oversight mechanisms, privacy protection, and safety evaluation. The Stanford AI Index 2025 noted that progress on responsible AI benchmarks is lagging behind capability gains.',
-        why: 'Responsible AI is no longer a compliance checkbox — it\'s a brand integrity question. As AI-generated content, AI-assisted hiring, and AI-driven customer interactions become standard, brands face reputational risk from systems that perform unevenly across demographic groups, generate harmful outputs, or operate without adequate human oversight.',
+        why: 'Responsible AI is no longer a compliance checkbox. It is a brand integrity question. As AI-generated content, AI-assisted hiring, and AI-driven customer interactions become standard, brands face reputational risk from systems that perform unevenly across demographic groups, generate harmful outputs, or operate without adequate human oversight.',
         also: ['AI Governance', 'AI Incidents']
+      },
+
+      // A (additional batch 2)
+      {
+        letter: 'A',
+        term: 'AI Slop',
+        full: null,
+        badges: ['ai', 'pr'],
+        definition: 'Low-quality, generic AI-generated content published at scale with little human editing or strategic intent. AI slop typically lacks original insight, proprietary data, or expert voice, and is increasingly penalized by both search algorithms and social platforms with AI content detection. The term entered mainstream use in 2025 and is now widely used to distinguish commodity AI output from high-value AI-assisted work.',
+        why: 'AI slop is the visibility trap for brands that adopted generative AI without a quality framework. Search algorithms and LinkedIn\'s Depth Score both penalize it. The brands winning in AEO are those using AI to produce faster, not cheaper.',
+        also: ['Generative AI', 'Depth Score', 'Topical Authority']
+      },
+      {
+        letter: 'A',
+        term: 'AI Washing',
+        full: null,
+        badges: ['ai', 'pr'],
+        definition: 'The practice of companies overstating, misrepresenting, or falsely claiming AI capabilities in marketing, investor communications, or product descriptions. Analogous to greenwashing, AI washing ranges from labeling basic automation as "AI-powered" to fabricating performance claims. The FTC and SEC began enforcement actions against AI washing claims in 2024.',
+        why: 'AI washing is an active regulatory and reputational risk. PR teams are now responsible for ensuring their clients\' AI claims are defensible. A single inflated claim caught by a journalist or regulator can define a brand\'s AI narrative for years.',
+        also: ['AI Governance', 'Responsible AI']
+      },
+
+      // C (additional batch 2)
+      {
+        letter: 'C',
+        term: 'Chief AI Officer',
+        full: 'CAIO',
+        badges: ['ai'],
+        definition: 'A senior executive role responsible for an organization\'s AI vision, strategy, adoption roadmap, governance, and risk management. The CAIO sits at the intersection of technology, operations, legal, and communications. The role emerged from the Chief Digital Officer and Chief Data Officer lineage but is distinct in its focus on generative AI integration and ethics. Executive orders in multiple countries now mandate CAIOs for public sector organizations.',
+        why: 'Whether you are the CAIO, report to one, or advise organizations that need one, understanding this role is essential. Communications and PR leaders are often pulled into CAIO conversations because AI governance has a public narrative dimension that legal and engineering teams are not equipped to manage.',
+        also: ['AI Governance', 'Responsible AI', 'Shadow AI']
+      },
+
+      // D (additional batch 2)
+      {
+        letter: 'D',
+        term: 'Dark Social',
+        full: null,
+        badges: ['pr', 'seo'],
+        definition: 'Content sharing that occurs through private, untrackable channels: direct messages, WhatsApp, Slack, email, and private group chats. Traffic arriving from these sources typically appears in analytics as "direct" with no referrer data, making it invisible to standard attribution models. Estimated to account for 60-80% of all online sharing.',
+        why: 'Dark social is where high-value content actually circulates among decision-makers. A piece of content that earns 50 LinkedIn likes may be shared 500 times in private channels. For AEO purposes, content that travels through dark social still builds topical authority and citation share when those readers later search and find the source.',
+        also: ['Earned Media', 'Citation Share']
+      },
+      {
+        letter: 'D',
+        term: 'Deepfake',
+        full: null,
+        badges: ['ai', 'pr'],
+        definition: 'Synthetic media in which a person\'s likeness, voice, or both are realistically replaced or fabricated using AI. Deepfakes range from face-swapped video to AI-generated audio clips that mimic a real person\'s voice. The Stanford AI Index 2025 cited deepfake fraud as one of the top categories of documented AI incidents.',
+        why: 'Deepfakes are a crisis communications category, not just a technology concern. Executives, brands, and public figures have had fabricated videos or audio clips go viral. Every PR team now needs a deepfake response protocol: what to say, how fast to say it, and how to authenticate original content before an incident occurs.',
+        also: ['AI Incidents', 'AI Governance', 'Responsible AI']
+      },
+
+      // E (additional)
+      {
+        letter: 'E',
+        term: 'E-E-A-T',
+        full: 'Experience, Expertise, Authoritativeness, Trustworthiness',
+        badges: ['seo', 'aeo'],
+        definition: 'Google\'s framework for evaluating content quality, expanded in 2022 to add Experience to the original E-A-T. Google\'s quality raters use E-E-A-T signals to evaluate page quality across its search systems. Key signals include author credentials, original first-hand experience, external citations, factual accuracy, and transparent sourcing.',
+        why: 'E-E-A-T is the connective tissue between traditional SEO and AEO. The same signals that make a page rank well (demonstrable expertise, original experience, external attribution) also make it more likely to be cited in AI-generated answers. Building E-E-A-T is not optional for brands competing in AI search.',
+        also: ['Topical Authority', 'AEO', 'Earned Media']
+      },
+
+      // G (additional batch 2)
+      {
+        letter: 'G',
+        term: 'Generative AI',
+        full: null,
+        badges: ['ai'],
+        definition: 'Artificial intelligence systems that create new content including text, images, audio, video, and code, based on patterns learned from training data. Generative AI differs from earlier AI systems that classified or predicted outcomes: it produces novel outputs. The category includes large language models for text and code, diffusion models for images and video, and multimodal systems combining multiple output types.',
+        why: 'Generative AI is the foundational shift behind every trend in this glossary. 78% of organizations reported generative AI integration in 2024, up from 55% the year before (Stanford HAI). Understanding what generative AI is, what its limits are, and how it differs from earlier AI is the baseline for any leadership conversation about AI strategy.',
+        also: ['LLM', 'Multimodal AI', 'AI Slop']
+      },
+
+      // P (additional batch 2)
+      {
+        letter: 'P',
+        term: 'Prompt Engineering',
+        full: null,
+        badges: ['ai'],
+        definition: 'The practice of crafting inputs to AI models to produce accurate, relevant, and useful outputs. Encompasses writing clear instructions, providing context and examples, setting output format constraints, and iterating based on results. Prompt engineering is the entry-level skill; context engineering is the advanced evolution of the practice.',
+        why: 'Prompt quality is the most immediate variable in AI output quality. Two people using the same model can get dramatically different results based on how they frame their inputs. This skill has an immediate ROI for any professional using AI daily.',
+        also: ['Context Engineering', 'LLM']
+      },
+
+      // S (additional batch 2)
+      {
+        letter: 'S',
+        term: 'Semantic Search',
+        full: null,
+        badges: ['seo', 'aeo'],
+        definition: 'Search technology that interprets the meaning and intent behind a query, rather than matching keywords literally. Semantic search uses vector embeddings and natural language understanding to surface results that satisfy what the user meant, not just what they typed. All major AI-powered search systems including Google AI Mode, Perplexity, and Bing Copilot use semantic search as their retrieval foundation.',
+        why: 'Semantic search is why keyword-stuffed content no longer works and why topical authority does. If your content comprehensively addresses a topic with clarity and structure, it is more likely to surface in semantic results even for queries that do not use your exact words. This is the technical foundation of AEO.',
+        also: ['AEO', 'Topical Authority', 'Structured Content']
+      },
+      {
+        letter: 'S',
+        term: 'Shadow AI',
+        full: null,
+        badges: ['ai', 'pr'],
+        definition: 'The use of AI tools by employees without authorization, oversight, or awareness from their organization\'s IT or leadership teams. Common examples include staff uploading confidential documents to ChatGPT, using personal AI subscriptions for client work, or building unofficial AI workflows that handle sensitive data. A 2025 Microsoft survey found that 78% of AI users at work are bringing their own AI tools.',
+        why: 'Shadow AI is a governance and communications risk hiding inside most organizations right now. Sensitive client data, unreleased financial information, and proprietary strategies are being processed through consumer AI tools without security review. PR teams need to know this is happening and have a policy position before an incident forces one.',
+        also: ['AI Governance', 'Chief AI Officer', 'Responsible AI']
+      },
+
+      // V
+      {
+        letter: 'V',
+        term: 'Vibe Coding',
+        full: null,
+        badges: ['ai'],
+        definition: 'Building software by describing what you want in plain language to an AI model, accepting the generated code with minimal review, and iterating through conversation rather than writing code manually. The term was coined by OpenAI co-founder Andrej Karpathy in early 2025. Vibe coding dramatically lowers the barrier to creating functional software tools, automations, and web applications for non-engineers.',
+        why: 'Vibe coding is shifting who builds in organizations. Communications professionals, marketers, and strategists are now shipping internal tools, dashboards, and client deliverables without a development team. Understanding vibe coding is increasingly relevant for any professional who wants to move fast in the AI economy.',
+        also: ['Agentic AI', 'Generative AI', 'Context Engineering']
       },
     ];
 
-    // ─── RENDER ─────────────────────────────────────────────────────────────
+    // --- RENDER -----------------------------------------------------------
     const BADGE_LABELS = { aeo: 'AEO', seo: 'SEO', linkedin: 'LinkedIn', pr: 'PR', ai: 'AI', sarah: 'Sarah Evans Term' };
 
     function getBadgeHtml(badge) {
