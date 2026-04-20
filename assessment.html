@@ -181,13 +181,22 @@
     .pillar-badge.gap { background: rgba(244,63,94,0.08); color: #fb7185; border: 1px solid rgba(244,63,94,0.2); }
     .pillar-badge.unassessed { background: rgba(255,255,255,0.04); color: var(--text-muted); border: 1px solid rgba(255,255,255,0.07); }
 
-    /* REC CARD (full width) */
-    .results-rec { background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.07)); border: 1px solid rgba(124,58,237,0.2); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
-    .results-rec-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); font-weight: 700; margin-bottom: 0.6rem; }
-    .results-rec h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; line-height: 1.3; }
-    .results-rec p { font-size: 0.84rem; color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; max-width: 580px; }
-    .btn-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gradient); border: none; border-radius: 100px; padding: 0.75rem 1.5rem; font-size: 0.82rem; font-weight: 700; color: white; cursor: pointer; text-decoration: none; font-family: inherit; transition: opacity 0.2s, transform 0.2s; }
-    .btn-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+    /* REC CARD / PATHWAYS */
+    .results-pathways { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .pathway-card { background: rgba(22,19,46,0.7); border: 1.5px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: 1rem; transition: border-color 0.2s, background 0.2s; }
+    .pathway-card:hover { border-color: rgba(124,58,237,0.35); background: rgba(28,24,56,0.9); }
+    .pathway-card.urgent { border-color: rgba(244,63,94,0.4); background: rgba(244,63,94,0.04); }
+    .pathway-card.urgent:hover { border-color: rgba(244,63,94,0.6); }
+    .pathway-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; background: rgba(124,58,237,0.12); color: var(--violet-light); }
+    .pathway-card.urgent .pathway-num { background: rgba(244,63,94,0.12); color: #fb7185; }
+    .pathway-info { flex: 1; min-width: 0; }
+    .pathway-label { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.2rem; }
+    .pathway-card.urgent .pathway-label { color: #fb7185; }
+    .pathway-title { font-size: 0.88rem; font-weight: 700; color: var(--white); line-height: 1.3; }
+    .pathway-arrow { color: var(--text-muted); flex-shrink: 0; transition: color 0.2s, transform 0.2s; }
+    .pathway-card:hover .pathway-arrow { color: var(--violet-light); transform: translateX(3px); }
+    .pathway-card.urgent:hover .pathway-arrow { color: #fb7185; }
+    .pathway-card-link { text-decoration: none; display: contents; }
     .results-note { margin-top: 1.5rem; font-size: 0.78rem; color: var(--text-muted); text-align: center; line-height: 1.7; }
     .results-note a { color: var(--cyan); text-decoration: none; }
     .results-note strong { color: var(--white); }
@@ -599,22 +608,14 @@
       <!-- Concerns: only gaps show here -->
       <div class="results-concerns stagger" style="animation-delay:0.2s" id="results-concerns"></div>
 
-      <!-- Recommendation (full width) -->
-      <div class="results-rec stagger" style="animation-delay:0.3s">
-        <div class="results-rec-label" id="rec-label">Our Recommendation</div>
-        <h3 id="rec-heading"></h3>
-        <p id="rec-body"></p>
-        <a href="#" id="rec-cta" class="btn-cta" target="_blank">
-          <span id="rec-cta-text"></span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
+      <!-- Three pathways -->
+      <div class="results-pathways stagger" style="animation-delay:0.3s" id="results-pathways"></div>
 
-      <!-- Inline contact capture — optional, not a gate -->
-      <div class="results-contact stagger" style="animation-delay:0.35s" id="results-contact-block">
+      <!-- Optional contact capture -->
+      <div class="results-contact stagger" style="animation-delay:0.45s" id="results-contact-block">
         <div class="results-contact-inner">
-          <div class="results-contact-label">Want a team review?</div>
-          <p class="results-contact-sub">Leave your info and the right person from our team will reach out — no pitch, just the next step based on your specific gaps.</p>
+          <div class="results-contact-label">Not ready to book a call yet?</div>
+          <p class="results-contact-sub">Leave your info and we'll follow up with what's most relevant to your gaps — no pitch, no list.</p>
           <div class="field-row">
             <div class="field-group">
               <label class="field-label" for="f-fname">First name</label>
@@ -702,90 +703,46 @@
     };
 
     // ─── ROUTING ─────────────────────────────────────────────────────────────
-    const ROUTES = {
-      seo: {
-        label: 'Foundation First',
-        heading: 'Your domain authority needs work before AI visibility can hold.',
-        body:    'AI engines follow trust signals. Right now, your domain authority isn\'t at the threshold where AI visibility strategy compounds — and building on a weak foundation wastes the investment. Our SEO team fixes that first, fast.',
-        cta:     'Talk to our SEO team →',
-        // TODO: Replace with actual SEO team booking link
-        href:    'mailto:sarah@zenmedia.com?subject=SEO Foundation %E2%80%94 AI Visibility Assessment'
-      },
-      zavi: {
-        label:   'Parallel Track',
-        heading: 'You need domain authority and AI visibility built at the same time.',
-        body:    'You\'re in the growth zone — enough trust to start building, but not enough to make it compound. ZAVI runs DA and AI visibility in parallel so you\'re not waiting for one to enable the other. That\'s what it was built for.',
-        cta:     'Learn about ZAVI →',
-        // TODO: Replace with ZAVI URL
-        href:    'mailto:sarah@zenmedia.com?subject=ZAVI %E2%80%94 AI Visibility Assessment'
-      },
-      pm: {
-        label:   'The AI Visibility Layer',
-        heading: 'You have the domain authority. You\'re missing the AI visibility strategy.',
-        body:    'Your foundation can support consistent AI citation — but the infrastructure isn\'t in place yet. llms.txt, AI Notices, a 28-day earned media cadence, deep-link citation strategy. Published Monthly was built for exactly where you are.',
-        cta:     'Explore Published Monthly →',
-        // TODO: Replace with Published Monthly URL
-        href:    'mailto:sarah@zenmedia.com?subject=Published Monthly %E2%80%94 AI Visibility Assessment'
-      },
-      consult: {
-        label:   'Close the Last Gaps',
-        heading: 'You\'re further along than most. Let\'s audit what AI is actually saying.',
-        body:    'Your foundation is strong and you\'ve built real AI visibility signals. The next move is a direct audit of what AI engines are saying about you — and a strategy to close whatever gaps remain.',
-        cta:     'Let\'s talk →',
-        href:    'mailto:sarah@zenmedia.com?subject=AI Visibility Consult %E2%80%94 Assessment Results'
-      }
-    };
+    // ─── THREE PATHWAYS ──────────────────────────────────────────────────────
+    function renderPathways() {
+      const lowDA = !state.da || state.da === 'under30' || state.da === '30-59' || state.da === 'unknown';
+      const arrowSVG = `<svg class="pathway-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
 
-    function getRoute() {
-      const daScore = { 'under30': 0, '30-59': 1, '60-79': 2, '80plus': 3, 'unknown': 0 };
-      const da = daScore[state.da] ?? 0;
-      const gaps = [
-        state.prompts !== 'yes',
-        state.llmstxt !== 'yes',
-        state.deeplinks === 'homepage' || state.deeplinks === 'donttrack',
-        state.ainotices !== 'yes',
-        state.recency === 'inconsistent' || state.recency === 'lastmonth'
-      ].filter(Boolean).length;
-
-      if (da === 0) return 'seo';
-      if (da === 1) return 'zavi';
-      if (gaps >= 3) return 'pm';
-      return 'consult';
-    }
-
-    function buildSignals() {
-      return [
+      const pathways = [
         {
-          label: 'Knows what AI says about them',
-          note:  state.prompts === 'yes' ? 'Actively monitoring' : state.prompts === 'checked' ? 'Checked, results inconsistent' : 'Not yet checked',
-          status: state.prompts === 'yes' ? 'ok' : state.prompts === 'checked' ? 'warn' : 'gap'
+          num: '1',
+          urgent: lowDA,
+          label: lowDA ? 'Action required' : 'Foundation',
+          title: lowDA
+            ? 'Your domain authority is under 60. Our SEO & AI team needs to fix this first.'
+            : 'Work on your domain authority and AI infrastructure together.',
+          href: 'mailto:sarah@zenmedia.com?subject=' + encodeURIComponent('SEO + AI Foundation — AI Visibility Assessment')
         },
         {
-          label: 'Domain Authority 60+',
-          note:  state.da === '60-79' || state.da === '80plus' ? `DA ${state.da === '80plus' ? '80+' : '60–79'} — strong foundation` : state.da === '30-59' ? 'DA 30–59 — needs work' : state.da === 'unknown' ? 'Unknown — check moz.com' : 'Under 30 — foundation gap',
-          status: (state.da === '60-79' || state.da === '80plus') ? 'ok' : state.da === '30-59' ? 'warn' : 'gap'
+          num: '2',
+          urgent: false,
+          label: 'Research',
+          title: 'Want to know exactly which prompts your buyers are running? Check your prompt library.',
+          href: 'https://prompts.zenmedia.com/'
         },
         {
-          label: 'llms.txt in place',
-          note:  state.llmstxt === 'yes' ? 'Configured' : state.llmstxt === 'no' ? 'Not yet in place' : 'Unknown / not set up',
-          status: state.llmstxt === 'yes' ? 'ok' : 'gap'
-        },
-        {
-          label: 'Deep-page citations (not homepage)',
-          note:  state.deeplinks === 'specific' ? 'Citations land on specific pages' : state.deeplinks === 'mix' ? 'Mix — some deep, some homepage' : state.deeplinks === 'homepage' ? 'Mostly homepage' : 'Not tracked',
-          status: state.deeplinks === 'specific' ? 'ok' : state.deeplinks === 'mix' ? 'warn' : 'gap'
-        },
-        {
-          label: 'AI Notices published',
-          note:  state.ainotices === 'yes' ? 'Active' : state.ainotices === 'traditional' ? 'Traditional PR only' : 'Not yet — new concept',
-          status: state.ainotices === 'yes' ? 'ok' : 'gap'
-        },
-        {
-          label: 'Consistent 28-day earned media',
-          note:  state.recency === '2weeks' ? 'Active — within 2 weeks' : state.recency === '28days' ? 'At the threshold' : state.recency === 'lastmonth' ? 'Starting to decay' : 'Inconsistent cadence',
-          status: state.recency === '2weeks' || state.recency === '28days' ? 'ok' : state.recency === 'lastmonth' ? 'warn' : 'gap'
+          num: '3',
+          urgent: false,
+          label: 'Ready to move',
+          title: 'Set up a call with our team to start building your AI visibility strategy.',
+          href: 'mailto:sarah@zenmedia.com?subject=' + encodeURIComponent('Ready to Start — AI Visibility Assessment')
         }
       ];
+
+      document.getElementById('results-pathways').innerHTML = pathways.map(p => `
+        <a href="${p.href}" class="pathway-card${p.urgent ? ' urgent' : ''}" target="_blank" rel="noopener">
+          <div class="pathway-num">${p.num}</div>
+          <div class="pathway-info">
+            <div class="pathway-label">${p.label}</div>
+            <div class="pathway-title">${p.title}</div>
+          </div>
+          ${arrowSVG}
+        </a>`).join('');
     }
 
     // ─── NAVIGATION ──────────────────────────────────────────────────────────
@@ -1096,13 +1053,8 @@
         }
       }
 
-      // ── Routing recommendation ──
-      const route = ROUTES[getRoute()];
-      document.getElementById('rec-label').textContent    = route.label;
-      document.getElementById('rec-heading').textContent  = route.heading;
-      document.getElementById('rec-body').textContent     = route.body;
-      document.getElementById('rec-cta-text').textContent = route.cta;
-      document.getElementById('rec-cta').href             = route.href;
+      // ── Three pathways ──
+      renderPathways();
 
       // ── 100-prompt snapshot note ──
       const noteEl = document.getElementById('results-note');
