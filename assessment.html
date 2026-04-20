@@ -251,7 +251,16 @@
     .results-note a { color: var(--cyan); text-decoration: none; }
     .results-note strong { color: var(--white); }
 
-    /* INLINE CONTACT BLOCK (results screen) */
+    /* DA WARNING BANNER */
+    .da-warning { display: none; background: rgba(245,158,11,0.06); border: 1.5px solid rgba(245,158,11,0.25); border-radius: 14px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem; }
+    .da-warning.visible { display: grid; grid-template-columns: 1fr auto; gap: 1.25rem; align-items: center; }
+    @media (max-width: 540px) { .da-warning.visible { grid-template-columns: 1fr; } }
+    .da-warning-eyebrow { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #fbbf24; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.4rem; }
+    .da-warning-eyebrow svg { flex-shrink: 0; }
+    .da-warning-title { font-size: 0.88rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; line-height: 1.3; }
+    .da-warning-body { font-size: 0.75rem; color: var(--text-muted); line-height: 1.6; }
+    .da-warning-btn { background: rgba(245,158,11,0.12); border: 1.5px solid rgba(245,158,11,0.3); border-radius: 100px; padding: 0.65rem 1.25rem; font-size: 0.78rem; font-weight: 700; color: #fbbf24; cursor: pointer; font-family: inherit; white-space: nowrap; transition: background 0.2s, border-color 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+    .da-warning-btn:hover { background: rgba(245,158,11,0.2); border-color: rgba(245,158,11,0.5); }
     .results-contact { margin-top: 1.5rem; }
     .results-contact-inner { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 1.5rem; }
     .results-contact-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
@@ -677,6 +686,9 @@
           </div>
         </div>
       </div>
+
+      <!-- DA Warning (only when DA < 60) -->
+      <div class="da-warning" id="da-warning"></div>
 
       <!-- Modern PR flow -->
       <div class="pr-flow-section">
@@ -1142,6 +1154,32 @@
       document.body.removeChild(link);
     }
 
+    // ─── DA WARNING ───────────────────────────────────────────────────────────
+    function renderDAWarning() {
+      const el    = document.getElementById('da-warning');
+      const lowDA = !state.da || state.da === 'under30' || state.da === '30-59' || state.da === 'unknown';
+      if (!el || !lowDA) return;
+
+      el.classList.add('visible');
+      const daLabel = state.da === 'under30' ? 'under 30'
+                    : state.da === '30-59'   ? 'between 30 and 59'
+                    : 'unconfirmed';
+
+      el.innerHTML = `
+        <div>
+          <div class="da-warning-eyebrow">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            SEO foundation required
+          </div>
+          <div class="da-warning-title">Your domain authority is ${daLabel}. AI visibility needs a stronger floor.</div>
+          <div class="da-warning-body">At this DA level, AI engines don't have enough trust signal to cite your brand consistently, regardless of content quality. Our SEO + AI team runs a parallel track: building your domain authority toward 60+ over 90 days while simultaneously activating your AI visibility strategy. You don't wait for one to finish before starting the other.</div>
+        </div>
+        <button class="da-warning-btn" onclick="window.location.href='mailto:sarah@zenmedia.com?subject=${encodeURIComponent('SEO + AI Foundation, DA Under 60')}'">
+          Talk to our SEO team
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>`;
+    }
+
     // ─── RESULTS ─────────────────────────────────────────────────────────────
     function renderResults() {
       const co = state.company || 'your brand';
@@ -1150,6 +1188,7 @@
       // ── Framework ──
       const pillars = buildFramework();
       renderFramework(pillars);
+      renderDAWarning();
 
       // ── Prescriptive concerns (gaps only) ──
       const concerns = [];
