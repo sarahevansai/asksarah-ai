@@ -13,14 +13,54 @@
     <copyright>Copyright 2026 Sarah Evans. All rights reserved.</copyright>
     <managingEditor>sarah@zenmedia.com (Sarah Evans)</managingEditor>
     <webMaster>sarah@zenmedia.com (Sarah Evans)</webMaster>
-    <lastBuildDate>Sat, 18 Apr 2026 06:00:00 -0700</lastBuildDate>
-    <pubDate>Sat, 18 Apr 2026 06:00:00 -0700</pubDate>
+    <lastBuildDate>Mon, 20 Apr 2026 07:00:00 -0700</lastBuildDate>
+    <pubDate>Mon, 20 Apr 2026 07:00:00 -0700</pubDate>
     <ttl>480</ttl>
     <image>
       <url>https://asksarah.ai/og-image.png</url>
       <title>Daily AI Briefings by Sarah Evans</title>
       <link>https://asksarah.ai/briefings</link>
     </image>
+
+    <!-- ═══════════════════════════════════════════
+         APRIL 20, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>AI Brief — April 20, 2026: Adobe Summit Goes All-In on Agents. LinkedIn Is AI's #1 B2B Source. ChatGPT Is Now an Ad Platform.</title>
+      <link>https://asksarah.ai/briefings#april-20-2026</link>
+      <guid isPermaLink="true">https://asksarah.ai/briefings#april-20-2026</guid>
+      <pubDate>Mon, 20 Apr 2026 07:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>Adobe</category>
+      <category>LinkedIn</category>
+      <category>Anthropic</category>
+      <category>ChatGPT</category>
+      <category>Advertising</category>
+      <description>Adobe Summit 2026 opens with 200+ sessions on AI agents. SEMrush: LinkedIn is the #1 AI-cited source for B2B with 89,000 URLs cited. Anthropic launched Claude Design for non-designers. LinkedIn's Depth Score now rewards reading time over likes. ChatGPT self-serve ads dropped minimum buy to $50K.</description>
+      <content:encoded><![CDATA[
+        <h2>⚡ 1. ADOBE SUMMIT OPENS TODAY IN VEGAS. AGENTIC AI IS THE ENTIRE AGENDA.</h2>
+        <p>Adobe Summit 2026 kicked off with 200+ sessions on one theme: AI agents that manage campaigns, personalize journeys, and create content without constant human direction. GenStudio, Journey Optimizer, and Real-Time CDP are all getting agent features. Nearly double the AI exhibitors compared to last year.</p>
+        <p><strong>→ Think about which repetitive marketing workflow could be handed to an agent this quarter. Pick one campaign type and measure the before-and-after.</strong></p>
+
+        <h2>⚡ 2. LINKEDIN IS THE #1 MOST-CITED SOURCE IN AI SEARCH FOR B2B</h2>
+        <p>SEMrush analyzed 325,000 prompts and found 89,000 LinkedIn URLs cited by ChatGPT, Google AI Mode, and Perplexity. LinkedIn ranks above Wikipedia and Reddit for professional queries. 95% of citations come from original posts, not reshares. The median cited post has just 15-25 reactions. AI rewards relevance, not popularity.</p>
+        <p><strong>→ Your next LinkedIn post is not just for your feed. Write it like it could be the answer to someone's question in ChatGPT.</strong></p>
+
+        <h2>⚡ 3. CLAUDE DESIGN LAUNCHED FRIDAY. NON-DESIGNERS CAN BUILD VISUALS FROM A CONVERSATION.</h2>
+        <p>Anthropic released Claude Design, powered by Opus 4.7. Describe what you need and it builds prototypes, decks, one-pagers, social cards. It reads your company's design files and applies your brand system automatically. Figma stock dropped 7%.</p>
+        <p><strong>→ Think about your team's most common design bottleneck. Test whether Claude Design gets you 80% there in 5 minutes.</strong></p>
+
+        <h2>⚡ 4. LINKEDIN'S DEPTH SCORE NOW REWARDS READING TIME OVER LIKES. CAROUSELS HIT 6.6% ENGAGEMENT.</h2>
+        <p>LinkedIn replaced velocity scoring with depth score measuring dwell time. Someone who reads for 45 seconds without liking ranks higher than a 2-second like-and-scroll. PDF carousels hit 6.6% engagement, highest of any format. External links cut reach by roughly 60%.</p>
+        <p><strong>→ Swap one text post this week for a 6-slide carousel. Swipes rack up dwell time, and dwell time is the new currency.</strong></p>
+
+        <h2>⚡ 5. CHATGPT IS NOW AN AD PLATFORM. THE MINIMUM BUY DROPPED FROM $250K TO $50K.</h2>
+        <p>OpenAI's self-serve ads manager is live. Over 600 advertisers are already running campaigns. The pilot crossed $100M in annualized revenue in six weeks. CPMs at $60 per 1,000 impressions. Expanding internationally to Canada, Australia, and New Zealand.</p>
+        <p><strong>→ If you run paid media, add ChatGPT to your Q2 test list and compare CPMs against your current Google and Meta spend.</strong></p>
+
+        <p><a href="https://asksarah.ai/briefings#april-20-2026">Read on askSarah.ai →</a></p>
+      ]]></content:encoded>
+    </item>
 
     <!-- ═══════════════════════════════════════════
          APRIL 18, 2026

@@ -356,7 +356,23 @@
     // ─── BRIEFINGS DATA ────────────────────────────────────────────────────
     const briefings = [
       {
+        slug: 'april-20-2026',
+        date: 'April 20, 2026',
+        title: 'AI Brief — April 20, 2026',
+        teaser: 'Adobe Summit goes all-in on AI agents. LinkedIn is the #1 AI-cited source for B2B. Claude Design launched for non-designers. ChatGPT is now an ad platform with a $50K minimum buy.',
+        linkedinUrl: null,
+        tags: ['Adobe', 'LinkedIn', 'Anthropic', 'ChatGPT', 'Ads', 'AI Agents'],
+        items: [
+          { n: 1, h: 'ADOBE SUMMIT OPENS TODAY IN VEGAS. AGENTIC AI IS THE ENTIRE AGENDA.', b: 'Adobe Summit 2026 kicked off with 200+ sessions on one theme: AI agents that manage campaigns, personalize journeys, and create content without constant human direction. GenStudio, Journey Optimizer, and Real-Time CDP are all getting agent features. Nearly double the AI exhibitors compared to last year.', t: 'Think about which repetitive marketing workflow could be handed to an agent this quarter. Pick one campaign type and measure the before-and-after.' },
+          { n: 2, h: 'LINKEDIN IS THE #1 MOST-CITED SOURCE IN AI SEARCH FOR B2B', b: 'SEMrush analyzed 325,000 prompts and found 89,000 LinkedIn URLs cited by ChatGPT, Google AI Mode, and Perplexity. LinkedIn ranks above Wikipedia and Reddit for professional queries. 95% of citations come from original posts, not reshares. The median cited post has just 15-25 reactions. AI rewards relevance, not popularity.', t: 'Your next LinkedIn post is not just for your feed. Write it like it could be the answer to someone\'s question in ChatGPT.' },
+          { n: 3, h: 'CLAUDE DESIGN LAUNCHED FRIDAY. NON-DESIGNERS CAN BUILD VISUALS FROM A CONVERSATION.', b: 'Anthropic released Claude Design, powered by Opus 4.7. Describe what you need and it builds prototypes, decks, one-pagers, social cards. It reads your company\'s design files and applies your brand system automatically. Figma stock dropped 7%.', t: 'Think about your team\'s most common design bottleneck. Test whether Claude Design gets you 80% there in 5 minutes.' },
+          { n: 4, h: 'LINKEDIN\'S DEPTH SCORE NOW REWARDS READING TIME OVER LIKES. CAROUSELS HIT 6.6% ENGAGEMENT.', b: 'LinkedIn replaced velocity scoring with depth score measuring dwell time. Someone who reads for 45 seconds without liking ranks higher than a 2-second like-and-scroll. PDF carousels hit 6.6% engagement, highest of any format. External links cut reach by roughly 60%.', t: 'Swap one text post this week for a 6-slide carousel. Swipes rack up dwell time, and dwell time is the new currency.' },
+          { n: 5, h: 'CHATGPT IS NOW AN AD PLATFORM. THE MINIMUM BUY DROPPED FROM $250K TO $50K.', b: 'OpenAI\'s self-serve ads manager is live. Over 600 advertisers are already running campaigns. The pilot crossed $100M in annualized revenue in six weeks. CPMs at $60 per 1,000 impressions. Expanding internationally to Canada, Australia, and New Zealand.', t: 'If you run paid media, add ChatGPT to your Q2 test list and compare CPMs against your current Google and Meta spend.' }
+        ]
+      },
+      {
         slug: 'april-18-2026',
+
         date: 'April 18, 2026',
         title: 'AI Brief — April 18, 2026',
         teaser: 'Meta confirmed 8,000 layoffs starting May 20. Anthropic shipped Opus 4.7. 68% of TV producers prefer AI-optimized pitches. And brands are shifting 20-30% of ad budgets to owned media.',
@@ -504,10 +520,10 @@
               `).join('')}
             </div>
             <div class="briefing-footer">
-              <a href="${b.linkedinUrl}" target="_blank" rel="noopener noreferrer">
+              ${b.linkedinUrl ? `<a href="${b.linkedinUrl}" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/></svg>
                 View original on LinkedIn
-              </a>
+              </a>` : ''}
               <a href="https://prsarahevans.substack.com/subscribe" target="_blank" rel="noopener noreferrer">
                 Subscribe on Substack →
               </a>
