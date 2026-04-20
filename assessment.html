@@ -159,30 +159,35 @@
     .btn-start:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.35); }
 
     /* RESULTS SCREEN */
-    .results-header { margin-bottom: 2rem; }
-    .results-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 0.5rem; }
+    .results-header { margin-bottom: 1.5rem; }
+    .results-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 0.4rem; }
     .results-header p { font-size: 0.85rem; color: var(--text-muted); }
-    .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .results-signals { background: var(--card); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 1.5rem; }
-    .results-signals h3 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 700; margin-bottom: 1rem; }
-    .signal-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border-light); }
-    .signal-item:last-child { border-bottom: none; }
-    .signal-icon { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-size: 0.65rem; font-weight: 700; }
-    .signal-icon.ok { background: rgba(16,185,129,0.15); color: var(--ok); }
-    .signal-icon.warn { background: rgba(245,158,11,0.15); color: var(--warn); }
-    .signal-icon.gap { background: rgba(244,63,94,0.12); color: var(--gap); }
-    .signal-text { font-size: 0.8rem; color: var(--text); line-height: 1.4; }
-    .signal-text strong { color: var(--white); display: block; margin-bottom: 0.1rem; font-weight: 600; font-size: 0.82rem; }
-    .results-rec { background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.07)); border: 1px solid rgba(124,58,237,0.2); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; }
-    .results-rec-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); font-weight: 700; margin-bottom: 0.75rem; }
-    .results-rec h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; line-height: 1.3; }
-    .results-rec p { font-size: 0.82rem; color: var(--text); line-height: 1.7; flex: 1; margin-bottom: 1.25rem; }
+
+    /* FRAMEWORK PANEL */
+    .framework-panel { background: rgba(22,19,46,0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; margin-bottom: 1.5rem; }
+    .framework-header { padding: 0.85rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; }
+    .framework-title { font-size: 0.65rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; }
+    .framework-brand { font-size: 0.65rem; font-weight: 700; color: var(--violet-light); letter-spacing: 0.08em; text-transform: uppercase; }
+    .pillar-row { display: grid; grid-template-columns: 28px 1fr auto; align-items: center; gap: 0.85rem; padding: 0.9rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
+    .pillar-row:last-child { border-bottom: none; }
+    .pillar-row:hover { background: rgba(255,255,255,0.015); }
+    .pillar-num { font-size: 0.58rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.1em; opacity: 0.6; }
+    .pillar-info { min-width: 0; }
+    .pillar-name { font-size: 0.84rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; line-height: 1.3; }
+    .pillar-note { font-size: 0.72rem; color: var(--text-muted); line-height: 1.4; }
+    .pillar-badge { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 100px; white-space: nowrap; }
+    .pillar-badge.strong { background: rgba(16,185,129,0.1); color: #34d399; border: 1px solid rgba(16,185,129,0.2); }
+    .pillar-badge.partial { background: rgba(245,158,11,0.1); color: #fbbf24; border: 1px solid rgba(245,158,11,0.2); }
+    .pillar-badge.gap { background: rgba(244,63,94,0.08); color: #fb7185; border: 1px solid rgba(244,63,94,0.2); }
+    .pillar-badge.unassessed { background: rgba(255,255,255,0.04); color: var(--text-muted); border: 1px solid rgba(255,255,255,0.07); }
+
+    /* REC CARD (full width) */
+    .results-rec { background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.07)); border: 1px solid rgba(124,58,237,0.2); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .results-rec-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); font-weight: 700; margin-bottom: 0.6rem; }
+    .results-rec h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; line-height: 1.3; }
+    .results-rec p { font-size: 0.84rem; color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; max-width: 580px; }
     .btn-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gradient); border: none; border-radius: 100px; padding: 0.75rem 1.5rem; font-size: 0.82rem; font-weight: 700; color: white; cursor: pointer; text-decoration: none; font-family: inherit; transition: opacity 0.2s, transform 0.2s; }
     .btn-cta:hover { opacity: 0.9; transform: translateY(-1px); }
-    .results-share { margin-top: 1.25rem; text-align: center; }
-    .results-share-txt { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.5rem; }
-    .results-share-btn { background: none; border: 1px solid var(--border-light); border-radius: 100px; padding: 0.45rem 1rem; font-size: 0.72rem; font-weight: 600; color: var(--text); cursor: pointer; font-family: inherit; transition: all 0.2s; }
-    .results-share-btn:hover { border-color: rgba(124,58,237,0.3); color: var(--white); }
     .results-note { margin-top: 1.5rem; font-size: 0.78rem; color: var(--text-muted); text-align: center; line-height: 1.7; }
     .results-note a { color: var(--cyan); text-decoration: none; }
     .results-note strong { color: var(--white); }
@@ -582,23 +587,27 @@
         <p>Based on your answers — your AI visibility gaps and the clearest next move.</p>
       </div>
 
-      <!-- Prescriptive concerns -->
-      <div class="results-concerns stagger" style="animation-delay:0.05s" id="results-concerns"></div>
+      <!-- AI Visibility Framework -->
+      <div class="framework-panel stagger" style="animation-delay:0.05s">
+        <div class="framework-header">
+          <span class="framework-title">AI Visibility Framework</span>
+          <span class="framework-brand">askSarah.ai</span>
+        </div>
+        <div id="framework-pillars"></div>
+      </div>
 
-      <div class="results-grid">
-        <div class="results-signals stagger" style="animation-delay:0.05s">
-          <h3>Signal Checklist</h3>
-          <div id="signal-list"></div>
-        </div>
-        <div class="results-rec stagger" style="animation-delay:0.18s">
-          <div class="results-rec-label" id="rec-label">Our Recommendation</div>
-          <h3 id="rec-heading"></h3>
-          <p id="rec-body"></p>
-          <a href="#" id="rec-cta" class="btn-cta" target="_blank">
-            <span id="rec-cta-text"></span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
+      <!-- Concerns: only gaps show here -->
+      <div class="results-concerns stagger" style="animation-delay:0.2s" id="results-concerns"></div>
+
+      <!-- Recommendation (full width) -->
+      <div class="results-rec stagger" style="animation-delay:0.3s">
+        <div class="results-rec-label" id="rec-label">Our Recommendation</div>
+        <h3 id="rec-heading"></h3>
+        <p id="rec-body"></p>
+        <a href="#" id="rec-cta" class="btn-cta" target="_blank">
+          <span id="rec-cta-text"></span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
 
       <!-- Inline contact capture — optional, not a gate -->
@@ -879,7 +888,104 @@
         'https://www.perplexity.ai/search?q=' + encodeURIComponent(baseQuery.replace(/"/g, ''));
     }
 
-    // ─── BUSINESS STEP ───────────────────────────────────────────────────────
+    // ─── AI VISIBILITY FRAMEWORK ─────────────────────────────────────────────────
+    function buildFramework() {
+      return [
+        {
+          num: '01',
+          name: 'Domain Authority',
+          desc: 'The trust floor AI engines require before consistently citing a source.',
+          status: (() => {
+            if (state.da === '60-79' || state.da === '80plus') return 'strong';
+            if (state.da === '30-59') return 'partial';
+            return 'gap';
+          })(),
+          note: {
+            'under30':  'Under 30 — below the citation threshold for most AI engines.',
+            '30-59':    'DA 30–59 — inconsistent citation range. Needs active work.',
+            '60-79':    'DA 60–79 — solid. AI citations compound at this level.',
+            '80plus':   'DA 80+ — strong authority. Use it.',
+            'unknown':  'Not checked. Run moz.com/domain-analysis — takes 60 seconds.'
+          }[state.da] || 'Not assessed.'
+        },
+        {
+          num: '02',
+          name: 'Owned Content Mapped to Prompts',
+          desc: 'Whether your published content answers the exact prompts your buyers run.',
+          status: state.prompts === 'yes' ? 'strong' : state.prompts === 'checked' ? 'partial' : 'gap',
+          note: {
+            'yes':     'Showing up — and you know what it says.',
+            'checked': 'Inconsistent presence. Prompts aren\'t landing reliably.',
+            'no':      'Unknown. This is the first check that needs to happen.'
+          }[state.prompts] || 'Not assessed.'
+        },
+        {
+          num: '03',
+          name: 'Credibility & Recency of Third-Party Mentions',
+          desc: 'How recently and credibly your brand appears in the external sources AI trusts.',
+          status: (() => {
+            if (state.recency === '2weeks' && state.ainotices === 'yes') return 'strong';
+            if (state.recency === '2weeks' || state.recency === '28days' || state.ainotices === 'yes') return 'partial';
+            return 'gap';
+          })(),
+          note: {
+            '2weeks':       'Active within 2 weeks — at the cadence AI visibility requires.',
+            '28days':       'At the 28-day threshold. Consistent is the goal.',
+            'lastmonth':    'Starting to decay. 45+ day gaps register as stale to AI.',
+            'inconsistent': 'No consistent cadence — the hardest gap to close without a system.'
+          }[state.recency] || 'Not assessed.'
+        },
+        {
+          num: '04',
+          name: 'Google-Indexed Third-Party Mentions',
+          desc: 'Whether external links build topical authority — not just homepage recognition.',
+          status: state.deeplinks === 'specific' ? 'strong' : state.deeplinks === 'mix' ? 'partial' : 'gap',
+          note: {
+            'specific':   'Citations landing on specific pages. Building topical authority.',
+            'mix':        'Mix of deep and homepage links. Homepage links don\'t build expertise.',
+            'homepage':   'Mostly homepage links. AI reads these as \'brand exists\' not \'brand expert\'.',
+            'donttrack':  'Not tracked. Likely leaving citation authority on the table.'
+          }[state.deeplinks] || 'Not assessed.'
+        },
+        {
+          num: '05',
+          name: 'Technical AI Infrastructure',
+          desc: 'llms.txt, AI Notices, and structured content signals built for AI crawlers — not Google.',
+          status: (() => {
+            if (state.llmstxt === 'yes' && state.ainotices === 'yes') return 'strong';
+            if (state.llmstxt === 'yes' || state.ainotices === 'traditional') return 'partial';
+            return 'gap';
+          })(),
+          note: (() => {
+            const llms = state.llmstxt === 'yes' ? 'llms.txt in place' : 'llms.txt missing';
+            const ai   = state.ainotices === 'yes' ? 'AI Notices active'
+                       : state.ainotices === 'traditional' ? 'AI Notices not yet'
+                       : 'AI Notices not started';
+            return `${llms} · ${ai}`;
+          })()
+        },
+        {
+          num: '06',
+          name: 'Social Signal Amplification',
+          desc: 'How content distributes across social channels AI engines actively monitor.',
+          status: 'unassessed',
+          note: 'Not assessed in this snapshot — included in the full 100-prompt audit.'
+        }
+      ];
+    }
+
+    function renderFramework(pillars) {
+      const badgeLabel = { strong: 'Strong', partial: 'Partial', gap: 'Gap', unassessed: 'Not assessed' };
+      document.getElementById('framework-pillars').innerHTML = pillars.map(p => `
+        <div class="pillar-row">
+          <div class="pillar-num">${p.num}</div>
+          <div class="pillar-info">
+            <div class="pillar-name">${p.name}</div>
+            <div class="pillar-note">${p.note}</div>
+          </div>
+          <div class="pillar-badge ${p.status}">${badgeLabel[p.status]}</div>
+        </div>`).join('');
+    }
     function saveBusiness() {
       state.company  = document.getElementById('f-company').value.trim();
       state.website  = document.getElementById('f-website').value.trim();
@@ -888,7 +994,7 @@
       goNext();
     }
 
-    // ─── SHOW RESULTS (no gate) ──────────────────────────────────────────────
+    // ─── BUSINESS STEP ───────────────────────────────────────────────────────
     function showResults() {
       renderResults();
       goNext();
@@ -952,54 +1058,42 @@
     // ─── RESULTS ─────────────────────────────────────────────────────────────
     function renderResults() {
       const co = state.company || 'your brand';
-
-      // Header
       document.getElementById('results-name').textContent = co;
 
-      // ── Signal checklist ──
-      const signals  = buildSignals();
-      const signalEl = document.getElementById('signal-list');
-      const icons    = { ok: '✓', warn: '≈', gap: '✗' };
-      signalEl.innerHTML = signals.map(s => `
-        <div class="signal-item">
-          <div class="signal-icon ${s.status}">${icons[s.status]}</div>
-          <div class="signal-text">
-            <strong>${s.label}</strong>
-            ${s.note}
-          </div>
-        </div>`).join('');
+      // ── Framework ──
+      const pillars = buildFramework();
+      renderFramework(pillars);
 
-      // ── Prescriptive concerns ──
+      // ── Prescriptive concerns (gaps only) ──
       const concerns = [];
-
       if (state.prompts === 'checked' || state.prompts === 'no') {
-        concerns.push(`<strong>Prompt coverage unknown.</strong> ${co} may be named — or missed entirely — in the AI answers your buyers are seeing right now. That gap is invisible until you run the prompts.`);
+        concerns.push(`<strong>Prompt coverage unknown.</strong> ${co} may be named — or missed entirely — in the AI answers your buyers are seeing right now.`);
       }
       if (state.da === 'under30' || state.da === 'unknown') {
-        concerns.push(`<strong>Domain authority is a blocker.</strong> At sub-30 DA, AI engines don\'t have enough trust signal to cite ${co} consistently. Visibility work built on this will underperform until the foundation is fixed.`);
+        concerns.push(`<strong>Domain authority is a blocker.</strong> At sub-30 DA, AI engines don\'t have enough trust signal to cite ${co} consistently. This is the place to start.`);
       } else if (state.da === '30-59') {
-        concerns.push(`<strong>Domain authority is in the danger zone.</strong> DA 30–59 is the range where AI citations are inconsistent — you may show up in some answers and disappear from others. DA and AI strategy need to run simultaneously here.`);
+        concerns.push(`<strong>DA in the inconsistent range.</strong> Citations at DA 30–59 are unpredictable — ${co} may appear in some AI answers and disappear from others. DA work and AI strategy need to run together.`);
       }
       if (state.llmstxt !== 'yes') {
-        concerns.push(`<strong>No llms.txt file detected.</strong> Without it, AI crawlers have no structured map of what ${co} does or wants to be cited for. It\'s one of the fastest technical wins available.`);
+        concerns.push(`<strong>No llms.txt file.</strong> Without it, AI crawlers have no structured map of what ${co}\'s site covers or wants to be cited for. 15-minute fix.`);
       }
       if (state.deeplinks === 'homepage' || state.deeplinks === 'donttrack') {
-        concerns.push(`<strong>Citation pattern is weak.</strong> Homepage-only links tell AI that ${co} exists. They don\'t build topical authority. AI engines cite expertise — not home pages.`);
+        concerns.push(`<strong>Citation pattern not building authority.</strong> Homepage-only links tell AI that ${co} exists. Deep links to specific pages are what build topical expertise.`);
       }
       if (state.ainotices !== 'yes') {
-        concerns.push(`<strong>No AI Notices in your content mix.</strong> Traditional press releases aren\'t structured for AI citation. AI Notices are written specifically to be surfaced in LLM answers — and most brands aren\'t publishing them yet.`);
+        concerns.push(`<strong>AI Notices absent.</strong> Traditional press releases aren\'t structured for AI citation. AI Notices go into the distribution channels — wire services, publications, LinkedIn — that LLMs actively scrape.`);
       }
       if (state.recency === 'lastmonth' || state.recency === 'inconsistent') {
-        concerns.push(`<strong>Recency gap detected.</strong> AI engines weight freshness. A gap beyond 28 days starts to degrade ${co}\'s presence in AI-generated answers — even when the underlying content is solid.`);
+        concerns.push(`<strong>Recency gap.</strong> AI engines weight freshness. A gap beyond 28 days starts to degrade ${co}\'s presence in AI answers — even when the underlying content is solid.`);
       }
 
       const concernsEl = document.getElementById('results-concerns');
-      if (concerns.length === 0) {
-        concernsEl.innerHTML = `<p style="font-size:0.85rem;color:var(--ok);font-weight:600;">Strong signal profile. Your gaps are marginal — the opportunity is to compound what\'s working.</p>`;
-      } else {
-        concernsEl.innerHTML = concerns.map(c =>
-          `<div class="concern-item">${c}</div>`
-        ).join('');
+      if (concernsEl) {
+        if (concerns.length === 0) {
+          concernsEl.innerHTML = '';
+        } else {
+          concernsEl.innerHTML = concerns.map(c => `<div class="concern-item">${c}</div>`).join('');
+        }
       }
 
       // ── Routing recommendation ──
