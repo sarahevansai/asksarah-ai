@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Glossary — askSarah.ai | Terms Every Business Leader Needs to Know</title>
+  <meta name="description" content="The definitive glossary of AI visibility, AEO, GEO, earned media, and search terms for business leaders. Definitions by Sarah Evans, Partner at Zen Media.">
+
+  <meta property="og:title" content="AI Glossary — askSarah.ai">
+  <meta property="og:description" content="AEO, GEO, Answer Share™, The Before Layer, llms.txt, Citation Share, Zero-Click Search — every term you need to understand AI visibility.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/glossary">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@prsarahevans">
+
+  <link rel="alternate" type="application/rss+xml" title="Daily AI Briefings by Sarah Evans" href="https://asksarah.ai/briefings.xml">
+  <link rel="canonical" href="https://asksarah.ai/glossary">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "name": "AI Visibility & AEO Glossary",
+    "description": "Definitions of key terms in AI visibility, Answer Engine Optimization, Generative Engine Optimization, and earned media strategy. Curated by Sarah Evans, Partner at Zen Media.",
+    "url": "https://asksarah.ai/glossary",
+    "author": {
+      "@type": "Person",
+      "name": "Sarah Evans",
+      "url": "https://asksarah.ai/about"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838;
+      --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f;
+      --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(124,58,237,0.08); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(6,182,212,0.06); animation: o2 25s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border: none; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-btn { color: var(--text-muted); background: none; border: none; font-size: 0.8rem; font-weight: 500; cursor: pointer; font-family: inherit; letter-spacing: 0.02em; display: flex; align-items: center; gap: 0.3rem; transition: color 0.2s; padding: 0; }
+    .nav-dropdown-btn:hover { color: var(--white); }
+    .nav-dropdown-btn svg { transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-btn svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); right: 0; min-width: 180px; background: rgba(17,15,36,0.97); backdrop-filter: blur(24px); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.4rem; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.55rem 0.85rem; border-radius: 8px; transition: all 0.15s; white-space: nowrap; }
+    .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: rgba(124,58,237,0.1); color: var(--white); }
+
+    /* PAGE */
+    .page-wrap { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 7rem 2rem 5rem; }
+
+    /* HERO */
+    .hero { text-align: center; margin-bottom: 3rem; }
+    .hero-label { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.2); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet-light); margin-bottom: 1rem; }
+    .hero h1 { font-family: 'Space Grotesk'; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.75rem; }
+    .hero p { font-size: 0.95rem; color: var(--text); max-width: 560px; margin: 0 auto 2rem; line-height: 1.65; }
+
+    /* SEARCH */
+    .search-wrap { position: relative; max-width: 520px; margin: 0 auto 2.5rem; }
+    .search-wrap svg { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+    #glossarySearch { width: 100%; background: var(--card); border: 1px solid var(--border-light); border-radius: 100px; padding: 0.75rem 1.25rem 0.75rem 2.75rem; font-size: 0.88rem; color: var(--white); font-family: inherit; outline: none; transition: border-color 0.2s; }
+    #glossarySearch::placeholder { color: var(--text-muted); }
+    #glossarySearch:focus { border-color: rgba(124,58,237,0.4); }
+
+    /* LETTER NAV */
+    .letter-nav { display: flex; flex-wrap: wrap; gap: 0.35rem; justify-content: center; margin-bottom: 3rem; }
+    .letter-nav a { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; font-size: 0.78rem; font-weight: 700; text-decoration: none; color: var(--text-muted); border: 1px solid transparent; transition: all 0.2s; }
+    .letter-nav a:hover { color: var(--white); border-color: var(--border-light); background: var(--card); }
+    .letter-nav a.has-terms { color: var(--violet-light); }
+    .letter-nav a.has-terms:hover { background: rgba(124,58,237,0.1); border-color: rgba(124,58,237,0.3); }
+
+    /* STATS BAR */
+    .stats-bar { display: flex; gap: 2rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap; }
+    .stat-item { text-align: center; }
+    .stat-num { font-family: 'Space Grotesk'; font-size: 1.6rem; font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; line-height: 1; }
+    .stat-label { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-top: 0.2rem; }
+
+    /* GLOSSARY SECTIONS */
+    .glossary-section { margin-bottom: 3rem; }
+    .section-letter { font-family: 'Space Grotesk'; font-size: 1.8rem; font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-light); scroll-margin-top: 80px; }
+    .term-list { display: flex; flex-direction: column; gap: 0.85rem; }
+
+    /* TERM CARD */
+    .term-card { background: var(--card); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 1.5rem 1.75rem; transition: all 0.25s; position: relative; overflow: hidden; }
+    .term-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(124,58,237,0.03), rgba(6,182,212,0.02)); opacity: 0; transition: opacity 0.25s; }
+    .term-card:hover { border-color: rgba(124,58,237,0.25); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .term-card:hover::before { opacity: 1; }
+
+    .term-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .term-name { font-family: 'Space Grotesk'; font-size: 1.1rem; font-weight: 700; color: var(--white); flex: 1; min-width: 200px; }
+    .term-abbr { font-size: 0.75rem; color: var(--cyan); font-weight: 500; font-style: normal; }
+    .term-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; flex-shrink: 0; }
+    .badge { display: inline-block; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.6rem; border-radius: 100px; }
+    .badge-aeo { background: rgba(124,58,237,0.15); color: var(--violet-light); border: 1px solid rgba(124,58,237,0.25); }
+    .badge-seo { background: rgba(6,182,212,0.12); color: var(--cyan-light); border: 1px solid rgba(6,182,212,0.25); }
+    .badge-linkedin { background: rgba(10,102,194,0.15); color: #6aa3d5; border: 1px solid rgba(10,102,194,0.3); }
+    .badge-pr { background: rgba(233,30,140,0.12); color: #f472b6; border: 1px solid rgba(233,30,140,0.25); }
+    .badge-ai { background: rgba(251,191,36,0.1); color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
+    .badge-sarah { background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(6,182,212,0.1)); color: var(--violet-light); border: 1px solid rgba(124,58,237,0.3); }
+
+    .term-definition { font-size: 0.88rem; color: var(--text); line-height: 1.7; margin-bottom: 0.85rem; }
+    .term-why { background: rgba(124,58,237,0.05); border-left: 2px solid rgba(124,58,237,0.4); border-radius: 0 8px 8px 0; padding: 0.65rem 1rem; }
+    .term-why-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--violet-light); margin-bottom: 0.25rem; }
+    .term-why p { font-size: 0.8rem; color: var(--text); line-height: 1.6; }
+    .term-also { margin-top: 0.75rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .term-also-label { font-size: 0.65rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .term-also a { font-size: 0.72rem; color: var(--cyan); text-decoration: none; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2); border-radius: 100px; padding: 0.15rem 0.55rem; transition: all 0.2s; }
+    .term-also a:hover { background: rgba(6,182,212,0.15); }
+
+    /* SARAH TERM CALLOUT */
+    .term-card.sarah-term { border-color: rgba(124,58,237,0.25); }
+    .term-card.sarah-term::after { content: '★ Sarah Evans term'; position: absolute; top: 0.75rem; right: 0.85rem; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--violet-light); opacity: 0.7; }
+
+    /* NO RESULTS */
+    .no-results { text-align: center; padding: 3rem; color: var(--text-muted); display: none; }
+    .no-results.visible { display: block; }
+
+    /* FOOTER */
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .stats-bar { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+          <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+        </text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="briefings.html">Daily AI Briefings</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="shows.html">Live Shows</a>
+      <a href="tools.html">Tools</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn" aria-haspopup="true" aria-expanded="false">
+          More
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="about.html">About</a>
+          <a href="glossary.html" class="active">AI Glossary</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="connect.html">Connect</a>
+        </div>
+      </div>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="briefings.html">Daily AI Briefings</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="shows.html">Live Shows</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+    <a href="glossary.html">AI Glossary</a>
+    <a href="learn.html">Learn</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="connect.html">Connect</a>
+  </div>
+
+  <div class="page-wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-label">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        AI Glossary
+      </div>
+      <h1>The Language of <span class="gradient-text">AI Visibility</span></h1>
+      <p>Every term you need to navigate AEO, GEO, earned media, and the AI economy — defined clearly, without the hype. Built for business leaders, not engineers.</p>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="glossarySearch" placeholder="Search terms… e.g. AEO, The Before Layer, llms.txt" autocomplete="off">
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-bar" id="statsBar">
+      <div class="stat-item">
+        <span class="stat-num" id="termCount">30</span>
+        <div class="stat-label">Terms Defined</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">7</span>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">4</span>
+        <div class="stat-label">Sarah's Original Terms</div>
+      </div>
+    </div>
+
+    <!-- LETTER NAV -->
+    <div class="letter-nav" id="letterNav"></div>
+
+    <!-- NO RESULTS -->
+    <div class="no-results" id="noResults">
+      <p style="font-size:1.1rem;font-weight:600;margin-bottom:0.5rem;">No terms found.</p>
+      <p style="font-size:0.85rem;">Try a shorter search, or <a href="mailto:sarah@zenmedia.com" style="color:var(--cyan);">suggest a term</a> to add.</p>
+    </div>
+
+    <!-- GLOSSARY CONTENT (rendered by JS) -->
+    <div id="glossaryContent"></div>
+
+  </div><!-- end .page-wrap -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="/">Home</a>
+          <a href="briefings.html">Daily AI Briefings</a>
+          <a href="newsletter.html">Newsletter</a>
+          <a href="shows.html">Live Shows</a>
+          <a href="tools.html">Tools</a>
+          <a href="glossary.html">AI Glossary</a>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <a href="about.html">About</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="connect.html">Connect</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a>
+          <a href="https://prsarahevans.substack.com" target="_blank">Substack</a>
+          <a href="https://x.com/prsarahevans" target="_blank">X / Twitter</a>
+          <a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="/" class="nav-logo" style="opacity: 0.5;">
+          <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="height: 22px;">
+            <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+              <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+            </text>
+          </svg>
+        </a>
+        <p>© <span id="currentYear"></span> Sarah Evans. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // ─── GLOSSARY DATA ──────────────────────────────────────────────────────
+    const terms = [
+      // A
+      {
+        letter: 'A',
+        term: 'AEO',
+        full: 'Answer Engine Optimization',
+        badges: ['aeo'],
+        definition: 'The practice of structuring content so it gets cited in AI-generated answers, rather than optimizing purely for search ranking positions. AEO focuses on the zero-click layer — the answer a user sees before deciding whether to click through to any website.',
+        why: 'As 93% of AI Mode searches end without a click, ranking #1 on Google no longer guarantees traffic. AEO is how brands ensure they still get attributed and found when their content is consumed by AI.',
+        also: []
+      },
+      {
+        letter: 'A',
+        term: 'Agentic Engine Optimization',
+        full: null,
+        badges: ['aeo', 'ai'],
+        definition: 'A framework coined by Google AI director Addy Osmani for structuring websites specifically for AI agents — autonomous programs that fetch pages, strip HTML, count tokens, and either use or discard content without human browsing behavior. Requires an llms.txt file, clean Markdown output, and pages under 25,000 tokens.',
+        why: 'AI agents don\'t scroll, click, or engage with UI. If your site isn\'t structured for agent consumption, you\'re invisible to an entire category of AI-powered tools and search systems.',
+        also: ['llms.txt', 'AEO']
+      },
+      {
+        letter: 'A',
+        term: 'AI Mode',
+        full: null,
+        badges: ['seo', 'ai'],
+        definition: 'Google\'s search interface that generates a comprehensive AI answer before displaying traditional blue links. Introduced in 2025, AI Mode currently returns 93% of queries without a single click to any external website.',
+        why: 'AI Mode is rapidly replacing traditional search as the default experience. Brands visible in AI Mode summaries capture mindshare even when users never visit their site.',
+        also: ['Zero-Click Search', 'AI Overview']
+      },
+      {
+        letter: 'A',
+        term: 'AI Overview',
+        full: null,
+        badges: ['seo', 'ai'],
+        definition: 'Google\'s AI-generated summary box that appears at the top of search results pages, above all organic rankings. AI Overviews pull from a small set of authoritative, well-structured sources and have been shown to reduce clicks to the #1 organic result by up to 58%.',
+        why: 'You can rank #1 and still lose to AI Overview. Brands cited inside AI Overviews capture the answer layer — the most valuable real estate on the page.',
+        also: ['AI Mode', 'AEO', 'Citation Share']
+      },
+      {
+        letter: 'A',
+        term: 'Answer Share™',
+        full: null,
+        badges: ['sarah', 'aeo'],
+        sarah: true,
+        definition: 'The percentage of AI-generated answers to relevant queries that mention, cite, or attribute your brand. Tracks how often your brand shows up in the AI layer across ChatGPT, Perplexity, Gemini, and AI Mode — not just in traditional search results.',
+        why: 'Answer Share™ is replacing share of voice as the visibility metric that matters. Most brands we baseline have close to zero. That gap is both a problem and an opportunity.',
+        also: ['Citation Share', 'The Before Layer']
+      },
+      // B
+      {
+        letter: 'B',
+        term: 'The Before Layer',
+        full: null,
+        badges: ['sarah', 'aeo'],
+        sarah: true,
+        definition: 'The AI-generated answer a user sees before they click any link, visit any website, or engage with any brand content. Coined by Sarah Evans to describe the new zero-click layer of AI search where brand perception is shaped before discovery.',
+        why: 'The Before Layer is your brand\'s new homepage — except you didn\'t build it, and you may not know what it says. If you\'re not actively shaping it through AEO and earned media, someone else\'s narrative is sitting there instead.',
+        also: ['Zero-Click Search', 'AEO', 'Answer Share™']
+      },
+      {
+        letter: 'B',
+        term: 'Brand Radar',
+        full: null,
+        badges: ['aeo'],
+        definition: 'A tracking feature launched by Ahrefs in 2026 that monitors brand mentions and citations across six major AI platforms: ChatGPT, Perplexity, Gemini, Claude, Bing Copilot, and Google AI Overviews. Provides Citation Share data and trend tracking over time.',
+        why: 'You can\'t optimize what you can\'t measure. Brand Radar provides the baseline data needed to build an AEO strategy.',
+        also: ['Citation Share', 'AEO']
+      },
+      // C
+      {
+        letter: 'C',
+        term: 'Citation Share',
+        full: null,
+        badges: ['aeo', 'seo'],
+        definition: 'The percentage of times your domain is referenced as a source in AI-generated answers across platforms. A brand cited in 40% of AI responses to a keyword outperforms organic #2 rankings — and that traffic converts at 4.4x the rate of traditional click-through.',
+        why: 'Citation Share is the new domain authority. It\'s the metric that tells you whether AI is using your content as a source — and it\'s measurable today with tools like Semrush One and Ahrefs Brand Radar.',
+        also: ['Answer Share™', 'AEO']
+      },
+      {
+        letter: 'C',
+        term: 'Context Signals',
+        full: null,
+        badges: ['seo', 'ai'],
+        definition: 'Behavioral and semantic data points that AI-powered search algorithms use to determine relevance, including user engagement time, content depth, topical authority, and how fully a page answers the complete user intent — not just the surface keyword.',
+        why: 'Bing\'s April 2026 update made context signals more important than backlinks. Traditional SEO metrics are losing influence as AI rewrites how relevance is measured.',
+        also: ['Generative Relevance Scoring', 'Depth Score']
+      },
+      // D
+      {
+        letter: 'D',
+        term: 'Depth Score',
+        full: null,
+        badges: ['linkedin'],
+        definition: 'LinkedIn\'s algorithm metric introduced in the March 2026 Authenticity Update that measures how long users engage with content. Posts that hold attention for 61 or more seconds receive 15.6% distribution — vs. 1.2% for fast-scrolled posts. AI-generated comment spam is actively penalized.',
+        why: 'LinkedIn\'s algorithm now rewards genuine engagement over volume. Carousels, long-form posts, and high-quality comments beat high-frequency, low-effort content strategies.',
+        also: ['Super-Commenter Strategy']
+      },
+      // E
+      {
+        letter: 'E',
+        term: 'Earned Media',
+        full: null,
+        badges: ['pr'],
+        definition: 'Press coverage, citations, mentions, and references from third-party sources you didn\'t pay for. The most trusted and impactful form of media, and the #1 source for AI-generated answers: 89% of AI citations come from earned media placements.',
+        why: 'If AI answers are built from earned media, then PR is now AEO. Every press placement, every expert quote, every original stat you produce is raw material the AI layer pulls from.',
+        also: ['AEO', 'PR-Optimized Pitch']
+      },
+      // G
+      {
+        letter: 'G',
+        term: 'GEO',
+        full: 'Generative Engine Optimization',
+        badges: ['aeo', 'seo'],
+        definition: 'The practice of optimizing content for generative AI systems, including structuring pages for extraction, providing clean and factual prose, including original data, and building topical authority across multiple formats. Broader than AEO — GEO also considers how content is used in AI training and inference pipelines.',
+        why: 'GEO and AEO are converging. Whether AI is answering a search query or generating a report for an enterprise user, the same underlying content quality signals matter.',
+        also: ['AEO', 'Agentic Engine Optimization']
+      },
+      {
+        letter: 'G',
+        term: 'Generative Relevance Scoring',
+        full: null,
+        badges: ['seo', 'ai'],
+        definition: 'Bing\'s April 2026 algorithm update that weights user behavior, content depth, and context signals more heavily than traditional backlinks in AI-assisted search results. Scores how well a page answers the full intent behind a query — not just the surface topic match.',
+        why: 'AI search optimization is not a Google-only game. Bing powers Copilot, which is integrated across Windows, Microsoft 365, and Edge. Generative relevance is now a ranking factor.',
+        also: ['Context Signals', 'AEO']
+      },
+      // L
+      {
+        letter: 'L',
+        term: 'llms.txt',
+        full: null,
+        badges: ['aeo', 'ai'],
+        definition: 'A plain-text file placed at the root of a website (e.g., asksarah.ai/llms.txt) that functions as a sitemap specifically for AI agents. Tells large language models what content exists on the site, which pages are authoritative, and how to parse the site\'s structure. Proposed and popularized alongside the Agentic Engine Optimization framework.',
+        why: 'If your site doesn\'t have an llms.txt file, AI agents arriving at your domain have no roadmap. They may index your site incompletely, deprioritize it, or skip it entirely in favor of competitors who\'ve made their content agent-readable.',
+        also: ['Agentic Engine Optimization', 'AEO']
+      },
+      // M
+      {
+        letter: 'M',
+        term: 'Multi-Model Stack',
+        full: null,
+        badges: ['ai'],
+        definition: 'An AI infrastructure approach in which an organization uses multiple large language models from different providers — rather than relying on a single vendor. Common combinations include OpenAI (GPT) for general reasoning, Claude for long documents and writing, and Gemini for real-time data and images.',
+        why: 'Single-vendor AI stacks are the new single point of failure. Claude\'s six April 2026 outages demonstrated that uptime guarantees matter. Multi-model setups fall back automatically when one provider goes down.',
+        also: []
+      },
+      // O
+      {
+        letter: 'O',
+        term: 'Owned Media',
+        full: null,
+        badges: ['pr', 'aeo'],
+        definition: 'Content published on platforms and channels you control: your website, blog, newsletter, podcast, and social profiles. Distinct from earned media (third-party coverage) and paid media (advertising). In 2026, 73% of marketers now prioritize AI-optimized owned content, and brands are shifting 20–30% of ad budgets toward owned media as AI discoverability becomes a core metric.',
+        why: 'Anchor articles, pillar pages, and evergreen owned content are the foundation of AEO strategy. If the AI layer is searching for a definitive answer on your topic, your owned content is where it should find it.',
+        also: ['Earned Media', 'AEO', 'Pillar Page']
+      },
+      // P
+      {
+        letter: 'P',
+        term: 'Perplexity',
+        full: null,
+        badges: ['ai', 'seo'],
+        definition: 'An AI-powered answer engine that responds to queries with inline citations from real-time web sources. As of Q1 2026, Reddit content accounts for 24% of Perplexity citations, and the platform represents a growing share of zero-click answer traffic outside of Google.',
+        why: 'Perplexity is a major AI citation battlefield. Brands ranked in Perplexity answers get attributed in a cited, visible way — building authority without requiring the user to visit your site.',
+        also: ['Citation Share', 'Zero-Click Search']
+      },
+      {
+        letter: 'P',
+        term: 'Pillar Page',
+        full: null,
+        badges: ['seo', 'aeo'],
+        definition: 'A comprehensive, long-form page that covers a broad topic in depth and serves as the authoritative hub for related subtopic pages. Pillar pages are increasingly critical for AEO because AI models prioritize comprehensive, well-structured sources when generating answers.',
+        why: 'A strong pillar page gives AI models a single high-authority source to pull from and cite. It\'s the owned-media equivalent of a Wikipedia entry — and it\'s your content, not Wikipedia\'s.',
+        also: ['Owned Media', 'GEO']
+      },
+      {
+        letter: 'P',
+        term: 'PR-Optimized Pitch',
+        full: null,
+        badges: ['pr', 'aeo'],
+        sarah: true,
+        definition: 'A press pitch structured specifically for AI discoverability — not just for human journalists. Key elements include: an answer in the first 500 tokens, interview questions written the way someone would ask an AI ("What\'s the best way to [solve problem]?"), and at least one original data point or stat. 68% of local TV producers surveyed in 2026 report preferring pitches structured for AI search.',
+        why: 'Producers are now thinking about whether a segment will get picked up by ChatGPT and Perplexity after it airs. An AI-optimized pitch helps the placement live beyond its air date and continues generating earned media citations.',
+        also: ['Earned Media', 'AEO']
+      },
+      // R
+      {
+        letter: 'R',
+        term: 'Reddit Citations',
+        full: null,
+        badges: ['ai', 'seo'],
+        definition: 'References to Reddit content inside AI-generated answers. As of Q1 2026, Reddit is the #1 social source for AI citations: 24% of Perplexity answers and 5%+ of ChatGPT responses pull from Reddit. Brands and practitioners with active, organic Reddit presences in relevant subreddits benefit disproportionately from this dynamic.',
+        why: 'Traditional search volume from Google is projected to drop 25% by year-end 2026. Reddit has become one of the most influential sources feeding the AI layer — and most brands have no strategy for it.',
+        also: ['Citation Share', 'Earned Media']
+      },
+      // S
+      {
+        letter: 'S',
+        term: 'Share of Voice',
+        full: 'SOV',
+        badges: ['pr', 'seo'],
+        definition: 'A traditional PR and marketing metric that measures what percentage of total media coverage in a given category is attributed to your brand, compared to competitors. Typically tracked via press mentions, broadcast placements, and social mentions.',
+        why: 'Share of Voice is being replaced by Answer Share™ as the primary visibility metric. A brand can dominate Share of Voice in traditional media while being nearly invisible in the AI layer — and the AI layer is where decisions increasingly start.',
+        also: ['Answer Share™', 'Citation Share']
+      },
+      {
+        letter: 'S',
+        term: 'Super-Commenter Strategy',
+        full: null,
+        badges: ['linkedin'],
+        definition: 'A LinkedIn growth tactic focused on leaving 10 high-quality, substantive comments per day on high-traffic posts in your niche — particularly targeting creators with 10,000–50,000 followers, where audiences are engaged but comment sections aren\'t yet saturated. Shown to increase profile views by 40%.',
+        why: 'In 2026, commenting strategically outperforms cold publishing on LinkedIn. The Depth Score algorithm rewards genuine engagement, and smart comments put you in front of highly relevant audiences without requiring a post of your own.',
+        also: ['Depth Score']
+      },
+      {
+        letter: 'S',
+        term: 'Structured Content',
+        full: null,
+        badges: ['aeo', 'seo'],
+        definition: 'Content formatted for machine extraction — using clear headings (H1, H2, H3), HTML tables, bullet lists, bold lead sentences, and logical information hierarchy. Structured content is 25.7% more likely to be cited in AI-generated answers than equivalent content in dense paragraph form.',
+        why: 'AI models extract information at over 96% accuracy when content is structured in tables and clearly labeled sections. The more your content looks like a reference document, the more likely it is to be used as one.',
+        also: ['AEO', 'GEO', 'Pillar Page']
+      },
+      // T
+      {
+        letter: 'T',
+        term: 'Token Budget',
+        full: null,
+        badges: ['aeo', 'ai'],
+        definition: 'The maximum number of tokens (roughly: word-parts) an AI agent will process from a single web page before moving on. The Agentic Engine Optimization framework recommends pages stay under 25,000 tokens to avoid being truncated or deprioritized by AI agents.',
+        why: 'If your page is over-tokenized — stuffed with nav, scripts, comment sections, and boilerplate — AI agents may never reach your actual content. Clean, lean pages are prioritized.',
+        also: ['Agentic Engine Optimization', 'llms.txt']
+      },
+      {
+        letter: 'T',
+        term: 'Topical Authority',
+        full: null,
+        badges: ['seo', 'aeo'],
+        definition: 'The perception — by both search engines and AI models — that a domain or author is a comprehensive, trustworthy source on a specific subject area. Built through consistent, deep coverage of a topic cluster over time, supported by original research, expert quotes, and cross-platform presence.',
+        why: 'Topical authority is the long-term moat for AEO. AI models favor sources that demonstrate domain expertise consistently — not one-off viral posts. Building authority now compounds over time as AI citation becomes more competitive.',
+        also: ['Structured Content', 'Pillar Page']
+      },
+      // U
+      {
+        letter: 'U',
+        term: 'Unified AEO/SEO Strategy',
+        full: null,
+        badges: ['aeo', 'seo'],
+        definition: 'An integrated content strategy that optimizes for both traditional search rankings and AI engine citation simultaneously, rather than treating them as separate workstreams. HubSpot research found that brands running separate SEO and AEO strategies lose 40% of their citation share vs. those with a unified approach.',
+        why: 'Separating SEO and AEO creates internal conflict and redundant work. The content signals that win in AI answers are largely the same ones that win in search — just implemented more intentionally.',
+        also: ['AEO', 'GEO', 'SEO']
+      },
+      // Z
+      {
+        letter: 'Z',
+        term: 'Zero-Click Search',
+        full: null,
+        badges: ['seo', 'ai'],
+        definition: 'A search query that resolves without the user clicking through to any external website. Semrush data from 2026 shows 93% of queries in Google\'s AI Mode end as zero-click. Ahrefs confirmed AI Overviews reduce clicks to the #1 organic result by 58%.',
+        why: 'Zero-click doesn\'t mean zero-value — it means the value is shifting from traffic to citation. Being mentioned in the AI answer, even without a click, builds brand recognition and drives higher-intent visits when users do eventually click through.',
+        also: ['The Before Layer', 'AI Mode', 'AI Overview']
+      },
+    ];
+
+    // ─── RENDER ─────────────────────────────────────────────────────────────
+    const BADGE_LABELS = { aeo: 'AEO', seo: 'SEO', linkedin: 'LinkedIn', pr: 'PR', ai: 'AI', sarah: 'Sarah Evans Term' };
+
+    function getBadgeHtml(badge) {
+      return `<span class="badge badge-${badge}">${BADGE_LABELS[badge] || badge}</span>`;
+    }
+
+    function renderTermCard(t) {
+      const badges = t.badges.map(getBadgeHtml).join('');
+      const abbr = t.full ? ` <span class="term-abbr">— ${t.full}</span>` : '';
+      const also = t.also.length ? `
+        <div class="term-also">
+          <span class="term-also-label">See also:</span>
+          ${t.also.map(a => `<a href="#term-${slugify(a)}">${a}</a>`).join('')}
+        </div>` : '';
+      return `
+        <div class="term-card${t.sarah ? ' sarah-term' : ''}" id="term-${slugify(t.term)}" data-term="${t.term.toLowerCase()} ${(t.full||'').toLowerCase()}">
+          <div class="term-header">
+            <div class="term-name">${t.term}${abbr}</div>
+            <div class="term-badges">${badges}</div>
+          </div>
+          <p class="term-definition">${t.definition}</p>
+          <div class="term-why">
+            <div class="term-why-label">Why It Matters</div>
+            <p>${t.why}</p>
+          </div>
+          ${also}
+        </div>`;
+    }
+
+    function slugify(str) {
+      return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+
+    function renderGlossary(filter = '') {
+      const container = document.getElementById('glossaryContent');
+      const noResults = document.getElementById('noResults');
+      const q = filter.toLowerCase().trim();
+
+      // Group by letter
+      const byLetter = {};
+      let visibleCount = 0;
+
+      terms.forEach(t => {
+        const searchStr = `${t.term} ${t.full || ''} ${t.definition} ${t.why} ${t.badges.join(' ')}`.toLowerCase();
+        if (q && !searchStr.includes(q)) return;
+        const l = t.letter;
+        if (!byLetter[l]) byLetter[l] = [];
+        byLetter[l].push(t);
+        visibleCount++;
+      });
+
+      document.getElementById('termCount').textContent = q ? visibleCount : terms.length;
+
+      if (visibleCount === 0) {
+        container.innerHTML = '';
+        noResults.classList.add('visible');
+        return;
+      }
+      noResults.classList.remove('visible');
+
+      const letters = Object.keys(byLetter).sort();
+      container.innerHTML = letters.map(l => `
+        <div class="glossary-section" id="section-${l}">
+          <div class="section-letter">${l}</div>
+          <div class="term-list">${byLetter[l].map(renderTermCard).join('')}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderLetterNav() {
+      const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+      const hasTerms = new Set(terms.map(t => t.letter));
+      const nav = document.getElementById('letterNav');
+      nav.innerHTML = alpha.map(l => {
+        const cls = hasTerms.has(l) ? ' class="has-terms"' : '';
+        const href = hasTerms.has(l) ? `href="#section-${l}"` : '';
+        return `<a ${href}${cls}>${l}</a>`;
+      }).join('');
+    }
+
+    renderLetterNav();
+    renderGlossary();
+
+    // Search
+    document.getElementById('glossarySearch').addEventListener('input', function() {
+      renderGlossary(this.value);
+    });
+
+    // Dropdown nav
+    const dd = document.getElementById('navDropdown');
+    const ddBtn = document.getElementById('navDropdownBtn');
+    if (dd && ddBtn) {
+      ddBtn.addEventListener('click', e => { e.stopPropagation(); dd.classList.toggle('open'); ddBtn.setAttribute('aria-expanded', dd.classList.contains('open')); });
+      document.addEventListener('click', () => { dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded', 'false'); });
+    }
+  </script>
+
+</body>
+</html>
