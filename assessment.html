@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Visibility Diagnostic | askSarah.ai by Sarah Evans</title>
+  <meta name="description" content="A 7-question diagnostic that finds exactly where your brand stands in AI search — and which team closes the gaps. No fake scores. Built by Sarah Evans.">
+  <meta name="author" content="Sarah Evans">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="AI Visibility Diagnostic | askSarah.ai">
+  <meta property="og:description" content="Not a quiz. A diagnostic. 7 questions. Honest answers only.">
+  <meta property="og:url" content="https://asksarah.ai/assessment">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@prsarahevans">
+  <link rel="canonical" href="https://asksarah.ai/assessment">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838;
+      --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f;
+      --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
+      --ok: #10b981; --warn: #f59e0b; --gap: #f43f5e;
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh; }
+
+    /* BACKGROUND */
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 60% 50% at 15% 25%, rgba(124,58,237,0.1), transparent), radial-gradient(ellipse 50% 60% at 85% 75%, rgba(6,182,212,0.07), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 500px; height: 500px; top: -5%; left: 10%; background: rgba(124,58,237,0.09); animation: o1 22s ease-in-out infinite; }
+    .orb-2 { width: 400px; height: 400px; bottom: 0%; right: 5%; background: rgba(6,182,212,0.06); animation: o2 28s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,20px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-25px,-30px); } }
+
+    /* HEADER */
+    .assess-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; backdrop-filter: blur(20px); background: rgba(12,10,26,0.7); border-bottom: 1px solid var(--border-light); }
+    .assess-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .assess-logo svg { height: 24px; }
+    .assess-exit { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; }
+    .assess-exit:hover { color: var(--white); }
+
+    /* PROGRESS */
+    .progress-bar-track { position: fixed; top: 57px; left: 0; right: 0; height: 2px; background: rgba(255,255,255,0.05); z-index: 49; }
+    .progress-bar-fill { height: 100%; background: var(--gradient); transition: width 0.5s cubic-bezier(0.4,0,0.2,1); width: 0%; }
+    .progress-label { position: fixed; top: 1.05rem; right: 2rem; /* overridden by header flex */ display: none; }
+
+    /* MAIN WRAPPER */
+    .assess-wrap { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 6rem 1.5rem 3rem; }
+
+    /* SCREEN SYSTEM */
+    .screen { display: none; width: 100%; max-width: 680px; animation: slideIn 0.35s cubic-bezier(0.4,0,0.2,1); }
+    .screen.active { display: block; }
+    .screen.slide-out { animation: slideOut 0.25s cubic-bezier(0.4,0,0.2,1) forwards; }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(32px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes slideOut { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(-32px); } }
+    @keyframes slideInBack { from { opacity: 0; transform: translateX(-32px); } to { opacity: 1; transform: translateX(0); } }
+    .screen.slide-in-back { animation: slideInBack 0.35s cubic-bezier(0.4,0,0.2,1); }
+
+    /* STEP LABEL */
+    .step-label { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--cyan); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .step-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--cyan); display: inline-block; }
+
+    /* QUESTION TEXT */
+    .q-text { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 700; color: var(--white); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+    .q-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.75rem; line-height: 1.6; }
+
+    /* EXPLAINER BLOCK (for AI Notices) */
+    .q-explainer { background: rgba(124,58,237,0.06); border: 1px solid rgba(124,58,237,0.15); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.75rem; font-size: 0.82rem; color: var(--text); line-height: 1.7; font-style: italic; }
+    .q-explainer strong { color: var(--violet-light); font-style: normal; }
+
+    /* ANSWER CARDS */
+    .choice-list { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.5rem; }
+    .choice-card { position: relative; background: var(--card); border: 1.5px solid var(--border-light); border-radius: 14px; padding: 1.1rem 3.5rem 1.1rem 1.35rem; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; font-weight: 500; color: var(--text); text-align: left; }
+    .choice-card:hover { border-color: rgba(124,58,237,0.35); background: var(--card-hover); color: var(--white); transform: translateX(3px); }
+    .choice-card.selected { border-color: var(--violet); background: rgba(124,58,237,0.08); color: var(--white); transform: translateX(3px); }
+    .choice-card.selected::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gradient); border-radius: 14px 0 0 14px; }
+    .choice-card .check-icon { position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--border-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
+    .choice-card.selected .check-icon { background: var(--gradient); border-color: transparent; }
+    .choice-card .check-icon svg { display: none; }
+    .choice-card.selected .check-icon svg { display: block; }
+    .choice-card.dimmed { opacity: 0.4; }
+
+    /* REACTION */
+    .reaction-box { background: rgba(124,58,237,0.07); border-left: 2px solid rgba(124,58,237,0.5); border-radius: 0 10px 10px 0; padding: 0.75rem 1rem; margin-bottom: 1.5rem; font-size: 0.82rem; color: var(--text); line-height: 1.65; animation: reactionFadeIn 0.3s ease; display: none; }
+    .reaction-box.visible { display: block; }
+    .reaction-box.has-link a { color: var(--cyan); font-weight: 600; text-decoration: none; }
+    .reaction-box.has-link a:hover { text-decoration: underline; }
+    @keyframes reactionFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* NAV BUTTONS */
+    .btn-row { display: flex; align-items: center; gap: 1rem; }
+    .btn-next { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gradient); border: none; border-radius: 100px; padding: 0.75rem 1.75rem; font-size: 0.85rem; font-weight: 700; color: white; cursor: pointer; font-family: inherit; transition: opacity 0.2s, transform 0.2s; opacity: 0.3; pointer-events: none; }
+    .btn-next.enabled { opacity: 1; pointer-events: auto; }
+    .btn-next.enabled:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-back { background: none; border: none; color: var(--text-muted); font-size: 0.78rem; font-weight: 500; cursor: pointer; font-family: inherit; display: flex; align-items: center; gap: 0.3rem; padding: 0.5rem; transition: color 0.2s; }
+    .btn-back:hover { color: var(--white); }
+
+    /* FORM FIELDS */
+    .field-group { margin-bottom: 1rem; }
+    .field-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.4rem; display: block; }
+    .field-input, .field-select, .field-textarea { width: 100%; background: var(--card); border: 1.5px solid var(--border-light); border-radius: 10px; padding: 0.75rem 1rem; font-size: 0.88rem; color: var(--white); font-family: inherit; outline: none; transition: border-color 0.2s; }
+    .field-input::placeholder, .field-textarea::placeholder { color: var(--text-muted); }
+    .field-input:focus, .field-select:focus, .field-textarea:focus { border-color: rgba(124,58,237,0.5); }
+    .field-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M1 3l4 4 4-4' stroke='%237a758f' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
+    .field-select option { background: #16132e; color: var(--white); }
+    .field-textarea { resize: none; height: 80px; line-height: 1.5; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .buyer-hint { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.75rem; font-style: italic; }
+    .buyer-label { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; color: var(--white); margin: 1.25rem 0 0.35rem; }
+
+    /* URGENCY CARDS (in contact step) */
+    .urgency-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+    .urgency-card { background: var(--card); border: 1.5px solid var(--border-light); border-radius: 12px; padding: 0.85rem 0.75rem; cursor: pointer; text-align: center; font-size: 0.78rem; font-weight: 600; color: var(--text); transition: all 0.2s; }
+    .urgency-card:hover { border-color: rgba(124,58,237,0.35); color: var(--white); }
+    .urgency-card.selected { border-color: var(--violet); background: rgba(124,58,237,0.08); color: var(--white); }
+    .urgency-title { display: block; font-weight: 700; margin-bottom: 0.2rem; font-size: 0.82rem; }
+    .urgency-sub { display: block; font-size: 0.68rem; color: var(--text-muted); font-weight: 400; }
+    .urgency-card.selected .urgency-sub { color: var(--violet-light); }
+
+    /* INTRO SCREEN */
+    .intro-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.2); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet-light); margin-bottom: 1.5rem; }
+    .intro-h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; color: var(--white); letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem; }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .intro-sub { font-size: 0.95rem; color: var(--text); line-height: 1.7; margin-bottom: 0.75rem; max-width: 540px; }
+    .intro-meta { font-size: 0.72rem; color: var(--text-muted); margin-top: 1rem; }
+    .intro-meta strong { color: var(--text); }
+    .btn-start { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--gradient); border: none; border-radius: 100px; padding: 0.85rem 2rem; font-size: 0.9rem; font-weight: 700; color: white; cursor: pointer; font-family: inherit; margin-top: 2rem; transition: opacity 0.2s, transform 0.2s; }
+    .btn-start:hover { opacity: 0.9; transform: translateY(-2px); }
+    .intro-stats { display: flex; gap: 2rem; margin-top: 2rem; }
+    .intro-stat { text-align: center; }
+    .intro-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; }
+    .intro-stat-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+
+    /* RESULTS SCREEN */
+    .results-header { margin-bottom: 2rem; }
+    .results-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 0.5rem; }
+    .results-header p { font-size: 0.85rem; color: var(--text-muted); }
+    .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .results-signals { background: var(--card); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 1.5rem; }
+    .results-signals h3 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 700; margin-bottom: 1rem; }
+    .signal-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border-light); }
+    .signal-item:last-child { border-bottom: none; }
+    .signal-icon { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-size: 0.65rem; font-weight: 700; }
+    .signal-icon.ok { background: rgba(16,185,129,0.15); color: var(--ok); }
+    .signal-icon.warn { background: rgba(245,158,11,0.15); color: var(--warn); }
+    .signal-icon.gap { background: rgba(244,63,94,0.12); color: var(--gap); }
+    .signal-text { font-size: 0.8rem; color: var(--text); line-height: 1.4; }
+    .signal-text strong { color: var(--white); display: block; margin-bottom: 0.1rem; font-weight: 600; font-size: 0.82rem; }
+    .results-rec { background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.07)); border: 1px solid rgba(124,58,237,0.2); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; }
+    .results-rec-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); font-weight: 700; margin-bottom: 0.75rem; }
+    .results-rec h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; line-height: 1.3; }
+    .results-rec p { font-size: 0.82rem; color: var(--text); line-height: 1.7; flex: 1; margin-bottom: 1.25rem; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gradient); border: none; border-radius: 100px; padding: 0.75rem 1.5rem; font-size: 0.82rem; font-weight: 700; color: white; cursor: pointer; text-decoration: none; font-family: inherit; transition: opacity 0.2s, transform 0.2s; }
+    .btn-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+    .results-share { margin-top: 1.25rem; text-align: center; }
+    .results-share-txt { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .results-share-btn { background: none; border: 1px solid var(--border-light); border-radius: 100px; padding: 0.45rem 1rem; font-size: 0.72rem; font-weight: 600; color: var(--text); cursor: pointer; font-family: inherit; transition: all 0.2s; }
+    .results-share-btn:hover { border-color: rgba(124,58,237,0.3); color: var(--white); }
+    .results-note { margin-top: 1.5rem; font-size: 0.72rem; color: var(--text-muted); text-align: center; line-height: 1.6; }
+    .results-note a { color: var(--cyan); text-decoration: none; }
+
+    /* STAGGER ANIMATION FOR RESULTS */
+    .stagger { opacity: 0; transform: translateY(12px); animation: staggerIn 0.4s ease forwards; }
+    @keyframes staggerIn { to { opacity: 1; transform: translateY(0); } }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .assess-header { padding: 0.85rem 1.25rem; }
+      .assess-wrap { padding: 5rem 1.25rem 2rem; }
+      .results-grid { grid-template-columns: 1fr; }
+      .urgency-grid { grid-template-columns: 1fr; }
+      .field-row { grid-template-columns: 1fr; }
+      .intro-stats { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- HEADER -->
+  <header class="assess-header">
+    <a href="/" class="assess-logo">
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+          <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+        </text>
+      </svg>
+    </a>
+    <a href="/" class="assess-exit">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      Exit diagnostic
+    </a>
+  </header>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar-track">
+    <div class="progress-bar-fill" id="progressFill"></div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="assess-wrap">
+
+    <!-- ===== SCREEN 0: INTRO ===== -->
+    <div class="screen active" id="screen-intro">
+      <div class="intro-badge">
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        AI Visibility Diagnostic
+      </div>
+      <h1 class="intro-h1">Your brand is either showing up<br>in AI search — <span class="gradient-text">or it isn't.</span></h1>
+      <p class="intro-sub">This diagnostic tells you which one, and exactly where the gaps are. No fake scores. No fluff. Just a clear read on your AI visibility and who closes the gaps.</p>
+      <p class="intro-sub" style="font-size:0.82rem;color:var(--text-muted);">Built for CMOs and PR directors who need real answers, not more reports.</p>
+      <div>
+        <button class="btn-start" id="btnStart" onclick="goNext()">
+          Start the diagnostic
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="intro-stats">
+        <div class="intro-stat">
+          <span class="intro-stat-num">7</span>
+          <span class="intro-stat-label">Questions</span>
+        </div>
+        <div class="intro-stat">
+          <span class="intro-stat-num">3 min</span>
+          <span class="intro-stat-label">Average time</span>
+        </div>
+        <div class="intro-stat">
+          <span class="intro-stat-num">0</span>
+          <span class="intro-stat-label">Fake scores</span>
+        </div>
+      </div>
+      <p class="intro-meta">By <strong>Sarah Evans</strong>, Partner at Zen Media.</p>
+    </div>
+
+    <!-- ===== SCREEN 1: BUSINESS ===== -->
+    <div class="screen" id="screen-business">
+      <div class="step-label"><span class="step-dot"></span> Step 1 of 7</div>
+      <div class="q-text">Let's start with who we're looking at.</div>
+      <div class="q-sub">We'll use this context when we review your results.</div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label" for="f-company">Company name</label>
+          <input class="field-input" id="f-company" type="text" placeholder="Acme Corp" autocomplete="organization">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="f-website">Website</label>
+          <input class="field-input" id="f-website" type="url" placeholder="acmecorp.com" autocomplete="url">
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="f-industry">Industry</label>
+        <select class="field-select" id="f-industry">
+          <option value="">Select industry</option>
+          <option value="B2B Technology / SaaS">B2B Technology / SaaS</option>
+          <option value="Professional Services">Professional Services</option>
+          <option value="Healthcare / Life Sciences">Healthcare / Life Sciences</option>
+          <option value="Financial Services">Financial Services</option>
+          <option value="Consumer / Retail">Consumer / Retail</option>
+          <option value="Manufacturing / Industrial">Manufacturing / Industrial</option>
+          <option value="Agency / Marketing">Agency / Marketing</option>
+          <option value="Nonprofit / Education">Nonprofit / Education</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="buyer-label">Who are you actually trying to reach?</div>
+      <p class="buyer-hint">Not org chart titles. Describe the person who signs — or influences — the deal.</p>
+
+      <div class="field-group">
+        <label class="field-label" for="f-b1">Buyer 1</label>
+        <input class="field-input" id="f-b1" type="text" placeholder="e.g. CMO at a Series B SaaS company scaling their first marketing team">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="f-b2">Buyer 2</label>
+        <input class="field-input" id="f-b2" type="text" placeholder="e.g. VP Communications at a PE-backed healthcare company">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="f-b3">Buyer 3 <span style="opacity:0.5;font-weight:400">(optional)</span></label>
+        <input class="field-input" id="f-b3" type="text" placeholder="e.g. Founder who runs comms themselves">
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goBack()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <button class="btn-next enabled" id="btn-business" onclick="saveBusiness()">
+          Next
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN 2: PROMPTS CHECK ===== -->
+    <div class="screen" id="screen-prompts">
+      <div class="step-label"><span class="step-dot"></span> Step 2 of 7 — The Reality Check</div>
+      <div class="q-text">Open a new tab. Ask ChatGPT or Perplexity: "Who are the top [your service type] firms to hire?"</div>
+      <div class="q-sub">We'll wait. Come back when you have a result.</div>
+
+      <div class="choice-list" id="choices-prompts">
+        <button class="choice-card" data-q="prompts" data-val="yes" onclick="selectChoice(this)">
+          We show up — and I know exactly what it says.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="prompts" data-val="checked" onclick="selectChoice(this)">
+          I've checked. We're not showing up consistently.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="prompts" data-val="no" onclick="selectChoice(this)">
+          I haven't done this yet.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+      </div>
+
+      <div class="reaction-box has-link" id="reaction-prompts"></div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goBack()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <button class="btn-next" id="btn-prompts" onclick="goNext()">
+          Next
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN 3: DOMAIN AUTHORITY ===== -->
+    <div class="screen" id="screen-da">
+      <div class="step-label"><span class="step-dot"></span> Step 3 of 7 — Your Foundation</div>
+      <div class="q-text">What's your domain authority?</div>
+      <div class="q-sub">Check it free at <a href="https://moz.com/domain-analysis" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;font-weight:600;">moz.com/domain-analysis</a> — takes one minute. It's the number AI authority signals are built on.</div>
+
+      <div class="choice-list" id="choices-da">
+        <button class="choice-card" data-q="da" data-val="under30" onclick="selectChoice(this)">
+          Under 30
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="da" data-val="30-59" onclick="selectChoice(this)">
+          30 to 59
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="da" data-val="60-79" onclick="selectChoice(this)">
+          60 to 79
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="da" data-val="80plus" onclick="selectChoice(this)">
+          80 or above
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="da" data-val="unknown" onclick="selectChoice(this)">
+          I just checked — I don't know what this means.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+      </div>
+
+      <div class="reaction-box" id="reaction-da"></div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goBack()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <button class="btn-next" id="btn-da" onclick="goNext()">
+          Next
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN 4: llms.txt ===== -->
+    <div class="screen" id="screen-llmstxt">
+      <div class="step-label"><span class="step-dot"></span> Step 4 of 7 — Technical Infrastructure</div>
+      <div class="q-text">Does your website have an llms.txt file?</div>
+      <div class="q-sub">It tells AI agents exactly what they're allowed to read on your site — a sitemap built for the AI economy, not for Google.</div>
+
+      <div class="choice-list" id="choices-llmstxt">
+        <button class="choice-card" data-q="llmstxt" data-val="yes" onclick="selectChoice(this)">
+          Yes — it's in place.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="llmstxt" data-val="no" onclick="selectChoice(this)">
+          No — but now I want one.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="llmstxt" data-val="unknown" onclick="selectChoice(this)">
+          I'm going to be honest — I don't know what this is.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+      </div>
+
+      <div class="reaction-box" id="reaction-llmstxt"></div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goBack()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <button class="btn-next" id="btn-llmstxt" onclick="goNext()">
+          Next
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN 5: DEEP LINKS ===== -->
+    <div class="screen" id="screen-deeplinks">
+      <div class="step-label"><span class="step-dot"></span> Step 5 of 7 — Citation Quality</div>
+      <div class="q-text">When your brand gets mentioned in press or publications — where do those links land?</div>
+      <div class="q-sub">Homepage links tell AI you exist. Deep links tell AI what you're an authority on. The difference determines whether you get cited as a brand or as an expert.</div>
+
+      <div class="choice-list" id="choices-deeplinks">
+        <button class="choice-card" data-q="deeplinks" data-val="specific" onclick="selectChoice(this)">
+          Specific pages — services, case studies, resources.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="deeplinks" data-val="mix" onclick="selectChoice(this)">
+          Some mix of both.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="deeplinks" data-val="homepage" onclick="selectChoice(this)">
+          Mostly the homepage.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="deeplinks" data-val="donttrack" onclick="selectChoice(this)">
+          I honestly don't track where citations land.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+      </div>
+
+      <div class="reaction-box" id="reaction-deeplinks"></div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goBack()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <button class="btn-next" id="btn-deeplinks" onclick="goNext()">
+          Next
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN 6: AI NOTICES ===== -->
+    <div class="screen" id="screen-ainotices">
+      <div class="step-label"><span class="step-dot"></span> Step 6 of 7 — A New Content Structure</div>
+      <div class="q-text">Have you published an AI Notice?</div>
+      <div class="q-explainer">
+        <strong>An AI Notice isn't a press release. It's not a blog post.</strong> It's a structured, authored piece of content written specifically to be cited inside AI-generated answers — distributed through channels LLMs actively scrape: wire services, high-authority publications, LinkedIn. The goal isn't a human reader. The goal is the model.
+      </div>
+
+      <div class="choice-list" id="choices-ainotices">
+        <button class="choice-card" data-q="ainotices" data-val="yes" onclick="selectChoice(this)">
+          Yes — we publish these.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="ainotices" data-val="traditional" onclick="selectChoice(this)">
+          No — we publish traditional press releases and blog content.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="ainotices" data-val="never-heard" onclick="selectChoice(this)">
+          This is the first I'm hearing about this.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+      </div>
+
+      <div class="reaction-box" id="reaction-ainotices"></div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goBack()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <button class="btn-next" id="btn-ainotices" onclick="goNext()">
+          Next
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN 7: RECENCY ===== -->
+    <div class="screen" id="screen-recency">
+      <div class="step-label"><span class="step-dot"></span> Step 7 of 7 — The 28-Day Window</div>
+      <div class="q-text">When did your brand last appear in an external publication, press outlet, or high-authority website?</div>
+      <div class="q-sub">AI engines weight recency. A consistent presence — at least every 28 days — keeps you in the model's active consideration. A gap longer than that starts to decay your visibility, even if your content is solid.</div>
+
+      <div class="choice-list" id="choices-recency">
+        <button class="choice-card" data-q="recency" data-val="2weeks" onclick="selectChoice(this)">
+          Within the last 2 weeks.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="recency" data-val="28days" onclick="selectChoice(this)">
+          Within the last 28 days.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="recency" data-val="lastmonth" onclick="selectChoice(this)">
+          Sometime last month or early last quarter.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+        <button class="choice-card" data-q="recency" data-val="inconsistent" onclick="selectChoice(this)">
+          Our earned media coverage isn't consistent.
+          <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        </button>
+      </div>
+
+      <div class="reaction-box" id="reaction-recency"></div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goBack()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <button class="btn-next" id="btn-recency" onclick="goNext()">
+          Next — get my results
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== SCREEN 8: CONTACT ===== -->
+    <div class="screen" id="screen-contact">
+      <div class="step-label"><span class="step-dot"></span> Last step</div>
+      <div class="q-text">Where do we send your results?</div>
+      <div class="q-sub">We'll identify exactly which team can close your specific gaps. No nurture sequences. Just the gaps and the next step.</div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label" for="f-fname">First name</label>
+          <input class="field-input" id="f-fname" type="text" placeholder="Sarah" autocomplete="given-name">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="f-email">Work email</label>
+          <input class="field-input" id="f-email" type="email" placeholder="you@company.com" autocomplete="email">
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="f-challenge">What's your biggest AI visibility challenge right now? <span style="opacity:0.5;font-weight:400">(optional)</span></label>
+        <textarea class="field-textarea" id="f-challenge" placeholder="e.g. We're visible in traditional search but completely absent from AI-generated answers..."></textarea>
+      </div>
+
+      <div class="field-group" style="margin-top:1.25rem;">
+        <label class="field-label" style="margin-bottom:0.75rem;">How quickly are you looking to move on this?</label>
+        <div class="urgency-grid" id="urgency-grid">
+          <div class="urgency-card" data-val="exploring" onclick="selectUrgency(this)">
+            <span class="urgency-title">Just exploring</span>
+            <span class="urgency-sub">Building a picture</span>
+          </div>
+          <div class="urgency-card" data-val="90days" onclick="selectUrgency(this)">
+            <span class="urgency-title">Within 90 days</span>
+            <span class="urgency-sub">Evaluating options</span>
+          </div>
+          <div class="urgency-card" data-val="now" onclick="selectUrgency(this)">
+            <span class="urgency-title">We need to move now</span>
+            <span class="urgency-sub">Ready to start</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row" style="margin-top:1.5rem;">
+        <button class="btn-back" onclick="goBack()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <button class="btn-next" id="btn-contact" onclick="submitAndShowResults()">
+          Get my results
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <p style="font-size:0.68rem;color:var(--text-muted);margin-top:0.75rem;">By submitting you agree to be contacted by the askSarah.ai team. We won't spam you.</p>
+    </div>
+
+    <!-- ===== SCREEN 9: RESULTS ===== -->
+    <div class="screen" id="screen-results">
+      <div class="results-header">
+        <h2>Here's where you stand, <span id="results-name" class="gradient-text"></span></h2>
+        <p>Based on your answers — a straightforward read on your AI visibility gaps and the right next step.</p>
+      </div>
+      <div class="results-grid">
+        <div class="results-signals stagger" style="animation-delay:0.1s">
+          <h3>Signal Checklist</h3>
+          <div id="signal-list"></div>
+        </div>
+        <div class="results-rec stagger" style="animation-delay:0.25s">
+          <div class="results-rec-label" id="rec-label">Our Recommendation</div>
+          <h3 id="rec-heading"></h3>
+          <p id="rec-body"></p>
+          <a href="#" id="rec-cta" class="btn-cta" target="_blank">
+            <span id="rec-cta-text"></span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <p class="results-note" id="results-note">
+        Your results have been sent to our team. Expect to hear from us within 1 business day.<br>
+        Questions right now? <a href="mailto:sarah@evans-global.com">sarah@evans-global.com</a>
+      </p>
+    </div>
+
+  </main>
+
+  <script>
+    // ─── STATE ───────────────────────────────────────────────────────────────
+    const state = {
+      company: '', website: '', industry: '',
+      buyers: ['', '', ''],
+      prompts: null, da: null, llmstxt: null,
+      deeplinks: null, ainotices: null, recency: null,
+      fname: '', email: '', challenge: '', urgency: null
+    };
+
+    // Screen IDs in order
+    const SCREENS = [
+      'intro', 'business', 'prompts', 'da',
+      'llmstxt', 'deeplinks', 'ainotices', 'recency',
+      'contact', 'results'
+    ];
+    let current = 0;
+
+    // ─── REACTIONS ───────────────────────────────────────────────────────────
+    const REACTIONS = {
+      prompts: {
+        yes:     'Good. That means you know your starting position. Most brands don\'t.',
+        checked: 'Knowing the gap is step one. Let\'s figure out why — and close it.',
+        no:      'Start there first. Five minutes and you\'ll have a completely different picture of where you stand. <a href="https://prompts.zenmedia.com/" target="_blank" rel="noopener">Run your prompts →</a>'
+      },
+      da: {
+        'under30':  'Before AI can amplify your brand, search engines need to trust it. Domain authority is the foundation — and it\'s fixable.',
+        '30-59':   'You\'re in range, but AI visibility at this level is inconsistent. DA work and AI strategy need to run simultaneously.',
+        '60-79':   'Solid foundation. This is the range where AI visibility compounds. Let\'s see what you\'re building on it.',
+        '80plus':  'Strong domain. The question now is whether you\'re using that authority for AI visibility — or leaving it on the table.',
+        'unknown': 'That\'s where we start. The number matters more than most people realize.'
+      },
+      llmstxt: {
+        yes:     'A technical signal most brands are still missing. You have it.',
+        no:      'It\'s a 15-minute fix. We can point you to exactly how.',
+        unknown: 'Most PR teams haven\'t touched this yet — which is exactly why it\'s an opportunity.'
+      },
+      deeplinks: {
+        specific:  'That\'s the right pattern. Topical citations are what build AI authority.',
+        mix:       'Better than most, but the homepage citations are essentially wasted authority.',
+        homepage:  'One of the most common — and fixable — gaps. AI reads homepage citations as "this brand exists." Deep links say "this brand is an expert in X."',
+        donttrack: 'Most don\'t. It\'s costing you citations you\'re not even aware of.'
+      },
+      ainotices: {
+        yes:          'You\'re ahead of most. That\'s a real differentiator right now.',
+        traditional:  'Traditional is still valuable. AI Notices are a different layer — both belong in your strategy.',
+        'never-heard': 'You\'re not alone. Early movers in any new content structure tend to capture disproportionate AI attention.'
+      },
+      recency: {
+        '2weeks':      'That\'s the cadence that keeps you in AI\'s consideration set. Keep it going.',
+        '28days':      'You\'re at the threshold. Consistent is the goal — not occasional bursts.',
+        lastmonth:     'Starting to decay. A gap of 45+ days registers as stale to AI engines.',
+        inconsistent:  'This gap is the hardest to close without a system. A 28-day earned media cadence is exactly what Published Monthly is built for.'
+      }
+    };
+
+    // ─── ROUTING ─────────────────────────────────────────────────────────────
+    const ROUTES = {
+      seo: {
+        label: 'Foundation First',
+        heading: 'Your domain authority needs work before AI visibility can hold.',
+        body:    'AI engines follow trust signals. Right now, your domain authority isn\'t at the threshold where AI visibility strategy compounds — and building on a weak foundation wastes the investment. Our SEO team fixes that first, fast.',
+        cta:     'Talk to our SEO team →',
+        // TODO: Replace with actual SEO team booking link
+        href:    'mailto:sarah@evans-global.com?subject=SEO Foundation %E2%80%94 AI Visibility Assessment'
+      },
+      zavi: {
+        label:   'Parallel Track',
+        heading: 'You need domain authority and AI visibility built at the same time.',
+        body:    'You\'re in the growth zone — enough trust to start building, but not enough to make it compound. ZAVI runs DA and AI visibility in parallel so you\'re not waiting for one to enable the other. That\'s what it was built for.',
+        cta:     'Learn about ZAVI →',
+        // TODO: Replace with ZAVI URL
+        href:    'mailto:sarah@evans-global.com?subject=ZAVI %E2%80%94 AI Visibility Assessment'
+      },
+      pm: {
+        label:   'The AI Visibility Layer',
+        heading: 'You have the domain authority. You\'re missing the AI visibility strategy.',
+        body:    'Your foundation can support consistent AI citation — but the infrastructure isn\'t in place yet. llms.txt, AI Notices, a 28-day earned media cadence, deep-link citation strategy. Published Monthly was built for exactly where you are.',
+        cta:     'Explore Published Monthly →',
+        // TODO: Replace with Published Monthly URL
+        href:    'mailto:sarah@evans-global.com?subject=Published Monthly %E2%80%94 AI Visibility Assessment'
+      },
+      consult: {
+        label:   'Close the Last Gaps',
+        heading: 'You\'re further along than most. Let\'s audit what AI is actually saying.',
+        body:    'Your foundation is strong and you\'ve built real AI visibility signals. The next move is a direct audit of what AI engines are saying about you — and a strategy to close whatever gaps remain.',
+        cta:     'Let\'s talk →',
+        href:    'mailto:sarah@evans-global.com?subject=AI Visibility Consult %E2%80%94 Assessment Results'
+      }
+    };
+
+    function getRoute() {
+      const daScore = { 'under30': 0, '30-59': 1, '60-79': 2, '80plus': 3, 'unknown': 0 };
+      const da = daScore[state.da] ?? 0;
+      const gaps = [
+        state.prompts !== 'yes',
+        state.llmstxt !== 'yes',
+        state.deeplinks === 'homepage' || state.deeplinks === 'donttrack',
+        state.ainotices !== 'yes',
+        state.recency === 'inconsistent' || state.recency === 'lastmonth'
+      ].filter(Boolean).length;
+
+      if (da === 0) return 'seo';
+      if (da === 1) return 'zavi';
+      if (gaps >= 3) return 'pm';
+      return 'consult';
+    }
+
+    function buildSignals() {
+      return [
+        {
+          label: 'Knows what AI says about them',
+          note:  state.prompts === 'yes' ? 'Actively monitoring' : state.prompts === 'checked' ? 'Checked, results inconsistent' : 'Not yet checked',
+          status: state.prompts === 'yes' ? 'ok' : state.prompts === 'checked' ? 'warn' : 'gap'
+        },
+        {
+          label: 'Domain Authority 60+',
+          note:  state.da === '60-79' || state.da === '80plus' ? `DA ${state.da === '80plus' ? '80+' : '60–79'} — strong foundation` : state.da === '30-59' ? 'DA 30–59 — needs work' : state.da === 'unknown' ? 'Unknown — check moz.com' : 'Under 30 — foundation gap',
+          status: (state.da === '60-79' || state.da === '80plus') ? 'ok' : state.da === '30-59' ? 'warn' : 'gap'
+        },
+        {
+          label: 'llms.txt in place',
+          note:  state.llmstxt === 'yes' ? 'Configured' : state.llmstxt === 'no' ? 'Not yet in place' : 'Unknown / not set up',
+          status: state.llmstxt === 'yes' ? 'ok' : 'gap'
+        },
+        {
+          label: 'Deep-page citations (not homepage)',
+          note:  state.deeplinks === 'specific' ? 'Citations land on specific pages' : state.deeplinks === 'mix' ? 'Mix — some deep, some homepage' : state.deeplinks === 'homepage' ? 'Mostly homepage' : 'Not tracked',
+          status: state.deeplinks === 'specific' ? 'ok' : state.deeplinks === 'mix' ? 'warn' : 'gap'
+        },
+        {
+          label: 'AI Notices published',
+          note:  state.ainotices === 'yes' ? 'Active' : state.ainotices === 'traditional' ? 'Traditional PR only' : 'Not yet — new concept',
+          status: state.ainotices === 'yes' ? 'ok' : 'gap'
+        },
+        {
+          label: 'Consistent 28-day earned media',
+          note:  state.recency === '2weeks' ? 'Active — within 2 weeks' : state.recency === '28days' ? 'At the threshold' : state.recency === 'lastmonth' ? 'Starting to decay' : 'Inconsistent cadence',
+          status: state.recency === '2weeks' || state.recency === '28days' ? 'ok' : state.recency === 'lastmonth' ? 'warn' : 'gap'
+        }
+      ];
+    }
+
+    // ─── NAVIGATION ──────────────────────────────────────────────────────────
+    function showScreen(idx, direction) {
+      const oldEl = document.getElementById('screen-' + SCREENS[current]);
+      const newEl = document.getElementById('screen-' + SCREENS[idx]);
+      oldEl.classList.remove('active');
+      newEl.classList.add('active');
+      newEl.style.animation = 'none';
+      newEl.offsetHeight; // reflow
+      newEl.style.animation = direction === 'back'
+        ? 'slideInBack 0.35s cubic-bezier(0.4,0,0.2,1)'
+        : 'slideIn 0.35s cubic-bezier(0.4,0,0.2,1)';
+      current = idx;
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goNext() {
+      if (current < SCREENS.length - 1) showScreen(current + 1, 'next');
+    }
+
+    function goBack() {
+      if (current > 0) showScreen(current - 1, 'back');
+    }
+
+    function updateProgress() {
+      // Progress across question screens (1-8, excluding intro and results)
+      const questionScreens = SCREENS.length - 2; // 8 question + contact screens
+      const questionIdx = current - 1; // 0-indexed, skipping intro
+      const pct = current === 0 ? 0 : current >= SCREENS.length - 1 ? 100 : (questionIdx / questionScreens) * 100;
+      document.getElementById('progressFill').style.width = pct + '%';
+    }
+
+    // ─── CARD SELECTION ──────────────────────────────────────────────────────
+    function selectChoice(el) {
+      const q   = el.dataset.q;
+      const val = el.dataset.val;
+      state[q] = val;
+
+      // Card states
+      const cards = el.closest('.choice-list').querySelectorAll('.choice-card');
+      cards.forEach(c => {
+        c.classList.remove('selected');
+        c.classList.add('dimmed');
+      });
+      el.classList.remove('dimmed');
+      el.classList.add('selected');
+
+      // Show reaction
+      const reactionEl = document.getElementById('reaction-' + q);
+      if (reactionEl && REACTIONS[q] && REACTIONS[q][val]) {
+        reactionEl.innerHTML = REACTIONS[q][val];
+        reactionEl.classList.add('visible');
+      } else if (reactionEl) {
+        reactionEl.classList.remove('visible');
+      }
+
+      // Enable next button
+      const btnId = 'btn-' + q;
+      const btn   = document.getElementById(btnId);
+      if (btn) btn.classList.add('enabled');
+    }
+
+    function selectUrgency(el) {
+      state.urgency = el.dataset.val;
+      document.querySelectorAll('.urgency-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById('btn-contact').classList.add('enabled');
+    }
+
+    // ─── BUSINESS STEP ───────────────────────────────────────────────────────
+    function saveBusiness() {
+      state.company  = document.getElementById('f-company').value.trim();
+      state.website  = document.getElementById('f-website').value.trim();
+      state.industry = document.getElementById('f-industry').value;
+      state.buyers   = [
+        document.getElementById('f-b1').value.trim(),
+        document.getElementById('f-b2').value.trim(),
+        document.getElementById('f-b3').value.trim()
+      ];
+      goNext();
+    }
+
+    // ─── CONTACT + SUBMIT ────────────────────────────────────────────────────
+    function submitAndShowResults() {
+      state.fname     = document.getElementById('f-fname').value.trim();
+      state.email     = document.getElementById('f-email').value.trim();
+      state.challenge = document.getElementById('f-challenge').value.trim();
+
+      if (!state.email) {
+        document.getElementById('f-email').focus();
+        document.getElementById('f-email').style.borderColor = 'rgba(244,63,94,0.5)';
+        return;
+      }
+
+      // Send via mailto (fire and show results)
+      sendLeadEmail();
+      renderResults();
+      goNext();
+    }
+
+    function sendLeadEmail() {
+      const route   = getRoute();
+      const signals = buildSignals();
+      const gapCount = signals.filter(s => s.status === 'gap').length;
+
+      const body = encodeURIComponent(
+        `AI Visibility Diagnostic — New Lead\n\n` +
+        `Name: ${state.fname}\nEmail: ${state.email}\n` +
+        `Company: ${state.company}\nWebsite: ${state.website}\n` +
+        `Industry: ${state.industry}\n\n` +
+        `Buyers:\n${state.buyers.filter(Boolean).map((b,i)=>`  ${i+1}. ${b}`).join('\n')}\n\n` +
+        `DIAGNOSTIC RESULTS\n` +
+        `Routing: ${route.toUpperCase()}\n` +
+        `Gaps: ${gapCount} of 6 signals\n\n` +
+        `Answers:\n` +
+        `  Prompts check: ${state.prompts}\n` +
+        `  Domain Authority: ${state.da}\n` +
+        `  llms.txt: ${state.llmstxt}\n` +
+        `  Deep links: ${state.deeplinks}\n` +
+        `  AI Notices: ${state.ainotices}\n` +
+        `  Recency: ${state.recency}\n` +
+        `  Urgency: ${state.urgency}\n\n` +
+        `Challenge: ${state.challenge || 'Not provided'}`
+      );
+
+      // Open mailto in background (fire and forget)
+      const link = document.createElement('a');
+      link.href  = `mailto:sarah@evans-global.com?subject=${encodeURIComponent('New AI Visibility Diagnostic Lead — ' + (state.company || state.fname))}&body=${body}`;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // ─── RESULTS ─────────────────────────────────────────────────────────────
+    function renderResults() {
+      // Name greeting
+      document.getElementById('results-name').textContent = state.fname || 'there';
+
+      // Signal list
+      const signals  = buildSignals();
+      const signalEl = document.getElementById('signal-list');
+      const icons    = { ok: '✓', warn: '≈', gap: '✗' };
+      signalEl.innerHTML = signals.map(s => `
+        <div class="signal-item">
+          <div class="signal-icon ${s.status}">${icons[s.status]}</div>
+          <div class="signal-text">
+            <strong>${s.label}</strong>
+            ${s.note}
+          </div>
+        </div>`).join('');
+
+      // Routing recommendation
+      const route = ROUTES[getRoute()];
+      document.getElementById('rec-label').textContent   = route.label;
+      document.getElementById('rec-heading').textContent = route.heading;
+      document.getElementById('rec-body').textContent    = route.body;
+      document.getElementById('rec-cta-text').textContent = route.cta;
+      document.getElementById('rec-cta').href            = route.href;
+
+      // Personalized note
+      if (state.company) {
+        document.getElementById('results-note').innerHTML =
+          `Your results for <strong>${state.company}</strong> have been sent to our team. Expect to hear from us within 1 business day.<br>` +
+          `Questions right now? <a href="mailto:sarah@evans-global.com">sarah@evans-global.com</a>`;
+      }
+    }
+
+    // ─── CONTACT VALIDATION ──────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      const emailInput = document.getElementById('f-email');
+      const nameInput  = document.getElementById('f-fname');
+      const contactBtn = document.getElementById('btn-contact');
+
+      function checkContactReady() {
+        const ready = emailInput.value.trim().length > 3 && nameInput.value.trim().length > 0;
+        if (ready) contactBtn.classList.add('enabled');
+        else contactBtn.classList.remove('enabled');
+      }
+      emailInput.addEventListener('input', checkContactReady);
+      nameInput.addEventListener('input', checkContactReady);
+      emailInput.addEventListener('focus', () => { emailInput.style.borderColor = ''; });
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>
