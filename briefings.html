@@ -43,6 +43,33 @@
     "blogPost": [
       {
         "@type": "BlogPosting",
+        "headline": "AI Brief \u2014 April 23, 2026",
+        "description": "OpenAI replaced Custom GPTs with Workspace Agents that run in Slack. Meta is recording employee keystrokes to train AI agents. SAP and Google let marketers delegate a whole campaign with one prompt. Google wired Gemini into Gmail, Docs, Slides, Drive, and Calendar. Canva AI 2.0 can build your next campaign from a single prompt.",
+        "datePublished": "2026-04-23",
+        "url": "https://asksarah.ai/briefings#april-23-2026",
+        "author": { "@type": "Person", "name": "Sarah Evans" },
+        "keywords": ["OpenAI", "Workspace Agents", "Meta", "SAP", "Google Workspace", "Canva AI", "AI Agents"]
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "AI Brief \u2014 April 22, 2026",
+        "description": "OpenAI launched ChatGPT Images 2.0 with clean text rendering. Google dropped new agents across Gemini Enterprise. Yelp's AI assistant now books restaurants, doctors, and gyms. Adobe's Brand Intelligence learns from your rejections. HubSpot customers lost 27% of organic traffic — AEO is the fix.",
+        "datePublished": "2026-04-22",
+        "url": "https://asksarah.ai/briefings#april-22-2026",
+        "author": { "@type": "Person", "name": "Sarah Evans" },
+        "keywords": ["OpenAI", "ChatGPT Images", "Google Gemini", "Yelp", "Adobe", "HubSpot", "AEO"]
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "AI Brief \u2014 April 21, 2026",
+        "description": "Apple's new CEO John Ternus faces a defining AI challenge. An AI agent is autonomously selling backyard pools. Wikipedia bans AI content while Cambridge adds 'slopper' to the dictionary. 500K people asked AI about their health in one month. And Claude rebuilt its desktop for parallel agents.",
+        "datePublished": "2026-04-21",
+        "url": "https://asksarah.ai/briefings#april-21-2026",
+        "author": { "@type": "Person", "name": "Sarah Evans" },
+        "keywords": ["Apple", "John Ternus", "AI agents", "Wikipedia", "Cambridge Dictionary", "Claude", "Healthcare AI"]
+      },
+      {
+        "@type": "BlogPosting",
         "headline": "AI Brief \u2014 April 18, 2026",
         "description": "Meta confirmed 8,000 layoffs starting May 20. Anthropic shipped Opus 4.7 with a design tool. 68% of TV producers now prefer AI-optimized pitches. LinkedIn Depth Score rewards carousels. Super-commenter strategy beats cold publishing. Brands shifting 20-30% of ad budgets to owned media.",
         "datePublished": "2026-04-18",
@@ -357,6 +384,51 @@
 
     // ─── BRIEFINGS DATA ────────────────────────────────────────────────────
     const briefings = [
+      {
+        slug: 'april-23-2026',
+        date: 'April 23, 2026',
+        title: 'AI Brief — April 23, 2026',
+        teaser: 'OpenAI replaced Custom GPTs with Workspace Agents that run in Slack. Meta is recording employee keystrokes to train AI agents. SAP and Google let marketers delegate a whole campaign with one prompt. Google wired Gemini into every Workspace app. And Canva AI 2.0 ships your next campaign from a single prompt.',
+        linkedinUrl: null,
+        tags: ['OpenAI', 'Meta', 'SAP + Google', 'Google Workspace', 'Canva AI'],
+        items: [
+          { n: 1, h: 'OPENAI REPLACED CUSTOM GPTS WITH WORKSPACE AGENTS. THEY RUN IN SLACK.', b: 'OpenAI launched Workspace Agents, replacing Custom GPTs. Teams build one Codex-powered agent, run it in ChatGPT or Slack, and improve it together. Free until May 6.', t: 'Think about the one repeat request your team keeps making — a pitch list or a recap from a transcript. Build it this week as a shared workspace agent.' },
+          { n: 2, h: 'META IS NOW RECORDING EMPLOYEE KEYSTROKES TO TRAIN AI AGENTS.', b: 'CNBC reported Meta rolled out its Model Capability Initiative. Software on US laptops captures clicks, keystrokes, and screenshots on Google, LinkedIn, and Wikipedia. Staff is calling it dystopian. The goal is teaching agents how a human uses a dropdown or a form.', t: 'Every click on your brand\'s site is becoming agent training data. Rewrite the buttons and forms on your three busiest pages so a new hire could finish the task without help.' },
+          { n: 3, h: 'SAP AND GOOGLE LET MARKETERS DELEGATE A WHOLE CAMPAIGN WITH ONE PROMPT.', b: 'SAP Engagement Cloud plugged into Gemini Enterprise. Marketers prompt "Increase repeat purchases from the last 30 days" and Joule plus Gemini handle content, personalization, and channel execution.', t: 'Write one of next month\'s campaign briefs as a single outcome prompt. If your current stack cannot run it end to end, you just found your H2 tech gap.' },
+          { n: 4, h: 'GOOGLE WIRED GEMINI INTO GMAIL, DOCS, SLIDES, DRIVE, AND CALENDAR.', b: 'Google launched Workspace Intelligence at Cloud Next. Gemini now pulls real-time context from your inbox, calendar, chat, and Drive. Docs and Slides ship single-shot drafts grounded in your templates, and Drive becomes an active knowledge base.', t: 'Turn it on this week. Ask it to summarize every thread with your three biggest clients and draft what you owe each of them today.' },
+          { n: 5, h: 'CANVA AI 2.0 CAN BUILD YOUR NEXT CAMPAIGN FROM A SINGLE PROMPT.', b: 'Canva launched AI 2.0 with six agentic workflows, connectors into Slack, Notion, Gmail, HubSpot, Drive, and Zoom, brand intelligence, and Canva Code 2.0 with HTML import. Marketers get fully editable, brand-safe designs from one prompt.', t: 'Pick the next deliverable you would normally outsource. Prompt Canva AI 2.0 with your campaign name and ship v1 before lunch.' }
+        ]
+      },
+      {
+        slug: 'april-22-2026',
+        date: 'April 22, 2026',
+        title: 'AI Brief — April 22, 2026',
+        teaser: 'OpenAI Images 2.0 finally renders readable text in graphics. Google dropped agents across every Workspace desk. Yelp books your restaurant, doctor, and gym in one chat. Adobe Brand Intelligence learns from your rejections. And HubSpot customers lost 27% of organic traffic — AEO is the fix.',
+        linkedinUrl: 'https://www.linkedin.com/posts/prsarahevans_ai-brief-april-22-activity-7452698365995364353-iwBX',
+        tags: ['OpenAI', 'Google', 'Yelp', 'Adobe', 'HubSpot AEO'],
+        items: [
+          { n: 1, h: 'OPENAI DROPPED CHATGPT IMAGES 2.0. IT CAN FINALLY PUT READABLE TEXT IN YOUR GRAPHICS.', b: 'OpenAI launched Images 2.0 with native reasoning, 2K output, and character consistency across frames. Text now renders cleanly in English plus five non-Latin scripts. Free tier gets Instant mode. Plus and Pro unlock Thinking mode, which reasons before drawing.', t: 'Think about the carousel cover or quote card you normally wait on design for. Build it yourself this week with the headline baked into the image.' },
+          { n: 2, h: 'GOOGLE DROPPED NEW AI AGENTS TO CHALLENGE OPENAI AND ANTHROPIC.', b: 'Bloomberg reported that Google released new agents across Gemini Enterprise and Deep Research, putting an AI agent on every employee desktop and matching Claude and ChatGPT on MCP integration.', t: 'Every Workspace buyer now has Deep Research on their desk, drafting cited vendor evals before the first call. Your PR job is to be in those citations.' },
+          { n: 3, h: 'YELP\'S AI ASSISTANT NOW BOOKS YOUR RESTAURANTS, DOCTORS, AND GYMS IN ONE CHAT.', b: 'Yelp\'s Assistant upgraded to cover every category. Ask for a birthday dinner with vegan options, then book the reservation in the same chat. Integrations are live with Vagaro, Zocdoc, Calendly, and DoorDash.', t: 'If you market a local service brand, ask Yelp\'s Assistant the top three questions your buyers ask. If your listing is not in the answer, time to work on AI visibility specifically in this lane.' },
+          { n: 4, h: 'ADOBE LAUNCHED A BRAND INTELLIGENCE ENGINE THAT LEARNS FROM YOUR REJECTIONS.', b: 'Adobe unveiled Brand Intelligence at Summit. It feeds AI agents not just static guidelines, but the annotations, rejections, and approvals from every review cycle. Nvidia CEO Jensen Huang told the room, "AI is finally producing work."', t: 'Find the three signals that matter most for your brand: feedback you give on copy, creative you reject, edits you always make. Feed those into a GPT, skill, or project.' },
+          { n: 5, h: 'HUBSPOT CUSTOMERS LOST 27% OF THEIR ORGANIC TRAFFIC. AEO IS THE FIX.', b: 'HubSpot launched HubSpot AEO at Spring Spotlight, a $50/month tool that tracks how ChatGPT, Gemini, and Perplexity cite your brand. Beta users prioritizing answer engines grew AI referral traffic 20%. The broader HubSpot base lost 27% of organic search year over year.', t: 'Run HubSpot\'s free AEO Grader today. The prompts it surfaces are what your buyers are typing into AI, and that is your next three months of content.' }
+        ]
+      },
+      {
+        slug: 'april-21-2026',
+        date: 'April 21, 2026',
+        title: 'AI Brief — April 21, 2026',
+        teaser: 'Apple\'s new CEO is a hardware guy — and his defining challenge is fixing AI. An AI agent is selling backyard pools while its builder sleeps. Wikipedia banned AI content. And Claude rebuilt its desktop for parallel agents.',
+        linkedinUrl: 'https://www.linkedin.com/feed/update/urn:li:activity:7452331899638743041/',
+        tags: ['Apple', 'AI Agents', 'Wikipedia', 'Claude', 'Healthcare AI'],
+        items: [
+          { n: 1, h: 'APPLE\'S NEW CEO IS A HARDWARE GUY. HIS BIGGEST CHALLENGE IS FIXING AI.', b: 'Tim Cook is stepping down September 1. His successor, John Ternus, is a 25-year hardware engineer who built iPad, AirPods, and Apple Silicon. CNBC says his #1 job is fixing Apple Intelligence. By picking a hardware leader, Apple is betting AI will run through devices, not the cloud.', t: 'If Apple Intelligence gets a device-first rebuild, on-device AI will process your brand\'s content before a human ever sees it. That shift is coming fast.' },
+          { n: 2, h: 'AN AI AGENT IS SELLING BACKYARD POOLS WHILE ITS BUILDER SLEEPS.', b: 'OpenClaw finds homes worth $500K to $1.2M without a pool, renders a realistic pool in the backyard, estimates the cost, and mails a postcard to the homeowner. Fully autonomous.', t: 'Think about what your team does manually that an agent could do overnight: monitoring every journalist who covered your topic this year, scanning AI answers for brand gaps, or surfacing competitor storyline opportunities before Monday.' },
+          { n: 3, h: 'WIKIPEDIA BANNED AI CONTENT. CAMBRIDGE DICTIONARY ADDED "SLOPPER."', b: 'Wikipedia\'s editors voted to ban all AI-generated text from its 7.1 million articles, citing fabricated citations and unverifiable claims. Meanwhile, Cambridge Dictionary added "slopper," a person or bot flooding the web with low-quality AI content.', t: 'I built an AI glossary on asksarah.ai specifically for PR and marketing teams who need to stay current without the jargon.' },
+          { n: 4, h: '500,000 PEOPLE ASKED AN AI CHATBOT ABOUT THEIR HEALTH IN ONE MONTH.', b: 'Microsoft analyzed 500K+ Copilot health conversations from January 2026. One in five were personal symptom checks. One in seven were about someone else — a child, a parent, a partner. People are trusting AI for decisions that actually matter.', t: 'Your clients\' customers are doing the same thing in your industry.' },
+          { n: 5, h: 'CLAUDE REBUILT ITS DESKTOP FOR PARALLEL AGENTS. HERE\'S WHAT IT MEANS.', b: 'Anthropic redesigned Claude so you can run multiple AI agents at once in one window. One pulling coverage, one drafting talking points, one monitoring social.', t: 'Your goal is to stop using AI one task at a time. Test running two research tasks in parallel this week. The leap from AI assistant to AI team is happening.' }
+        ]
+      },
       {
         slug: 'april-20-2026',
         date: 'April 20, 2026',
