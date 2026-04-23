@@ -124,6 +124,19 @@
     .card-10 .card-hero-bg::before { content: ''; position: absolute; width: 140px; height: 140px; border: 2px solid rgba(167,139,250,0.15); border-radius: 12px; top: 10px; right: 15%; transform: rotate(15deg); }
     .card-10 .card-hero-bg::after { content: ''; position: absolute; width: 90px; height: 90px; border: 2px solid rgba(34,211,238,0.12); border-radius: 50%; bottom: -10px; left: 20%; }
 
+    /* AEO Featured Card — full width */
+    .card-featured { grid-column: 1 / -1; flex-direction: row; }
+    .card-featured .card-hero { width: 280px; flex-shrink: 0; height: auto; min-height: 160px; }
+    .card-featured .card-hero-bg { background: linear-gradient(135deg, rgba(124,58,237,0.35), rgba(6,182,212,0.25)); }
+    .card-featured .card-hero-bg::before { content: ''; position: absolute; width: 220px; height: 220px; border: 2px solid rgba(167,139,250,0.18); border-radius: 50%; top: -50px; right: -60px; }
+    .card-featured .card-hero-bg::after { content: ''; position: absolute; width: 120px; height: 120px; border: 2px solid rgba(34,211,238,0.14); border-radius: 50%; bottom: -20px; left: 10px; }
+    .card-featured .card-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5rem; }
+    .card-featured .new-badge { display: inline-flex; align-items: center; gap: 0.35rem; background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(6,182,212,0.15)); border: 1px solid rgba(6,182,212,0.3); border-radius: 100px; padding: 0.2rem 0.65rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan-light); margin-bottom: 0.5rem; }
+    @media (max-width: 768px) {
+      .card-featured { flex-direction: column; }
+      .card-featured .card-hero { width: 100%; min-height: 140px; }
+    }
+
     .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
     .card-body h3 { font-family: 'Space Grotesk'; font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; line-height: 1.3; }
     .card-body p { font-size: 0.84rem; color: var(--text); line-height: 1.6; margin-bottom: 1rem; flex: 1; }
@@ -225,6 +238,23 @@
   </div>
 
   <div class="learn-grid">
+    <!-- FEATURED: AEO Pillar Page -->
+    <a href="answer-engine-optimization.html" class="learn-card card-featured">
+      <div class="card-hero">
+        <div class="card-hero-bg"></div>
+        <div class="card-icon">🎯</div>
+      </div>
+      <div class="card-body">
+        <div class="new-badge">✦ New Pillar</div>
+        <h3>Answer Engine Optimization (AEO): The Complete Guide for PR &amp; Marketing Teams</h3>
+        <p>The discipline replacing SEO. How ChatGPT, Perplexity, and Gemini decide what to cite — and exactly how to make sure your brand is in those answers. Includes audit framework, content strategy, and a 90-day action plan.</p>
+        <div class="card-meta">
+          <span class="card-read-time">📖 25 min read</span>
+          <span class="card-cta">Read the Pillar →</span>
+        </div>
+      </div>
+    </a>
+
     <a href="claude-cowork-guide.html" class="learn-card card-8">
       <div class="card-hero"><div class="card-hero-bg"></div></div>
       <div class="card-body">
