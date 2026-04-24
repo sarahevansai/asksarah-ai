@@ -25,6 +25,7 @@ export default function BriefingsPage() {
           <div className="flex gap-8 text-sm">
             <Link href="/ai-score" className="hover:text-brand-cyan transition text-gray-300">Tools</Link>
             <Link href="/briefings" className="text-brand-cyan font-semibold">AI Briefings</Link>
+            <Link href="/research" className="hover:text-brand-cyan transition text-gray-300">Research</Link>
             <Link href="/articles" className="hover:text-brand-cyan transition text-gray-300">Articles</Link>
             <a href="https://stan.store/asksarahevans" target="_blank" rel="noopener noreferrer" className="hover:text-brand-cyan transition text-gray-300">Shop</a>
           </div>
