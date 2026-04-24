@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI in PR & Communications: Stats, Data & Research Hub — Ask Sarah</title>
+  <meta name="description" content="The most important statistics on AI adoption, content performance, brand strategy, and market revenue for PR and marketing professionals. Updated from primary sources.">
+  <meta property="og:title" content="AI in PR & Communications: Stats, Data & Research Hub — Ask Sarah">
+  <meta property="og:description" content="The most important statistics on AI adoption, content performance, brand strategy, and market revenue for PR and marketing professionals. Updated from primary sources.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/research.html">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@prsarahevans">
+  <meta name="twitter:title" content="AI in PR & Communications: Stats & Research Hub">
+  <meta name="twitter:description" content="The most important statistics on AI adoption, content performance, brand strategy, and market revenue.">
+  <link rel="canonical" href="https://asksarah.ai/research.html">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838;
+      --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f;
+      --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(124,58,237,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(6,182,212,0.07); animation: o2 25s ease-in-out infinite; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border: none; }
+    /* Dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-btn { color: var(--text-muted); background: none; border: none; font-size: 0.8rem; font-weight: 500; cursor: pointer; font-family: inherit; letter-spacing: 0.02em; display: flex; align-items: center; gap: 0.3rem; transition: color 0.2s; padding: 0; }
+    .nav-dropdown-btn:hover { color: var(--white); }
+    .nav-dropdown-btn svg { transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-btn svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); right: 0; min-width: 180px; background: rgba(17,15,36,0.97); backdrop-filter: blur(24px); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.4rem; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.55rem 0.85rem; border-radius: 8px; transition: all 0.15s; white-space: nowrap; }
+    .nav-dropdown-menu a:hover { background: rgba(124,58,237,0.1); color: var(--white); }
+
+    /* PAGE */
+    .page-content { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 7rem 2rem 5rem; }
+
+    /* HERO */
+    .hero { margin-bottom: 3.5rem; text-align: center; }
+    .live-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.25); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan-light); margin-bottom: 1.25rem; }
+    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; animation: live-pulse 2s ease-in-out infinite; }
+    @keyframes live-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(6,182,212,0.5); } 50% { box-shadow: 0 0 0 5px rgba(6,182,212,0); } }
+    .hero h1 { font-family: 'Space Grotesk'; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1rem; }
+    .hero p { font-size: 1.1rem; color: var(--text); max-width: 700px; margin: 0 auto 2rem; line-height: 1.6; }
+    
+    .meta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2.5rem; }
+    .meta-item { display: flex; align-items: center; gap: 0.4rem; }
+    .meta-item svg { width: 16px; height: 16px; color: var(--cyan); }
+
+    .methodology-box { background: linear-gradient(135deg, rgba(6,182,212,0.1), rgba(124,58,237,0.1)); border: 1px solid rgba(6,182,212,0.2); border-radius: 16px; padding: 1.5rem; max-width: 800px; margin: 0 auto 3rem; text-align: left; }
+    .methodology-box p { font-size: 0.9rem; color: var(--text); margin-bottom: 0; line-height: 1.6; }
+    .methodology-box span { color: var(--cyan-light); font-weight: 600; }
+
+    /* FILTERS */
+    .filter-container { position: sticky; top: 68px; z-index: 90; background: rgba(12,10,26,0.9); backdrop-filter: blur(12px); padding: 1rem 0; border-bottom: 1px solid var(--border-light); margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+    .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .filter-btn:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+    .filter-btn.active { background: var(--cyan); color: var(--bg); border-color: var(--cyan); box-shadow: 0 0 15px rgba(6,182,212,0.3); }
+
+    /* STATS GRID */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .stat-card { background: var(--card); border: 1px solid var(--border-light); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: all 0.3s ease; }
+    .stat-card:hover { border-color: rgba(6,182,212,0.3); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); background: rgba(6,182,212,0.03); }
+    
+    .stat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+    .stat-category { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.25rem 0.75rem; border-radius: 100px; font-size: 0.7rem; font-weight: 600; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.3rem; }
+    .stat-date { font-size: 0.75rem; color: var(--text-muted); }
+    
+    .stat-figure { font-family: 'Space Grotesk'; font-size: 3.5rem; font-weight: 800; line-height: 1; margin-bottom: 0.75rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-label { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; line-height: 1.3; }
+    .stat-context { font-size: 0.85rem; color: var(--text-muted); flex-grow: 1; margin-bottom: 1.5rem; line-height: 1.6; }
+    
+    .stat-footer { border-top: 1px solid var(--border-light); padding-top: 1rem; margin-top: auto; }
+    .stat-source { font-size: 0.75rem; color: var(--text-muted); display: inline-flex; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    a.stat-source:hover { color: var(--cyan-light); }
+
+    /* FOOTER */
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
+    .cta-box { background: linear-gradient(135deg, rgba(6,182,212,0.1), rgba(124,58,237,0.1)); border: 1px solid rgba(6,182,212,0.2); border-radius: 16px; padding: 3rem 2rem; text-align: center; margin: 4rem auto 0; max-width: 700px; }
+    .cta-box h2 { font-family: 'Space Grotesk'; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+    .cta-box p { color: var(--text); margin-bottom: 2rem; line-height: 1.6; font-size: 1.05rem; }
+    .subscribe-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gradient); color: white; text-decoration: none; padding: 0.8rem 1.8rem; border-radius: 100px; font-size: 0.9rem; font-weight: 600; transition: all 0.25s; box-shadow: 0 4px 20px rgba(124,58,237,0.2); }
+    .subscribe-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(124,58,237,0.3); }
+
+    @media (max-width: 768px) {
+      .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .filter-container { top: 56px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+          <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+        </text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="briefings.html">Daily AI Briefings</a>
+      <a href="research.html" class="active">Research</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="shows.html">Live Shows</a>
+      <a href="tools.html">Tools</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn" aria-haspopup="true" aria-expanded="false">
+          More
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="about.html">About</a>
+          <a href="glossary.html">AI Glossary</a>
+          <a href="press.html">Press</a>
+          <a href="assessment.html">AI Visibility Assessment</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="connect.html">Connect</a>
+        </div>
+      </div>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="briefings.html">Daily AI Briefings</a>
+    <a href="research.html">Research</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="shows.html">Live Shows</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+    <a href="learn.html">Learn</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="connect.html">Connect</a>
+  </div>
+
+  <div class="page-content">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        UPDATED APRIL 25, 2026
+      </div>
+      <h1>AI in PR & Communications<br><span class="gradient-text">Stats & Research Hub</span></h1>
+      <p>The most important data points on AI adoption, content performance, market revenue, and brand strategy — curated from primary sources and updated as new research drops.</p>
+      
+      <div class="meta-row" id="metaRow">
+        <!-- Injected via JS -->
+      </div>
+      
+      <div class="methodology-box">
+        <p><span>What this is:</span> Sarah Evans tracks AI developments daily across dozens of primary sources — earnings calls, research reports, and industry announcements. Every stat on this page is sourced from those primary sources and fed into this hub as new data emerges from the Morning AI Briefing.</p>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filter-container" id="filterContainer">
+      <!-- Injected via JS -->
+    </div>
+
+    <!-- STATS GRID -->
+    <div class="stats-grid" id="statsGrid">
+      <!-- Injected via JS -->
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h2>Get the data first</h2>
+      <p>Every stat on this page started as a signal in the Morning AI Briefing — published Monday–Friday for executives who need to know what happened in AI and exactly what to do about it.</p>
+      <a href="https://prsarahevans.substack.com/subscribe" target="_blank" class="subscribe-btn">
+        Subscribe Free on Substack →
+      </a>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="/">Home</a>
+          <a href="briefings.html">Daily AI Briefings</a>
+          <a href="research.html">Research</a>
+          <a href="newsletter.html">Newsletter</a>
+          <a href="shows.html">Live Shows</a>
+          <a href="tools.html">Tools</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a>
+          <a href="https://github.com/sarahevansai" target="_blank">GitHub</a>
+          <a href="https://t.me/sarahevansai" target="_blank">Telegram</a>
+          <a href="https://stan.store/asksarahevans" target="_blank">Stan Store</a>
+        </div>
+        <div class="footer-col">
+          <h4>Built by Sarah Evans</h4>
+          <a href="https://www.zenmedia.com" target="_blank">Partner at Zen Media</a>
+          <a href="https://hackernoon.com/u/sarahevans" target="_blank">HackerNoon Column</a>
+          <a href="https://x.com/prsarahevans" target="_blank">X / Twitter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="/" class="nav-logo" style="opacity: 0.5;">
+          <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="height: 22px;">
+            <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+              <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+            </text>
+          </svg>
+        </a>
+        <p>&copy; <span id="currentYear"></span> Sarah Evans. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Dropdown toggle
+    const dd = document.getElementById('navDropdown');
+    const ddBtn = document.getElementById('navDropdownBtn');
+    if (dd && ddBtn) {
+      ddBtn.addEventListener('click', (e) => { e.stopPropagation(); dd.classList.toggle('open'); ddBtn.setAttribute('aria-expanded', dd.classList.contains('open')); });
+      document.addEventListener('click', () => { dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded', 'false'); });
+    }
+
+    // ─── DATA ─────────────────────────────────────────────────────────────
+    const categories = [
+      { key: 'adoption', label: 'AI Adoption', icon: '📈' },
+      { key: 'content', label: 'Content & SEO', icon: '✍️' },
+      { key: 'revenue', label: 'Revenue & Market', icon: '💰' },
+      { key: 'workforce', label: 'Workforce', icon: '⚡' },
+      { key: 'consumer', label: 'Consumer', icon: '🧠' },
+      { key: 'brand', label: 'Brand & PR', icon: '📣' },
+      { key: 'seo', label: 'GEO & Search', icon: '🔍' }
+    ];
+
+    const stats = [
+      { id: 'semrush-human-position-1', figure: '80%', label: "of Google's #1 results are human-written", context: 'Semrush analyzed 42,000 blog posts and found human-written content holds 80% of Google\'s Position 1 results. AI content lands there just 9% of the time.', source: 'Semrush, 2026', sourceUrl: 'https://www.semrush.com', category: 'content', date: '2026-04' },
+      { id: 'semrush-ai-position-1', figure: '9%', label: "of Google's #1 results are AI-written", context: 'In Semrush\'s study of 42,000 blog posts, AI-generated content secured Position 1 only 9% of the time — versus 80% for human-written content.', source: 'Semrush, 2026', sourceUrl: 'https://www.semrush.com', category: 'content', date: '2026-04' },
+      { id: 'semrush-8x-rank', figure: '8×', label: 'more likely for human content to rank #1', context: 'Human-written content is 8 times more likely than AI content to reach Google\'s top position, based on Semrush\'s 42,000-post analysis.', source: 'Semrush, 2026', sourceUrl: 'https://www.semrush.com', category: 'content', date: '2026-04' },
+      { id: 'digiday-ai-creator-drop', figure: '26%', label: 'of consumers prefer AI creator content', context: 'Consumer preference for AI-generated creator content collapsed from 60% in 2023 to just 26% today. Brands winning in 2026 lean into real voices.', source: 'Digiday, 2026', sourceUrl: 'https://digiday.com', category: 'consumer', date: '2026-04' },
+      { id: 'gen-ai-us-population', figure: '53%', label: 'of the US population uses generative AI', context: 'Generative AI reached 53% of the US population in just 3 years — faster than the internet or the personal computer.', source: 'Stanford AI Index', category: 'adoption', date: '2026-04' },
+      { id: 'ai-user-value-tripled', figure: '3×', label: 'increase in value per AI user', context: 'The median dollar value per AI user tripled between 2025 and 2026, according to the Stanford AI Index reported by MIT Technology Review.', source: 'Stanford AI Index', category: 'adoption', date: '2026-04' },
+      { id: 'uber-ai-code', figure: '72%', label: "of code in Uber's IDEs is AI-generated", context: 'After giving 5,000 engineers Claude Code in December 2025, Uber saw 72% of all IDE-generated code become AI-written.', source: 'Uber / Anthropic, 2026', category: 'workforce', date: '2026-04' },
+      { id: 'uber-claude-daily-use', figure: '63%', label: "of Uber's engineers use Claude daily", context: 'Within two months of deploying Claude Code to 5,000 engineers, 63% were using it daily.', source: 'Uber / Anthropic, 2026', category: 'workforce', date: '2026-04' },
+      { id: 'linkedin-ai-pay', figure: '$150/hr', label: 'LinkedIn pays engineers to train AI', context: 'LinkedIn launched an AI Labor Marketplace offering senior engineers $150/hr and domain experts up to $100/hr to train AI models.', source: 'LinkedIn, 2026', category: 'workforce', date: '2026-04' },
+      { id: 'anthropic-revenue-tripled', figure: '$30B', label: 'Anthropic annual revenue run rate', context: 'Anthropic\'s annual revenue run rate hit $30 billion in 2026, up from $9 billion at end of 2025.', source: 'Anthropic, 2026', category: 'revenue', date: '2026-04' },
+      { id: 'aws-ai-arr', figure: '$15B', label: 'AWS AI annual revenue run rate', context: 'Amazon\'s AWS AI hit $15 billion in annual run rate. AI is 260× ahead of AWS cloud\'s historical pace.', source: 'Amazon, 2026', category: 'revenue', date: '2026-04' },
+      { id: 'meta-ad-revenue-overtake', figure: '$243B', label: 'Meta projected 2026 net ad revenue', context: 'eMarketer projects Meta hits $243.46B in 2026 net ad revenue, edging Google\'s $239.54B for the first time in history.', source: 'eMarketer, 2026', category: 'revenue', date: '2026-04' },
+      { id: 'openai-revenue', figure: '$25B+', label: 'OpenAI annualized revenue', context: 'OpenAI surpassed $25 billion in annualized revenue as of early 2026.', source: 'The Information, 2026', category: 'revenue', date: '2026-04' },
+      { id: 'mercor-arr', figure: '$500M', label: 'Mercor ARR', context: 'Mercor, which connects lawyers, PhDs, and doctors to grade AI outputs, hit $500M ARR at a $10B valuation.', source: 'The Information, 2026', category: 'revenue', date: '2026-04' },
+      { id: 'brand-voice-ai-failure', figure: '0', label: 'adjective-based brand guides that work for AI', context: 'Brand voice guides full of adjectives like "approachable" don\'t translate to AI tools. AI needs banned phrases, structure rules, and examples.', source: 'MarTech, 2026', category: 'brand', date: '2026-04' },
+      { id: 'anthropic-enterprise-customers', figure: '1,000+', label: 'Anthropic $1M+ enterprise customers', context: 'Anthropic has more than 1,000 enterprise customers each spending over $1 million annually on Claude.', source: 'Anthropic, 2026', category: 'brand', date: '2026-04' },
+      { id: 'top-4-models-3pct', figure: '<3%', label: 'performance gap between top 4 AI models', context: 'The top 4 AI models are now separated by less than 3% on benchmarks, according to the Stanford AI Index.', source: 'Stanford AI Index, 2026', category: 'seo', date: '2026-04' },
+      { id: 'design-md-google', figure: '1 file', label: "Google's DESIGN.md", context: 'Google Labs open-sourced DESIGN.md. One markdown file encodes color palettes and typography so AI agents apply your brand automatically.', source: 'Google Labs, 2026', category: 'seo', date: '2026-04' }
+    ];
+
+    let currentFilter = 'all';
+
+    function renderMeta() {
+      const row = document.getElementById('metaRow');
+      row.innerHTML = `
+        <div class="meta-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          ${stats.length} data points
+        </div>
+        <div class="meta-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a2 2 0 012-2z" /></svg>
+          ${categories.length} categories
+        </div>
+        <div class="meta-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+          Last updated April 25, 2026
+        </div>
+      `;
+    }
+
+    function renderFilters() {
+      const container = document.getElementById('filterContainer');
+      let html = `<button class="filter-btn ${currentFilter === 'all' ? 'active' : ''}" onclick="setFilter('all')">All (${stats.length})</button>`;
+      categories.forEach(cat => {
+        const count = stats.filter(s => s.category === cat.key).length;
+        html += `<button class="filter-btn ${currentFilter === cat.key ? 'active' : ''}" onclick="setFilter('${cat.key}')">${cat.icon} ${cat.label} (${count})</button>`;
+      });
+      container.innerHTML = html;
+    }
+
+    function renderStats() {
+      const grid = document.getElementById('statsGrid');
+      const filtered = currentFilter === 'all' ? stats : stats.filter(s => s.category === currentFilter);
+      
+      grid.innerHTML = filtered.map(stat => {
+        const cat = categories.find(c => c.key === stat.category);
+        const sourceHtml = stat.sourceUrl 
+          ? `<a href="${stat.sourceUrl}" target="_blank" rel="noopener noreferrer" class="stat-source">Source: ${stat.source} ↗</a>`
+          : `<span class="stat-source">Source: ${stat.source}</span>`;
+          
+        return `
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-category">${cat.icon} ${cat.label}</span>
+              <span class="stat-date">${stat.date}</span>
+            </div>
+            <div class="stat-figure">${stat.figure}</div>
+            <h3 class="stat-label">${stat.label}</h3>
+            <p class="stat-context">${stat.context}</p>
+            <div class="stat-footer">
+              ${sourceHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function setFilter(cat) {
+      currentFilter = cat;
+      renderFilters();
+      renderStats();
+    }
+
+    renderMeta();
+    renderFilters();
+    renderStats();
+  </script>
+</body>
+</html>
