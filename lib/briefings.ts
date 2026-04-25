@@ -18,6 +18,47 @@ export interface Briefing {
 
 export const briefings: Briefing[] = [
   {
+    slug: 'saturday-april-25-2026',
+    date: '2026-04-25',
+    displayDate: 'Saturday, April 25, 2026',
+    title: 'Saturday Morning AI Briefing — April 25, 2026',
+    teaser: 'Google commits $10B to Anthropic, GPT-5.5 is here, Conductor reports AI visitors convert 2x better, Walmart adds AI certification, and what AI will change in comms.',
+    linkedinUrl: 'https://www.linkedin.com/posts/prsarahevans_ai-brief-april-25-activity-7453817775518797824-wM-u?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAE2DR0BeElXX5oZkd6gOrjZi5Fy8cp8jbo',
+    tags: ['Google', 'Anthropic', 'GPT-5.5', 'AI SEO', 'Walmart', 'Comms'],
+    items: [
+      {
+        number: 1,
+        headline: 'GOOGLE IS INVESTING $40 BILLION IN THE COMPANY TRYING TO REPLACE GOOGLE.',
+        body: 'Google committed $10B to Anthropic at a $350B valuation. Google Cloud powers Anthropic\'s compute. Claude growing = Google Cloud revenue.',
+        takeaway: 'This isn\'t going away any time soon.'
+      },
+      {
+        number: 2,
+        headline: 'GPT-5.5 DROPPED YESTERDAY. IT\'S A GREAT DEFAULT FOR MULTI-STEP AGENT WORKFLOWS.',
+        body: 'OpenAI released GPT-5.5 to Plus, Pro, Business, and Enterprise. Built for complex multi-step tasks: data analysis, operating software, autonomous research, document creation. OpenAI calls it a faster, sharper thinker for fewer tokens.',
+        takeaway: 'Your goal is to test one multi-step workflow in ChatGPT this weekend. GPT-5.5 handles step handoffs without babysitting.'
+      },
+      {
+        number: 3,
+        headline: 'CONDUCTOR STUDIED 3.3 BILLION SESSIONS: AI VISITORS CONVERT 2X BETTER THAN ORGANIC.',
+        body: 'AI Overviews now appear in 25% of Google searches, up from 13% a year ago. Conductor\'s 3.3 billion session study across 13,770 enterprise domains found LLM visitors convert at twice the organic rate.',
+        takeaway: 'Pull AI referral traffic in GA4 this week. If it\'s under 1%, your content isn\'t getting cited.'
+      },
+      {
+        number: 4,
+        headline: 'WALMART\'S NEW CEO PUT "AI CERTIFICATION" IN HIS FIRST SHAREHOLDER LETTER.',
+        body: 'John Furner\'s first annual report frames Walmart\'s 2.1 million employees around people-led, tech-powered. They\'re certifying associates as AI-proficient through OpenAI training. When the world\'s largest retailer leads with AI in a shareholder letter, the wait-and-see era is over.',
+        takeaway: 'If Walmart can put AI certification in a shareholder letter, it belongs in your next leadership update.'
+      },
+      {
+        number: 5,
+        headline: 'O\'DWYER\'S PUBLIC RELATIONS NEWS: WHAT AI WILL AND WON\'T CHANGE IN COMMS.',
+        body: 'RJ Bardsley, Co-CEO of Wireside Communications, says comms changes differently than other industries. AI accelerates research and synthesis. GEO strategy, media relationships, and earned trust follow a different clock.',
+        takeaway: 'Your goal is to at least learn the basics. I have a full AI Glossary right here: https://lnkd.in/gHjzNtTy'
+      }
+    ]
+  },
+  {
     slug: 'april-25-2026',
     date: '2026-04-25',
     displayDate: 'Friday, April 25, 2026',

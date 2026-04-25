@@ -73,6 +73,17 @@ export const categories: StatCategoryMeta[] = [
 export const stats: Stat[] = [
   // ── CONTENT & SEO ──────────────────────────────────────────────────────────
   {
+    id: 'conductor-ai-visitors',
+    figure: '2×',
+    label: 'better conversion rate for AI visitors than organic',
+    context:
+      'Conductor studied 3.3 billion sessions across 13,770 enterprise domains and found that AI visitors convert at twice the organic rate.',
+    source: 'Conductor, 2026',
+    sourceUrl: 'https://lnkd.in/g7s-yxGC',
+    category: 'seo',
+    date: '2026-04',
+  },
+  {
     id: 'semrush-human-position-1',
     figure: '80%',
     label: 'of Google\'s #1 results are human-written',
