@@ -35,15 +35,7 @@ export default function BriefingsPage() {
       {/* Hero */}
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-sm font-semibold tracking-wide">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-cyan"></span>
-              </span>
-              DAILY • MON–FRI
-            </span>
-          </div>
+
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
             Your Morning<br />
             <span className="gradient-text">AI Briefing</span>

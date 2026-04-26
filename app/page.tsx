@@ -76,15 +76,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-10">
             <div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-bold tracking-widest">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-cyan"></span>
-                  </span>
-                  DAILY MON–FRI
-                </span>
-              </div>
+
               <h2 className="text-4xl font-bold gradient-text">Your Morning AI Brief</h2>
             </div>
             <Link href="/briefings" className="hidden md:flex items-center gap-2 text-brand-cyan font-semibold text-sm hover:gap-4 transition-all">
