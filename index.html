@@ -490,6 +490,8 @@
     ];
 
     let currentAudio = null;
+    let chatHistory = [];
+    let questionCount = 0;
 
     function addMsg(text, type) {
       const m = document.getElementById('chatMessages');
@@ -498,7 +500,10 @@
       const b = document.createElement('div');
       b.className = `cbub ${type === 'bot' ? 'bot-b' : 'user-b'}`;
       if (type === 'bot') {
-        b.innerHTML = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        b.innerHTML = text
+          .replace(/\n/g, '<br>')
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: var(--cyan-light); text-decoration: underline;">$1</a>');
       } else {
         b.textContent = text;
       }
@@ -534,28 +539,58 @@
       if (el) el.remove();
     }
 
-    function askQ(text) {
+    async function askQ(text) {
       addMsg(text, 'user');
       document.getElementById('chatSuggestions').innerHTML = '';
+      
+      // Track history for API
+      chatHistory.push({ role: 'user', text });
 
-      // Find the matching pre-drafted answer
+      // Check for an exact match in the local data first for fast responses
       const qa = qaData.find(q => q.question.toLowerCase() === text.toLowerCase());
+      
       if (qa) {
         showTyping();
         // Simulate brief typing delay for natural feel
         setTimeout(() => {
           hideTyping();
           addMsg(qa.answer, 'bot');
+          chatHistory.push({ role: 'assistant', text: qa.answer });
           setTimeout(() => showQuestionChips(), 300);
         }, 600 + Math.random() * 400);
       } else {
-        // For typed questions that don't match, show a helpful redirect
+        // Fallback to OpenAI API via our backend
         showTyping();
-        setTimeout(() => {
+        try {
+          const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              message: text,
+              history: chatHistory.slice(0, -1), // Everything except the current message
+              questionCount: questionCount
+            })
+          });
+          
+          if (!res.ok) throw new Error('API error');
+          
+          const data = await res.json();
           hideTyping();
-          addMsg("Great question! I've got pre-loaded answers for the topics below — pick one to get started. For anything else, connect with me directly on LinkedIn or through the Connect page.", 'bot');
+          
+          if (data.reply) {
+            addMsg(data.reply, 'bot');
+            chatHistory.push({ role: 'assistant', text: data.reply });
+            questionCount++;
+            
+            if (!data.limitReached) {
+              setTimeout(() => showQuestionChips(), 300);
+            }
+          }
+        } catch (err) {
+          hideTyping();
+          addMsg("Sorry, I'm having trouble connecting right now. Let's try again in a moment, or reach out to me on LinkedIn!", 'bot');
           setTimeout(() => showQuestionChips(), 300);
-        }, 500);
+        }
       }
     }
 
