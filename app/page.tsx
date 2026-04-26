@@ -96,10 +96,10 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {[
+              { label: '⚡ VISA\'S CMO RENAMED COMMERCE: B2AI. YOUR NEW CUSTOMER IS A BOT.', sub: 'Visa CMO Frank Cooper III declared the B2AI era. New Visa research shows 71% of businesses are willing to optimize products for AI agents.', action: 'Your brand reads as a paragraph, agents skip you.', date: 'Apr 26' },
               { label: '⚡ UBER BURNED ITS FULL-YEAR AI BUDGET IN FOUR MONTHS', sub: 'Uber gave 5,000 engineers Claude Code in December. By April, the full-year budget was gone.', action: 'Pull your team\'s usage report tomorrow.', date: 'Apr 15' },
               { label: '⚡ LINKEDIN WILL PAY $150/HR TO TRAIN AI ON YOUR EXPERTISE', sub: 'LinkedIn launched an AI Labor Marketplace. Your domain expertise is now a product.', action: 'Post this week about your specialty.', date: 'Apr 15' },
               { label: '⚡ MIT: AI ADOPTION IS 260X AHEAD OF CLOUD AT THE SAME STAGE', sub: 'The Stanford AI Index: Generative AI hit 53% of US population in 3 years. The per-user value tripled.', action: '"AI adoption is faster than the internet."', date: 'Apr 14' },
-              { label: '⚡ GOOGLE SOLVED THE "WE CAN\'T SEND CLIENT DATA TO AI" PROBLEM', sub: 'Google dropped Gemma 4: free, runs fully on-device, 256K context, works on a smartphone.', action: 'Every PR team now has a path to local AI.', date: 'Apr 11' },
             ].map((item, idx) => (
               <div key={idx} className="p-6 rounded-xl bg-gradient-to-br from-brand-cyan/5 to-brand-blue/5 border border-brand-cyan/15 card-hover">
                 <div className="text-xs text-gray-500 mb-3 font-mono">{item.date}</div>

@@ -18,6 +18,47 @@ export interface Briefing {
 
 export const briefings: Briefing[] = [
   {
+    slug: 'april-26-2026',
+    date: '2026-04-26',
+    displayDate: 'Sunday, April 26, 2026',
+    title: 'Sunday Morning AI Briefing — April 26, 2026',
+    teaser: 'Visa CMO Frank Cooper III declared the B2AI era. Visible AI in marketing is 4x more likely to cost you trust. Meta\'s AI Ads Assistant went global. WPP plugged Google Earth AI into its platform. Microsoft Copilot Checkout hit 500,000 merchants.',
+    linkedinUrl: '',
+    tags: ['Visa', 'Marketing AI', 'Meta', 'WPP', 'Microsoft'],
+    items: [
+      {
+        number: 1,
+        headline: 'VISA\'S CMO RENAMED COMMERCE: B2AI. YOUR NEW CUSTOMER IS A BOT.',
+        body: 'Visa CMO Frank Cooper III declared the B2AI era. New Visa research shows 71% of businesses are willing to optimize products for AI agents, and more than half would let agents negotiate prices with other AI systems.',
+        takeaway: 'Your goal is one structured bullet sheet a shopping agent can quote back word for word. If your brand reads as a paragraph, agents skip you.'
+      },
+      {
+        number: 2,
+        headline: 'EMARKETER: VISIBLE AI IN MARKETING IS 4X MORE LIKELY TO COST YOU TRUST THAN BUILD IT.',
+        body: 'When consumers spot AI in brand content, 31% trust the brand less and only 7% trust it more, per a Klaviyo and Datalily study. Disclosure does not save you. Visible AI is the issue.',
+        takeaway: 'Audit your last 10 brand posts. If more than two obviously look AI made, rewrite them with a real face, name, and story this week.'
+      },
+      {
+        number: 3,
+        headline: 'META\'S AI ADS ASSISTANT WENT GLOBAL. EARLY USERS CUT COST PER RESULT 12%.',
+        body: 'Meta opened its AI Business Assistant to every advertiser on April 24 across U.S., EMEA, APAC, and LATAM. Beta users following its opportunity score recommendations cut cost per result 12% and resolved account issues 20% more often.',
+        takeaway: 'Open the assistant inside Ads Manager on your top-spend account today. Apply the first opportunity score and run it for 14 days.'
+      },
+      {
+        number: 4,
+        headline: 'WPP PLUGGED GOOGLE EARTH AI INTO ITS PLATFORM. ONE CLIENT GOT 77% MORE PERFORMANCE.',
+        body: 'WPP integrated Google Earth AI into WPP Open last week. Campaigns now factor in real-world signals like traffic, weather, and population movement. One automotive client built an EV Readiness Index that drove 77% higher performance and 15% lower cost to conversion.',
+        takeaway: 'Brief your media team to layer one offline signal, foot traffic or weather, into your top three regions next month.'
+      },
+      {
+        number: 5,
+        headline: 'MICROSOFT COPILOT CHECKOUT HIT 500,000 MERCHANTS. AGENTS ARE BUYING NOW.',
+        body: 'Microsoft expanded Copilot Checkout to over half a million merchants and pushed it into the mobile app. Ask Copilot to redo your living room and it researches, picks pieces, and pays without leaving the chat. Urban Outfitters and Etsy are live.',
+        takeaway: 'Run a Copilot or ChatGPT shopping query for your top SKU today. If your product or a competitor is missing, your feed is the gap.'
+      }
+    ]
+  },
+  {
     slug: 'saturday-april-25-2026',
     date: '2026-04-25',
     displayDate: 'Saturday, April 25, 2026',
