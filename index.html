@@ -503,32 +503,10 @@
           .replace(/\n/g, '<br>')
           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
           .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: var(--cyan-light); text-decoration: underline;">$1</a>');
-        
-        w.appendChild(b);
-        
-        // Add listen button
-        const lBtn = document.createElement('button');
-        lBtn.className = 'listen-btn';
-        lBtn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> Listen';
-        lBtn.onclick = async () => {
-          if (currentAudio) { currentAudio.pause(); currentAudio = null; lBtn.classList.remove('playing'); return; }
-          lBtn.disabled = true;
-          try {
-            const r = await fetch('/api/tts', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({text}) });
-            if (!r.ok) throw new Error();
-            const blob = await r.blob();
-            currentAudio = new Audio(URL.createObjectURL(blob));
-            currentAudio.onended = () => { lBtn.classList.remove('playing'); currentAudio = null; };
-            currentAudio.play();
-            lBtn.classList.add('playing');
-          } catch(e) { console.error(e); }
-          lBtn.disabled = false;
-        };
-        w.appendChild(lBtn);
       } else {
         b.textContent = text;
-        w.appendChild(b);
       }
+      w.appendChild(b);
       m.appendChild(w);
       m.scrollTop = m.scrollHeight;
     }
