@@ -283,7 +283,7 @@ export default async function handler(req, res) {
     if (!response.ok) {
       const err = await response.text();
       console.error('OpenAI API error:', err);
-      return res.status(500).json({ error: 'AI service temporarily unavailable' });
+      return res.status(500).json({ error: 'AI service temporarily unavailable', details: err });
     }
 
     const data = await response.json();

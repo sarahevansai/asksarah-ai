@@ -558,38 +558,13 @@
           setTimeout(() => showQuestionChips(), 300);
         }, 600 + Math.random() * 400);
       } else {
-        // Fallback to OpenAI API via our backend
+        // Fallback since API is disconnected
         showTyping();
-        try {
-          const res = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              message: text,
-              history: chatHistory.slice(0, -1), // Everything except the current message
-              questionCount: questionCount
-            })
-          });
-          
-          if (!res.ok) throw new Error('API error');
-          
-          const data = await res.json();
+        setTimeout(() => {
           hideTyping();
-          
-          if (data.reply) {
-            addMsg(data.reply, 'bot');
-            chatHistory.push({ role: 'assistant', text: data.reply });
-            questionCount++;
-            
-            if (!data.limitReached) {
-              setTimeout(() => showQuestionChips(), 300);
-            }
-          }
-        } catch (err) {
-          hideTyping();
-          addMsg("Sorry, I'm having trouble connecting right now. Let's try again in a moment, or reach out to me on LinkedIn!", 'bot');
+          addMsg("I'm currently only answering my top pre-written questions while my live AI backend is offline. Try clicking one of the suggestions below to explore my thoughts on AI visibility!", 'bot');
           setTimeout(() => showQuestionChips(), 300);
-        }
+        }, 600 + Math.random() * 400);
       }
     }
 
