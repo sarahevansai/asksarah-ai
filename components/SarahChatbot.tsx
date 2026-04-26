@@ -130,7 +130,8 @@ export default function SarahChatbot() {
       timestamp: new Date()
     }
   ])
-  const [selectedQA, setSelectedQA] = useState<number | null>(null)
+  const [inputText, setInputText] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -153,7 +154,71 @@ export default function SarahChatbot() {
     }
 
     setMessages(prev => [...prev, userMessage, sarahMessage])
-    setSelectedQA(null)
+  }
+
+  const handleSendMessage = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!inputText.trim() || isLoading) return
+
+    const userText = inputText.trim()
+    setInputText('')
+
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      text: userText,
+      sender: 'user',
+      timestamp: new Date()
+    }
+
+    setMessages(prev => [...prev, userMessage])
+    setIsLoading(true)
+
+    try {
+      const historyToSend = messages
+        .filter(m => m.id !== '1') // skip welcome msg or keep it
+        .map(m => ({
+          role: m.sender === 'user' ? 'user' : 'assistant',
+          content: m.text
+        }))
+
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: userText,
+          conversationHistory: historyToSend
+        })
+      })
+
+      if (!response.ok) throw new Error('API Error')
+      
+      const data = await response.json()
+      
+      const sarahMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: data.message || "I'm sorry, I couldn't process that right now.",
+        sender: 'sarah',
+        timestamp: new Date()
+      }
+      
+      setMessages(prev => [...prev, sarahMessage])
+
+      if (data.audioUrl) {
+        const audio = new Audio(data.audioUrl)
+        audio.play().catch(e => console.error("Audio play failed:", e))
+      }
+
+    } catch (error) {
+      console.error(error)
+      setMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        text: "I'm having trouble connecting right now. Please try again later.",
+        sender: 'sarah',
+        timestamp: new Date()
+      }])
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -208,7 +273,7 @@ export default function SarahChatbot() {
                   className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-xs px-4 py-2 rounded-lg whitespace-pre-wrap text-sm ${
+                    className={`max-w-[85%] px-4 py-2 rounded-lg whitespace-pre-wrap text-sm ${
                       message.sender === 'user'
                         ? 'bg-brand-accent text-brand-black'
                         : 'bg-brand-surface border border-brand-border text-brand-text'
@@ -218,25 +283,59 @@ export default function SarahChatbot() {
                   </div>
                 </motion.div>
               ))}
+              {isLoading && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex justify-start"
+                >
+                  <div className="max-w-[85%] px-4 py-2 rounded-lg bg-brand-surface border border-brand-border text-brand-text flex gap-1 items-center">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-bounce" style={{ animationDelay: '0ms' }} />
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-bounce" style={{ animationDelay: '150ms' }} />
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-bounce" style={{ animationDelay: '300ms' }} />
+                  </div>
+                </motion.div>
+              )}
               <div ref={messagesEndRef} />
             </div>
 
             {/* Question Bubbles */}
-            <div className="border-t border-brand-border p-3 max-h-[120px] overflow-y-auto">
-              <div className="flex flex-wrap gap-2">
-                {qaData.map(qa => (
-                  <motion.button
-                    key={qa.id}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    onClick={() => handleSelectQuestion(qa)}
-                    className="px-3 py-1 text-xs bg-brand-surface border border-brand-border rounded-full text-brand-text hover:bg-brand-cyan hover:text-brand-black hover:border-brand-cyan transition-all whitespace-nowrap"
-                  >
-                    {qa.question.substring(0, 30)}...
-                  </motion.button>
-                ))}
+            {messages.length < 3 && (
+              <div className="border-t border-brand-border p-3 max-h-[120px] overflow-y-auto">
+                <div className="flex flex-wrap gap-2">
+                  {qaData.map(qa => (
+                    <motion.button
+                      key={qa.id}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      onClick={() => handleSelectQuestion(qa)}
+                      className="px-3 py-1 text-xs bg-brand-surface border border-brand-border rounded-full text-brand-text hover:bg-brand-cyan hover:text-brand-black hover:border-brand-cyan transition-all whitespace-nowrap"
+                    >
+                      {qa.question.substring(0, 30)}...
+                    </motion.button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
+
+            {/* Input Form */}
+            <form onSubmit={handleSendMessage} className="p-3 bg-brand-surface border-t border-brand-border flex gap-2">
+              <input
+                type="text"
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                placeholder="Ask Sarah a question..."
+                className="flex-1 bg-brand-dark border border-brand-border rounded-lg px-3 py-2 text-sm text-brand-text focus:outline-none focus:border-brand-cyan"
+                disabled={isLoading}
+              />
+              <button
+                type="submit"
+                disabled={isLoading || !inputText.trim()}
+                className="bg-brand-accent text-brand-black p-2 rounded-lg hover:bg-brand-blue hover:text-white transition-colors disabled:opacity-50"
+              >
+                <Send className="w-4 h-4" />
+              </button>
+            </form>
           </motion.div>
         )}
       </AnimatePresence>
