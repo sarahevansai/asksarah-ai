@@ -43,6 +43,15 @@
     "blogPost": [
       {
         "@type": "BlogPosting",
+        "headline": "AI Brief \u2014 April 28, 2026",
+        "description": "Cursor's Claude agent wiped a startup's production database in 9 seconds. OpenAI is building an agentic phone with Qualcomm. Search Engine Land says your job evolved from a mechanic to a data architect. Possible Miami opens with an authenticity debate. Reddit's AI citation share grew 73%.",
+        "datePublished": "2026-04-28",
+        "url": "https://asksarah.ai/briefings#april-28-2026",
+        "author": { "@type": "Person", "name": "Sarah Evans" },
+        "keywords": ["Cursor", "OpenAI", "SEO", "Authenticity", "Reddit", "AI Agents"]
+      },
+      {
+        "@type": "BlogPosting",
         "headline": "Sunday Morning AI Briefing \u2014 April 26, 2026",
         "description": "Visa CMO Frank Cooper III declared the B2AI era. Visible AI in marketing is 4x more likely to cost you trust. Meta's AI Ads Assistant went global. WPP plugged Google Earth AI into its platform. Microsoft Copilot Checkout hit 500,000 merchants.",
         "datePublished": "2026-04-26",
@@ -192,6 +201,40 @@
     .nav-dropdown-menu a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.55rem 0.85rem; border-radius: 8px; transition: all 0.15s; white-space: nowrap; }
     .nav-dropdown-menu a:hover { background: rgba(124,58,237,0.1); color: var(--white); }
 
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: var(--gradient);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      outline: none;
+    }
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    #backToTop:not(.show) {
+      transform: translateY(20px);
+    }
+    #backToTop:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 32px rgba(124,58,237,0.4);
+    }
+
     /* PAGE */
     .page-content { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 7rem 2rem 5rem; }
 
@@ -309,7 +352,7 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
-    <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu">
     <a href="/">Home</a>
     <a href="briefings.html">Daily AI Briefings</a>
     <a href="research.html">Research</a>
@@ -317,6 +360,9 @@
     <a href="shows.html">Live Shows</a>
     <a href="tools.html">Tools</a>
     <a href="about.html">About</a>
+    <a href="glossary.html">AI Glossary</a>
+    <a href="press.html">Press</a>
+    <a href="assessment.html">AI Visibility Assessment</a>
     <a href="learn.html">Learn</a>
     <a href="speaking.html">Speaking</a>
     <a href="connect.html">Connect</a>
@@ -396,6 +442,21 @@
 
     // ─── BRIEFINGS DATA ────────────────────────────────────────────────────
     const briefings = [
+      {
+        slug: 'april-28-2026',
+        date: 'April 28, 2026',
+        title: 'AI Brief — April 28, 2026',
+        teaser: 'Cursor\'s Claude agent wiped a startup\'s production database in 9 seconds. OpenAI is building an agentic phone with Qualcomm. Search Engine Land says your job evolved from a mechanic to a data architect. Possible Miami opens with an authenticity debate. Reddit\'s AI citation share grew 73%.',
+        linkedinUrl: 'https://www.linkedin.com/posts/prsarahevans_ai-brief-apr-28-activity-7454886437747015680-kR6p?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAE2DR0BeElXX5oZkd6gOrjZi5Fy8cp8jbo',
+        tags: ['Cursor', 'OpenAI', 'SEO', 'Authenticity', 'Reddit'],
+        items: [
+          { n: 1, h: 'CURSOR\'S CLAUDE AGENT WIPED A STARTUP\'S PRODUCTION DATABASE IN 9 SECONDS. BACKUPS TOO.', b: 'A Cursor-Claude Opus 4.6 agent hit a staging error and decided on its own to "fix" it by deleting PocketOS\'s Railway volume. It found a domain-management token with blanket permissions and ran one delete call.', t: 'READ ME access. Until your team has scoped every API token and moved backups off the source volume, agents stay in staging.' },
+          { n: 2, h: 'OPENAI IS BUILDING AN AGENTIC PHONE WITH QUALCOMM, MEDIATEK, AND LUXSHARE.', b: 'Per analyst Ming-Chi Kuo, OpenAI is co-designing a custom AI phone chip with Qualcomm and MediaTek. Luxshare handles the build. Apps are replaced with agents that book the flight, update calendar, send confirmation. 2028 production at 300 to 400 million units a year.', t: 'Signal of what is coming next.' },
+          { n: 3, h: 'SEARCH ENGINE LAND: "YOUR JOB EVOLVED FROM A MECHANIC TO A DATA ARCHITECT."', b: 'Keywords are one signal among many now. Google bids on people, not queries. The new hierarchy: CRM integration, audience signal, creative frameworks, brand guardrails. You no longer bid on "cloud security." You bid on the IT director researching SOC 2.', t: 'Mind blown. I love thinking about it this way.' },
+          { n: 4, h: 'POSSIBLE MIAMI OPENED TODAY. THE AUTHENTICITY DEBATE IS ON!', b: 'Marketing\'s Coachella runs through Wednesday at Fontainebleau Miami Beach. 5,400 execs. Coca-Cola\'s Manolo Arroyo, Charlamagne Tha God, Diana Haussling, and Alexis Ohanian on stage. Every brand uses AI. The differentiator is whether anyone believes them.', t: 'The 2026 AI conversation is authenticity. Watch which keynotes earn the credibility test this week.' },
+          { n: 5, h: 'TINUITI: REDDIT\'S AI CITATION SHARE GREW 73%. PERPLEXITY PULLS 24% OF ANSWERS FROM IT.', b: 'Tinuiti tracked citations across ChatGPT, Perplexity, Gemini, AI Mode, AI Overviews, Copilot, Meta AI. Reddit\'s share grew 73% from October to January, more than doubling in some categories. On Perplexity, 31% of citations come from social, 24% from Reddit.', t: 'Your PR plan now lives downstream of Reddit. Pick your top three category subreddits and get to know them.' }
+        ]
+      },
       {
         slug: 'april-26-2026',
         date: 'April 26, 2026',
@@ -693,6 +754,20 @@
       ddBtn.addEventListener('click', (e) => { e.stopPropagation(); dd.classList.toggle('open'); ddBtn.setAttribute('aria-expanded', dd.classList.contains('open')); });
       document.addEventListener('click', () => { dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded', 'false'); });
     }
+  </script>
+
+  <button id="backToTop" aria-label="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) btt.classList.add('show');
+      else btt.classList.remove('show');
+    });
+    btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   </script>
 </body>
 </html>

@@ -13,14 +13,55 @@
     <copyright>Copyright 2026 Sarah Evans. All rights reserved.</copyright>
     <managingEditor>sarah@zenmedia.com (Sarah Evans)</managingEditor>
     <webMaster>sarah@zenmedia.com (Sarah Evans)</webMaster>
-    <lastBuildDate>Sun, 26 Apr 2026 07:00:00 -0700</lastBuildDate>
-    <pubDate>Sun, 26 Apr 2026 07:00:00 -0700</pubDate>
+    <lastBuildDate>Tue, 28 Apr 2026 07:00:00 -0700</lastBuildDate>
+    <pubDate>Tue, 28 Apr 2026 07:00:00 -0700</pubDate>
     <ttl>480</ttl>
     <image>
       <url>https://asksarah.ai/og-image.png</url>
       <title>Daily AI Briefings by Sarah Evans</title>
       <link>https://asksarah.ai/briefings</link>
     </image>
+
+    <!-- ═══════════════════════════════════════════
+         APRIL 28, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>AI Brief — April 28, 2026: Cursor's Agent Wipes Database. OpenAI Agentic Phone. Search Engine Land: Data Architect.</title>
+      <link>https://asksarah.ai/briefings#april-28-2026</link>
+      <guid isPermaLink="true">https://asksarah.ai/briefings#april-28-2026</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>Cursor</category>
+      <category>OpenAI</category>
+      <category>SEO</category>
+      <category>Authenticity</category>
+      <category>Reddit</category>
+      <description>Cursor's Claude agent wiped a startup's production database in 9 seconds. OpenAI is building an agentic phone with Qualcomm. Search Engine Land says your job evolved from a mechanic to a data architect. Possible Miami opens with an authenticity debate. Reddit's AI citation share grew 73%.</description>
+      <content:encoded><![CDATA[
+        <h2>⚡ 1. CURSOR'S CLAUDE AGENT WIPED A STARTUP'S PRODUCTION DATABASE IN 9 SECONDS. BACKUPS TOO.</h2>
+        <p>A Cursor-Claude Opus 4.6 agent hit a staging error and decided on its own to "fix" it by deleting PocketOS's Railway volume. It found a domain-management token with blanket permissions and ran one delete call.</p>
+        <p><strong>→ READ ME access. Until your team has scoped every API token and moved backups off the source volume, agents stay in staging.</strong></p>
+
+        <h2>⚡ 2. OPENAI IS BUILDING AN AGENTIC PHONE WITH QUALCOMM, MEDIATEK, AND LUXSHARE.</h2>
+        <p>Per analyst Ming-Chi Kuo, OpenAI is co-designing a custom AI phone chip with Qualcomm and MediaTek. Luxshare handles the build. Apps are replaced with agents that book the flight, update calendar, send confirmation. 2028 production at 300 to 400 million units a year.</p>
+        <p><strong>→ Signal of what is coming next.</strong></p>
+
+        <h2>⚡ 3. SEARCH ENGINE LAND: "YOUR JOB EVOLVED FROM A MECHANIC TO A DATA ARCHITECT."</h2>
+        <p>Keywords are one signal among many now. Google bids on people, not queries. The new hierarchy: CRM integration, audience signal, creative frameworks, brand guardrails. You no longer bid on "cloud security." You bid on the IT director researching SOC 2.</p>
+        <p><strong>→ Mind blown. I love thinking about it this way.</strong></p>
+
+        <h2>⚡ 4. POSSIBLE MIAMI OPENED TODAY. THE AUTHENTICITY DEBATE IS ON!</h2>
+        <p>Marketing's Coachella runs through Wednesday at Fontainebleau Miami Beach. 5,400 execs. Coca-Cola's Manolo Arroyo, Charlamagne Tha God, Diana Haussling, and Alexis Ohanian on stage. Every brand uses AI. The differentiator is whether anyone believes them.</p>
+        <p><strong>→ The 2026 AI conversation is authenticity. Watch which keynotes earn the credibility test this week.</strong></p>
+
+        <h2>⚡ 5. TINUITI: REDDIT'S AI CITATION SHARE GREW 73%. PERPLEXITY PULLS 24% OF ANSWERS FROM IT.</h2>
+        <p>Tinuiti tracked citations across ChatGPT, Perplexity, Gemini, AI Mode, AI Overviews, Copilot, Meta AI. Reddit's share grew 73% from October to January, more than doubling in some categories. On Perplexity, 31% of citations come from social, 24% from Reddit.</p>
+        <p><strong>→ Your PR plan now lives downstream of Reddit. Pick your top three category subreddits and get to know them.</strong></p>
+
+        <p><a href="https://asksarah.ai/briefings#april-28-2026">Read on askSarah.ai →</a></p>
+        <p><a href="https://www.linkedin.com/posts/prsarahevans_ai-brief-apr-28-activity-7454886437747015680-kR6p?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAE2DR0BeElXX5oZkd6gOrjZi5Fy8cp8jbo">View original post on LinkedIn →</a></p>
+      ]]></content:encoded>
+    </item>
 
     <!-- ═══════════════════════════════════════════
          APRIL 26, 2026
