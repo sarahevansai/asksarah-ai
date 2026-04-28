@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Live Shows — askSarah.ai | Sarah Evans</title>
-  <meta name="description" content="Watch Sarah Evans live — The Visibility Equation every other Friday on LinkedIn Live, and the new daily show 6MOA with Duran Inci launching April 21, 2026.">
+  <meta name="description" content="Watch Sarah Evans live — The Visibility Equation every other Friday on LinkedIn Live, and the daily show 6MOA with Duran Inci, live Mon-Fri at 7 AM PT.">
 
   <meta property="og:title" content="Live Shows — askSarah.ai">
   <meta property="og:description" content="The Visibility Equation (LinkedIn Live) + 6MOA with Duran Inci. Two shows. One strategy: Six months out. Already.">
@@ -149,6 +149,21 @@
     .episode-card.placeholder { border-style: dashed; opacity: 0.4; cursor: default; pointer-events: none; }
     .episode-card.placeholder:hover { transform: none; box-shadow: none; }
     .tve-cta-row { text-align: right; margin-top: 0.5rem; }
+
+    /* ─── 6MOA-flavored episode cards ─── */
+    .episode-card.sixmoa-ep:hover { border-color: var(--lime-border); box-shadow: 0 8px 24px rgba(204,255,0,0.08); }
+    .episode-card.sixmoa-ep::before { background: linear-gradient(135deg, rgba(204,255,0,0.05), rgba(0,0,0,0.1)); }
+    .episode-card.sixmoa-ep .ep-num { color: var(--lime); }
+    .episode-card.sixmoa-ep .ep-watch { color: var(--lime); }
+
+    /* Archive disclosure for past months */
+    .month-archive { margin-top: 1rem; border-top: 1px solid var(--border-light); padding-top: 1rem; }
+    .month-archive summary { cursor: pointer; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding: 0.4rem 0; list-style: none; display: flex; align-items: center; gap: 0.4rem; }
+    .month-archive summary::-webkit-details-marker { display: none; }
+    .month-archive summary::before { content: '▸'; color: var(--lime); transition: transform 0.2s; }
+    .month-archive[open] summary::before { transform: rotate(90deg); }
+    .month-archive summary:hover { color: var(--white); }
+    .month-archive .episode-grid { margin-top: 0.75rem; }
 
     /* ─── 6MOA styles ─── */
     .sixmoa-logo-wrap { background: #050505; border: 1px solid rgba(204,255,0,0.2); border-radius: 16px; padding: 1.5rem; display: flex; align-items: center; justify-content: center; aspect-ratio: 16/9; position: relative; overflow: hidden; margin: 1rem 0; }
@@ -465,7 +480,7 @@
 
           <div class="show-badge badge-6moa">
             <span class="live-dot"></span>
-            Daily Show · Launching April 27
+            Daily Show · Live Mon–Fri · 7 AM PT
           </div>
 
           <h2 class="sixmoa-title">6MOA</h2>
@@ -523,7 +538,8 @@
           </div>
 
           <div class="sixmoa-actions">
-            <a href="https://www.linkedin.com/in/prsarahevans/" target="_blank" id="sixmoa-notify-btn" class="btn-lime">🔔 Get Notified at Launch</a>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7454894764350496768" target="_blank" id="sixmoa-watch-latest-btn" class="btn-lime">▶ Watch Latest Episode</a>
+            <a href="https://www.linkedin.com/in/prsarahevans/" target="_blank" id="sixmoa-follow-btn" class="btn-ghost">🔔 Follow on LinkedIn</a>
           </div>
 
           <!-- Countdown -->
@@ -541,7 +557,39 @@
             <div class="countdown-launch"><strong>Mon Apr 27, 2026</strong>Daily on LinkedIn</div>
           </div>
 
-          <!-- What to expect -->
+
+          <!-- 6MOA Episodes -->
+          <div class="section-label" style="margin-top:1.5rem;">📼 Episodes · April 2026</div>
+          <div class="episode-grid" id="sixmoaEpisodeGrid">
+
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7454894764350496768" target="_blank" class="episode-card sixmoa-ep" id="sixmoa-ep-2026-04-28">
+              <div class="ep-num"><span class="live-dot" style="width:5px;height:5px;background:#CCFF00;"></span> Latest · Apr 28</div>
+              <div class="ep-title">6MOA Launch Episode!</div>
+              <div class="ep-guest">Sarah Evans × Duran Inci</div>
+              <div class="ep-watch" style="margin-top:0.6rem;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21 5,3"/></svg>
+                Watch Replay
+              </div>
+            </a>
+
+          </div>
+          <div class="tve-cta-row">
+            <a href="https://www.linkedin.com/in/prsarahevans/recent-activity/all/" target="_blank" id="sixmoa-all-episodes-btn" class="btn-ghost" style="font-size:0.75rem;padding:0.45rem 1rem;">
+              All episodes on LinkedIn →
+            </a>
+          </div>
+
+          <!-- ARCHIVED MONTHS — older 6MOA episodes collapsed by month.
+               When a new month begins, the daily-update task moves the previous
+               month's #sixmoaEpisodeGrid contents into a <details class="month-archive"> below.
+               Format:
+               <details class="month-archive">
+                 <summary>Archive · March 2026</summary>
+                 <div class="episode-grid"> ... episode-card links ... </div>
+               </details>
+          -->
+
+                    <!-- What to expect -->
           <div class="section-label">What to Expect</div>
           <div class="format-grid">
             <div class="format-card">
@@ -625,8 +673,8 @@
 
       if (diff <= 0) {
         document.getElementById('countdownSection').innerHTML = `
-          <div class="countdown-label" style="color:var(--lime)">🎉 6MOA is LIVE!</div>
-          <a href="https://www.linkedin.com/in/prsarahevans/" target="_blank" class="btn-lime" style="margin-left:1rem;">Watch Now →</a>
+          <div class="countdown-label" style="color:var(--lime)">🎉 6MOA is LIVE — Mon–Fri · 7 AM PT</div>
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7454894764350496768" target="_blank" class="btn-lime" style="margin-left:1rem;">Watch Latest →</a>
         `;
         return;
       }
