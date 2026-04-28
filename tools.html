@@ -79,6 +79,16 @@
     .tool-btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.1); }
     .tool-btn-ghost:hover { border-color: var(--violet); background: rgba(124,58,237,0.06); }
 
+    @keyframes badge-pulse {
+      0% { transform: scale(1); filter: brightness(1); }
+      50% { transform: scale(1.08); filter: brightness(1.2); }
+      100% { transform: scale(1); filter: brightness(1); }
+    }
+    .badge-new {
+      display: inline-block;
+      animation: badge-pulse 2s infinite ease-in-out;
+    }
+
     .github-cta { text-align: center; padding: 0 2rem 5rem; position: relative; z-index: 1; }
     .github-cta a { color: var(--violet-light); font-family: 'Space Grotesk'; font-weight: 600; font-size: 1rem; text-decoration: none; transition: color 0.2s; }
     .github-cta a:hover { color: var(--cyan-light); }
@@ -116,6 +126,7 @@
         <div class="nav-links">
       <a href="/">Home</a>
       <a href="briefings.html">Daily AI Briefings</a>
+      <a href="research.html">Research</a>
       <a href="newsletter.html">Newsletter</a>
       <a href="shows.html">Live Shows</a>
       <a href="tools.html" class="active">Tools</a>
@@ -129,7 +140,7 @@
           <a href="glossary.html">AI Glossary</a>
           <a href="press.html">Press</a>
           <a href="assessment.html">AI Visibility Assessment</a>
-                <a href="learn.html">Learn</a>
+          <a href="learn.html">Learn</a>
           <a href="speaking.html">Speaking</a>
           <a href="connect.html">Connect</a>
         </div>
@@ -139,13 +150,17 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
-    <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu">
     <a href="/">Home</a>
     <a href="briefings.html">Daily AI Briefings</a>
+    <a href="research.html">Research</a>
     <a href="newsletter.html">Newsletter</a>
     <a href="shows.html">Live Shows</a>
     <a href="tools.html">Tools</a>
     <a href="about.html">About</a>
+    <a href="glossary.html">AI Glossary</a>
+    <a href="press.html">Press</a>
+    <a href="assessment.html">AI Visibility Assessment</a>
     <a href="learn.html">Learn</a>
     <a href="speaking.html">Speaking</a>
     <a href="connect.html">Connect</a>
@@ -208,6 +223,15 @@
   </div>
 
   <div class="tools-grid">
+    <div class="tool-card" style="border-color: rgba(6,182,212,0.3); box-shadow: 0 0 30px rgba(6,182,212,0.06);">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient);"></div>
+      <div class="tool-icon">🤖</div>
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;"><span class="badge-new" style="background: var(--gradient); color: white; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">Featured · New</span></div>
+      <h3>MyAgentStack.io</h3>
+      <p>The definitive directory of AI agents and vibecoded products for marketing, comms, and media. Find SEO, brand, and content agents with real public URLs.</p>
+      <a href="https://myagentstack.io/" target="_blank" class="tool-btn tool-btn-primary">Explore the Stack →</a>
+    </div>
+
     <div class="tool-card">
       <div class="tool-icon">📰</div>
       <h3>GenAI Press Release Builder</h3>
@@ -244,6 +268,15 @@
   </div>
 
   <div class="tools-grid">
+    <div class="tool-card" style="border-color: rgba(52,211,153,0.3); box-shadow: 0 0 30px rgba(52,211,153,0.06);">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(135deg, #10b981, #34d399);"></div>
+      <div class="tool-icon">🛠️</div>
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;"><span class="badge-new" style="background: linear-gradient(135deg, #10b981, #34d399); color: #0c0a1a; font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em;">New</span></div>
+      <h3>MyAgentStack.io</h3>
+      <p>A curated directory of AI agents designed for the answer economy. Browse SEO, GEO, and martech agents ready for deployment.</p>
+      <a href="https://myagentstack.io/" target="_blank" class="tool-btn" style="background: linear-gradient(135deg, #10b981, #34d399); color: #0c0a1a; box-shadow: 0 4px 16px rgba(16,185,129,0.2);">Explore Agents →</a>
+    </div>
+
     <div class="tool-card">
       <div class="tool-icon">🎯</div>
       <h3>GEO GPT — AI Visibility Engine</h3>

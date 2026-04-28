@@ -221,9 +221,10 @@
         </text>
       </svg>
     </a>
-        <div class="nav-links">
+    <div class="nav-links">
       <a href="/">Home</a>
       <a href="briefings.html">Daily AI Briefings</a>
+      <a href="research.html">Research</a>
       <a href="newsletter.html">Newsletter</a>
       <a href="shows.html">Live Shows</a>
       <a href="tools.html">Tools</a>
@@ -236,7 +237,8 @@
           <a href="about.html">About</a>
           <a href="glossary.html">AI Glossary</a>
           <a href="press.html">Press</a>
-          <a href="learn.html">Learn</a>
+          <a href="assessment.html">AI Visibility Assessment</a>
+          <a href="learn.html" class="active">Learn</a>
           <a href="speaking.html">Speaking</a>
           <a href="connect.html">Connect</a>
         </div>
@@ -246,13 +248,17 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
-    <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu">
     <a href="/">Home</a>
     <a href="briefings.html">Daily AI Briefings</a>
+    <a href="research.html">Research</a>
     <a href="newsletter.html">Newsletter</a>
     <a href="shows.html">Live Shows</a>
     <a href="tools.html">Tools</a>
     <a href="about.html">About</a>
+    <a href="glossary.html">AI Glossary</a>
+    <a href="press.html">Press</a>
+    <a href="assessment.html">AI Visibility Assessment</a>
     <a href="learn.html">Learn</a>
     <a href="speaking.html">Speaking</a>
     <a href="connect.html">Connect</a>
@@ -657,10 +663,10 @@
   <!-- FREE CHECKLIST CTA -->
   <section style="position: relative; z-index: 1; padding: 2rem 2rem 3rem;">
     <div style="max-width: 800px; margin: 0 auto;">
-      <a href="https://stan.store/asksarahevans/p/ai-visibility-checklist" target="_blank" style="display: block; background: rgba(6,182,212,0.06); border: 2px solid rgba(6,182,212,0.25); border-radius: 20px; padding: 2rem 2.25rem; text-decoration: none; text-align: center; transition: all 0.3s; box-shadow: 0 0 30px rgba(6,182,212,0.06);">
+      <a style="display: block; background: rgba(6,182,212,0.06); border: 2px solid rgba(6,182,212,0.25); border-radius: 20px; padding: 2rem 2.25rem; text-decoration: none; text-align: center; transition: all 0.3s; box-shadow: 0 0 30px rgba(6,182,212,0.06);" href="assessment.html">
         <div style="font-family: Space Grotesk, sans-serif; font-size: 1.15rem; font-weight: 700; color: #f0eef8; margin-bottom: 0.4rem;">Want to put this into practice?</div>
-        <div style="font-size: 0.9rem; color: #c4c0d8; margin-bottom: 1.25rem;">Get the free AI Visibility Checklist — 20 actions you can take this week to show up in ChatGPT, Perplexity, Gemini, and Claude.</div>
-        <span style="display: inline-flex; padding: 0.6rem 1.5rem; border-radius: 100px; font-size: 0.88rem; font-weight: 600; background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a; box-shadow: 0 4px 16px rgba(6,182,212,0.3);">Get the Free AI Visibility Checklist →</span>
+        <div style="font-size: 0.9rem; color: #c4c0d8; margin-bottom: 1.25rem;">Take the AI Visibility Assessment — Discover how your brand shows up in ChatGPT, Perplexity, and Gemini..</div>
+        <span style="display: inline-flex; padding: 0.6rem 1.5rem; border-radius: 100px; font-size: 0.88rem; font-weight: 600; background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #0c0a1a; box-shadow: 0 4px 16px rgba(6,182,212,0.3);">Take the AI Visibility Assessment →</span>
       </a>
     </div>
   </section>
@@ -725,6 +731,14 @@
       tocLinks.forEach(a => a.classList.remove('active'));
       if (current) current.a.classList.add('active');
     });
+
+    // Nav Dropdown
+    const dd = document.getElementById('navDropdown');
+    const ddBtn = document.getElementById('navDropdownBtn');
+    if (dd && ddBtn) {
+      ddBtn.addEventListener('click', e => { e.stopPropagation(); dd.classList.toggle('open'); ddBtn.setAttribute('aria-expanded', dd.classList.contains('open')); });
+      document.addEventListener('click', () => { dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded', 'false'); });
+    }
   </script>
 </body>
 </html>

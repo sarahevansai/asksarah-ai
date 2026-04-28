@@ -266,9 +266,10 @@
         </text>
       </svg>
     </a>
-        <div class="nav-links">
+    <div class="nav-links">
       <a href="/">Home</a>
       <a href="briefings.html">Daily AI Briefings</a>
+      <a href="research.html">Research</a>
       <a href="newsletter.html">Newsletter</a>
       <a href="shows.html">Live Shows</a>
       <a href="tools.html">Tools</a>
@@ -281,7 +282,8 @@
           <a href="about.html">About</a>
           <a href="glossary.html">AI Glossary</a>
           <a href="press.html">Press</a>
-          <a href="learn.html">Learn</a>
+          <a href="assessment.html">AI Visibility Assessment</a>
+          <a href="learn.html" class="active">Learn</a>
           <a href="speaking.html">Speaking</a>
           <a href="connect.html">Connect</a>
         </div>
@@ -291,13 +293,17 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
-    <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu">
     <a href="/">Home</a>
     <a href="briefings.html">Daily AI Briefings</a>
+    <a href="research.html">Research</a>
     <a href="newsletter.html">Newsletter</a>
     <a href="shows.html">Live Shows</a>
     <a href="tools.html">Tools</a>
     <a href="about.html">About</a>
+    <a href="glossary.html">AI Glossary</a>
+    <a href="press.html">Press</a>
+    <a href="assessment.html">AI Visibility Assessment</a>
     <a href="learn.html">Learn</a>
     <a href="speaking.html">Speaking</a>
     <a href="connect.html">Connect</a>
@@ -1003,6 +1009,14 @@ Schema.org → AI Crawl Data → AI Answer Inclusion</code></pre>
       tocLinks.forEach(a => a.classList.remove('active'));
       if (current) current.a.classList.add('active');
     });
+
+    // Nav Dropdown
+    const dd = document.getElementById('navDropdown');
+    const ddBtn = document.getElementById('navDropdownBtn');
+    if (dd && ddBtn) {
+      ddBtn.addEventListener('click', e => { e.stopPropagation(); dd.classList.toggle('open'); ddBtn.setAttribute('aria-expanded', dd.classList.contains('open')); });
+      document.addEventListener('click', () => { dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded', 'false'); });
+    }
   </script>
 </body>
 </html>

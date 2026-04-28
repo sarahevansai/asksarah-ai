@@ -229,6 +229,41 @@
     .rss-btn { border-color: rgba(251,146,60,0.3); color: #fb923c; }
     .rss-btn:hover { border-color: rgba(251,146,60,0.5); color: #fdba74; background: rgba(251,146,60,0.05); }
 
+    /* BACK TO TOP */
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: var(--gradient);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      outline: none;
+    }
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    #backToTop:not(.show) {
+      transform: translateY(20px);
+    }
+    #backToTop:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 32px rgba(124,58,237,0.4);
+    }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -256,6 +291,7 @@
     <div class="nav-links">
       <a href="/">Home</a>
       <a href="briefings.html">Daily AI Briefings</a>
+      <a href="research.html">Research</a>
       <a href="newsletter.html">Newsletter</a>
       <a href="shows.html">Live Shows</a>
       <a href="tools.html">Tools</a>
@@ -269,7 +305,7 @@
           <a href="glossary.html" class="active">AI Glossary</a>
           <a href="press.html">Press</a>
           <a href="assessment.html">AI Visibility Assessment</a>
-                <a href="learn.html">Learn</a>
+          <a href="learn.html">Learn</a>
           <a href="speaking.html">Speaking</a>
           <a href="connect.html">Connect</a>
         </div>
@@ -283,11 +319,14 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="/">Home</a>
     <a href="briefings.html">Daily AI Briefings</a>
+    <a href="research.html">Research</a>
     <a href="newsletter.html">Newsletter</a>
     <a href="shows.html">Live Shows</a>
     <a href="tools.html">Tools</a>
     <a href="about.html">About</a>
     <a href="glossary.html">AI Glossary</a>
+    <a href="press.html">Press</a>
+    <a href="assessment.html">AI Visibility Assessment</a>
     <a href="learn.html">Learn</a>
     <a href="speaking.html">Speaking</a>
     <a href="connect.html">Connect</a>
@@ -1077,7 +1116,17 @@
       }
     }
 
-  </script>
+  <button id="backToTop" aria-label="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
 
+  <script>
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600) btt.classList.add('show');
+      else btt.classList.remove('show');
+    });
+    btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  </script>
 </body>
 </html>

@@ -230,6 +230,30 @@
     .typing-ind span:nth-child(3) { animation-delay: 0.4s; }
     @keyframes td { 0%,60%,100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
 
+    .copy-btn { align-self: flex-start; background: transparent; border: none; color: var(--text-muted); font-size: 0.65rem; padding: 0.2rem 0.5rem; cursor: pointer; opacity: 0; transition: opacity 0.2s; display: flex; align-items: center; gap: 0.3rem; margin-top: 0.2rem; font-family: inherit; }
+    .cmsg.bot:hover .copy-btn { opacity: 1; }
+    .copy-btn:hover { color: var(--white); }
+
+    @keyframes badge-pulse {
+      0% { transform: scale(1); filter: brightness(1); }
+      50% { transform: scale(1.08); filter: brightness(1.2); }
+      100% { transform: scale(1); filter: brightness(1); }
+    }
+    .badge-new {
+      display: inline-block;
+      animation: badge-pulse 2s infinite ease-in-out;
+      background: var(--gradient);
+      color: white;
+      font-size: 0.6rem;
+      font-weight: 800;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
     /* STARTER CHIPS */
     .starter-chips { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-top: 1.25rem; max-width: 680px; margin-left: auto; margin-right: auto; }
     .starter-chip { background: rgba(124,58,237,0.06); border: 1px solid rgba(124,58,237,0.15); border-radius: 100px; padding: 0.4rem 0.85rem; font-size: 0.74rem; font-weight: 500; color: var(--text); cursor: pointer; transition: all 0.2s; font-family: inherit; }
@@ -307,7 +331,7 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
-    <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu">
     <a href="/">Home</a>
     <a href="briefings.html">Daily AI Briefings</a>
     <a href="research.html">Research</a>
@@ -315,6 +339,9 @@
     <a href="shows.html">Live Shows</a>
     <a href="tools.html">Tools</a>
     <a href="about.html">About</a>
+    <a href="glossary.html">AI Glossary</a>
+    <a href="press.html">Press</a>
+    <a href="assessment.html">AI Visibility Assessment</a>
     <a href="learn.html">Learn</a>
     <a href="speaking.html">Speaking</a>
     <a href="connect.html">Connect</a>
@@ -375,6 +402,10 @@
 
   <section style="padding: 2rem 2rem 1rem; position: relative; z-index: 1; text-align: center;">
     <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; max-width: 600px; margin: 0 auto;">
+      <a href="https://myagentstack.io/" target="_blank" style="display: flex; align-items: center; gap: 0.85rem; background: linear-gradient(135deg, rgba(6,182,212,0.12), rgba(124,58,237,0.08)); border: 1px solid rgba(6,182,212,0.35); border-radius: 16px; padding: 0.85rem 1.5rem; text-decoration: none; transition: all 0.2s; width: 100%; box-shadow: 0 4px 20px rgba(6,182,212,0.1);">
+        <span style="font-size: 1.5rem;">🤖</span>
+        <span style="font-size: 0.88rem; color: #c4c0d8; text-align: left; flex: 1;"><strong style="color: #f0eef8; display: block; font-size: 0.95rem; margin-bottom: 0.2rem;">MyAgentStack.io <span class="badge-new">NEW</span></strong> The directory of AI agents and vibecoded products for marketing, comms, and media. <span style="color: #22d3ee; font-weight: 700; display: inline-block; margin-top: 0.3rem;">Explore the Stack →</span></span>
+      </a>
       <a href="https://stan.store/asksarahevans/p/the-fractional-ai-chief-of-staff-blueprint" target="_blank" style="display: flex; align-items: center; gap: 0.85rem; background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(6,182,212,0.1)); border: 1px solid rgba(124,58,237,0.4); border-radius: 16px; padding: 0.85rem 1.5rem; text-decoration: none; transition: all 0.2s; width: 100%; box-shadow: 0 4px 20px rgba(124,58,237,0.1);">
         <span style="font-size: 1.5rem;">👔</span>
         <span style="font-size: 0.88rem; color: #c4c0d8; text-align: left; flex: 1;"><strong style="color: #f0eef8; display: block; font-size: 0.95rem; margin-bottom: 0.2rem;">The Fractional AI Chief of Staff (Blueprint)</strong> Install an elite AI operator to manage priorities and eliminate blind spots. <span style="color: #a78bfa; font-weight: 700; display: inline-block; margin-top: 0.3rem;">Get the Blueprint →</span></span>
@@ -460,7 +491,7 @@
       },
       {
         question: "What are you building right now?",
-        answer: "A lot. Here's the short list:\n\n• **Published Monthly™** — a systematic 5-part framework for AI visibility: owned content, SEO, generative search, digital PR, and sales alignment.\n• **ZAVI™** — a platform that tracks your Answer Share across AI engines over time.\n• **SourceVault™** — a tool that helps journalists discover expert sources.\n• **GEO GPT** — a free tool to audit your AI visibility across ChatGPT, Gemini, Perplexity, and Claude.\n\nI'm also shipping the PR@ctical newsletter, writing for HackerNoon, and helping clients at Zen Media navigate this shift. I build because that's how I think.\n\n[Check out the Research Hub](/research.html)"
+        answer: "A lot. Here's the short list:\n\n• **MyAgentStack™** — the directory of AI agents and vibecoded products for marketing and comms.\n• **Published Monthly™** — a systematic 5-part framework for AI visibility: owned content, SEO, generative search, digital PR, and sales alignment.\n• **ZAVI™** — a platform that tracks your Answer Share across AI engines over time.\n• **SourceVault™** — a tool that helps journalists discover expert sources.\n• **GEO GPT** — a free tool to audit your AI visibility across ChatGPT, Gemini, Perplexity, and Claude.\n\nI'm also shipping the PR@ctical newsletter, writing for HackerNoon, and helping clients at Zen Media navigate this shift. I build because that's how I think.\n\n[Check out the Research Hub](/research.html)"
       },
       {
         question: "What's The Before Layer?",
@@ -503,10 +534,22 @@
           .replace(/\n/g, '<br>')
           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
           .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: var(--cyan-light); text-decoration: underline;">$1</a>');
+        
+        // Copy button
+        const cp = document.createElement('button');
+        cp.className = 'copy-btn';
+        cp.innerHTML = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy';
+        cp.onclick = () => {
+          navigator.clipboard.writeText(text);
+          cp.innerHTML = 'Copied!';
+          setTimeout(() => cp.innerHTML = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy', 2000);
+        };
+        w.appendChild(b);
+        w.appendChild(cp);
       } else {
         b.textContent = text;
+        w.appendChild(b);
       }
-      w.appendChild(b);
       m.appendChild(w);
       m.scrollTop = m.scrollHeight;
     }
