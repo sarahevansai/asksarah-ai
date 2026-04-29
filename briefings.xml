@@ -13,8 +13,8 @@
     <copyright>Copyright 2026 Sarah Evans. All rights reserved.</copyright>
     <managingEditor>sarah@zenmedia.com (Sarah Evans)</managingEditor>
     <webMaster>sarah@zenmedia.com (Sarah Evans)</webMaster>
-    <lastBuildDate>Tue, 28 Apr 2026 07:00:00 -0700</lastBuildDate>
-    <pubDate>Tue, 28 Apr 2026 07:00:00 -0700</pubDate>
+    <lastBuildDate>Wed, 29 Apr 2026 07:00:00 -0700</lastBuildDate>
+    <pubDate>Wed, 29 Apr 2026 07:00:00 -0700</pubDate>
     <ttl>480</ttl>
     <image>
       <url>https://asksarah.ai/og-image.png</url>
@@ -25,6 +25,47 @@
     <!-- ═══════════════════════════════════════════
          APRIL 28, 2026
     ═══════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════
+         APRIL 29, 2026
+    ═══════════════════════════════════════════ -->
+    <item>
+      <title>AI Brief — April 29, 2026: Synthetic Journalism via Acutus. 77% Use AI to Shop. AWS All-In on Agents.</title>
+      <link>https://asksarah.ai/briefings#april-29-2026</link>
+      <guid isPermaLink="true">https://asksarah.ai/briefings#april-29-2026</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 -0700</pubDate>
+      <author>sarah@zenmedia.com (Sarah Evans)</author>
+      <category>Acutus</category>
+      <category>Shopping AI</category>
+      <category>AWS</category>
+      <category>ChatGPT Pulse</category>
+      <category>Bing SEO</category>
+      <description>Research while you sleep? SaaS can't do that, but ChatGPT now can. Read today's AI Brief for more. Synthetic journalism has arrived. AI is in 77% of shopping carts. AWS went all-in on agents. Bing previewed new AI reports for citation share.</description>
+      <content:encoded><![CDATA[
+        <h2>⚡ 1. THE WIRE BY ACUTUS USED AI BOTS POSING AS REPORTERS TO HARVEST QUOTES FROM REAL PEOPLE.</h2>
+        <p>94 articles. 97% AI-generated. Byline "Michael Chen" does not exist. Acutus emailed Encode VP Nathan Calvin from reporter@acutuswire.com for a Tennessee AI bill Q&A. Traces back to OpenAI's $125M Leading The Future super PAC.</p>
+        <p><strong>→ Synthetic journalism has arrived. The next decade of PR is not pitching reporters, it is unmasking the bots dressed up as reporters.</strong></p>
+
+        <h2>⚡ 2. NEW SEMRUSH DATA: 77% USE AI TO SHOP. NEARLY 1 IN 3 WILL NOT LET IT SPEND.</h2>
+        <p>SEMrush surveyed 1,009 US consumers. 77% use AI to research and compare. 31% will not authorize any autonomous AI spend. 17% cap it at $20. 21% cap it at $50.</p>
+        <p><strong>→ AI is already in three out of four shopping carts. The next battle is not adoption, it is whether the customer hands the agent the credit card.</strong></p>
+
+        <h2>⚡ 3. AWS WENT ALL-IN ON AGENTS: AMAZON QUICK, FOUR NEW CONNECT TOOLS, OPENAI ON BEDROCK.</h2>
+        <p>Amazon shipped Quick Desktop, an AI work assistant connecting calendar, tasks, and apps across Google Workspace, Zoom, Airtable, Dropbox, and Teams. Connect split into agentic Decisions, Talent, Customer, and Health. OpenAI models, Codex, and Bedrock Managed Agents in limited preview.</p>
+        <p><strong>→ The agent era moved from keynote slide to enterprise procurement. Every hyperscaler now has a Cowork challenger plus an OpenAI alliance.</strong></p>
+
+        <h2>⚡ 4. CHATGPT PULSE ROLLED OUT TO ATLAS. PRO USERS NOW WAKE UP TO AN OVERNIGHT RESEARCH BRIEF.</h2>
+        <p>Pulse runs while you sleep. It mines your past chats, memory, and feedback. It optionally pulls from Gmail and Google Calendar. It delivers a focused brief in the morning.</p>
+        <p><strong>→ Research while you sleep used to be a Hollywood plot point. The "I will get to it tomorrow" excuse just expired for every Pro-tier user.</strong></p>
+
+        <h2>⚡ 5. BING PREVIEWED FOUR NEW WEBMASTER TOOLS AI REPORTS: CITATION SHARE AND GEO RECOMMENDATIONS.</h2>
+        <p>Microsoft AI and Bing PM Krishna Madhavan unveiled them at SEO Week NYC. Citation Share is a brand's percent of citations inside a grounding query. GEO recommendations cover content structure, crawlability, structured data, and indexing.</p>
+        <p><strong>→ AI visibility is leaving the dark and walking into a dashboard. Within a quarter, every CMO will be asked why their citation share lags.</strong></p>
+
+        <p><a href="https://asksarah.ai/briefings#april-29-2026">Read on askSarah.ai →</a></p>
+        <p><a href="https://www.linkedin.com/posts/prsarahevans_ai-brief-apr-29-activity-7455231775921922048-sC2W?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAE2DR0BeElXX5oZkd6gOrjZi5Fy8cp8jbo">View original post on LinkedIn →</a></p>
+      ]]></content:encoded>
+    </item>
+
     <item>
       <title>AI Brief — April 28, 2026: Cursor's Agent Wipes Database. OpenAI Agentic Phone. Search Engine Land: Data Architect.</title>
       <link>https://asksarah.ai/briefings#april-28-2026</link>
