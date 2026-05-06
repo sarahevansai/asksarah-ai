@@ -298,6 +298,25 @@
     /* BRIEFING BODY */
     .briefing-body { display: none; border-top: 1px solid var(--border-light); }
     .briefing-card.open .briefing-body { display: block; }
+
+    /* Month section */
+    .month-section { margin-bottom: 12px; }
+    .month-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 20px; cursor: pointer;
+      border: 1px solid var(--border-light); border-radius: 12px;
+      background: var(--surface); transition: border-color 0.2s, background 0.2s;
+      user-select: none;
+    }
+    .month-header:hover { border-color: rgba(124,58,237,0.35); background: rgba(124,58,237,0.05); }
+    .month-section.open .month-header { border-color: rgba(124,58,237,0.4); border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: none; }
+    .month-label { font-size: 1rem; font-weight: 700; color: var(--white); flex: 1; }
+    .month-count { font-size: 0.8rem; color: var(--text-muted); background: rgba(124,58,237,0.15); padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+    .month-chevron { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid var(--border-light); transition: transform 0.2s; flex-shrink: 0; }
+    .month-section.open .month-chevron svg { transform: rotate(180deg); }
+    .month-cards { display: none; border: 1px solid rgba(124,58,237,0.4); border-top: none; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; padding: 12px; background: rgba(124,58,237,0.03); }
+    .month-section.open .month-cards { display: block; }
+    .month-cards .briefing-card:last-child { margin-bottom: 0; }
     .briefing-body-inner { padding: 1.5rem; }
 
     .signal-item { margin-bottom: 2rem; }
@@ -746,10 +765,9 @@
     ];
 
     // ─── RENDER ─────────────────────────────────────────────────────────────
-    function renderBriefings() {
-      const list = document.getElementById('briefingList');
-      list.innerHTML = briefings.map((b, i) => `
-        <div class="briefing-card ${i === 0 ? 'open' : ''}" id="briefing-${b.slug}">
+    function cardHTML(b, isFirst) {
+      return `
+        <div class="briefing-card ${isFirst ? 'open' : ''}" id="briefing-${b.slug}">
           <div class="briefing-header" onclick="toggleBriefing('${b.slug}')">
             <div class="briefing-header-left">
               <div class="briefing-date">${b.date}</div>
@@ -791,13 +809,45 @@
               </a>
             </div>
           </div>
-        </div>
-      `).join('');
+        </div>`;
     }
 
+    function renderBriefings() {
+      const list = document.getElementById('briefingList');
+      const groups = [];
+      const groupMap = {};
+      briefings.forEach(b => {
+        const d = new Date(b.date);
+        const key = d.getFullYear() + '-' + d.getMonth();
+        const label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+        if (!groupMap[key]) { groupMap[key] = { key, label, entries: [] }; groups.push(groupMap[key]); }
+        groupMap[key].entries.push(b);
+      });
+      const now = new Date();
+      const currentKey = now.getFullYear() + '-' + now.getMonth();
+      list.innerHTML = groups.map(group => {
+        const isCurrent = group.key === currentKey;
+        const cards = group.entries.map((b, i) => cardHTML(b, i === 0 && isCurrent)).join('');
+        if (isCurrent) return cards;
+        return `
+        <div class="month-section" id="month-${group.key}">
+          <div class="month-header" onclick="toggleMonth('${group.key}')">
+            <span class="month-label">📅 ${group.label}</span>
+            <span class="month-count">${group.entries.length} briefings</span>
+            <div class="month-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+          </div>
+          <div class="month-cards">${cards}</div>
+        </div>`;
+      }).join('');
+    }
     function toggleBriefing(slug) {
       const card = document.getElementById('briefing-' + slug);
       card.classList.toggle('open');
+    }
+
+    function toggleMonth(key) {
+      const section = document.getElementById('month-' + key);
+      section.classList.toggle('open');
     }
 
     // Auto-open from URL hash
