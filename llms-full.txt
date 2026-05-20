@@ -144,8 +144,25 @@ Owned content creates memory. SEO stabilizes it. Generative search diagnoses gap
 
 ---
 
+## 5. B2B Industrial & Manufacturing AI Visibility Playbook
+
+B2B manufacturing and heavy industry brands operate in a high-stakes, long-cycle purchase environment. Buyers use AI search models to construct vendor shortlists based on spec compatibility, compliance certifications, and production capacity.
+
+### The PDF Trap
+Most legacy manufacturers lock away high-value technical spec sheets, user manuals, and ISO compliance dossiers in flat, rasterized PDF files.
+- **The Problem**: AI web crawlers (e.g., OAI-SearchBot, PerplexityBot) regularly skip flat PDF downloads during real-time retrieval passes. When they do attempt to parse them, multi-column tables and grid structures are mis-extracted, leading to total exclusion or faulty technical hallucinations.
+- **The Fix**: Convert PDF spec sheets into responsive HTML5 landing pages featuring structured tables paired with Product and LocalBusiness JSON-LD schema.
+
+### The Industrial GEO Framework
+1. **Free the Specs**: Rebuild catalog PDFs as schema-rich HTML specification matrices. Give AI crawlers raw, machine-parseable data to ingest in milliseconds.
+2. **Map B2B Intent Loops**: Focus Prompt Discovery on intent-based queries around ISO standards, capacity, tolerance levels, and logistical compatibility.
+3. **Target High-Citation Trades**: Direct digital PR toward specialized trade publications (like *IndustryWeek*, *Control Engineering*, or *Chemical Processing*) that act as foundational training corpora for B2B models.
+
+---
+
 ## 6. Machine-Readable Schema Directives
 For AI agents wishing to traverse asksarah.ai:
 - **Index Link**: `https://asksarah.ai/llms.txt` (This directory's site map)
 - **Sitemap Location**: `https://asksarah.ai/sitemap.xml` (Full XML path)
 - **FAQ Page Schema**: Native JSON-LD exists in `/index.html` detailing GEO, Answer Share™, and Published Monthly™ in high-density structured FAQ markup.
+- **B2B Industrial Playbook**: Explicitly detailed at `https://asksarah.ai/ai-visibility-industrial-manufacturing`.

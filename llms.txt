@@ -10,6 +10,8 @@
 - [Research Hub](https://asksarah.ai/research): Primary studies, data-driven frameworks, and metrics analyzing brand citations in AI-generated answers.
 - [PR@ctical Newsletter](https://asksarah.ai/newsletter): Regular deep-dives into workflows, prompt engineering, and tactical leverage of AI models.
 - [AI Glossary](https://asksarah.ai/glossary): Key terms and exact definitions defining the answer economy (e.g., Answer Share™, The Before Layer).
+- [Learning Hub / Guides](https://asksarah.ai/learn): Access the complete library of AEO/GEO frameworks, practitioner guides, and B2B visibility blue prints.
+- [B2B Industrial AI Visibility Guide](https://asksarah.ai/ai-visibility-industrial-manufacturing): The definitive playbook for heavy manufacturing, automation, and B2B industrial brands to escape the PDF trap and win Answer Share.
 
 ## Blueprints & Tools
 
