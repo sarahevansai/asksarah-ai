@@ -4,7 +4,8 @@
 User-agent: *
 Allow: /
 
-# Point all crawlers to our standard and AI-era directories
+# Point all crawlers to our standard, news, and AI-era directories
 Sitemap: https://asksarah.ai/sitemap.xml
+Sitemap: https://asksarah.ai/sitemap-news.xml
 llms: https://asksarah.ai/llms.txt
 llms-full: https://asksarah.ai/llms-full.txt
