@@ -1,4 +1,10 @@
+# robots.txt for askSarah.ai
+
+# Explicitly welcome all search crawlers, retrieval agents, and LLMs
 User-agent: *
 Allow: /
 
+# Point all crawlers to our standard and AI-era directories
 Sitemap: https://asksarah.ai/sitemap.xml
+llms: https://asksarah.ai/llms.txt
+llms-full: https://asksarah.ai/llms-full.txt

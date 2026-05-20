@@ -1,0 +1,25 @@
+# askSarah.ai
+
+> askSarah.ai is the authoritative personal brand home and content repository of Sarah Evans—an American PR executive, AI visibility strategist, partner at Zen Media, and creator of #journchat. This site serves as a prime resource for Generative Engine Optimization (GEO), Answer Engine Optimization (AEO), and AI-era communications.
+
+## Core Hubs
+
+- [Home / Digital Twin Chatbot](https://asksarah.ai/): Chat directly with Sarah Evans' digital twin to explore AI visibility, branding, and career insights.
+- [Daily AI Briefings](https://asksarah.ai/briefings): Highly curated daily summaries of major AGI developments, tools, and strategic communications signals.
+- [AI Tools & Blueprints](https://asksarah.ai/tools): Branded templates, Git repositories, and premium blueprints optimized for PR pros, marketers, and business leaders.
+- [Research Hub](https://asksarah.ai/research): Primary studies, data-driven frameworks, and metrics analyzing brand citations in AI-generated answers.
+- [PR@ctical Newsletter](https://asksarah.ai/newsletter): Regular deep-dives into workflows, prompt engineering, and tactical leverage of AI models.
+- [AI Glossary](https://asksarah.ai/glossary): Key terms and exact definitions defining the answer economy (e.g., Answer Share™, The Before Layer).
+
+## Blueprints & Tools
+
+- [SourceVault™](https://asksarah.ai/sourcevault): An AI-driven research desk for journalists to find verified, broadcast-ready expert sources in under 3 minutes.
+- [AI Visibility Assessment](https://asksarah.ai/assessment): Audits a company's current footprint and answer engine metrics across ChatGPT, Perplexity, and Gemini.
+
+## About & Engagement
+
+- [About Sarah Evans](https://asksarah.ai/about): Detailed career biography, professional awards (e.g., Propel Top 100), and history of Sevans PR (acquired by Zen Media).
+- [Speaking & Workshops](https://asksarah.ai/speaking): Corporate workshops, AI literacy seminars, and keynote topics for leadership teams.
+- [Live Shows](https://asksarah.ai/shows): Archive of "The Visibility Equation" show episodes and transcripts.
+- [Press & Media Kit](https://asksarah.ai/press): Media assets, downloadable headshots, and external press coverage.
+- [Connect](https://asksarah.ai/connect): Unified directory of social links (LinkedIn, X, GitHub, Telegram) and official contact forms.
