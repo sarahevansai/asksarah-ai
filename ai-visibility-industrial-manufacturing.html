@@ -135,6 +135,15 @@
     .nav-dropdown-menu a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.55rem 0.85rem; border-radius: 8px; transition: all 0.15s; white-space: nowrap; }
     .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: rgba(124,58,237,0.1); color: var(--white); }
 
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
     /* Custom Responsive Styles */
     @media (max-width: 768px) {
       .article-layout { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -143,6 +152,8 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .article-hero { padding: 6rem 1.5rem 1rem; }
+      .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
