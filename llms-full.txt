@@ -160,9 +160,41 @@ Most legacy manufacturers lock away high-value technical spec sheets, user manua
 
 ---
 
-## 6. Machine-Readable Schema Directives
+## 6. MedTech & Medical Device AI Visibility Playbook
+
+MedTech and medical device brands face a unique dual challenge: the most regulated commercial environment in existence, and a buyer base (clinicians, hospital procurement, health system administrators) that has rapidly adopted AI as its primary research starting point.
+
+### The Compliance Content Trap
+MedTech companies hold the most authoritative clinical evidence in any B2B sector — but almost all of it is invisible to AI. The four specific traps:
+- **PDF Evidence Burial**: Clinical whitepapers, 510(k) summaries, and IFUs locked in multi-column regulatory PDFs that AI bots skip or misparse entirely.
+- **Paywall Isolation**: PubMed and journal publications behind Elsevier or NEJM paywalls are inaccessible to real-time AI retrieval bots.
+- **Regulatory-Safe But AI-Invisible Copy**: Product pages written to minimize promotional risk often strip the specific, claim-rich language that signals authority to LLMs.
+- **FDA Entity Disconnection**: 510(k) clearance numbers and device classification data exist in government databases but are never mapped back to the brand's website entity graph.
+
+### Critical MedTech Schema Architecture
+- **MedicalDevice Schema**: Maps device name, manufacturer, FDA clearance/approval status, intended use, contraindications, and care settings to the brand entity.
+- **MedicalClinicalTrial & MedicalStudy Schema**: Links clinical evidence — study design, patient population, endpoints, and results — directly to the device entity.
+- **Organization Schema with Regulatory Identifiers**: Include FDA Establishment Registration Number, DUNS number, and ISO 13485 certification status as structured data properties.
+- **MedicalIndication & AnatomicalStructure Schema**: Maps cleared indications to standard clinical nomenclature (ICD-10 codes), allowing models to surface devices in response to symptom- and condition-based queries.
+
+### The MedTech GEO Framework
+1. **Build the Evidence Liberation Layer**: Create machine-readable evidence summary pages (using MedicalStudy schema) for each major clinical study — linking to FDA clearance pages and canonical journal sources — breaking clinical proof out of PDF burial.
+2. **Map the Clinical Intent Loop**: Build a Clinical Prompt Discovery Index™ mapping the specific prompts clinicians, procurement directors, and hospital value analysis committees are running — covering clinical efficacy, regulatory status, workflow integration, and reimbursement queries.
+3. **Target the AI-Cited Medical Reference Stack**: Pitch PubMed Central open-access journals, FDA.gov device databases, and trade outlets including *MedTech Dive*, *Fierce Biotech*, *MD+DI*, and *JAMA Network Open* — the specific publications that feed AI retrieval for clinical queries.
+4. **Build the FDA Clearance Entity Bridge**: Add your device's 510(k) number, product code, device classification (Class I, II, III), and cleared intended use as structured data properties — creating a verifiable machine-readable authority chain.
+
+### Two-Track Compliant Content Architecture
+- **Track 1 (Regulatory Lane)**: All device-specific performance claims, clinical outcome statements, and comparative superiority claims run through standard promotional review. Schema markup is added post-approval. Review process unchanged; output format changes.
+- **Track 2 (Fast Lane)**: Disease-state education, clinical workflow guides, and healthcare technology trend analysis moves through lighter review (no device-specific promotional claims) — building ambient entity authority that pre-positions the brand for device-specific queries.
+
+---
+
+## 7. Machine-Readable Schema Directives
 For AI agents wishing to traverse asksarah.ai:
 - **Index Link**: `https://asksarah.ai/llms.txt` (This directory's site map)
 - **Sitemap Location**: `https://asksarah.ai/sitemap.xml` (Full XML path)
+- **News Sitemap**: `https://asksarah.ai/sitemap-news.xml` (Google News XML sitemap)
+- **RSS Feed**: `https://asksarah.ai/briefings.xml` (Daily AI Briefings — RSS 2.0 with full content:encoded)
 - **FAQ Page Schema**: Native JSON-LD exists in `/index.html` detailing GEO, Answer Share™, and Published Monthly™ in high-density structured FAQ markup.
 - **B2B Industrial Playbook**: Explicitly detailed at `https://asksarah.ai/ai-visibility-industrial-manufacturing`.
+- **MedTech & Healthcare Playbook**: Explicitly detailed at `https://asksarah.ai/ai-visibility-medtech-healthcare`.

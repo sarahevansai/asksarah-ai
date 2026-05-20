@@ -23,4 +23,15 @@
       <news:title>Owning Generative Search (GEO) in LLMs for B2B Industrial &amp; Manufacturing</news:title>
     </news:news>
   </url>
+  <url>
+    <loc>https://asksarah.ai/ai-visibility-medtech-healthcare</loc>
+    <news:news>
+      <news:publication>
+        <news:name>askSarah.ai</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-20T12:00:00-07:00</news:publication_date>
+      <news:title>Owning Generative Search (GEO) in LLMs for MedTech &amp; Medical Device Brands</news:title>
+    </news:news>
+  </url>
 </urlset>
