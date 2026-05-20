@@ -143,6 +143,7 @@
       --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
       --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
       --radius: 16px;
+      --red: #f43f5e;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -287,6 +288,503 @@
       .hero { padding: 6rem 1.5rem 2rem; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
+
+    /* ======================================================== */
+    /* CMO "BEFORE LAYER" RISK & ROI CALCULATOR INTEGRATED STYLE */
+    /* ======================================================== */
+    .calculator-container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 800px;
+      margin: 4rem auto 1rem;
+      padding: 0;
+    }
+
+    .calc-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .brand-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      background: rgba(6, 182, 212, 0.1);
+      color: var(--cyan-light);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .calc-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .calc-subtitle {
+      font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+      color: var(--text);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      text-align: left;
+    }
+
+    @media (max-width: 968px) {
+      .calc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .calc-card {
+      background: rgba(22, 19, 46, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .calc-card:hover {
+      border-color: rgba(124, 58, 237, 0.3);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4),
+                  0 0 30px rgba(124, 58, 237, 0.04);
+    }
+
+    .calc-card-glow {
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .calc-section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--white);
+    }
+
+    .calc-section-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 1.85rem;
+    }
+
+    .calc-input-group {
+      margin-bottom: 1.6rem;
+    }
+
+    .calc-input-group:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .calc-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .calc-input-group label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .citation-badge, .calc-card-source-citation {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--cyan-light);
+      cursor: help;
+      position: relative;
+      background: rgba(6, 182, 212, 0.08);
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      border: 1px solid rgba(6, 182, 212, 0.15);
+      transition: all 0.2s;
+    }
+
+    .citation-badge:hover, .calc-card-source-citation:hover {
+      background: rgba(6, 182, 212, 0.18);
+      color: var(--white);
+    }
+
+    [data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 130%;
+      right: 0;
+      width: 240px;
+      background: rgba(17, 15, 36, 0.98);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      font-size: 0.72rem;
+      font-weight: 400;
+      line-height: 1.4;
+      padding: 0.7rem 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--cyan);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      transform: translateY(5px);
+      white-space: normal;
+      text-align: left;
+    }
+
+    [data-tooltip]:hover::after {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .select-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .select-wrapper::after {
+      content: '▼';
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      position: absolute;
+      right: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .select-wrapper select {
+      width: 100%;
+      background: rgba(124, 58, 237, 0.08);
+      border: 1.5px solid var(--border);
+      color: var(--white);
+      padding: 0.7rem 1.2rem;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border-radius: 10px;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .select-wrapper select:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+    }
+
+    .calc-slider-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .calc-slider-row input[type="range"] {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 100px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .calc-slider-row input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--violet);
+      box-shadow: 0 0 8px rgba(124, 58, 237, 0.5);
+      transition: transform 0.15s, background-color 0.15s;
+    }
+
+    .calc-slider-row input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      background: var(--cyan-light);
+      border-color: var(--cyan);
+    }
+
+    .calc-value-display {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      min-width: 85px;
+      text-align: right;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-light);
+    }
+
+    .calc-share-legend {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      padding: 0 0.2rem;
+    }
+
+    .calc-legend-item {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .calc-legend-item.active {
+      color: var(--cyan-light);
+      font-weight: 600;
+    }
+
+    .calc-results {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .calc-result-card {
+      padding: 1.75rem;
+      border-width: 1px;
+      border-style: solid;
+    }
+
+    .calc-risk-card {
+      border-color: rgba(244, 63, 94, 0.2);
+      background: radial-gradient(circle at top left, rgba(244, 63, 94, 0.03) 0%, transparent 60%), rgba(22, 19, 46, 0.6);
+    }
+
+    .calc-risk-card:hover {
+      border-color: rgba(244, 63, 94, 0.4);
+    }
+
+    .calc-opportunity-card {
+      border-color: rgba(6, 182, 212, 0.25);
+      background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.04) 0%, transparent 60%), rgba(22, 19, 46, 0.6);
+    }
+
+    .calc-opportunity-card:hover {
+      border-color: rgba(6, 182, 212, 0.5);
+    }
+
+    .calc-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .calc-card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .calc-card-source-citation {
+      font-size: 0.65rem;
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--border-light);
+      color: var(--text-muted);
+    }
+
+    .calc-metric-container {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .calc-metric-value-wrapper {
+      flex: 1;
+    }
+
+    .calc-metric-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .calc-metric-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.3rem, 3.5vw, 1.75rem);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .calc-metric-divider {
+      width: 1px;
+      height: 35px;
+      background: var(--border-light);
+    }
+
+    .calc-progress-bar-container {
+      width: 100%;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 0.85rem;
+    }
+
+    .calc-progress-bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .calc-risk-fill {
+      background: var(--red);
+    }
+
+    .calc-opportunity-fill {
+      background: var(--cyan);
+    }
+
+    .calc-metric-summary {
+      font-size: 0.8rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .calc-budget-card {
+      padding: 1.75rem;
+      background: rgba(17, 15, 36, 0.85);
+      border-color: var(--border);
+    }
+
+    .calc-budget-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .calc-budget-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-budget-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .calc-budget-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .calc-budget-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+    }
+
+    .calc-budget-name {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .calc-budget-percent {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .calc-budget-meter {
+      width: 100%;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .calc-budget-meter-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .calc-action-cta {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(124, 58, 237, 0.04);
+      border: 1px dashed var(--border);
+      padding: 1.25rem;
+      border-radius: 12px;
+    }
+
+    .calc-cta-button {
+      display: inline-block;
+      background: var(--gradient);
+      color: white;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 0.7rem 1.85rem;
+      border-radius: 100px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25);
+      animation: calcCtaPulse 3s infinite ease-in-out;
+    }
+
+    .calc-cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(124, 58, 237, 0.4);
+    }
+
+    .calc-cta-sub {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    @keyframes calcCtaPulse {
+      0%, 100% { box-shadow: 0 10px 20px rgba(124, 58, 237, 0.25); }
+      50% { box-shadow: 0 10px 35px rgba(124, 58, 237, 0.45); }
+    }
   </style>
 </head>
 <body>
@@ -304,7 +802,7 @@
         </text>
       </svg>
     </a>
-        <div class="nav-links">
+    <div class="nav-links">
       <a href="/" class="active">Home</a>
       <a href="briefings.html">Daily AI Briefings</a>
       <a href="research.html">Research</a>
@@ -321,7 +819,7 @@
           <a href="glossary.html">AI Glossary</a>
           <a href="press.html">Press</a>
           <a href="assessment.html">AI Visibility Assessment</a>
-                <a href="learn.html">Learn</a>
+          <a href="learn.html">Learn</a>
           <a href="speaking.html">Speaking</a>
           <a href="connect.html">Connect</a>
         </div>
@@ -400,6 +898,7 @@
     </div>
   </section>
 
+  <!-- BLUEPRINTS SECTION -->
   <section style="padding: 2rem 2rem 1rem; position: relative; z-index: 1; text-align: center;">
     <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; max-width: 600px; margin: 0 auto;">
       <a href="https://myagentstack.io/" target="_blank" style="display: flex; align-items: center; gap: 0.85rem; background: linear-gradient(135deg, rgba(6,182,212,0.12), rgba(124,58,237,0.08)); border: 1px solid rgba(6,182,212,0.35); border-radius: 16px; padding: 0.85rem 1.5rem; text-decoration: none; transition: all 0.2s; width: 100%; box-shadow: 0 4px 20px rgba(6,182,212,0.1);">
@@ -415,6 +914,202 @@
         <span style="font-size: 1.5rem;">🎯</span>
         <span style="font-size: 0.88rem; color: #c4c0d8; text-align: left; flex: 1;"><strong style="color: #f0eef8; display: block; font-size: 0.95rem; margin-bottom: 0.2rem;">The Tier-1 Pitch Enhancer (Blueprint)</strong> Score your pitch across 7 journalist criteria. Get a rewritten subject line, first paragraph, and one critical fix — in 60 seconds. <span style="color: #34d399; font-weight: 700; display: inline-block; margin-top: 0.3rem;">Get the Blueprint →</span></span>
       </a>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- INTEGRATED B2B CMO BEFORE LAYER CALCULATOR -->
+  <!-- ========================================== -->
+  <section id="cmo-calculator-section" style="padding: 4rem 2rem 2rem; position: relative; z-index: 1; text-align: center;">
+    <div class="calculator-container">
+      <header class="calc-header">
+        <div class="brand-tag">EXECUTIVE PIPELINE INSIGHT</div>
+        <h2 class="calc-title">The CMO's <span class="gradient-text">"Before Layer"</span> Risk & ROI Calculator</h2>
+        <p class="calc-subtitle">Conversational search is eroding traditional organic clicks. Quantify your pipeline risk and model the financial value of B2B lead pre-nurturing through LLMs.</p>
+      </header>
+
+      <div class="calc-grid">
+        <!-- INPUTS -->
+        <div class="calc-card">
+          <div class="calc-card-glow"></div>
+          <h3 class="calc-section-title">1. Your Marketing Baseline</h3>
+          <p class="calc-section-desc">Select your industry or enter custom values to see your dynamic Generative Search forecast.</p>
+
+          <!-- SELECT -->
+          <div class="calc-input-group">
+            <label for="industrySelect">Target Industry Vertical</label>
+            <div class="select-wrapper">
+              <select id="industrySelect">
+                <option value="saas" selected>Enterprise SaaS & B2B Software</option>
+                <option value="consulting">Professional Services & B2B Consulting</option>
+                <option value="fintech">FinTech & Enterprise Finance</option>
+                <option value="medtech">MedTech & Medical Devices (B2B)</option>
+                <option value="luxury">High-Value B2C (Wealth, Luxury, Real Estate)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- TRAFFIC -->
+          <div class="calc-input-group">
+            <div class="calc-label-row">
+              <label for="trafficInput">Monthly Organic Search Traffic</label>
+              <span class="citation-badge" data-tooltip="Gartner predicts a 25% drop in search volume by 2026 due to Generative AI. Other studies estimate up to a 40-60% click drop where AI Overviews exist.">
+                Source: Gartner & SparkToro ⓘ
+              </span>
+            </div>
+            <div class="calc-slider-row">
+              <input type="range" id="trafficInput" min="5000" max="500000" step="5000" value="100000">
+              <span class="calc-value-display" id="trafficVal">100,000</span>
+            </div>
+          </div>
+
+          <!-- CONVERSION -->
+          <div class="calc-input-group">
+            <div class="calc-label-row">
+              <label for="convInput">Organic Traffic-to-Lead Conversion Rate</label>
+              <span class="citation-badge" data-tooltip="HubSpot reports typical B2B software inbound organic conversion rates hover between 1% and 3.5%.">
+                Source: HubSpot Benchmarks ⓘ
+              </span>
+            </div>
+            <div class="calc-slider-row">
+              <input type="range" id="convInput" min="0.2" max="10.0" step="0.1" value="2.0">
+              <span class="calc-value-display" id="convVal">2.0%</span>
+            </div>
+          </div>
+
+          <!-- LTV -->
+          <div class="calc-input-group">
+            <div class="calc-label-row">
+              <label for="ltvInput">Average Customer Lifetime Value (LTV)</label>
+              <span class="citation-badge" data-tooltip="Represents the total direct revenue value generated over a customer contract lifecycle by industry.">
+                Standard B2B Metric ⓘ
+              </span>
+            </div>
+            <div class="calc-slider-row">
+              <input type="range" id="ltvInput" min="5000" max="1000000" step="5000" value="150000">
+              <span class="calc-value-display" id="ltvVal">$150,000</span>
+            </div>
+          </div>
+
+          <!-- CURRENT ANSWER SHARE -->
+          <div class="calc-input-group">
+            <div class="calc-label-row">
+              <label for="shareInput">Your Current AI Answer Share™</label>
+              <span class="citation-badge" data-tooltip="Answer Share measures the probability of your brand being recommended in AI conversational responses across Perplexity, ChatGPT, and Gemini.">
+                Source: ZAVI™ Analytics ⓘ
+              </span>
+            </div>
+            <div class="calc-slider-row">
+              <input type="range" id="shareInput" min="0" max="100" step="5" value="10">
+              <span class="calc-value-display" id="shareVal">10%</span>
+            </div>
+            <div class="calc-share-legend">
+              <span class="calc-legend-item active" id="legend-0">Invisible</span>
+              <span class="calc-legend-item" id="legend-1">Mentioned</span>
+              <span class="calc-legend-item" id="legend-2">Market Leader</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="calc-results">
+          <!-- TRAFFIC CLIFF CARD -->
+          <div class="calc-card calc-result-card calc-risk-card">
+            <div class="calc-card-header">
+              <h4 class="calc-card-title">🚨 The "Before Layer" Traffic Cliff</h4>
+              <span class="calc-card-source-citation" data-tooltip="Authoritas studies confirm that conversational AI responses absorb clicks, reducing SEO click-through rates by an average of 40% on organic queries.">
+                Source: Authoritas & Gartner ⓘ
+              </span>
+            </div>
+            <div class="calc-metric-container">
+              <div class="calc-metric-value-wrapper">
+                <div class="calc-metric-label">Lost Monthly Traffic</div>
+                <div class="calc-metric-val text-red" id="lostTrafficVal" style="color: var(--red); text-shadow: 0 0 10px rgba(244,63,94,0.15);">40,000</div>
+              </div>
+              <div class="calc-metric-divider"></div>
+              <div class="calc-metric-value-wrapper">
+                <div class="calc-metric-label">Annual Revenue at Risk</div>
+                <div class="calc-metric-val text-red" id="riskRevenueVal" style="color: var(--red); text-shadow: 0 0 10px rgba(244,63,94,0.15);">$1,440,000</div>
+              </div>
+            </div>
+            <div class="calc-progress-bar-container">
+              <div class="calc-progress-bar-fill calc-risk-fill" id="riskProgress" style="width: 40%;"></div>
+            </div>
+            <p class="calc-metric-summary" id="riskSummary">Without optimizing your brand for conversational answers, up to 40% of your organic pipeline is projected to dissolve into zero-click conversational summaries.</p>
+          </div>
+
+          <!-- OPPORTUNITY CARD -->
+          <div class="calc-card calc-result-card calc-opportunity-card">
+            <div class="calc-card-glow"></div>
+            <div class="calc-card-header">
+              <h4 class="calc-card-title">🎯 The LLM Hyper-Nurtured Advantage</h4>
+              <span class="calc-card-source-citation" data-tooltip="Salesforce 'State of Sales' confirms that pre-nurtured / warm endorsed referrals close at 15-25%. McKinsey B2B research shows digital self-serve completes 30% faster.">
+                Source: Salesforce & McKinsey ⓘ
+              </span>
+            </div>
+            <div class="calc-metric-container">
+              <div class="calc-metric-value-wrapper">
+                <div class="calc-metric-label">LLM Lead Win-Rate Multiplier</div>
+                <div class="calc-metric-val text-cyan" id="speedMultiplierVal" style="color: var(--cyan-light); text-shadow: 0 0 10px rgba(6,182,212,0.15);">7.5x</div>
+              </div>
+              <div class="calc-metric-divider"></div>
+              <div class="calc-metric-value-wrapper">
+                <div class="calc-metric-label">New Annual Pipeline Captured</div>
+                <div class="calc-metric-val text-cyan" id="oppRevenueVal" style="color: var(--cyan-light); text-shadow: 0 0 10px rgba(6,182,212,0.15);">$2,700,000</div>
+              </div>
+            </div>
+            <div class="calc-progress-bar-container">
+              <div class="calc-progress-bar-fill calc-opportunity-fill" id="oppProgress" style="width: 60%;"></div>
+            </div>
+            <p class="calc-metric-summary" id="oppSummary">By climbing to a 50% AI Answer Share, your highly credible digital footprint pre-sells prospects, shortening sales cycles by 35% and boosting win-rates.</p>
+          </div>
+
+          <!-- BUDGET REALLOCATION -->
+          <div class="calc-card calc-budget-card">
+            <h4 class="calc-budget-title">📊 Dynamic B2B Budget Reallocation Index</h4>
+            <p class="calc-budget-desc">Based on your traffic baseline and risk curve, here is how you should allocate your organic marketing resources to maximize pipeline return in 2026:</p>
+            
+            <div class="calc-budget-rows">
+              <div class="calc-budget-row">
+                <div class="calc-budget-label-row">
+                  <span class="calc-budget-name">Traditional SEO (Technical Maintenance)</span>
+                  <span class="calc-budget-percent" id="budgetSeoVal">30%</span>
+                </div>
+                <div class="calc-budget-meter">
+                  <div class="calc-budget-meter-fill bg-muted" id="budgetSeoBar" style="width: 30%;"></div>
+                </div>
+              </div>
+
+              <div class="calc-budget-row">
+                <div class="calc-budget-label-row">
+                  <span class="calc-budget-name">GEO (Generative Engine Optimization & Citations)</span>
+                  <span class="calc-budget-percent" id="budgetGeoVal">50%</span>
+                </div>
+                <div class="calc-budget-meter">
+                  <div class="calc-budget-meter-fill bg-gradient" id="budgetGeoBar" style="width: 50%; background: var(--gradient);"></div>
+                </div>
+              </div>
+
+              <div class="calc-budget-row">
+                <div class="calc-budget-label-row">
+                  <span class="calc-budget-name">Agentic Schema & Feed Distribution</span>
+                  <span class="calc-budget-percent" id="budgetAgenticVal">20%</span>
+                </div>
+                <div class="calc-budget-meter">
+                  <div class="calc-budget-meter-fill bg-cyan" id="budgetAgenticBar" style="width: 20%; background: var(--cyan);"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-action-cta">
+              <a href="https://asksarah.ai/assessment.html" target="_blank" class="calc-cta-button">
+                Claim Your AI Visibility Assessment →
+              </a>
+              <span class="calc-cta-sub">Audit your live Perplexity, ChatGPT, and Gemini Answer Share™</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -495,7 +1190,7 @@
       },
       {
         question: "What's The Before Layer?",
-        answer: "The Before Layer is the AI-generated answer people see before they ever click a link. It's your brand's new homepage — except you didn't build it, and you probably don't even know what it says.\n\nWhen someone asks ChatGPT \"what's the best B2B PR agency\" or \"who's leading AI visibility strategy,\" the AI generates an answer. That answer is now the first impression. Before your website. Before your LinkedIn. Before anything you control.\n\nThis is the single biggest shift in how businesses get discovered since Google. And most brands have zero strategy for it. That's the gap I'm working to close.\n\n[Subscribe to the Newsletter](/newsletter.html)"
+        answer: "The Before Layer is the AI-generated answer people see before they ever click a link. It's your brand's new homepage — except you didn't build it, and you probably don't even know what it says.\n\nWhen someone asks ChatGPT \"what's the B2B PR agency\" or \"who's leading AI visibility strategy,\" the AI generates an answer. That answer is now the first impression. Before your website. Before your LinkedIn. Before anything you control.\n\nThis is the single biggest shift in how businesses get discovered since Google. And most brands have zero strategy for it. That's the gap I'm working to close.\n\n[Subscribe to the Newsletter](/newsletter.html)"
       },
       {
         question: "What's agentic commerce?",
@@ -633,6 +1328,128 @@
       ddBtn.addEventListener('click', (e) => { e.stopPropagation(); dd.classList.toggle('open'); ddBtn.setAttribute('aria-expanded', dd.classList.contains('open')); });
       document.addEventListener('click', () => { dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded', 'false'); });
     }
+
+    // ═══════════════════════════════════════════
+    // INTEGRATED B2B CMO CALCULATOR LOGIC
+    // ═══════════════════════════════════════════
+    const industryPresets = {
+      saas: { traffic: 100000, conv: 2.0, ltv: 150000, winMultiplier: 7.5, speedSavings: "35% shorter", winRateBase: 2.0, winRateLlm: 15.0 },
+      consulting: { traffic: 30000, conv: 1.5, ltv: 350000, winMultiplier: 6.0, speedSavings: "40% shorter", winRateBase: 2.5, winRateLlm: 15.0 },
+      fintech: { traffic: 75000, conv: 1.8, ltv: 200000, winMultiplier: 6.8, speedSavings: "30% shorter", winRateBase: 2.2, winRateLlm: 15.0 },
+      medtech: { traffic: 20000, conv: 1.2, ltv: 500000, winMultiplier: 8.0, speedSavings: "45% shorter", winRateBase: 1.8, winRateLlm: 14.4 },
+      luxury: { traffic: 15000, conv: 2.5, ltv: 250000, winMultiplier: 9.2, speedSavings: "50% shorter", winRateBase: 1.5, winRateLlm: 13.8 }
+    };
+
+    const industrySelect = document.getElementById('industrySelect');
+    const trafficInput = document.getElementById('trafficInput');
+    const convInput = document.getElementById('convInput');
+    const ltvInput = document.getElementById('ltvInput');
+    const shareInput = document.getElementById('shareInput');
+
+    const trafficVal = document.getElementById('trafficVal');
+    const convVal = document.getElementById('convVal');
+    const ltvVal = document.getElementById('ltvVal');
+    const shareVal = document.getElementById('shareVal');
+
+    const lostTrafficVal = document.getElementById('lostTrafficVal');
+    const riskRevenueVal = document.getElementById('riskRevenueVal');
+    const riskProgress = document.getElementById('riskProgress');
+    const riskSummary = document.getElementById('riskSummary');
+
+    const speedMultiplierVal = document.getElementById('speedMultiplierVal');
+    const oppRevenueVal = document.getElementById('oppRevenueVal');
+    const oppProgress = document.getElementById('oppProgress');
+    const oppSummary = document.getElementById('oppSummary');
+
+    const budgetSeoVal = document.getElementById('budgetSeoVal');
+    const budgetGeoVal = document.getElementById('budgetGeoVal');
+    const budgetAgenticVal = document.getElementById('budgetAgenticVal');
+    const budgetSeoBar = document.getElementById('budgetSeoBar');
+    const budgetGeoBar = document.getElementById('budgetGeoBar');
+    const budgetAgenticBar = document.getElementById('budgetAgenticBar');
+
+    function formatNumber(num) { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+    function formatCurrency(num) { return "$" + formatNumber(Math.round(num)); }
+
+    function updateShareLegend(share) {
+      const l0 = document.getElementById('legend-0');
+      const l1 = document.getElementById('legend-1');
+      const l2 = document.getElementById('legend-2');
+      l0.classList.remove('active'); l1.classList.remove('active'); l2.classList.remove('active');
+      if (share < 20) l0.classList.add('active');
+      else if (share >= 20 && share < 70) l1.classList.add('active');
+      else l2.classList.add('active');
+    }
+
+    function calculate() {
+      const preset = industryPresets[industrySelect.value];
+      const traffic = parseInt(trafficInput.value);
+      const conversionRate = parseFloat(convInput.value) / 100;
+      const ltv = parseInt(ltvInput.value);
+      const share = parseInt(shareInput.value);
+
+      const erosionRate = 50 - (share * 0.3);
+      const lostTraffic = Math.round(traffic * (erosionRate / 100));
+      const annualLeadsLost = lostTraffic * conversionRate * 12;
+      const dealsLost = annualLeadsLost * (preset.winRateBase / 100);
+      const revenueAtRisk = dealsLost * ltv;
+
+      const winMultiplier = preset.winMultiplier;
+      const conversationalBase = traffic * 0.30;
+      const targetShare = Math.max(share, 45);
+      const recapturedLeads = conversationalBase * (targetShare / 100) * conversionRate * 12;
+      const recapturedDeals = recapturedLeads * (preset.winRateLlm / 100);
+      const revenueOpportunity = recapturedDeals * ltv;
+
+      trafficVal.textContent = formatNumber(traffic);
+      convVal.textContent = (conversionRate * 100).toFixed(1) + "%";
+      ltvVal.textContent = formatCurrency(ltv);
+      shareVal.textContent = share + "%";
+
+      lostTrafficVal.textContent = formatNumber(lostTraffic);
+      riskRevenueVal.textContent = formatCurrency(revenueAtRisk);
+      riskProgress.style.width = Math.min((lostTraffic / traffic) * 100, 100) + "%";
+
+      speedMultiplierVal.textContent = winMultiplier.toFixed(1) + "x";
+      oppRevenueVal.textContent = formatCurrency(revenueOpportunity);
+      
+      const maxOpp = traffic * conversionRate * 12 * ltv * (preset.winRateBase/100);
+      oppProgress.style.width = Math.max(Math.min((revenueOpportunity / (maxOpp || 1)) * 100, 100), 20) + "%";
+
+      riskSummary.textContent = `Without optimizing your brand for conversational answers, up to ${Math.round(erosionRate)}% of your search pipeline is projected to dissolve into zero-click conversational summaries. This places ${formatCurrency(revenueAtRisk)} in annual revenue at risk.`;
+      oppSummary.textContent = `By climbing to a ${targetShare}% AI Answer Share, your highly credible digital footprint pre-sells prospects, shortening sales cycles by ${preset.speedSavings} and generating up to ${formatCurrency(revenueOpportunity)} in warm pipeline.`;
+
+      let seoPercent, geoPercent, agenticPercent;
+      if (share < 20) { seoPercent = 25; geoPercent = 55; agenticPercent = 20; }
+      else if (share >= 20 && share < 60) { seoPercent = 35; geoPercent = 45; agenticPercent = 20; }
+      else { seoPercent = 45; geoPercent = 30; agenticPercent = 25; }
+
+      budgetSeoVal.textContent = seoPercent + "%";
+      budgetGeoVal.textContent = geoPercent + "%";
+      budgetAgenticVal.textContent = agenticPercent + "%";
+      budgetSeoBar.style.width = seoPercent + "%";
+      budgetGeoBar.style.width = geoPercent + "%";
+      budgetAgenticBar.style.width = agenticPercent + "%";
+
+      updateShareLegend(share);
+    }
+
+    industrySelect.addEventListener('change', () => {
+      const preset = industryPresets[industrySelect.value];
+      if (preset) {
+        trafficInput.value = preset.traffic;
+        convInput.value = preset.conv;
+        ltvInput.value = preset.ltv;
+        calculate();
+      }
+    });
+
+    trafficInput.addEventListener('input', calculate);
+    convInput.addEventListener('input', calculate);
+    ltvInput.addEventListener('input', calculate);
+    shareInput.addEventListener('input', calculate);
+
+    calculate();
   </script>
 
 </body>
