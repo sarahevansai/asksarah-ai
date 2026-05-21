@@ -1,0 +1,764 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Perception Stack™ — C-Suite Investment Brief for AI Perception | askSarah.ai</title>
+<meta name="description" content="The first template that gives comms leaders the infrastructure to request budget like a CMO. 19-slide pitch deck, Operator's Manual, and video walkthrough. Free. Built by Sarah Evans.">
+<link rel="canonical" href="https://asksarah.ai/perception-stack">
+<meta property="og:title" content="The Perception Stack™ — C-Suite Investment Brief for AI Perception">
+<meta property="og:description" content="The first template that gives comms leaders the infrastructure to request budget like a CMO. Free. Built by Sarah Evans.">
+<meta property="og:image" content="https://asksarah.ai/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://asksarah.ai/perception-stack">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://asksarah.ai/og-image.png">
+<meta name="twitter:site" content="@prsarahevans">
+<meta name="twitter:title" content="The Perception Stack™ — C-Suite Investment Brief for AI Perception">
+<meta name="twitter:description" content="The first template that gives comms leaders the infrastructure to request budget like a CMO. Free.">
+
+<style>
+:root {
+  --bg: #0c0a1a;
+  --surface: #110f24;
+  --card: #16132e;
+  --card-hover: #1c1838;
+  --white: #f0eef8;
+  --text: #c4c0d8;
+  --muted: #7a758f;
+  --violet: #7c3aed;
+  --violet-light: #a78bfa;
+  --cyan: #06b6d4;
+  --cyan-light: #22d3ee;
+  --border: rgba(124, 58, 237, 0.18);
+  --brand-grad: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  --text-grad: linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: var(--cyan-light); text-decoration: none; }
+a:hover { color: var(--white); }
+
+/* Glow background */
+body::before {
+  content: '';
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1400px;
+  height: 1400px;
+  background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0) 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top accent bar */
+.accent-bar {
+  height: 4px;
+  background: var(--brand-grad);
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+header {
+  position: relative;
+  z-index: 10;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(124,58,237,0.08);
+  background: rgba(12, 10, 26, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.logo .ask { color: var(--muted); font-weight: 600; }
+.logo .name { color: var(--white); }
+.logo .tld { color: var(--cyan); }
+
+nav { display: flex; gap: 28px; flex-wrap: wrap; }
+nav a {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.15s;
+}
+nav a:hover { color: var(--cyan-light); }
+
+@media (max-width: 768px) {
+  header { padding: 16px 20px; flex-direction: column; gap: 14px; }
+  nav { gap: 16px; font-size: 13px; justify-content: center; }
+}
+
+/* Main container */
+main { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 40px 80px; }
+
+@media (max-width: 768px) {
+  main { padding: 0 20px 60px; }
+}
+
+/* Hero */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 100px;
+  background: var(--card);
+  border: 1px solid var(--violet);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--violet-light);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+h1 {
+  font-family: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+  font-size: clamp(40px, 7vw, 88px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  background: var(--text-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 18px;
+}
+
+h1 .tm { font-size: 0.35em; vertical-align: super; -webkit-text-fill-color: var(--cyan-light); }
+
+.hero .subhead {
+  font-size: clamp(18px, 2.4vw, 24px);
+  color: var(--text);
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+/* CTA Button */
+.btn {
+  display: inline-block;
+  padding: 18px 36px;
+  background: var(--brand-grad);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 8px 32px rgba(124,58,237,0.35);
+  text-decoration: none;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(124,58,237,0.5);
+  color: var(--white);
+}
+
+.btn-meta {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+/* Quote block — the rising tide line */
+.tide {
+  margin: 80px auto 0;
+  max-width: 800px;
+  padding: 48px 32px;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+}
+
+.tide p {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.tide p.accent {
+  color: var(--cyan-light);
+  font-style: italic;
+  margin-top: 8px;
+}
+
+/* Section heading */
+.section { padding: 80px 0 20px; }
+.section-eyebrow {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--violet-light);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+h2 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 18px;
+  color: var(--text);
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.grid.three { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover { border-color: var(--violet); transform: translateY(-2px); }
+
+.card .num {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--violet);
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.card h3 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cyan-light);
+  margin-bottom: 10px;
+}
+.card p { font-size: 15px; color: var(--text); line-height: 1.5; }
+
+/* Bundle list */
+.bundle {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 40px;
+  margin-top: 40px;
+}
+
+.bundle h3 {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 13px;
+  color: var(--violet-light);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.bundle-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(124,58,237,0.08);
+  align-items: start;
+}
+.bundle-item:last-child { border-bottom: none; }
+.bundle-item .check {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid var(--cyan);
+  color: var(--cyan-light);
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.bundle-item .label {
+  font-weight: 700;
+  color: var(--white);
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.bundle-item .desc { font-size: 14px; color: var(--text); }
+
+/* Tiers section */
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+.tier {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+.tier.recommended { border-color: var(--cyan); border-width: 2px; position: relative; }
+.tier.recommended::before {
+  content: 'RECOMMENDED';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cyan);
+  color: var(--bg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+.tier .tname {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--violet-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+.tier .tstage { font-size: 11px; color: var(--muted); font-style: italic; margin-bottom: 16px; }
+.tier .tbudget {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.tier .tscope { font-size: 12px; color: var(--text); line-height: 1.5; }
+
+/* Why I built */
+.bio {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 40px;
+  margin-top: 40px;
+}
+.bio p { font-size: 16px; line-height: 1.7; color: var(--text); margin-bottom: 16px; }
+.bio .sig { font-weight: 700; color: var(--white); margin-top: 24px; }
+
+/* Final CTA */
+.cta-final {
+  text-align: center;
+  padding: 100px 0 40px;
+}
+.cta-final h2 { margin-bottom: 12px; }
+.cta-final .subhead {
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+/* Sticky CTA */
+.sticky-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+.sticky-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.sticky-cta .btn {
+  padding: 14px 24px;
+  font-size: 14px;
+  box-shadow: 0 12px 40px rgba(124,58,237,0.6);
+}
+
+/* Footer */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 60px 40px 30px;
+  position: relative;
+  z-index: 5;
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+}
+.footer-grid h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--violet-light);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer-grid a { display: block; font-size: 14px; color: var(--text); margin-bottom: 8px; }
+.footer-grid a:hover { color: var(--cyan-light); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(124,58,237,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  footer { padding: 40px 20px 20px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+
+/* Utilities */
+.center { text-align: center; }
+.divider {
+  width: 100px; height: 3px;
+  background: var(--brand-grad);
+  border-radius: 2px;
+  margin: 32px auto;
+}
+</style>
+</head>
+<body>
+
+<div class="accent-bar"></div>
+
+<header>
+  <a href="https://asksarah.ai/" class="logo">
+    <span class="ask">ask</span><span class="name">Sarah</span><span class="tld">.ai</span>
+  </a>
+  <nav>
+    <a href="https://asksarah.ai/">Home</a>
+    <a href="https://asksarah.ai/tools.html">Tools</a>
+    <a href="https://asksarah.ai/research.html">Research</a>
+    <a href="https://asksarah.ai/newsletter.html">Newsletter</a>
+    <a href="https://asksarah.ai/about.html">About</a>
+    <a href="https://asksarah.ai/connect.html">Connect</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">NEW · FREE TEMPLATE</div>
+    <p style="font-size: 18px; color: var(--text); margin-bottom: 14px;">Introducing</p>
+    <h1>The Perception Stack<span class="tm">™</span></h1>
+    <p class="subhead">The first C-suite investment brief template for AI perception. Built for the comms leader who's been asked for a plan and handed nothing to build one with.</p>
+    <a href="https://stan.store/asksarahevans/p/the-perception-stack" class="btn">Get the bundle →</a>
+    <p class="btn-meta">Free · Email required · Lifetime access · No subscriptions</p>
+
+    <div class="tide">
+      <p>CMOs have decks.</p>
+      <p>CFOs have models.</p>
+      <p>Boards have governance.</p>
+      <p class="accent">Comms had vibes.</p>
+      <p class="accent">Until now.</p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="section-eyebrow">The Problem</div>
+    <h2>Comms has been carrying the AI perception conversation. Without infrastructure.</h2>
+    <p class="section-sub">You've been in the meeting. The CEO asks what we're doing about AI. The CFO asks what it costs. The board asks why now. And until now, comms has walked into that conversation with a Google Doc and a hope.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>No shared framework</h3>
+        <p>Every comms leader has been improvising the same conversation in isolation. No common language. No agreed model.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>No budget template</h3>
+        <p>Marketing has campaign budgets. IT has security budgets. Comms has been asking for a number without a model behind it.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>No script for the room</h3>
+        <p>Walking into a board meeting without language tested for CEO, CFO, CMO, and board has been the default for too long.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>No measurement system</h3>
+        <p>"How will we know it's working?" is the question that's killed more AI budget asks than any other. Comms has never had the answer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FRAMEWORK -->
+  <section class="section">
+    <div class="section-eyebrow">The Framework</div>
+    <h2>Three layers. One program. Comms-led, board-reportable.</h2>
+    <p class="section-sub">Every dollar in your budget maps to one of these three layers. Every KPI maps to one. Every hire maps to one.</p>
+
+    <div class="grid three">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Defense</h3>
+        <p>Identify and correct mis, dis, and untrue information AI is repeating about you. Monthly audit. Correction runbook. Re-test until the fix holds. KPI: time-to-correct.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Discovery</h3>
+        <p>Map every persona asking about your category (buyer, hire, investor, journalist, regulator) and the intents driving their questions. KPI: covered intent share.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Delivery</h3>
+        <p>Personalize content for each persona-intent pair. Ship at sustained cadence. Anchor articles, AI Notices, bylines, earned coverage. KPI: citation share growth.</p>
+      </div>
+    </div>
+
+    <p class="center" style="margin-top: 40px; font-size: 18px; color: var(--cyan-light); font-style: italic; font-weight: 700;">"Defense protects what's already there. Discovery tells us what to build. Delivery builds it."</p>
+  </section>
+
+  <!-- WHAT'S IN THE BUNDLE -->
+  <section class="section">
+    <div class="section-eyebrow">What's Inside</div>
+    <h2>The full bundle. Free.</h2>
+    <p class="section-sub">Everything you need to walk into the room on Monday with an actual proposal.</p>
+
+    <div class="bundle">
+      <h3>The Pitch Deck</h3>
+      <div class="bundle-item">
+        <div class="check">✓</div>
+        <div>
+          <div class="label">19 production-ready slides (.pptx)</div>
+          <div class="desc">Title, why-now, new marketing flow, the thesis, audit, cost of inaction, the framework, three layer deep-dives, rate-and-pace, ownership, measurement, four investment tiers, 90-day plan, the decision, plus appendix slides.</div>
+        </div>
+      </div>
+      <div class="bundle-item">
+        <div class="check">✓</div>
+        <div>
+          <div class="label">Speaker notes on every slide</div>
+          <div class="desc">What to say. What to swap. How to read CEO, CFO, CMO, and board reactions in real time.</div>
+        </div>
+      </div>
+      <div class="bundle-item">
+        <div class="check">✓</div>
+        <div>
+          <div class="label">Hidden Operator's Checklist (slide 0)</div>
+          <div class="desc">A walkthrough of every placeholder you need to fill in before presenting. Hidden in presentation mode.</div>
+        </div>
+      </div>
+      <div class="bundle-item">
+        <div class="check">✓</div>
+        <div>
+          <div class="label">Objection handling appendix</div>
+          <div class="desc">The five most likely pushbacks ("isn't this SEO?" / "we already do PR" / "can we wait a year?") with prepared answers.</div>
+        </div>
+      </div>
+      <div class="bundle-item">
+        <div class="check">✓</div>
+        <div>
+          <div class="label">Glossary appendix</div>
+          <div class="desc">Definitions for every term so the room never has to ask what an AI Notice is.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bundle" style="margin-top: 24px;">
+      <h3>The Operator's Manual</h3>
+      <div class="bundle-item">
+        <div class="check">✓</div>
+        <div>
+          <div class="label">9-section companion guide (.docx)</div>
+          <div class="desc">Pre-meeting prep, how to run the meeting, how to read the room, the post-meeting recap email template, objection cheat sheet, glossary, and placeholder convention.</div>
+        </div>
+      </div>
+      <div class="bundle-item">
+        <div class="check">✓</div>
+        <div>
+          <div class="label">2-minute video walkthrough</div>
+          <div class="desc">Sarah walks you through how to use the deck. Watch it before your meeting. Share it with your team.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIERS -->
+  <section class="section">
+    <div class="section-eyebrow">The Investment Model</div>
+    <h2>Four tiers. Real budget ranges. Pick the one that matches your company.</h2>
+    <p class="section-sub">Total annual envelope including internal headcount, agency support, and tooling. The deck walks you through what each tier funds.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tname">BASIC</div>
+        <div class="tstage">Founder-led · &lt;$10M</div>
+        <div class="tbudget">$50K – $150K</div>
+        <div class="tscope">Defense + light Delivery. 1 persona. 1–2 anchors/mo.</div>
+      </div>
+      <div class="tier">
+        <div class="tname">SMALL</div>
+        <div class="tstage">Brand · $10M – $50M</div>
+        <div class="tbudget">$200K – $500K</div>
+        <div class="tscope">Full 3 layers, low intensity. 2–3 personas.</div>
+      </div>
+      <div class="tier recommended">
+        <div class="tname">MID</div>
+        <div class="tstage">Mid-Market · $50M – $500M</div>
+        <div class="tbudget">$500K – $1.5M</div>
+        <div class="tscope">Full program at production intensity. 4–6 personas.</div>
+      </div>
+      <div class="tier">
+        <div class="tname">ENT</div>
+        <div class="tstage">Enterprise · $500M+</div>
+        <div class="tbudget">$1.5M – $5M+</div>
+        <div class="tscope">Dedicated team + custom dashboarding + regulatory layer.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILT FOR -->
+  <section class="section">
+    <div class="section-eyebrow">Built For</div>
+    <h2>If you've been carrying this conversation alone, this is yours.</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>In-house comms leaders</h3>
+        <p>Being asked about AI strategy and given no template to build a plan with.</p>
+      </div>
+      <div class="card">
+        <h3>Agency PR leads</h3>
+        <p>Pitching AI services to a client's C-suite and need the framework that lands.</p>
+      </div>
+      <div class="card">
+        <h3>CMOs equipping a team</h3>
+        <p>Want your comms team to walk into the boardroom with the same infrastructure marketing already has.</p>
+      </div>
+      <div class="card">
+        <h3>Founders and VP Marketing</h3>
+        <p>Carrying the comms function yourself and need a real budget conversation, not vibes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY I BUILT -->
+  <section class="section">
+    <div class="section-eyebrow">Why I Built This</div>
+    <h2>A rising tide raises all ships.</h2>
+
+    <div class="bio">
+      <p>23 years in PR. Partner at Zen Media. I've sat in hundreds of C-suite conversations where comms was handed the AI strategy question and walked into the room with nothing to build a plan on.</p>
+      <p>CMOs have decks. CFOs have models. Boards have governance frameworks. Comms has been handed the question without the infrastructure to answer it.</p>
+      <p>The Perception Stack is the first template that gives every comms leader, in-house or agency-side, the same artifact CMOs, CFOs, and CTOs already have. It's free because the work this discipline does is too important to be gatekept.</p>
+      <p>If you use it inside your company and a tier gets approved, come back and tell me. I'm tracking the data.</p>
+      <p class="sig">— Sarah Evans · <a href="https://www.linkedin.com/in/prsarahevans">LinkedIn</a> · <a href="https://asksarah.ai/">asksarah.ai</a></p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-final">
+    <div class="divider"></div>
+    <h2>Get the Perception Stack.</h2>
+    <p class="subhead">Free. Email required. Bundle in your inbox in 30 seconds.</p>
+    <a href="https://stan.store/asksarahevans/p/the-perception-stack" class="btn">Send me the bundle →</a>
+    <p class="btn-meta">Hosted on Stan Store · Lifetime access · No subscriptions, no upsells</p>
+  </section>
+
+</main>
+
+<!-- Sticky CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="https://stan.store/asksarahevans/p/the-perception-stack" class="btn">Get the bundle →</a>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>Navigation</h4>
+      <a href="https://asksarah.ai/">Home</a>
+      <a href="https://asksarah.ai/about.html">About</a>
+      <a href="https://asksarah.ai/tools.html">Tools</a>
+      <a href="https://asksarah.ai/learn.html">Learn</a>
+      <a href="https://asksarah.ai/newsletter.html">Newsletter</a>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <a href="https://www.linkedin.com/in/prsarahevans">LinkedIn</a>
+      <a href="https://github.com/sarahevansai">GitHub</a>
+      <a href="https://t.me/sarahevansai">Telegram</a>
+      <a href="https://stan.store/asksarahevans">Stan Store</a>
+    </div>
+    <div>
+      <h4>Built by Sarah Evans</h4>
+      <a href="https://www.zenmedia.com">Partner at Zen Media</a>
+      <a href="https://hackernoon.com/u/sarahevans">HackerNoon Column</a>
+      <a href="https://x.com/prsarahevans">X / Twitter</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <a href="https://asksarah.ai/" class="logo">
+      <span class="ask">ask</span><span class="name">Sarah</span><span class="tld">.ai</span>
+    </a>
+    <span>© Sarah Evans. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+// Sticky CTA reveal after scrolling past the hero
+const sticky = document.getElementById('stickyCta');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 700) {
+    sticky.classList.add('visible');
+  } else {
+    sticky.classList.remove('visible');
+  }
+});
+</script>
+</body></html>
