@@ -20,6 +20,10 @@
 - [SourceVault™](https://asksarah.ai/sourcevault): An AI-driven research desk for journalists to find verified, broadcast-ready expert sources in under 3 minutes.
 - [AI Visibility Assessment](https://asksarah.ai/assessment): Audits a company's current footprint and answer engine metrics across ChatGPT, Perplexity, and Gemini.
 
+## Training
+
+- [GEO 101 for Agencies](https://asksarah.ai/geo-101): A one-hour live training (Friday, October 9, 12–1 pm PT) covering modern GEO terms, workflows, and tips for agency teams. One $595 fee, unlimited seats per agency. Taught live by Sarah Evans.
+
 ## About & Engagement
 
 - [About Sarah Evans](https://asksarah.ai/about): Detailed career biography, professional awards (e.g., Propel Top 100), and history of Sevans PR (acquired by Zen Media).
