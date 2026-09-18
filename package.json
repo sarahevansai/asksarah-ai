@@ -1,1 +1,9 @@
-{"engines":{"node":"20.x"}}
+{
+  "name": "asksarah-ai",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": "20.x" },
+  "dependencies": {
+    "stripe": "^16.0.0"
+  }
+}
