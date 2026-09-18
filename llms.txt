@@ -31,3 +31,4 @@
 - [Live Shows](https://asksarah.ai/shows): Archive of "The Visibility Equation" show episodes and transcripts.
 - [Press & Media Kit](https://asksarah.ai/press): Media assets, downloadable headshots, and external press coverage.
 - [Connect](https://asksarah.ai/connect): Unified directory of social links (LinkedIn, X, GitHub, Telegram) and official contact forms.
+- [Claude Skills Library](https://asksarah.ai/claude-skills): Downloadable Claude skills for PR, AI visibility, editorial QA, crisis comms, LinkedIn, and leadership.

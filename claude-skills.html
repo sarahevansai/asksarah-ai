@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Skills by Sarah Evans — askSarah.ai</title>
+  <meta name="description" content="Production-grade Claude Code skills built by Sarah Evans. Install in seconds. PR writing, AI visibility, editorial QA, crisis comms, LinkedIn thought leadership, and more.">
+  <meta property="og:title" content="Claude Skills by Sarah Evans — askSarah.ai">
+  <meta property="og:description" content="Production-grade Claude Code skills for PR, communications, content, and AI visibility — built by Sarah Evans.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/claude-skills.html">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:site" content="@prsarahevans">
+  <link rel="canonical" href="https://asksarah.ai/claude-skills.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23a78bfa'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%2306b6d4'>.ai</tspan></text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0a1a; --surface: #110f24; --card: #16132e; --card-hover: #1c1838;
+      --white: #f0eef8; --text: #c4c0d8; --text-muted: #7a758f;
+      --violet: #7c3aed; --violet-light: #a78bfa; --cyan: #06b6d4; --cyan-light: #22d3ee;
+      --gradient: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
+      --border: rgba(124,58,237,0.12); --border-light: rgba(255,255,255,0.06);
+      --gold: #f59e0b; --gold-light: #fbbf24;
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(124,58,237,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(6,182,212,0.06), transparent); }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(124,58,237,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(6,182,212,0.07); animation: o2 25s ease-in-out infinite; }
+    .orb-3 { width: 400px; height: 400px; top: 40%; left: 60%; background: rgba(124,58,237,0.05); animation: o1 30s ease-in-out infinite reverse; }
+    @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
+    @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
+    .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(12,10,26,0.8); border-bottom: 1px solid var(--border-light); }
+    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .nav-logo svg { height: 28px; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta { background: var(--gradient) !important; color: white !important; padding: 0.45rem 1.2rem; border-radius: 100px; font-weight: 600 !important; font-size: 0.82rem !important; }
+    .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(12,10,26,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
+    .mobile-menu a:last-child { border: none; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-btn { color: var(--text-muted); background: none; border: none; font-size: 0.8rem; font-weight: 500; cursor: pointer; font-family: inherit; letter-spacing: 0.02em; display: flex; align-items: center; gap: 0.3rem; transition: color 0.2s; padding: 0; }
+    .nav-dropdown-btn:hover { color: var(--white); }
+    .nav-dropdown-btn svg { transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-btn svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); right: 0; min-width: 180px; background: rgba(17,15,36,0.97); backdrop-filter: blur(24px); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.4rem; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.55rem 0.85rem; border-radius: 8px; transition: all 0.15s; white-space: nowrap; }
+    .nav-dropdown-menu a:hover { background: rgba(124,58,237,0.1); color: var(--white); }
+
+    /* PAGE HEADER */
+    .page-header { padding: 7rem 2rem 2.5rem; text-align: center; position: relative; z-index: 1; }
+    .page-header-eyebrow { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.2); border-radius: 100px; padding: 0.3rem 0.85rem; font-size: 0.72rem; font-weight: 600; color: var(--violet-light); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem; }
+    .page-header h1 { font-family: 'Space Grotesk'; font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.6rem; }
+    .page-header p { color: var(--text-muted); font-size: 0.95rem; max-width: 520px; margin: 0 auto 2rem; line-height: 1.65; }
+
+    /* EXPLAINER STRIP */
+    .explainer-strip { max-width: 900px; margin: 0 auto 3rem; padding: 0 2rem; position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .explainer-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.2rem; display: flex; gap: 0.75rem; align-items: flex-start; }
+    .explainer-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.05rem; }
+    .explainer-item h3 { font-size: 0.84rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
+    .explainer-item p { font-size: 0.76rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* BUNDLE CARD */
+    .bundle-wrap { max-width: 1000px; margin: 0 auto 2rem; padding: 0 2rem; position: relative; z-index: 1; }
+    .bundle-card { background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(124,58,237,0.12)); border: 2px solid rgba(245,158,11,0.35); border-radius: 20px; padding: 2rem 2.25rem; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .bundle-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #f59e0b, #a78bfa, #06b6d4); }
+    .bundle-badge { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4); border-radius: 100px; padding: 0.25rem 0.75rem; font-size: 0.68rem; font-weight: 700; color: var(--gold-light); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .bundle-card h2 { font-family: 'Space Grotesk'; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .bundle-card p { color: var(--text); font-size: 0.85rem; line-height: 1.55; max-width: 500px; }
+    .bundle-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; flex-shrink: 0; }
+    .bundle-price { text-align: right; }
+    .bundle-price-main { font-family: 'Space Grotesk'; font-size: 2rem; font-weight: 700; color: var(--gold-light); line-height: 1; }
+    .bundle-price-was { font-size: 0.75rem; color: var(--text-muted); text-decoration: line-through; }
+    .bundle-price-save { font-size: 0.72rem; color: #34d399; font-weight: 600; }
+    .btn-bundle { background: linear-gradient(135deg, #f59e0b, #a78bfa); color: #0c0a1a; font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1.6rem; border-radius: 100px; border: none; cursor: pointer; font-family: inherit; transition: all 0.2s; white-space: nowrap; }
+    .btn-bundle:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.25); }
+    .btn-bundle:disabled { opacity: 0.6; cursor: wait; }
+
+    /* FILTER CHIPS */
+    .filter-wrap { max-width: 1000px; margin: 0 auto 2rem; padding: 0 2rem; position: relative; z-index: 1; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .filter-chip { padding: 0.4rem 0.95rem; border-radius: 100px; font-size: 0.76rem; font-weight: 600; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer; font-family: inherit; transition: all 0.2s; }
+    .filter-chip:hover { border-color: var(--violet); color: var(--violet-light); }
+    .filter-chip.active { background: rgba(124,58,237,0.12); border-color: var(--violet); color: var(--violet-light); }
+
+    /* SKILLS GRID */
+    .skills-grid { max-width: 1000px; margin: 0 auto; padding: 0 2rem 5rem; position: relative; z-index: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.1rem; }
+    .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; position: relative; overflow: hidden; transition: all 0.2s; display: flex; flex-direction: column; }
+    .skill-card:hover { border-color: rgba(124,58,237,0.28); transform: translateY(-3px); background: var(--card-hover); box-shadow: 0 16px 48px rgba(0,0,0,0.35); }
+    .skill-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient); }
+    .skill-card.hidden { display: none; }
+    .skill-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.65rem; }
+    .skill-icon { font-size: 1.7rem; flex-shrink: 0; }
+    .skill-price-badge { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3); border-radius: 8px; padding: 0.25rem 0.55rem; font-size: 0.75rem; font-weight: 700; color: var(--gold-light); white-space: nowrap; flex-shrink: 0; }
+    .skill-card h3 { font-family: 'Space Grotesk'; font-weight: 700; font-size: 1rem; color: var(--white); margin-bottom: 0.35rem; }
+    .skill-card p { color: var(--text); font-size: 0.82rem; line-height: 1.55; flex: 1; margin-bottom: 1rem; }
+    .skill-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .skill-tag { background: rgba(124,58,237,0.07); border: 1px solid rgba(124,58,237,0.15); border-radius: 100px; padding: 0.18rem 0.55rem; font-size: 0.65rem; color: var(--text-muted); font-weight: 500; }
+    .skill-actions { display: flex; gap: 0.5rem; margin-top: auto; }
+    .btn-buy { flex: 1; background: var(--gradient); color: white; border: none; border-radius: 100px; padding: 0.55rem 0; font-size: 0.8rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.3rem; }
+    .btn-buy:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(124,58,237,0.3); }
+    .btn-buy:disabled { opacity: 0.6; cursor: wait; }
+
+    /* INSTALL GUIDE */
+    .install-guide { max-width: 900px; margin: 0 auto 4rem; padding: 0 2rem; position: relative; z-index: 1; }
+    .install-guide-inner { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem 2.25rem; }
+    .install-guide-inner h2 { font-family: 'Space Grotesk'; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .install-guide-inner > p { color: var(--text-muted); font-size: 0.84rem; margin-bottom: 1.5rem; }
+    .install-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .install-step { background: rgba(124,58,237,0.05); border: 1px solid rgba(124,58,237,0.1); border-radius: 12px; padding: 1rem; }
+    .install-step-num { font-family: 'Space Grotesk'; font-size: 0.65rem; font-weight: 700; color: var(--violet-light); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+    .install-step h4 { font-size: 0.84rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .install-step code { font-size: 0.75rem; color: var(--cyan-light); background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.15); border-radius: 6px; padding: 0.3rem 0.5rem; display: block; margin-top: 0.4rem; font-family: 'SF Mono', 'Fira Code', monospace; }
+
+    /* FAQ */
+    .faq-section { max-width: 700px; margin: 0 auto 5rem; padding: 0 2rem; position: relative; z-index: 1; }
+    .faq-section h2 { font-family: 'Space Grotesk'; font-size: 1.2rem; font-weight: 700; text-align: center; margin-bottom: 1.25rem; }
+    .faq-item { border-bottom: 1px solid var(--border-light); }
+    .faq-btn { width: 100%; text-align: left; background: none; border: none; color: var(--white); font-family: inherit; font-size: 0.88rem; font-weight: 600; padding: 1rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: color 0.2s; }
+    .faq-btn:hover { color: var(--violet-light); }
+    .faq-btn svg { flex-shrink: 0; transition: transform 0.25s; }
+    .faq-item.open .faq-btn svg { transform: rotate(180deg); }
+    .faq-answer { font-size: 0.84rem; color: var(--text); line-height: 1.65; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+    .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 1rem; }
+
+    /* FOOTER */
+    footer { padding: 3rem 2rem 2rem; border-top: 1px solid var(--border-light); position: relative; z-index: 1; }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(122,117,143,0.5); }
+
+    /* TOAST */
+    .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(20px); background: rgba(17,15,36,0.97); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.75rem 1.25rem; font-size: 0.84rem; color: var(--white); z-index: 999; opacity: 0; transition: all 0.3s; pointer-events: none; white-space: nowrap; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.error { border-color: rgba(244,63,94,0.3); color: #f87171; }
+
+    @keyframes badge-pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+    .badge-new { display: inline-block; animation: badge-pulse 2s infinite ease-in-out; background: var(--gradient); color: white; font-size: 0.58rem; font-weight: 800; padding: 0.1rem 0.4rem; border-radius: 4px; margin-left: 0.35rem; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .explainer-strip { grid-template-columns: 1fr; }
+      .install-steps { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .bundle-card { flex-direction: column; }
+      .bundle-right { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+        <text y="32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="30">
+          <tspan fill="#a78bfa">ask</tspan><tspan fill="#ffffff">Sarah</tspan><tspan fill="#06b6d4">.ai</tspan>
+        </text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="research.html">Research</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="shows.html">Live Shows</a>
+      <a href="tools.html">Tools</a>
+      <a href="claude-skills.html" class="active">Claude Skills</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn" aria-haspopup="true" aria-expanded="false">
+          More
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="about.html">About</a>
+          <a href="glossary.html">AI Glossary</a>
+          <a href="press.html">Press</a>
+          <a href="assessment.html">AI Visibility Assessment</a>
+          <a href="perception-stack.html">Perception Stack</a>
+          <a href="learn.html">Learn</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="connect.html">Connect</a>
+        </div>
+      </div>
+    </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="research.html">Research</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="shows.html">Live Shows</a>
+    <a href="tools.html">Tools</a>
+    <a href="claude-skills.html">Claude Skills</a>
+    <a href="about.html">About</a>
+    <a href="glossary.html">AI Glossary</a>
+    <a href="press.html">Press</a>
+    <a href="assessment.html">AI Visibility Assessment</a>
+    <a href="perception-stack.html">Perception Stack</a>
+    <a href="learn.html">Learn</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="connect.html">Connect</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-eyebrow">⚡ Claude Code Skills</div>
+    <h1>Skills Built in the <span class="gradient-text">Real Work</span></h1>
+    <p>Not prompts. Not templates. These are Claude Code skills — drop them into your setup and your AI instantly knows how to do a specific, real job. Built from how I actually work.</p>
+  </div>
+
+  <!-- EXPLAINER STRIP -->
+  <div class="explainer-strip">
+    <div class="explainer-item">
+      <div class="explainer-icon">⚡</div>
+      <div>
+        <h3>Install in Seconds</h3>
+        <p>Unzip into your Claude skills directory. One command and the skill is live in every session.</p>
+      </div>
+    </div>
+    <div class="explainer-item">
+      <div class="explainer-icon">🤖</div>
+      <div>
+        <h3>Works with Claude Code</h3>
+        <p>Built for the Claude Code skill standard. Each skill ships with SKILL.md and any supporting files.</p>
+      </div>
+    </div>
+    <div class="explainer-item">
+      <div class="explainer-icon">🏛️</div>
+      <div>
+        <h3>Field-Tested</h3>
+        <p>Written by Sarah Evans and used in real work — not demos. These run in production PR and comms workflows.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUNDLE CARD -->
+  <div class="bundle-wrap">
+    <div class="bundle-card">
+      <div>
+        <div class="bundle-badge">⭐ Best Value · Intro Pricing</div>
+        <h2>The Full Skills Suite <span class="badge-new">NEW</span></h2>
+        <p>Every skill in the library in one download — PR, AI visibility, editorial QA, crisis comms, LinkedIn, leadership, and more. Includes all future V1 updates at no extra charge.</p>
+      </div>
+      <div class="bundle-right">
+        <div class="bundle-price">
+          <div class="bundle-price-main">$125</div>
+          <div class="bundle-price-was">Individual total: $290+</div>
+          <div class="bundle-price-save">Save over 57% with the suite</div>
+        </div>
+        <button class="btn-bundle" onclick="handleBuy('bundle-v1', 'The Full Skills Suite', 12500, this)">Get the Suite →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER CHIPS -->
+  <div class="filter-wrap">
+    <button class="filter-chip active" onclick="filterSkills('all', this)">All Skills</button>
+    <button class="filter-chip" onclick="filterSkills('pr-comms', this)">📣 PR &amp; Comms</button>
+    <button class="filter-chip" onclick="filterSkills('ai-visibility', this)">🤖 AI Visibility</button>
+    <button class="filter-chip" onclick="filterSkills('writing', this)">✍️ Writing</button>
+    <button class="filter-chip" onclick="filterSkills('leadership', this)">💡 Leadership &amp; Career</button>
+    <button class="filter-chip" onclick="filterSkills('linkedin', this)">💼 LinkedIn</button>
+  </div>
+
+  <!-- SKILLS GRID -->
+  <div class="skills-grid" id="skillsGrid">
+
+    <!-- JADED JOURNALIST -->
+    <div class="skill-card" data-category="pr-comms writing">
+      <div class="skill-card-top">
+        <div class="skill-icon">📰</div>
+        <div class="skill-price-badge">$19</div>
+      </div>
+      <h3>Jaded Journalist</h3>
+      <p>Installs a senior editor persona who reads your media pitch the way a real editor does — fast, skeptical, looking for a reason to stop. Scores across 7 criteria, rewrites the subject line and first paragraph, and gives you the single most critical fix.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">PR</span>
+        <span class="skill-tag">Media Pitching</span>
+        <span class="skill-tag">Writing</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('jaded-journalist', 'Jaded Journalist', 1900, this)">Buy — $19 →</button>
+      </div>
+    </div>
+
+    <!-- PRESS RELEASE THAT LANDS -->
+    <div class="skill-card" data-category="pr-comms writing">
+      <div class="skill-card-top">
+        <div class="skill-icon">📡</div>
+        <div class="skill-price-badge">$19</div>
+      </div>
+      <h3>Press Release That Lands</h3>
+      <p>Writes press releases a journalist can actually use — and tells you honestly whether you have news before a word gets written. Handles funding, launches, hires, partnerships, data, and executive announcements.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">PR</span>
+        <span class="skill-tag">Writing</span>
+        <span class="skill-tag">Wire</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('press-release-that-lands', 'Press Release That Lands', 1900, this)">Buy — $19 →</button>
+      </div>
+    </div>
+
+    <!-- CRISIS FIRST HOUR -->
+    <div class="skill-card" data-category="pr-comms writing">
+      <div class="skill-card-top">
+        <div class="skill-icon">🚨</div>
+        <div class="skill-price-badge">$29</div>
+      </div>
+      <h3>Crisis: First Hour</h3>
+      <p>Writes the holding statement and runs the first 60 minutes of a bad situation. Outages, data incidents, product defects, viral complaints, negative stories, executive departures — gives you words on paper fast when you need them most.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Crisis Comms</span>
+        <span class="skill-tag">PR</span>
+        <span class="skill-tag">Writing</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('crisis-first-hour', 'Crisis: First Hour', 2900, this)">Buy — $29 →</button>
+      </div>
+    </div>
+
+    <!-- TIMELY POV -->
+    <div class="skill-card" data-category="pr-comms writing linkedin">
+      <div class="skill-card-top">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-price-badge">$15</div>
+      </div>
+      <h3>Timely POV</h3>
+      <p>Turns a breaking story into a credible point of view, fast — and refuses to help you post a hollow one. Decides whether you should say anything, what to say, and where: LinkedIn, X, reporter comment, client note, or newsletter.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">PR</span>
+        <span class="skill-tag">Thought Leadership</span>
+        <span class="skill-tag">Social</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('timely-pov', 'Timely POV', 1500, this)">Buy — $15 →</button>
+      </div>
+    </div>
+
+    <!-- COMPANY BOILERPLATE -->
+    <div class="skill-card" data-category="pr-comms writing">
+      <div class="skill-card-top">
+        <div class="skill-icon">🏢</div>
+        <div class="skill-price-badge">$15</div>
+      </div>
+      <h3>Company Boilerplate</h3>
+      <p>Writes the "About [Company]" paragraph that goes at the bottom of every press release, in every media kit, and in every pitch. Standard (~100w), extended (~300w), one-line, and two-sentence — all finished and ready to approve.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">PR</span>
+        <span class="skill-tag">Writing</span>
+        <span class="skill-tag">Brand</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('company-boilerplate', 'Company Boilerplate', 1500, this)">Buy — $15 →</button>
+      </div>
+    </div>
+
+    <!-- AI SLOP DETECTOR -->
+    <div class="skill-card" data-category="writing ai-visibility">
+      <div class="skill-card-top">
+        <div class="skill-icon">🔍</div>
+        <div class="skill-price-badge">$19</div>
+      </div>
+      <h3>AI Slop Detector</h3>
+      <p>Edits AI-written copy so it stops reading like AI. Blog posts, LinkedIn posts, newsletters, landing pages, bios, sales emails, case studies — finds every generic phrase and makes it sound like a person actually wrote it.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Writing</span>
+        <span class="skill-tag">Editing</span>
+        <span class="skill-tag">Content</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('ai-slop-detector', 'AI Slop Detector', 1900, this)">Buy — $19 →</button>
+      </div>
+    </div>
+
+    <!-- AI VISIBILITY AUDIT -->
+    <div class="skill-card" data-category="ai-visibility">
+      <div class="skill-card-top">
+        <div class="skill-icon">🎯</div>
+        <div class="skill-price-badge">$29</div>
+      </div>
+      <h3>AI Visibility Audit</h3>
+      <p>Audits whether AI assistants recommend your business when a buyer asks for help. Produces the full audit: prompt set, baseline table, diagnosed gap, and prioritized fix list. Answers "does ChatGPT recommend us — and if not, why not?"</p>
+      <div class="skill-tags">
+        <span class="skill-tag">AI Visibility</span>
+        <span class="skill-tag">GEO</span>
+        <span class="skill-tag">Strategy</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('ai-visibility-audit', 'AI Visibility Audit', 2900, this)">Buy — $29 →</button>
+      </div>
+    </div>
+
+    <!-- ANSWER-READY CONTENT -->
+    <div class="skill-card" data-category="ai-visibility writing">
+      <div class="skill-card-top">
+        <div class="skill-icon">🤖</div>
+        <div class="skill-price-badge">$19</div>
+      </div>
+      <h3>Answer-Ready Content</h3>
+      <p>Restructures any page, article, or piece of business writing so AI assistants can find the answer inside it and quote it. Service pages, comparison pages, pricing pages, how-to guides, FAQ sections, product pages — optimized to get cited.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">AI Visibility</span>
+        <span class="skill-tag">GEO</span>
+        <span class="skill-tag">Content</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('answer-ready-content', 'Answer-Ready Content', 1900, this)">Buy — $19 →</button>
+      </div>
+    </div>
+
+    <!-- SOURCE VETTING -->
+    <div class="skill-card" data-category="writing ai-visibility">
+      <div class="skill-card-top">
+        <div class="skill-icon">🔬</div>
+        <div class="skill-price-badge">$19</div>
+      </div>
+      <h3>Source Vetting</h3>
+      <p>Turns any topic, claim, draft, or list of links into a research brief built on real, named, checkable sources — validated against publisher incentive, primary vs. retelling, age, methodology, and editorial standard. Includes a rejection log.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Research</span>
+        <span class="skill-tag">Sourcing</span>
+        <span class="skill-tag">Writing</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('source-vetting', 'Source Vetting', 1900, this)">Buy — $19 →</button>
+      </div>
+    </div>
+
+    <!-- EDITORIAL QA -->
+    <div class="skill-card" data-category="writing">
+      <div class="skill-card-top">
+        <div class="skill-icon">✅</div>
+        <div class="skill-price-badge">$19</div>
+      </div>
+      <h3>Editorial QA</h3>
+      <p>The last check before something publishes. Runs any written deliverable through a fixed 5-pass review covering accuracy, sourcing, consistency, publishing safety, and mechanics — returns a PASS or HOLD verdict with the corrected document.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">QA</span>
+        <span class="skill-tag">Editing</span>
+        <span class="skill-tag">Publishing</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('editorial-qa', 'Editorial QA', 1900, this)">Buy — $19 →</button>
+      </div>
+    </div>
+
+    <!-- LOGIC POLICE -->
+    <div class="skill-card" data-category="writing leadership">
+      <div class="skill-card-top">
+        <div class="skill-icon">🚔</div>
+        <div class="skill-price-badge">$19</div>
+      </div>
+      <h3>Logic Police</h3>
+      <p>Finds what's WRONG with an idea, offer, pitch, plan, or strategy before a customer, investor, regulator, or the market finds it. Uses rotating adversarial personas — skeptical CFO, angry customer, burned-out journalist — and tags every hole by severity.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Strategy</span>
+        <span class="skill-tag">Planning</span>
+        <span class="skill-tag">Pitch Review</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('logic-police', 'Logic Police', 1900, this)">Buy — $19 →</button>
+      </div>
+    </div>
+
+    <!-- LINKEDIN THOUGHT LEADER 30 -->
+    <div class="skill-card" data-category="linkedin writing">
+      <div class="skill-card-top">
+        <div class="skill-icon">💼</div>
+        <div class="skill-price-badge">$29</div>
+      </div>
+      <h3>LinkedIn Thought Leader: 30</h3>
+      <p>Daily LinkedIn thought leadership coach. Writes one finished, ready-to-publish post at a time from your own words and experience — and builds a 30-day arc that compounds instead of 30 disconnected posts. Sounds like you, not like AI.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">LinkedIn</span>
+        <span class="skill-tag">Thought Leadership</span>
+        <span class="skill-tag">Content</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('linkedin-thought-leader-30', 'LinkedIn Thought Leader: 30', 2900, this)">Buy — $29 →</button>
+      </div>
+    </div>
+
+    <!-- COMMUNICATE LIKE A CEO -->
+    <div class="skill-card" data-category="leadership writing">
+      <div class="skill-card-top">
+        <div class="skill-icon">📊</div>
+        <div class="skill-price-badge">$19</div>
+      </div>
+      <h3>Communicate Like a CEO</h3>
+      <p>Rewrites and coaches any workplace communication so it lands the way an executive needs it — status updates, Slack messages to leadership, emails to clients, project updates, escalations, budget requests, performance reviews.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Leadership</span>
+        <span class="skill-tag">Writing</span>
+        <span class="skill-tag">Executive Comms</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('communicate-like-a-ceo', 'Communicate Like a CEO', 1900, this)">Buy — $19 →</button>
+      </div>
+    </div>
+
+    <!-- COORDINATOR TO OWNER -->
+    <div class="skill-card" data-category="leadership">
+      <div class="skill-card-top">
+        <div class="skill-icon">🚀</div>
+        <div class="skill-price-badge">$19</div>
+      </div>
+      <h3>Coordinator to Owner</h3>
+      <p>Turns someone trusted with tasks into someone trusted with outcomes. For coordinators, EAs, associates, analysts, specialists, and team leads whose work is good but scope isn't growing. The "why am I not getting promoted" skill.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Career Growth</span>
+        <span class="skill-tag">Leadership</span>
+        <span class="skill-tag">Promotion</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('coordinator-to-owner', 'Coordinator to Owner', 1900, this)">Buy — $19 →</button>
+      </div>
+    </div>
+
+    <!-- DELEGATION BRIEF -->
+    <div class="skill-card" data-category="leadership">
+      <div class="skill-card-top">
+        <div class="skill-icon">📋</div>
+        <div class="skill-price-badge">$15</div>
+      </div>
+      <h3>Delegation Brief</h3>
+      <p>Writes the handoff brief that makes delegated work come back right the first time. Briefing direct reports, contractors, agencies, peers on leave cover, or onboarding a new hire onto a recurring task — stops the "that's not what I asked for" loop.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Leadership</span>
+        <span class="skill-tag">Management</span>
+        <span class="skill-tag">Delegation</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('delegation-brief', 'Delegation Brief', 1500, this)">Buy — $15 →</button>
+      </div>
+    </div>
+
+    <!-- MEETINGS THAT EARN THEIR HOUR -->
+    <div class="skill-card" data-category="leadership">
+      <div class="skill-card-top">
+        <div class="skill-icon">🗓️</div>
+        <div class="skill-price-badge">$15</div>
+      </div>
+      <h3>Meetings That Earn Their Hour</h3>
+      <p>Runs meetings that produce decisions — and kills the ones that don't. Agendas, pre-reads, recaps, action items, recurring meeting audits, declines, reschedules. Turns status meetings that should be documents into documents.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Productivity</span>
+        <span class="skill-tag">Leadership</span>
+        <span class="skill-tag">Meetings</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('meetings-that-earn-their-hour', 'Meetings That Earn Their Hour', 1500, this)">Buy — $15 →</button>
+      </div>
+    </div>
+
+    <!-- LEARNING CURVE DESTROYER -->
+    <div class="skill-card" data-category="leadership">
+      <div class="skill-card-top">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-price-badge">$19</div>
+      </div>
+      <h3>Learning Curve Destroyer</h3>
+      <p>Turns Claude into a ruthless, time-boxed teacher whose only objective is making you FUNCTIONAL in a skill before your time budget runs out. Not educated. Not well-rounded. Functional. Delivers a plan, a first drill, and a proof you can do the thing.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Learning</span>
+        <span class="skill-tag">Skill-Building</span>
+        <span class="skill-tag">Productivity</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('learning-curve-destroyer', 'Learning Curve Destroyer', 1900, this)">Buy — $19 →</button>
+      </div>
+    </div>
+
+    <!-- BUILD YOUR OWN SKILL -->
+    <div class="skill-card" data-category="leadership">
+      <div class="skill-card-top">
+        <div class="skill-icon">🔧</div>
+        <div class="skill-price-badge">$19</div>
+      </div>
+      <h3>Build Your Own Skill</h3>
+      <p>Turns any workflow you repeat into a complete, working Claude skill file — written out and ready to save. Weekly reports, recurring reviews, monthly documents, checklists that live in your head, prompts you keep retyping. Package it once, use it forever.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Claude Code</span>
+        <span class="skill-tag">Automation</span>
+        <span class="skill-tag">Productivity</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('build-your-own-skill', 'Build Your Own Skill', 1900, this)">Buy — $19 →</button>
+      </div>
+    </div>
+
+    <!-- IMAGE METADATA -->
+    <div class="skill-card" data-category="writing">
+      <div class="skill-card-top">
+        <div class="skill-icon">🖼️</div>
+        <div class="skill-price-badge">$15</div>
+      </div>
+      <h3>Image Metadata</h3>
+      <p>Writes all four image fields — Alt Text, Title, Caption, Description — plus a clean filename, for any image, ready to paste into WordPress or any CMS. Accessibility first: alt text written for the screen reader user, not a keyword tool.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">SEO</span>
+        <span class="skill-tag">Accessibility</span>
+        <span class="skill-tag">WordPress</span>
+      </div>
+      <div class="skill-actions">
+        <button class="btn-buy" onclick="handleBuy('image-metadata', 'Image Metadata', 1500, this)">Buy — $15 →</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INSTALL GUIDE -->
+  <div class="install-guide">
+    <div class="install-guide-inner">
+      <h2>⚡ Install in 3 Steps</h2>
+      <p>Every skill ships as a folder with SKILL.md and any supporting files. Works with Claude Code.</p>
+      <div class="install-steps">
+        <div class="install-step">
+          <div class="install-step-num">Step 1</div>
+          <h4>Download &amp; Unzip</h4>
+          <p style="font-size:0.77rem;color:var(--text-muted);margin-top:0.3rem;">After payment, your .zip downloads instantly. Unzip to get the skill folder.</p>
+          <code>unzip skill-name.zip</code>
+        </div>
+        <div class="install-step">
+          <div class="install-step-num">Step 2</div>
+          <h4>Move to Skills Directory</h4>
+          <p style="font-size:0.77rem;color:var(--text-muted);margin-top:0.3rem;">Copy the skill folder into your Claude skills directory.</p>
+          <code>cp -r skill-name ~/.claude/skills/</code>
+        </div>
+        <div class="install-step">
+          <div class="install-step-num">Step 3</div>
+          <h4>Use It</h4>
+          <p style="font-size:0.77rem;color:var(--text-muted);margin-top:0.3rem;">Open Claude Code. The skill is live immediately — no restart needed.</p>
+          <code>/skill-name (or just describe your task)</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>Questions</h2>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        What exactly do I get when I buy a skill?
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 4l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="faq-answer">A .zip file containing the skill folder — SKILL.md (the instruction file Claude reads), plus any supporting reference documents or templates the skill needs. Everything runs locally on your machine inside Claude Code.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        Do I need Claude Code or a paid Claude plan?
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 4l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="faq-answer">Yes — these are Claude Code skills, designed for the Claude Code CLI. A paid Claude plan is required to run Claude Code. The skills follow the Agent Skills open standard and are also compatible with Antigravity and similar environments.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        Can I use these for client work?
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 4l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="faq-answer">Yes. Single-user license — you can run these skills in your agency or business for as many clients as you work with. You may not resell or redistribute the skill files themselves.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        What's in the Full Skills Suite?
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 4l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="faq-answer">Every skill currently listed on this page, plus all future V1 updates. If I ship a new skill while V1 is the current version, suite buyers get it free. The suite is the best deal if you want more than 2–3 individual skills.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        Do you offer refunds?
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 4l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="faq-answer">Because these are digital downloads, all sales are final. If a skill doesn't work as described or you hit a technical issue, email skills@asksarah.ai and I'll fix it or issue a credit.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        Will these work with other AI tools?
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 4l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="faq-answer">They're built and tested on Claude Code. The SKILL.md format follows the Agent Skills open standard, which is also compatible with Google Antigravity and can be adapted for Cursor — but Claude Code is the primary target.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>askSarah.ai</h4>
+          <a href="/">Home</a>
+          <a href="about.html">About</a>
+          <a href="tools.html">Tools</a>
+          <a href="claude-skills.html">Claude Skills</a>
+          <a href="research.html">Research</a>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <a href="newsletter.html">Newsletter</a>
+          <a href="shows.html">Live Shows</a>
+          <a href="glossary.html">AI Glossary</a>
+          <a href="learn.html">Learn</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.linkedin.com/in/prsarahevans" target="_blank">LinkedIn</a>
+          <a href="https://x.com/prsarahevans" target="_blank">X / Twitter</a>
+          <a href="https://github.com/sarahevansai" target="_blank">GitHub</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="connect.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sarah Evans / Evans Global LLC. All rights reserved.</p>
+        <p>askSarah.ai — Challenging the Speed of Change</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const dd = document.getElementById('navDropdown');
+    const ddBtn = document.getElementById('navDropdownBtn');
+    if (ddBtn) {
+      ddBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = dd.classList.toggle('open');
+        ddBtn.setAttribute('aria-expanded', open);
+      });
+      document.addEventListener('click', () => {
+        dd.classList.remove('open');
+        ddBtn.setAttribute('aria-expanded', false);
+      });
+    }
+
+    function toggleFaq(btn) {
+      btn.parentElement.classList.toggle('open');
+    }
+
+    function filterSkills(category, btn) {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.skill-card').forEach(card => {
+        if (category === 'all') { card.classList.remove('hidden'); return; }
+        const cats = card.dataset.category || '';
+        card.classList.toggle('hidden', !cats.includes(category));
+      });
+    }
+
+    function showToast(msg, isError = false) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast' + (isError ? ' error' : '') + ' show';
+      setTimeout(() => t.className = 'toast', 3500);
+    }
+
+    async function handleBuy(skillId, skillName, priceInCents, btn) {
+      btn.disabled = true;
+      const orig = btn.textContent;
+      btn.textContent = 'Loading…';
+      try {
+        const res = await fetch('/api/create-checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ skillId, skillName, priceInCents })
+        });
+        if (!res.ok) { const e = await res.json().catch(()=>({})); throw new Error(e.error||'Error'); }
+        const { url } = await res.json();
+        window.location.href = url;
+      } catch (err) {
+        showToast('Something went wrong — please try again.', true);
+        btn.disabled = false;
+        btn.textContent = orig;
+      }
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('success') === '1') {
+      showToast('🎉 Payment complete! Your download is starting…');
+      const sid = params.get('session_id');
+      if (sid) {
+        const a = document.createElement('a');
+        a.href = '/api/download?session_id=' + encodeURIComponent(sid);
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+      history.replaceState({}, '', window.location.pathname);
+    }
+    if (params.get('canceled') === '1') {
+      showToast('Checkout canceled — no charge was made.');
+      history.replaceState({}, '', window.location.pathname);
+    }
+  </script>
+</body>
+</html>
