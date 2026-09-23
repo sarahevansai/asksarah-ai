@@ -76,7 +76,7 @@
         throw new Error(d.error || 'Checkout failed');
       }).catch(function () {
         btn.disabled = false; btn.textContent = label;
-        alert('Checkout didn’t open. Try again, or email skills@asksarah.ai.');
+        alert('Checkout didn’t open. Try again, or email sarah@evans-global.com.');
       });
     });
   });

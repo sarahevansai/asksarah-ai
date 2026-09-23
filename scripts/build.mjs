@@ -225,7 +225,7 @@ function skillCTA(s) {
     const cents = Math.round(Number(s.price) * 100);
     return `<p class="price">${fmtPrice(s.price)}</p>
 <button class="btn btn-primary" data-buy="${esc(s.stripe_id || s.slug)}" data-name="${esc(s.title)}" data-cents="${cents}">Buy ${esc(s.title)} →</button>
-<small>One-time purchase. Instant download after checkout. Questions: skills@asksarah.ai</small>`;
+<small>One-time purchase. Instant download after checkout. Questions: <a href="mailto:sarah@evans-global.com">sarah@evans-global.com</a></small>`;
   }
   if (s.free_or_paid === 'free' && has(s.download)) {
     return `<p class="price">Free</p>

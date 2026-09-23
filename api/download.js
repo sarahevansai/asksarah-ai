@@ -56,7 +56,7 @@ module.exports = async function handler(req, res) {
   if (!fs.existsSync(zipPath)) {
     console.error('Zip not found:', zipPath);
     return res.status(503).send(
-      'Download file not ready. Please email skills@asksarah.ai with your order ID: ' + session.id
+      'Download file not ready. Please email sarah@evans-global.com with your order ID: ' + session.id
     );
   }
 
