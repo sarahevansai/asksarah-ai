@@ -27,7 +27,7 @@ Branch: `askSarah-v2-phase1`. Nothing here is live until it merges to `main`.
 1. **Zen Media overlap in the current Skills store.** Press Release That Lands, Jaded Journalist, Crisis: First Hour, Company Boilerplate, Timely POV, AI Visibility Audit, Answer-Ready Content, Source Vetting, Editorial QA, Image Metadata, LinkedIn Thought Leader and the $125 suite are PR/agency products. They stay live on `/claude-skills` and are **not** shown on the new `/skills` library. Decide: keep selling them there, move them to Zen, or retire them.
 2. **GEO 101 for Agencies** ($595, Oct 23) teaches agencies AI visibility, which is Zen territory under section 26. It's mid-launch, so the homepage keeps a small dismissible banner for it until Oct 23, then the banner turns itself off.
 3. **Digital twin system prompt** (`api/chat.js`) pitches Zen services and pricing ("Strategy starts at $10K"). The old homepage FAQ schema says the same thing. Both move with the twin to `/ask`. Needs a rewrite if the twin stays on AskSarah.
-4. **Visual direction.** The brief rules out neon AI gradients and purple cyberpunk, which is the current theme and what `DESIGN.md` for the brand-image skill specifies. **Decided Sep 23: pink is the main color, no purple or blue.** New pages use a light editorial system with deep pink `#be185d` (hot pink `#f472b6` in dark mode). The old pages and the brand-image skill's `DESIGN.md` still use violet/cyan and need the same swap.
+4. **Visual direction.** The brief rules out neon AI gradients and purple cyberpunk, which is the current theme and what `DESIGN.md` for the brand-image skill specifies. **Decided Sep 23: keep Sarah's dark glow style, pink instead of violet/cyan.** Warm near-black backgrounds (`#0d0a0c`), pink `#f472b6` / `#db2777`, rose `#fb7185`, pink gradient buttons and headline words. The brand-image skill's `DESIGN.md` still says violet/cyan and should be updated to match.
 5. **Email list.** The only list is PR@ctical on Substack, which is a PR newsletter. The new "get it the day it ships" and signup CTAs point there for now. Decide if AskSarah gets its own list (see recommendation below).
 6. **Two free Skills are also in the CEO Pack** (Tell Me What I'm Missing, Meeting Before the Meeting), and the pack's "Delegate This" and "Meeting After the Meeting" overlap existing paid Delegation Brief and Meetings That Earn Their Hour. Decide: pack gets extended versions, or those come out of the pack.
 
@@ -71,14 +71,14 @@ Turn on **Vercel Web Analytics** in the project dashboard (no cookies, no person
 - [x] Audit (above)
 - [x] Content architecture, templates, build script, shared CSS/JS
 - [x] Navigation: Skills, Sarah's Stack, Shortcuts, Systems, Sarah's Edit, About, Search
-- [x] Homepage from the brief copy; old homepage preserved at `/ask`
+- [x] Homepage: Sarah's existing homepage (photo, digital twin chat, cards) kept by her choice, recolored pink, plus a card for the Things-AI-can-do list. The brief's long homepage copy was dropped as too text-heavy.
 - [x] Skills landing, Skill detail template, 5 free Skills, 8 existing paid Skills carried over, 2 packs listed
 - [x] "Things I didn't know AI could do" library + entry template + entry #1
 - [x] Sarah's Stack landing + entry template (Claude drafted, not published)
 - [x] Shortcuts / Systems / Sarah's Edit landing pages (honest "coming" state, no fake items)
 - [x] Search page over everything published
 - [x] Sitemap, canonical, OG, JSON-LD on generated pages
-- [x] **Whole-site rebrand.** All 34 older pages get the new header/footer from `scripts/chrome.mjs` (the build keeps them in sync between `<!--sa:...-->` markers) and pink colors via `scripts/rebrand-legacy-colors.mjs` + `assets/legacy.css`. Their content and scripts are unchanged. Hidden stand-in elements keep old scripts that look up the old nav from crashing.
+- [x] **Whole-site rebrand.** All 34 older pages get the new header/footer from `scripts/chrome.mjs` (the build keeps them in sync between `<!--sa:...-->` markers) and dark-pink colors via `scripts/rebrand-legacy-colors.mjs` + `assets/legacy.css`. Their content and scripts are unchanged. Hidden stand-in elements keep old scripts that look up the old nav from crashing.
 - [x] Fixed two bugs that were already live: the Glossary showed zero terms (unclosed `<script>`), and Research's stats never loaded (unescaped apostrophe).
 - [x] Full backup: `~/Desktop/63 💬 Ask Sarah AI/BACKUPS/asksarah-backup-2026-09-23/` (see RESTORE.md there)
 
@@ -88,3 +88,7 @@ The brief gave names, promises and "what it does" for the five free Skills. I fi
 ## 4. Later phases
 - **Phase 2:** pack detail pages + Stripe, free Skill files + download flow, email decision, move the price table, `/claude-skills` decision.
 - **Phase 3:** Shortcuts, Systems, Edit entries; filters; rewrite the older pages' layouts natively in the new design (right now they're recolored, not redesigned).
+
+
+## Design direction (Sep 23 feedback)
+Sarah: too text-heavy, sounded AI-generated, wants a *sticky* site people want to be on. Rule going forward: every page leads with something to look at or do (a before/after chat, copyable prompts, text-message bubbles, a sample card), with her short lines around it. No multi-paragraph intros.

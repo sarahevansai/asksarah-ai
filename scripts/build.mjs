@@ -6,7 +6,7 @@
 //
 // Reads content/**, writes static HTML next to the existing hand-built pages,
 // plus search-index.json and sitemap.xml. Existing pages are never touched
-// except index.html (the homepage), which this script owns.
+// except that the header/footer of every hand-built page (incl. index.html) is kept in sync.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -155,9 +155,8 @@ ${GENERATED}
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${SITE}/og-image.png">
   ${draft ? '<meta name="robots" content="noindex">' : ''}
-  <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#121017" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23be185d'>ask</tspan><tspan fill='%2317151f'>S</tspan><tspan fill='%23ec4899'>.ai</tspan></text></svg>">
+  <meta name="theme-color" content="#0d0a0c">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23f472b6'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%23fb7185'>.ai</tspan></text></svg>">
   <link rel="apple-touch-icon" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
   ${FONTS}
@@ -197,23 +196,8 @@ const crumbsLD = (trail) => ({
 });
 const crumbs = (trail) => `<nav class="crumbs" aria-label="Breadcrumb">${trail.map(([n, p], i) => (i === trail.length - 1 ? esc(n) : `<a href="${p}">${esc(n)}</a> / `)).join('')}</nav>`;
 
-// ---------- homepage ----------
+// Homepage (index.html) is Sarah's hand-built page. The build only syncs its header/footer.
 const freeSkills = C.skill.filter((s) => s.free_or_paid === 'free' && s.featured);
-{
-  const tpl = fs.readFileSync(path.join(ROOT, 'content', 'pages', 'home.html'), 'utf8').replace(/<!--[\s\S]*?-->\s*/, '');
-  let n = 0;
-  const body = tpl
-    .replace('{{FREE_SKILL_CARDS}}', `<div class="grid">${freeSkills.map((s) => card('skill', s, { trackId: 'home->skill:' + s.slug })).join('')}</div>`)
-    .replace(/\{\{SEARCH_FORM\}\}/g, () => searchForm(`q-home-${++n}`));
-  const banner = `<div class="sa-banner" data-banner="geo101" data-until="2026-10-24T00:00:00-07:00" hidden><div class="sa-wrap"><span><strong>GEO 101 for Agencies</strong> — live training Oct 23, 12–1 pm PT. <a href="/geo-101">Details →</a></span><button type="button" aria-label="Dismiss">×</button></div></div>`;
-  write('/', layout({
-    title: 'askSarah.ai — I figure things out for a living | Sarah Evans',
-    description: "The AI Skills, tools, shortcuts and systems Sarah Evans actually uses, plus the stuff she'd send to a friend. Some free, some paid, all tested.",
-    pathname: '/', body, banner,
-    jsonld: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'askSarah.ai', url: SITE,
-      potentialAction: { '@type': 'SearchAction', target: `${SITE}/search?q={query}`, 'query-input': 'required name=query' } }],
-  }));
-}
 
 // ---------- skills ----------
 const DEFAULT_INSTRUCTIONS = {
@@ -300,36 +284,35 @@ ${related(s, 'skill:' + s.slug)}
   ${pk.status === 'coming-soon' ? `<p style="margin-top:1rem"><a class="textlink" href="${SUBSCRIBE_URL}" target="_blank" rel="noopener" data-track="email_signup_click" data-track-id="${esc(pk.slug)}">Tell me when it's out →</a></p>` : ''}
 </article>`).join('\n');
   const body = `<section class="hero"><div class="wrap">
-  <p class="eyebrow">Skills</p>
-  <h1 style="max-width:16ch">Stop rewriting the same prompt.</h1>
-  <div class="hero-grid">
-    <div class="stack-lines hero-copy">
-      <p class="lede">I did it too.</p>
-      <p>"Here's how I want this formatted."<br>"Don't make it sound like AI."<br>"Remember the audience."<br>"Do this first."<br>"Never do that."</p>
-      <p>And then three chats later, I'd explain the whole thing again.</p>
-      <p>That's why I became obsessed with Skills.</p>
-      <p>A Skill isn't just a really long prompt.</p>
-      <p>It's a set of instructions, rules, context and judgment that AI can use again and again.</p>
-      <p>Basically:</p>
-      <p class="pull">Prompts tell AI what to do.<br>Skills teach AI how you do it.</p>
-      <p>That difference is huge.</p>
-      <p>I've started building Skills for all the things I repeatedly ask AI to help me do—running meetings, making decisions, researching, organizing my brain, reviewing work, planning, writing like myself and handling the hundred random things that happen between 6 a.m. and bedtime.</p>
-      <p>I'm putting the best ones here.</p>
-      <p>You don't need to know how to code.<br>You do not need to become an "AI expert."</p>
-      <p>You need to find one annoying thing you keep doing manually and make AI better at helping you do it.</p>
-      <p class="big-line">Start there.</p>
-    </div>
-    <div class="ask-card">
-      <p class="eyebrow">On this page</p>
-      <div class="quick" style="margin-top:0">
-        <a class="chip" href="#free">Free Skills</a>
-        <a class="chip" href="#premium">Premium Skills</a>
-        <a class="chip" href="#packs">Skill Packs</a>
-        ${popular.length ? '<a class="chip" href="#popular">Most Popular</a>' : ''}
-        <a class="chip" href="#how">How Skills Work</a>
+  <div class="hero-grid" style="margin-top:0;align-items:center">
+    <div>
+      <p class="eyebrow">Claude Skills</p>
+      <h1 style="max-width:13ch">Stop rewriting the <span class="grad">same prompt.</span></h1>
+      <p class="lede" style="max-width:30ch">Prompts tell AI what to do.<br>Skills teach AI how <em>you</em> do it.</p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem">
+        <a class="btn btn-primary" href="#free">Get a free Skill →</a>
+        <a class="btn btn-ghost" href="#how">What's a Skill?</a>
       </div>
-      <p style="margin:1.5rem 0 0" class="muted">Free ones first. Seriously.</p>
-      <p style="margin:.5rem 0 0"><a class="btn btn-primary" href="#free">Get a free Skill →</a></p>
+      <p class="muted" style="margin-top:1rem;font-size:.95rem">No coding. No "AI expert" required.</p>
+    </div>
+    <div class="compare" aria-label="Before and after Skills">
+      <div class="compare-col">
+        <p class="compare-label">Without a Skill · every. single. chat.</p>
+        <div class="bubbles">
+          <p class="bubble me">Here's how I want this formatted.</p>
+          <p class="bubble me">Don't make it sound like AI.</p>
+          <p class="bubble me">Remember the audience.</p>
+          <p class="bubble me">Do this first. Never do that.</p>
+        </div>
+        <p class="compare-note">…three chats later, explain it all again.</p>
+      </div>
+      <div class="compare-col compare-after">
+        <p class="compare-label">With a Skill</p>
+        <div class="bubbles">
+          <p class="bubble me">Unclog my brain.</p>
+          <p class="bubble them">Done. Here's what to do, decide, delegate, remember and ignore.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div></section>
@@ -365,16 +348,15 @@ ${popular.length ? `<section class="rule-top" id="popular"><div class="wrap"><di
 
 <section class="band" id="how"><div class="wrap">
   <div class="feature" style="border:0">
-    <div><p class="eyebrow">How Skills work</p><h2>A prompt tells AI what you want right now.</h2></div>
-    <div class="stack-lines">
-      <p class="big-line">A Skill teaches it how you want something done repeatedly.</p>
-      <p>A Skill is a small folder with a file of instructions in it. You add it to Claude once. After that, when you ask for the thing the Skill is for, Claude follows your instructions without you pasting them in again.</p>
-      <ol>
-        <li>Download the Skill.</li>
-        <li>Add it to Claude. Every Skill page has the exact steps.</li>
-        <li>Ask for the thing. That's it.</li>
-      </ol>
-      <p class="muted">Each Skill page says whether it's built for the Claude app or Claude Code.</p>
+    <div><p class="eyebrow">How Skills work</p><h2>A Skill isn't just a really long prompt.</h2></div>
+    <div>
+      <p class="big-line">It's the instructions, rules, context and judgment AI uses again and again.</p>
+      <div class="steps">
+        <div class="step"><span>1</span><p><strong>Download it.</strong> Free ones are free. Really.</p></div>
+        <div class="step"><span>2</span><p><strong>Add it to Claude.</strong> Once. Every Skill page has the steps.</p></div>
+        <div class="step"><span>3</span><p><strong>Just ask.</strong> Claude does it your way from then on.</p></div>
+      </div>
+      <p class="muted" style="margin-top:1.5rem">Find one annoying thing you keep doing manually. Start there.</p>
     </div>
   </div>
 </div></section>
@@ -422,30 +404,26 @@ ${related(u, 'ai-use:' + u.slug)}
 {
   const cats = AI_CATEGORIES.filter((c) => aiUses.some((u) => u.category === c));
   const body = `<section class="hero"><div class="wrap">
-  <p class="eyebrow">The running list</p>
-  <h1 style="max-width:18ch">Things I didn't know AI could do until I tried it.</h1>
-  <div class="hero-grid">
-    <div class="stack-lines hero-copy">
-      <p class="lede">I don't need AI to write me another blog post.</p>
-      <p class="big-line">I need it to help me think.</p>
-      <p>Make a decision. Prepare for a conversation. Research something I don't have six hours to research. Organize the thought currently ricocheting around my brain. Challenge me when I'm convinced I'm right. Turn chaos into something I can actually act on.</p>
-      <p>This is the running list of the ways I'm using AI in real life.</p>
-      <p>Not hypothetical use cases.<br>Actual ones.</p>
+  <div class="hero-grid" style="margin-top:0;align-items:center">
+    <div>
+      <p class="eyebrow">The running list · ${aiUses.length} so far</p>
+      <h1 style="max-width:14ch">Things I didn't know AI could do <span class="grad">until I tried it.</span></h1>
+      <p class="lede">I don't need AI to write me another blog post. I need it to help me think.</p>
+      <p class="muted">Not hypothetical use cases. Actual ones. Copy the prompt and try it.</p>
     </div>
-    <div class="ask-card">
-      <p class="eyebrow">${aiUses.length} so far</p>
-      <p>Each one has what I actually ask, the tool I use, and the Skill if there is one.</p>
-      <p class="muted" style="margin:0">New ones get added as I figure them out.</p>
+    <div class="compare-col compare-after">
+      <p class="compare-label">What I actually use it for</p>
+      <div class="quick" style="margin:0">${['Make a decision', 'Prep for a conversation', 'Research without the six hours', 'Organize my brain', 'Challenge me when I\'m sure I\'m right', 'Find the thing I forgot', 'Turn chaos into a plan'].map((t) => `<span class="chip">${t}</span>`).join('')}</div>
     </div>
   </div>
 </div></section>
-<section class="rule-top"><div class="wrap">
+<section class="rule-top" style="padding-top:2.5rem"><div class="wrap">
   ${cats.length > 1 ? `<div class="quick" data-filter-group data-filter-target="#uses .card" style="margin-bottom:1.5rem"><button class="chip" data-filter="all" aria-pressed="true" type="button">All</button>${cats.map((c) => `<button class="chip" data-filter="${esc(c)}" aria-pressed="false" type="button">${esc(c)}</button>`).join('')}</div>` : ''}
   <div class="grid" id="uses">${aiUses.map((u) => `<article class="card" data-cats="${esc(u.category)}">
-    <p class="card-num">#${u.number} · ${esc(u.category)}</p>
+    <p class="card-num">#${u.number} · ${esc(u.category)} · ${esc(u.tool || '')}</p>
     <h3><a href="${urlFor('ai-use', u)}">${esc(u.title)}</a></h3>
-    <p>${esc(arr(u.story)[0] || '')}</p>
-    <div class="card-foot"><span>${esc(u.tool || '')}</span><span class="go" aria-hidden="true">→</span></div>
+    ${u.prompt ? `<div class="card-prompt"><span id="cp-${esc(u.slug)}">${esc(u.prompt)}</span><br><button type="button" data-copy="cp-${esc(u.slug)}">Copy prompt</button></div>` : `<p>${esc(arr(u.story)[0] || '')}</p>`}
+    <div class="card-foot"><span>Why it works</span><span class="go" aria-hidden="true">→</span></div>
   </article>`).join('')}</div>
 </div></section>
 <section><div class="wrap">${capture('New entries go out by email first.', 'Actual uses. Not hypothetical ones.')}</div></section>`;
@@ -493,23 +471,26 @@ ${related(e, 'stack:' + e.slug)}
 {
   const stack = C.stack.filter((e) => e.published !== false || DRAFTS);
   const body = `<section class="hero"><div class="wrap">
-  <p class="eyebrow">Sarah's Stack</p>
-  <h1 style="max-width:16ch">Everything I'm actually using right now.</h1>
-  <div class="hero-grid">
-    <div class="stack-lines hero-copy">
-      <p class="lede">There is an absurd amount of software, technology and stuff in my life.</p>
-      <p>Most of it does not survive.<br>This is what did.</p>
-      <p>For every one, I'll tell you:</p>
-      <ul><li>what I actually use it for</li><li>what I don't use it for</li><li>whether I pay for it</li><li>whether I think you should</li><li>what I would use instead if I stopped using it</li></ul>
-      <p class="big-line">If it's here, I've actually used it.</p>
-    </div>
-    <div class="ask-card">
-      <p class="eyebrow">Categories</p>
-      <div class="quick" style="margin-top:0" ${stack.length ? 'data-filter-group data-filter-target="#stack .card"' : ''}>
+  <div class="hero-grid" style="margin-top:0;align-items:center">
+    <div>
+      <p class="eyebrow">Sarah's Stack</p>
+      <h1 style="max-width:13ch">Most of it does not survive. <span class="grad">This is what did.</span></h1>
+      <p class="lede">AI tools. Work tools. Tech. Travel. Fitness. Beauty. Things permanently living in my suitcase.</p>
+      <p class="muted">If it's here, I've actually used it. If I make money when you buy it, the entry says so.</p>
+      <div class="quick" ${stack.length ? 'data-filter-group data-filter-target="#stack .card"' : ''}>
         ${stack.length ? '<button class="chip" data-filter="all" aria-pressed="true" type="button">All</button>' : ''}
         ${STACK_CATEGORIES.map((c) => (stack.some((e) => e.category === c) ? `<button class="chip" data-filter="${esc(c)}" aria-pressed="false" type="button">${esc(c)}</button>` : `<span class="chip" aria-disabled="true">${esc(c)}</span>`)).join('')}
       </div>
-      <p class="muted" style="margin:1.25rem 0 0">If I make money when you buy something, the entry says so.</p>
+    </div>
+    <div class="spec" aria-label="What every Stack entry tells you">
+      <p class="compare-label">Every entry answers</p>
+      <dl>
+        <div><dt>What I actually use it for</dt><dd>✓</dd></div>
+        <div><dt>What I don't use it for</dt><dd>✓</dd></div>
+        <div><dt>Do I pay for it?</dt><dd>Yes / No</dd></div>
+        <div><dt>Should you?</dt><dd>Honestly</dd></div>
+        <div><dt>What I'd use instead</dt><dd>✓</dd></div>
+      </dl>
     </div>
   </div>
 </div></section>
@@ -522,18 +503,18 @@ ${related(e, 'stack:' + e.slug)}
 }
 
 // ---------- Phase 3 landings: Shortcuts / Systems / Edit ----------
-function comingLanding({ pathname, eyebrow, h1, lines, upcomingLabel, upcoming, chips, title, description, captureHead, itemsType }) {
+function comingLanding({ pathname, eyebrow, h1, lines, upcomingLabel, upcoming, chips, title, description, captureHead, itemsType, visual = '' }) {
   const items = C[itemsType] || [];
   const body = `<section class="hero"><div class="wrap">
   <p class="eyebrow">${esc(eyebrow)}</p>
-  <h1 style="max-width:18ch">${esc(h1)}</h1>
+  <h1 style="max-width:18ch">${h1}</h1>
   <div class="hero-grid">
     <div class="stack-lines hero-copy">${lines}</div>
-    <div class="ask-card">
+    ${visual || `<div class="ask-card">
       ${chips ? `<p class="eyebrow">Categories</p><div class="quick" style="margin-top:0">${chips.map((c) => `<span class="chip" aria-disabled="true">${esc(c)}</span>`).join('')}</div>` : ''}
       <p class="muted" style="margin:1.25rem 0 .75rem">Want something now? The free Skills are ready.</p>
       <a class="textlink" href="/skills#free">Start with something free →</a>
-    </div>
+    </div>`}
   </div>
 </div></section>
 <section class="rule-top"><div class="wrap">
@@ -543,24 +524,27 @@ function comingLanding({ pathname, eyebrow, h1, lines, upcomingLabel, upcoming, 
   write(pathname, layout({ title, description, pathname, body }));
 }
 comingLanding({
-  pathname: '/shortcuts', itemsType: 'shortcut', eyebrow: 'Shortcuts', h1: 'Little problems. Useful answers.',
-  lines: `<p class="lede">These exist because I don't want to read a 2,000-word article when I have a problem.</p><p>I want someone to tell me what to do.</p><p>So these are the shortcuts. One problem, my answer, what to do and what I use.</p>`,
+  pathname: '/shortcuts', itemsType: 'shortcut', eyebrow: 'Shortcuts', h1: 'Little problems. <span class="grad">Useful answers.</span>',
+  lines: `<p class="lede">I don't want a 2,000-word article when I have a problem.</p><p>I want someone to tell me what to do.</p>`,
+  visual: `<div class="spec"><p class="compare-label">Every shortcut</p><dl><div><dt>The problem</dt><dd>One. Specific.</dd></div><div><dt>My answer</dt><dd>✓</dd></div><div><dt>What to do</dt><dd>Steps</dd></div><div><dt>What I use</dt><dd>Tool + Skill</dd></div></dl></div>`,
   upcomingLabel: 'First up', chips: ['AI', 'Work', 'CEO', 'Decisions', 'Organization', 'Career', 'Travel', 'Shopping', 'Life'],
   upcoming: ['How I prep for a difficult conversation', 'How I turn a brain dump into an actual plan', 'How I use AI before an important meeting', 'How I research a purchase without losing three hours', "How I decide when I've researched something to death", 'How I pack for a short trip', 'How I turn meeting notes into actual decisions', 'How I figure out what only I should be doing'],
   title: 'Shortcuts — quick answers to specific problems | askSarah.ai', description: 'Not long articles. One specific problem, Sarah Evans’ answer, and what to do about it.',
   captureHead: 'Want the shortcuts as they land?',
 });
 comingLanding({
-  pathname: '/systems', itemsType: 'system', eyebrow: 'Systems', h1: 'Some things need more than a shortcut.',
-  lines: `<p class="lede">These are the systems I've built because I needed them myself.</p><p>How I manage my week.<br>How I decide what only I should be doing.<br>How I use AI without creating more work for myself.<br>How I stop ideas from living in 14 tabs, three Notes files, a Slack message to myself and the notebook I can't find.</p><p>They aren't productivity theater.<br>They're meant to actually be used.</p>`,
+  pathname: '/systems', itemsType: 'system', eyebrow: 'Systems', h1: 'Some things need more than <span class="grad">a shortcut.</span>',
+  lines: `<p class="lede">The systems I built because I needed them myself.</p><p>Not productivity theater. Meant to actually be used.</p>`,
+  visual: `<div class="compare-col compare-after"><p class="compare-label">Stuff I fixed for myself</p><ul class="ticks" style="margin:0"><li>How I manage my week</li><li>How I decide what only I should be doing</li><li>How I use AI without creating more work</li><li>How I stop ideas living in 14 tabs, three Notes files and a Slack message to myself</li></ul></div>`,
   upcomingLabel: 'On the workbench', chips: ['CEO', 'Personal AI', 'Organization', 'Career', 'Personal Brand'],
   upcoming: ['CEO Operating System', 'Personal AI System', 'Personal Organization System', 'Career System', 'Personal Brand System'],
   title: 'Systems — the operating systems Sarah Evans actually runs on | askSarah.ai', description: 'Practical systems for running your week, your work and your AI. Guides, templates, Skills and checklists Sarah Evans built for herself.',
   captureHead: 'Get the first System when it ships.',
 });
 comingLanding({
-  pathname: '/edit', itemsType: 'edit', eyebrow: "Sarah's Edit", h1: 'I am the person my friends text: "Which one?"',
-  lines: `<p>"Is this worth it?"<br>"What should I wear?"<br>"What do I buy her?"<br>"Where should we stay?"<br>"Do I need this?"</p><p class="lede">This is where I'm putting the answers.</p><p>Things I love. Things I returned. Things worth spending more on. Things absolutely not worth spending more on.</p><p>And the occasional thing I will defend with an unreasonable amount of enthusiasm.</p>`,
+  pathname: '/edit', itemsType: 'edit', eyebrow: "Sarah's Edit", h1: 'I am the person my friends <span class="grad">text.</span>',
+  lines: `<p class="lede">This is where I'm putting the answers.</p><p>Things I love. Things I returned. What's worth spending more on, and what absolutely isn't.</p><p class="muted">Every affiliate link says so. Right on the item.</p>`,
+  visual: `<div class="compare-col"><p class="compare-label">My texts, on any given day</p><div class="bubbles"><p class="bubble them">Which one?</p><p class="bubble them">Is this worth it?</p><p class="bubble them">What should I wear?</p><p class="bubble them">What do I buy her?</p><p class="bubble them">Where should we stay?</p><p class="bubble me">Ok hold on. Making a page.</p></div></div>`,
   upcomingLabel: 'Coming soon', chips: ["What I'm Buying", 'Beauty', 'Style', 'Gifts', 'Travel', 'Tech', 'Favorites'], upcoming: [],
   title: "Sarah's Edit — what's worth buying and what isn't | askSarah.ai", description: 'Things Sarah Evans loves, things she returned, and what is and isn’t worth spending more on. Every affiliate link disclosed.',
   captureHead: 'First picks go out by email.',
@@ -608,6 +592,7 @@ fs.writeFileSync(path.join(ROOT, 'search-index.json'), JSON.stringify(index));
 // between <!--sa:...--> markers. First run swaps out the old nav/footer;
 // later runs just refresh what's between the markers.
 const LEGACY_SKIP = new Set(['email-template.html', 'card.html', 'google8dc333a5d1a3e4f3.html', 'index-v2-backup.html', 'assessment.html']);
+// index.html (the homepage) IS synced: it's hand-built too.
 const block = (name, html) => `<!--sa:${name}-->\n${html}\n<!--/sa:${name}-->`;
 const legacyHead = '<link rel="stylesheet" href="/assets/chrome.css">\n<link rel="stylesheet" href="/assets/legacy.css">\n<script defer src="/_vercel/insights/script.js"></script>';
 let synced = 0;
@@ -637,8 +622,7 @@ for (const f of fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && !LEGAC
       .replace(/[ \t]*<div class="mobile-menu"[^>]*>[\s\S]*?<\/div>\n?/, '')
       .replace(/[ \t]*<div class="bg-(?:mesh|orb)[^"]*"><\/div>\n?/g, '')
       .replace('</head>', block('head', legacyHead) + '\n</head>')
-      .replace('</body>', block('js', '<script src="/assets/site.js" defer></script>') + '\n</body>')
-      .replace(/<html lang="en"(?![^>]*data-theme)/, '<html lang="en" data-theme="light"');
+      .replace('</body>', block('js', '<script src="/assets/site.js" defer></script>') + '\n</body>');
   }
   if (html !== before) { fs.writeFileSync(full, html); synced++; }
 }

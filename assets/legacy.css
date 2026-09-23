@@ -1,23 +1,14 @@
-/* Brand layer for the older hand-built pages. Loaded after each page's own <style>.
-   Colors were already remapped by scripts/rebrand-legacy-colors.mjs; this file
-   handles what a color swap can't. */
+/* Fixes for the older hand-built pages. Loaded after each page's own <style>.
+   Colors come from scripts/rebrand-legacy-colors.mjs; the glow style stays. */
 
-/* No glowing orbs or mesh backgrounds. */
-.bg-orb, .bg-mesh, .orb, [class*="bg-orb"] { display: none !important; }
-
-/* Gradient text becomes solid pink. Cleaner, and readable. */
-.gradient-text, .grad, .text-gradient {
-  background: none !important; -webkit-text-fill-color: currentColor !important; color: var(--accent) !important;
-}
-
-/* Old pages padded their tops for a fixed nav that no longer exists. */
+/* The old nav was fixed-position; the new header is sticky, so no body offset. */
 body { padding-top: 0 !important; }
-
-/* Blurred glass cards read as muddy on a light background. */
-[style*="backdrop-filter"], .glass { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
-
-::selection { background: var(--accent-soft); color: var(--ink); }
 
 /* Content is always visible. Scroll-triggered fade-ins left whole sections blank
    when the observer didn't fire (background tabs, some in-app browsers). */
 .fade-in, .reveal, .animate-on-scroll { opacity: 1 !important; transform: none !important; }
+
+::selection { background: rgba(236,72,153,0.35); color: #fff; }
+
+/* Announcement bars were pushed down to clear the old fixed nav. */
+.announcement-bar { margin-top: 0 !important; }

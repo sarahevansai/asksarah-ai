@@ -19,9 +19,8 @@
   <meta name="twitter:description" content="Prompts tell AI what to do. Skills teach AI how you do it. The Claude Skills Sarah Evans builds and uses for work, decisions, meetings, research and everyday life. Start with a free one.">
   <meta name="twitter:image" content="https://asksarah.ai/og-image.png">
   
-  <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#121017" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23be185d'>ask</tspan><tspan fill='%2317151f'>S</tspan><tspan fill='%23ec4899'>.ai</tspan></text></svg>">
+  <meta name="theme-color" content="#0d0a0c">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23f472b6'>ask</tspan><tspan fill='white'>S</tspan><tspan fill='%23fb7185'>.ai</tspan></text></svg>">
   <link rel="apple-touch-icon" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,36 +52,35 @@
 </header>
 <main id="main">
 <section class="hero"><div class="wrap">
-  <p class="eyebrow">Skills</p>
-  <h1 style="max-width:16ch">Stop rewriting the same prompt.</h1>
-  <div class="hero-grid">
-    <div class="stack-lines hero-copy">
-      <p class="lede">I did it too.</p>
-      <p>"Here's how I want this formatted."<br>"Don't make it sound like AI."<br>"Remember the audience."<br>"Do this first."<br>"Never do that."</p>
-      <p>And then three chats later, I'd explain the whole thing again.</p>
-      <p>That's why I became obsessed with Skills.</p>
-      <p>A Skill isn't just a really long prompt.</p>
-      <p>It's a set of instructions, rules, context and judgment that AI can use again and again.</p>
-      <p>Basically:</p>
-      <p class="pull">Prompts tell AI what to do.<br>Skills teach AI how you do it.</p>
-      <p>That difference is huge.</p>
-      <p>I've started building Skills for all the things I repeatedly ask AI to help me do—running meetings, making decisions, researching, organizing my brain, reviewing work, planning, writing like myself and handling the hundred random things that happen between 6 a.m. and bedtime.</p>
-      <p>I'm putting the best ones here.</p>
-      <p>You don't need to know how to code.<br>You do not need to become an "AI expert."</p>
-      <p>You need to find one annoying thing you keep doing manually and make AI better at helping you do it.</p>
-      <p class="big-line">Start there.</p>
-    </div>
-    <div class="ask-card">
-      <p class="eyebrow">On this page</p>
-      <div class="quick" style="margin-top:0">
-        <a class="chip" href="#free">Free Skills</a>
-        <a class="chip" href="#premium">Premium Skills</a>
-        <a class="chip" href="#packs">Skill Packs</a>
-        
-        <a class="chip" href="#how">How Skills Work</a>
+  <div class="hero-grid" style="margin-top:0;align-items:center">
+    <div>
+      <p class="eyebrow">Claude Skills</p>
+      <h1 style="max-width:13ch">Stop rewriting the <span class="grad">same prompt.</span></h1>
+      <p class="lede" style="max-width:30ch">Prompts tell AI what to do.<br>Skills teach AI how <em>you</em> do it.</p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem">
+        <a class="btn btn-primary" href="#free">Get a free Skill →</a>
+        <a class="btn btn-ghost" href="#how">What's a Skill?</a>
       </div>
-      <p style="margin:1.5rem 0 0" class="muted">Free ones first. Seriously.</p>
-      <p style="margin:.5rem 0 0"><a class="btn btn-primary" href="#free">Get a free Skill →</a></p>
+      <p class="muted" style="margin-top:1rem;font-size:.95rem">No coding. No "AI expert" required.</p>
+    </div>
+    <div class="compare" aria-label="Before and after Skills">
+      <div class="compare-col">
+        <p class="compare-label">Without a Skill · every. single. chat.</p>
+        <div class="bubbles">
+          <p class="bubble me">Here's how I want this formatted.</p>
+          <p class="bubble me">Don't make it sound like AI.</p>
+          <p class="bubble me">Remember the audience.</p>
+          <p class="bubble me">Do this first. Never do that.</p>
+        </div>
+        <p class="compare-note">…three chats later, explain it all again.</p>
+      </div>
+      <div class="compare-col compare-after">
+        <p class="compare-label">With a Skill</p>
+        <div class="bubbles">
+          <p class="bubble me">Unclog my brain.</p>
+          <p class="bubble them">Done. Here's what to do, decide, delegate, remember and ignore.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div></section>
@@ -202,16 +200,15 @@
 
 <section class="band" id="how"><div class="wrap">
   <div class="feature" style="border:0">
-    <div><p class="eyebrow">How Skills work</p><h2>A prompt tells AI what you want right now.</h2></div>
-    <div class="stack-lines">
-      <p class="big-line">A Skill teaches it how you want something done repeatedly.</p>
-      <p>A Skill is a small folder with a file of instructions in it. You add it to Claude once. After that, when you ask for the thing the Skill is for, Claude follows your instructions without you pasting them in again.</p>
-      <ol>
-        <li>Download the Skill.</li>
-        <li>Add it to Claude. Every Skill page has the exact steps.</li>
-        <li>Ask for the thing. That's it.</li>
-      </ol>
-      <p class="muted">Each Skill page says whether it's built for the Claude app or Claude Code.</p>
+    <div><p class="eyebrow">How Skills work</p><h2>A Skill isn't just a really long prompt.</h2></div>
+    <div>
+      <p class="big-line">It's the instructions, rules, context and judgment AI uses again and again.</p>
+      <div class="steps">
+        <div class="step"><span>1</span><p><strong>Download it.</strong> Free ones are free. Really.</p></div>
+        <div class="step"><span>2</span><p><strong>Add it to Claude.</strong> Once. Every Skill page has the steps.</p></div>
+        <div class="step"><span>3</span><p><strong>Just ask.</strong> Claude does it your way from then on.</p></div>
+      </div>
+      <p class="muted" style="margin-top:1.5rem">Find one annoying thing you keep doing manually. Start there.</p>
     </div>
   </div>
 </div></section>

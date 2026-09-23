@@ -3,54 +3,44 @@
    namespaced .sa-* so they can't collide with the older pages' own CSS. */
 
 :root {
-  --bg: #faf8f4;
-  --surface: #ffffff;
-  --ink: #17151f;
-  --text: #2d2a37;
-  --muted: #615c6e;
-  --rule: #e4dfd6;
-  --rule-strong: #cfc8bc;
-  --accent: #be185d;
-  --accent-soft: #fce7f1;
+  /* Sarah's dark style, pink instead of violet/cyan. */
+  --bg: #0d0a0c;
+  --surface: #140f13;
+  --card: #1b141a;
+  --card-hover: #241a21;
+  --ink: #f8eef3;
+  --text: #d9cbd2;
+  --muted: #9a8a93;
+  --rule: rgba(244,114,182,0.14);
+  --rule-strong: rgba(244,114,182,0.30);
+  --accent: #f472b6;
+  --accent-strong: #db2777;
+  --accent-soft: rgba(236,72,153,0.14);
   --accent-ink: #ffffff;
-  --cyan: #ec4899;
-  --free: #0f6b4f;
-  --free-soft: #e3f3ec;
-  --paid: #7a4b00;
-  --paid-soft: #fbefd9;
-  --band: #17151f;
-  --band-text: #f3f0ea;
-  --band-muted: #b9b3c4;
-  --wordmark-sarah: #17151f;
-  --radius: 14px;
+  --cyan: #fb7185;
+  --free: #6ee7b7;
+  --free-soft: rgba(16,185,129,0.14);
+  --paid: #fcd34d;
+  --paid-soft: rgba(245,158,11,0.14);
+  --band: #140f13;
+  --band-text: #f8eef3;
+  --band-muted: #9a8a93;
+  --wordmark-sarah: #ffffff;
+  --gradient: linear-gradient(135deg, #db2777, #fb7185);
+  --gradient-text: linear-gradient(135deg, #f472b6, #fda4af);
+  --glow: 0 8px 32px rgba(236,72,153,0.18);
+  --radius: 16px;
   --max: 1120px;
   --read: 680px;
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #121017; --surface: #1b1822; --ink: #f3f0ea; --text: #ddd8e6; --muted: #a39db0;
-    --rule: #2c2835; --rule-strong: #3d3848; --accent: #f472b6; --accent-soft: #3a1428; --accent-ink: #17151f;
-    --cyan: #f9a8d4; --free: #6fd3a9; --free-soft: #16302a; --paid: #f2c26b; --paid-soft: #332812;
-    --band: #0b0a0f; --band-text: #f3f0ea; --band-muted: #a39db0; --wordmark-sarah: #f3f0ea;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #121017; --surface: #1b1822; --ink: #f3f0ea; --text: #ddd8e6; --muted: #a39db0;
-  --rule: #2c2835; --rule-strong: #3d3848; --accent: #f472b6; --accent-soft: #3a1428; --accent-ink: #17151f;
-  --cyan: #f9a8d4; --free: #6fd3a9; --free-soft: #16302a; --paid: #f2c26b; --paid-soft: #332812;
-  --band: #0b0a0f; --band-text: #f3f0ea; --band-muted: #a39db0; --wordmark-sarah: #f3f0ea;
   color-scheme: dark;
 }
-
 
 .sa-header, .sa-footer, .sa-banner { font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
 .sa-header *, .sa-footer *, .sa-banner * { box-sizing: border-box; }
 .sa-wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
-.sa-header { border-bottom: 1px solid var(--rule); background: var(--bg); position: sticky; top: 0; z-index: 1000; }
+.sa-header { border-bottom: 1px solid var(--rule); background: rgba(13,10,12,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 1000; }
 .sa-nav { display: flex; align-items: center; gap: 1.5rem; height: 64px; position: relative; }
 .sa-wordmark { font: 700 1.35rem/1 var(--font-display); letter-spacing: -0.02em; text-decoration: none !important; margin-right: auto; }
 .sa-wordmark .a { color: var(--accent); } .sa-wordmark .s { color: var(--wordmark-sarah); } .sa-wordmark .d { color: var(--cyan); }
@@ -68,7 +58,7 @@
   .sa-links a:last-child { border-bottom: 0; }
   .sa-search { border: 0; border-radius: 0; padding: .8rem 0; }
 }
-.sa-banner { background: var(--accent-soft); color: var(--ink); font-size: .9rem; border-bottom: 1px solid var(--rule); }
+.sa-banner { background: linear-gradient(135deg, rgba(219,39,119,0.18), rgba(251,113,133,0.10)); color: var(--ink); font-size: .9rem; border-bottom: 1px solid var(--rule); }
 .sa-banner .sa-wrap { display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding-top: .6rem; padding-bottom: .6rem; }
 .sa-banner a { color: var(--accent); }
 .sa-banner button { background: none; border: 0; font-size: 1.3rem; line-height: 1; cursor: pointer; color: var(--muted); padding: .2rem .4rem; }

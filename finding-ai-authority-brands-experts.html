@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,27 +35,27 @@
 
   <style>
     :root {
-      --bg: #faf8f4; --surface: #f4f0ea; --card: #ffffff; --card-hover: #fdf2f7;
-      --white: #17151f; --text: #2d2a37; --text-muted: #615c6e;
-      --violet: #be185d; --violet-light: #be185d; --cyan: #db2777; --cyan-light: #be185d;
-      --gradient: linear-gradient(135deg, #be185d, #db2777);
-      --gradient-text: linear-gradient(135deg, #be185d, #be185d);
-      --border: rgba(190,24,93,0.12); --border-light: rgba(23,21,31,0.06);
+      --bg: #0d0a0c; --surface: #140f13; --card: #1b141a; --card-hover: #241a21;
+      --white: #f8eef3; --text: #d9cbd2; --text-muted: #9a8a93;
+      --violet: #db2777; --violet-light: #f472b6; --cyan: #fb7185; --cyan-light: #fda4af;
+      --gradient: linear-gradient(135deg, #db2777, #fb7185);
+      --gradient-text: linear-gradient(135deg, #f472b6, #fda4af);
+      --border: rgba(219,39,119,0.12); --border-light: rgba(255,255,255,0.06);
       --radius: 16px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     .reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--gradient); z-index: 200; transition: width 0.1s; }
-    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(190,24,93,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(236,72,153,0.06), transparent); }
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(219,39,119,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(251,113,133,0.06), transparent); }
     .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
-    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(190,24,93,0.1); animation: o1 20s ease-in-out infinite; }
-    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(236,72,153,0.07); animation: o2 25s ease-in-out infinite; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(219,39,119,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(251,113,133,0.07); animation: o2 25s ease-in-out infinite; }
     @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
     @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
     .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(250,248,244,0.8); border-bottom: 1px solid var(--border-light); }
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(13,10,12,0.8); border-bottom: 1px solid var(--border-light); }
     .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
     .nav-logo svg { height: 28px; }
     .nav-links { display: flex; gap: 2rem; align-items: center; }
@@ -63,7 +63,7 @@
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
     .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
     .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
-    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(250,248,244,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(13,10,12,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
     .mobile-menu a:last-child { border: none; }
@@ -71,8 +71,8 @@
     .article-hero { position: relative; z-index: 1; padding: 8rem 2rem 3rem; }
     .article-hero-inner { max-width: 800px; margin: 0 auto; }
     .article-hero-deco { position: absolute; top: 0; left: 0; right: 0; height: 400px; overflow: hidden; z-index: -1; }
-    .article-hero-deco::before { content: ''; position: absolute; width: 300px; height: 300px; border: 1px solid rgba(236,72,153,0.1); border-radius: 50%; top: -50px; right: -50px; }
-    .article-hero-deco::after { content: ''; position: absolute; width: 150px; height: 150px; border: 2px solid rgba(190,24,93,0.1); bottom: 50px; left: 10%; border-radius: 12px; transform: rotate(15deg); }
+    .article-hero-deco::before { content: ''; position: absolute; width: 300px; height: 300px; border: 1px solid rgba(251,113,133,0.1); border-radius: 50%; top: -50px; right: -50px; }
+    .article-hero-deco::after { content: ''; position: absolute; width: 150px; height: 150px; border: 2px solid rgba(219,39,119,0.1); bottom: 50px; left: 10%; border-radius: 12px; transform: rotate(15deg); }
     .breadcrumb { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.5rem; }
     .breadcrumb a { color: var(--violet-light); text-decoration: none; }
     .breadcrumb a:hover { color: var(--cyan-light); }
@@ -101,16 +101,16 @@
     .article-content strong { color: var(--white); }
     .article-content ul, .article-content ol { color: var(--text); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.25rem; padding-left: 1.5rem; }
     .article-content li { margin-bottom: 0.5rem; }
-    .article-content a { color: var(--violet-light); text-decoration: none; border-bottom: 1px solid rgba(190,24,93,0.3); transition: all 0.2s; }
+    .article-content a { color: var(--violet-light); text-decoration: none; border-bottom: 1px solid rgba(244,114,182,0.3); transition: all 0.2s; }
     .article-content a:hover { color: var(--cyan-light); border-bottom-color: var(--cyan); }
-    .article-content blockquote { border-left: 3px solid var(--violet); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(190,24,93,0.06); border-radius: 0 12px 12px 0; }
+    .article-content blockquote { border-left: 3px solid var(--violet); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(219,39,119,0.06); border-radius: 0 12px 12px 0; }
     .article-content blockquote p { margin-bottom: 0; color: var(--white); font-style: italic; }
 
     .callout { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
     .callout h4 { font-family: 'Space Grotesk'; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
     .callout p { margin-bottom: 0; }
 
-    .cta-inline { background: linear-gradient(135deg, rgba(190,24,93,0.1), rgba(236,72,153,0.08)); border: 1px solid rgba(190,24,93,0.2); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0; text-align: center; }
+    .cta-inline { background: linear-gradient(135deg, rgba(219,39,119,0.1), rgba(251,113,133,0.08)); border: 1px solid rgba(219,39,119,0.2); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0; text-align: center; }
     .cta-inline p { margin-bottom: 0.75rem; }
     .cta-inline a.btn { display: inline-block; background: var(--gradient); color: white; padding: 0.6rem 1.5rem; border-radius: 100px; font-weight: 600; font-size: 0.85rem; text-decoration: none; border: none; }
 
@@ -129,10 +129,10 @@
     .nav-dropdown-btn:hover { color: var(--white); }
     .nav-dropdown-btn svg { transition: transform 0.2s; }
     .nav-dropdown.open .nav-dropdown-btn svg { transform: rotate(180deg); }
-    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); right: 0; min-width: 180px; background: rgba(255,255,255,0.97); backdrop-filter: blur(24px); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.4rem; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); right: 0; min-width: 180px; background: rgba(20,15,19,0.97); backdrop-filter: blur(24px); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.4rem; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
     .nav-dropdown.open .nav-dropdown-menu { display: block; }
     .nav-dropdown-menu a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.55rem 0.85rem; border-radius: 8px; transition: all 0.15s; white-space: nowrap; }
-    .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: rgba(190,24,93,0.1); color: var(--white); }
+    .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: rgba(219,39,119,0.1); color: var(--white); }
   </style>
 <!--sa:head-->
 <link rel="stylesheet" href="/assets/chrome.css">
@@ -302,7 +302,7 @@
       <p>LLMs run on roughly a **28-day Retraining and Crawl Cycle**. This means a single, isolated "PR push" or an ad-hoc content campaign will have a citation half-life of only a few weeks before being buried by fresh data feeds. AI authority requires a continuous, compounding stream of machine-readable authority.</p>
       <p>Your partner's execution framework must be structured around a continuous retainer (like Zen Media's *Published Monthly™* model). Ad-hoc campaigns are dead; compounding machine memory is the only sustainable strategy.</p>
 
-      <div class="cta-inline" style="background: rgba(190,24,93,0.06); border-color: rgba(190,24,93,0.2);">
+      <div class="cta-inline" style="background: rgba(219,39,119,0.06); border-color: rgba(219,39,119,0.2);">
         <p><strong>Need to align your team on AI Visibility?</strong> Learn the exact 5-part methodology replacing traditional marketing.</p>
         <a href="answer-engine-optimization.html" class="btn" style="background: var(--gradient); border-radius: 100px;">Read the AEO Pillar Guide →</a>
       </div>

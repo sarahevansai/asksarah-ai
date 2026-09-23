@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,28 +32,28 @@
 
   <style>
     :root {
-      --bg: #faf8f4; --surface: #f4f0ea; --card: #ffffff; --card-hover: #fdf2f7;
-      --white: #17151f; --text: #2d2a37; --text-muted: #615c6e;
-      --violet: #be185d; --violet-light: #be185d; --cyan: #db2777; --cyan-light: #be185d;
-      --gradient: linear-gradient(135deg, #be185d, #db2777);
-      --gradient-text: linear-gradient(135deg, #be185d, #be185d);
-      --border: rgba(190,24,93,0.12); --border-light: rgba(23,21,31,0.06);
+      --bg: #0d0a0c; --surface: #140f13; --card: #1b141a; --card-hover: #241a21;
+      --white: #f8eef3; --text: #d9cbd2; --text-muted: #9a8a93;
+      --violet: #db2777; --violet-light: #f472b6; --cyan: #fb7185; --cyan-light: #fda4af;
+      --gradient: linear-gradient(135deg, #db2777, #fb7185);
+      --gradient-text: linear-gradient(135deg, #f472b6, #fda4af);
+      --border: rgba(219,39,119,0.12); --border-light: rgba(255,255,255,0.06);
       --radius: 16px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(190,24,93,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(236,72,153,0.06), transparent); }
+    .bg-mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(219,39,119,0.08), transparent), radial-gradient(ellipse 40% 50% at 80% 80%, rgba(251,113,133,0.06), transparent); }
     .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
-    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(190,24,93,0.1); animation: o1 20s ease-in-out infinite; }
-    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(236,72,153,0.07); animation: o2 25s ease-in-out infinite; }
+    .orb-1 { width: 600px; height: 600px; top: -10%; left: 15%; background: rgba(219,39,119,0.1); animation: o1 20s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; bottom: 5%; right: 0%; background: rgba(251,113,133,0.07); animation: o2 25s ease-in-out infinite; }
     @keyframes o1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,25px); } }
     @keyframes o2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-35px); } }
     .gradient-text { background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
     /* NAV */
-    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(250,248,244,0.8); border-bottom: 1px solid var(--border-light); }
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(24px) saturate(1.3); background: rgba(13,10,12,0.8); border-bottom: 1px solid var(--border-light); }
     .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
     .nav-logo svg { height: 28px; }
     .nav-links { display: flex; gap: 2rem; align-items: center; }
@@ -61,7 +61,7 @@
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
     .nav-hamburger { display: none; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
     .nav-hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; }
-    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(250,248,244,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 99; background: rgba(13,10,12,0.97); backdrop-filter: blur(24px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); flex-direction: column; gap: 1rem; }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); }
     .mobile-menu a:last-child { border: none; }
@@ -74,8 +74,8 @@
     .hero-inner { max-width: 800px; margin: 0 auto; }
     .hero h1 { font-family: 'Space Grotesk'; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
     .hero-sub { font-size: 1.05rem; color: var(--text); max-width: 600px; margin: 0 auto 2rem; line-height: 1.7; }
-    .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: var(--gradient); border-radius: 100px; color: white; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s; box-shadow: 0 4px 20px rgba(190,24,93,0.3); }
-    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(190,24,93,0.4); }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: var(--gradient); border-radius: 100px; color: white; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s; box-shadow: 0 4px 20px rgba(219,39,119,0.3); }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(219,39,119,0.4); }
     .hero-stats { display: flex; justify-content: center; gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap; }
     .hero-stat { text-align: center; }
     .hero-stat-num { font-family: 'Space Grotesk'; font-size: 1.8rem; font-weight: 700; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -86,7 +86,7 @@
     .featured-inner { max-width: 900px; margin: 0 auto; text-align: center; }
     .logo-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; margin-top: 1.5rem; align-items: center; }
     .logo-pill { font-family: 'Space Grotesk'; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.02em; padding: 0.55rem 1.1rem; border: 1px solid var(--border); border-radius: 100px; transition: all 0.3s; white-space: nowrap; }
-    .logo-pill:hover { color: var(--white); border-color: rgba(190,24,93,0.3); background: rgba(190,24,93,0.05); }
+    .logo-pill:hover { color: var(--white); border-color: rgba(219,39,119,0.3); background: rgba(219,39,119,0.05); }
 
     /* WHAT I DO */
     .offerings { position: relative; z-index: 1; padding: 5rem 2rem; }
@@ -94,7 +94,7 @@
     .offer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
     .offer-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; position: relative; overflow: hidden; transition: all 0.3s; }
     .offer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient); }
-    .offer-card:hover { border-color: rgba(190,24,93,0.25); transform: translateY(-3px); }
+    .offer-card:hover { border-color: rgba(219,39,119,0.25); transform: translateY(-3px); }
     .offer-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
     .offer-card h3 { font-family: 'Space Grotesk'; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
     .offer-card p { font-size: 0.84rem; color: var(--text); line-height: 1.65; }
@@ -104,7 +104,7 @@
     .topics-inner { max-width: 900px; margin: 0 auto; }
     .topic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-top: 2rem; }
     .topic-tag { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; font-size: 0.88rem; font-weight: 500; transition: all 0.2s; display: flex; align-items: center; gap: 0.6rem; }
-    .topic-tag:hover { border-color: rgba(190,24,93,0.3); background: var(--card-hover); }
+    .topic-tag:hover { border-color: rgba(219,39,119,0.3); background: var(--card-hover); }
     .topic-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gradient); flex-shrink: 0; }
 
     /* GALLERY */
@@ -112,9 +112,9 @@
     .gallery-inner { max-width: 1100px; margin: 0 auto; }
     .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
     .gallery-item { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16/10; cursor: pointer; transition: all 0.3s; }
-    .gallery-item:hover { border-color: rgba(190,24,93,0.4); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(190,24,93,0.15); }
+    .gallery-item:hover { border-color: rgba(219,39,119,0.4); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(219,39,119,0.15); }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem; background: linear-gradient(transparent, rgba(250,248,244,0.95)); }
+    .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem; background: linear-gradient(transparent, rgba(13,10,12,0.95)); }
     .gallery-title { font-family: 'Space Grotesk'; font-size: 0.8rem; font-weight: 600; color: var(--white); }
     .gallery-sub { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.15rem; }
     .gallery-item.featured { grid-column: span 2; aspect-ratio: 2/1; }
@@ -133,16 +133,16 @@
     /* CTA SECTION */
     .cta-section { position: relative; z-index: 1; padding: 5rem 2rem; }
     .cta-inner { max-width: 700px; margin: 0 auto; text-align: center; }
-    .cta-card { background: var(--card); border: 1px solid rgba(190,24,93,0.2); border-radius: 24px; padding: 3.5rem 2.5rem; position: relative; overflow: hidden; }
+    .cta-card { background: var(--card); border: 1px solid rgba(219,39,119,0.2); border-radius: 24px; padding: 3.5rem 2.5rem; position: relative; overflow: hidden; }
     .cta-card::before { content: ''; position: absolute; inset: -1px; border-radius: 24px; background: var(--gradient); z-index: -1; opacity: 0.15; }
     .cta-card h2 { font-family: 'Space Grotesk'; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.75rem; }
     .cta-card p { color: var(--text); font-size: 0.92rem; margin-bottom: 2rem; line-height: 1.7; }
     .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; border-radius: 100px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; }
-    .cta-btn.primary { background: var(--gradient); color: white; box-shadow: 0 4px 20px rgba(190,24,93,0.3); }
-    .cta-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(190,24,93,0.4); }
+    .cta-btn.primary { background: var(--gradient); color: white; box-shadow: 0 4px 20px rgba(219,39,119,0.3); }
+    .cta-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(219,39,119,0.4); }
     .cta-btn.secondary { border: 1px solid var(--border); color: var(--white); background: transparent; }
-    .cta-btn.secondary:hover { border-color: rgba(190,24,93,0.4); background: rgba(190,24,93,0.05); }
+    .cta-btn.secondary:hover { border-color: rgba(219,39,119,0.4); background: rgba(219,39,119,0.05); }
 
     /* LIGHTBOX */
     .lightbox { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.92); backdrop-filter: blur(16px); align-items: center; justify-content: center; cursor: zoom-out; }
@@ -151,7 +151,7 @@
     .lightbox-caption { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); text-align: center; }
     .lightbox-caption h3 { font-family: 'Space Grotesk'; font-size: 1rem; font-weight: 600; }
     .lightbox-caption p { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
-    .lightbox-close { position: fixed; top: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: rgba(23,21,31,0.1); border: 1px solid rgba(23,21,31,0.15); color: white; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .lightbox-close { position: fixed; top: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: white; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 
     /* FADE */
     .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -165,7 +165,7 @@
     .footer-col a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; padding: 0.2rem 0; transition: color 0.2s; }
     .footer-col a:hover { color: var(--white); }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--border-light); }
-    .footer-bottom p { font-size: 0.68rem; color: rgba(97,92,110,0.5); }
+    .footer-bottom p { font-size: 0.68rem; color: rgba(154,138,147,0.5); }
 
     @media (max-width: 768px) {
       .hero { padding: 7rem 1.5rem 3rem; }
@@ -187,10 +187,10 @@
     .nav-dropdown-btn:hover { color: var(--white); }
     .nav-dropdown-btn svg { transition: transform 0.2s; }
     .nav-dropdown.open .nav-dropdown-btn svg { transform: rotate(180deg); }
-    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); right: 0; min-width: 180px; background: rgba(255,255,255,0.97); backdrop-filter: blur(24px); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.4rem; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); right: 0; min-width: 180px; background: rgba(20,15,19,0.97); backdrop-filter: blur(24px); border: 1px solid var(--border-light); border-radius: 12px; padding: 0.4rem; z-index: 200; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
     .nav-dropdown.open .nav-dropdown-menu { display: block; }
     .nav-dropdown-menu a { display: block; color: var(--text); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.55rem 0.85rem; border-radius: 8px; transition: all 0.15s; white-space: nowrap; }
-    .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: rgba(190,24,93,0.1); color: var(--white); }
+    .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: rgba(219,39,119,0.1); color: var(--white); }
   </style>
 <!--sa:head-->
 <link rel="stylesheet" href="/assets/chrome.css">
@@ -447,10 +447,10 @@
   <!-- FREE CHECKLIST CTA -->
   <section style="position: relative; z-index: 1; padding: 0 2rem 3rem;">
     <div style="max-width: 700px; margin: 0 auto;">
-      <a style="display: block; background: rgba(236,72,153,0.06); border: 2px solid rgba(236,72,153,0.25); border-radius: 20px; padding: 2rem; text-decoration: none; text-align: center; transition: all 0.3s; box-shadow: 0 0 30px rgba(236,72,153,0.06);" href="assessment.html">
-        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #17151f; margin-bottom: 0.4rem;">📋 AI Visibility Assessment</div>
-        <div style="font-size: 0.88rem; color: #2d2a37; margin-bottom: 1rem;">AI Visibility Checklist — Discover how your brand shows up in ChatGPT, Perplexity, and Gemini..</div>
-        <span style="display: inline-flex; padding: 0.55rem 1.4rem; border-radius: 100px; font-size: 0.85rem; font-weight: 600; background: linear-gradient(135deg, #db2777, #be185d); color: #faf8f4;">Take the AI Visibility Assessment →</span>
+      <a style="display: block; background: rgba(251,113,133,0.06); border: 2px solid rgba(251,113,133,0.25); border-radius: 20px; padding: 2rem; text-decoration: none; text-align: center; transition: all 0.3s; box-shadow: 0 0 30px rgba(251,113,133,0.06);" href="assessment.html">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: #f8eef3; margin-bottom: 0.4rem;">📋 AI Visibility Assessment</div>
+        <div style="font-size: 0.88rem; color: #d9cbd2; margin-bottom: 1rem;">AI Visibility Checklist — Discover how your brand shows up in ChatGPT, Perplexity, and Gemini..</div>
+        <span style="display: inline-flex; padding: 0.55rem 1.4rem; border-radius: 100px; font-size: 0.85rem; font-weight: 600; background: linear-gradient(135deg, #fb7185, #fda4af); color: #0d0a0c;">Take the AI Visibility Assessment →</span>
       </a>
     </div>
   </section>
