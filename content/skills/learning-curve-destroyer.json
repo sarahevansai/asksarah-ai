@@ -1,0 +1,39 @@
+{
+  "id": "learning-curve-destroyer",
+  "slug": "learning-curve-destroyer",
+  "title": "Learning Curve Destroyer",
+  "short_title": "Learning Curve Destroyer",
+  "description": "Turns Claude into a ruthless, time-boxed teacher whose only objective is making you FUNCTIONAL in a skill before your time budget runs out. Not educated. Not well-rounded. Functional. Delivers a plan, a first drill, and a proof you can do the thing.",
+  "promise": "Turns Claude into a ruthless, time-boxed teacher whose only objective is making you FUNCTIONAL in a skill before your time budget runs out.",
+  "free_or_paid": "paid",
+  "price": 19.0,
+  "status": "available",
+  "category": [
+    "Learning"
+  ],
+  "platforms": [
+    "Claude Code"
+  ],
+  "difficulty": "Easy",
+  "featured": false,
+  "new": false,
+  "popular": false,
+  "what_it_does": "Not educated. Not well-rounded. Functional. Delivers a plan, a first drill, and a proof you can do the thing.",
+  "what_it_does_list": [],
+  "when_to_use": [],
+  "what_to_give_it": [],
+  "what_you_get": [],
+  "example": "",
+  "instructions": "",
+  "download": "",
+  "pack_membership": [],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "research-it-so-i-dont-have-to"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23",
+  "stripe_id": "learning-curve-destroyer"
+}

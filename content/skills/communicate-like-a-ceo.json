@@ -1,0 +1,44 @@
+{
+  "id": "communicate-like-a-ceo",
+  "slug": "communicate-like-a-ceo",
+  "title": "Communicate Like a CEO",
+  "short_title": "Communicate Like a CEO",
+  "description": "Rewrites and coaches any workplace communication so it lands the way an executive needs it — status updates, Slack messages to leadership, emails to clients, project updates, escalations, budget requests, performance reviews.",
+  "promise": "Rewrites and coaches any workplace communication so it lands the way an executive needs it.",
+  "free_or_paid": "paid",
+  "price": 19.0,
+  "status": "available",
+  "category": [
+    "Work",
+    "CEO"
+  ],
+  "platforms": [
+    "Claude Code"
+  ],
+  "difficulty": "Easy",
+  "featured": false,
+  "new": false,
+  "popular": false,
+  "what_it_does": "Status updates, Slack messages to leadership, emails to clients, project updates, escalations, budget requests, performance reviews.",
+  "what_it_does_list": [],
+  "when_to_use": [],
+  "what_to_give_it": [],
+  "what_you_get": [],
+  "example": "",
+  "instructions": "",
+  "download": "",
+  "pack_membership": [],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "coordinator-to-owner"
+    },
+    {
+      "type": "pack",
+      "slug": "ceo-skill-pack"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23",
+  "stripe_id": "communicate-like-a-ceo"
+}

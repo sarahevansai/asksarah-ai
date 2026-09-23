@@ -1,0 +1,69 @@
+{
+  "id": "tell-me-what-im-missing",
+  "slug": "tell-me-what-im-missing",
+  "title": "Tell Me What I'm Missing",
+  "short_title": "What I'm Missing",
+  "description": "Give it a plan, decision or idea. It challenges your assumptions, finds what's missing and points out what you stopped questioning because you already like the idea.",
+  "promise": "Give it a plan, decision or idea. Its job is not to praise you. Its job is to find the holes.",
+  "free_or_paid": "free",
+  "price": null,
+  "status": "coming-soon",
+  "category": [
+    "Decisions",
+    "CEO"
+  ],
+  "platforms": [
+    "Claude"
+  ],
+  "difficulty": "Easy",
+  "featured": true,
+  "new": true,
+  "popular": false,
+  "what_it_does": "It challenges your assumptions, identifies missing information, surfaces risks and points out what you may have stopped questioning because you already like the idea.",
+  "what_it_does_list": [],
+  "when_to_use": [
+    "Right after you've decided something and feel great about it.",
+    "Before you take a plan to anyone who can say no.",
+    "When everyone you've asked agrees with you."
+  ],
+  "what_to_give_it": [
+    "The plan, decision or idea. A few sentences is enough.",
+    "What you're hoping the answer is. Be honest."
+  ],
+  "what_you_get": [
+    "The three assumptions most likely to make it fail.",
+    "The information you don't have yet.",
+    "The risks you've been skating past.",
+    "What evidence would change the conclusion."
+  ],
+  "example": "",
+  "instructions": "",
+  "download": "",
+  "pack_membership": [
+    "ceo-skill-pack"
+  ],
+  "related_items": [
+    {
+      "type": "ai-use",
+      "slug": "argue-against-your-decision"
+    },
+    {
+      "type": "skill",
+      "slug": "logic-police"
+    },
+    {
+      "type": "pack",
+      "slug": "ceo-skill-pack"
+    },
+    {
+      "type": "skill",
+      "slug": "just-decide-already"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23",
+  "example_ref": {
+    "type": "ai-use",
+    "slug": "argue-against-your-decision"
+  }
+}

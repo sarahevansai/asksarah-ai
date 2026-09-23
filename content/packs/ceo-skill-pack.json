@@ -1,0 +1,41 @@
+{
+  "slug": "ceo-skill-pack",
+  "title": "CEO Skill Pack",
+  "free_or_paid": "paid",
+  "price": 49,
+  "status": "coming-soon",
+  "promise": "A set of practical AI Skills for the work that comes with being the person everyone eventually looks at when something needs to be decided, fixed, communicated or moved forward.",
+  "description": "Less friction, clearer decisions, and less of the work that other people or systems should own.",
+  "included": [
+    "Weekly CEO Reset",
+    "CEO, Not Chief Fixing Officer",
+    "Delegate This",
+    "Difficult Conversation Prep",
+    "Decision Memo",
+    {
+      "name": "Meeting Before the Meeting",
+      "slug": "meeting-before-the-meeting"
+    },
+    "Meeting After the Meeting",
+    {
+      "name": "Tell Me What I'm Missing",
+      "slug": "tell-me-what-im-missing"
+    },
+    "Priority Triage",
+    "Feedback Without Rewriting It",
+    "Turn This Into an SOP",
+    "Executive Communication Editor"
+  ],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "tell-me-what-im-missing"
+    },
+    {
+      "type": "skill",
+      "slug": "meeting-before-the-meeting"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23"
+}

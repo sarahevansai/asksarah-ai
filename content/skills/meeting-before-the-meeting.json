@@ -1,0 +1,65 @@
+{
+  "id": "meeting-before-the-meeting",
+  "slug": "meeting-before-the-meeting",
+  "title": "The Meeting Before the Meeting",
+  "short_title": "Meeting Before the Meeting",
+  "description": "Prep for an important meeting: what matters, what you need to know, what to ask, what could derail it and what decision should actually get made.",
+  "promise": "Prepare for an important meeting before you walk into it.",
+  "free_or_paid": "free",
+  "price": null,
+  "status": "coming-soon",
+  "category": [
+    "Meetings",
+    "CEO"
+  ],
+  "platforms": [
+    "Claude"
+  ],
+  "difficulty": "Easy",
+  "featured": true,
+  "new": true,
+  "popular": false,
+  "what_it_does": "Before you walk in, it helps you figure out:",
+  "what_it_does_list": [
+    "What matters",
+    "What you need to know",
+    "What you need to ask",
+    "What could derail the meeting",
+    "What decision should actually get made"
+  ],
+  "when_to_use": [
+    "Before a meeting you can't afford to wing.",
+    "When there's a decision in the room and nobody has said what it is."
+  ],
+  "what_to_give_it": [
+    "Who's in the meeting and what it's supposedly about.",
+    "Any agenda, notes, emails or docs you already have.",
+    "What you want to walk out with."
+  ],
+  "what_you_get": [
+    "A short prep sheet: what matters, what to know, what to ask, what could go sideways.",
+    "The decision the meeting should actually make, in one sentence."
+  ],
+  "example": "",
+  "instructions": "",
+  "download": "",
+  "pack_membership": [
+    "ceo-skill-pack"
+  ],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "meetings-that-earn-their-hour"
+    },
+    {
+      "type": "pack",
+      "slug": "ceo-skill-pack"
+    },
+    {
+      "type": "skill",
+      "slug": "tell-me-what-im-missing"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23"
+}

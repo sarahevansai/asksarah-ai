@@ -1,0 +1,39 @@
+{
+  "id": "build-your-own-skill",
+  "slug": "build-your-own-skill",
+  "title": "Build Your Own Skill",
+  "short_title": "Build Your Own Skill",
+  "description": "Turns any workflow you repeat into a complete, working Claude skill file — written out and ready to save. Weekly reports, recurring reviews, monthly documents, checklists that live in your head, prompts you keep retyping. Package it once, use it forever.",
+  "promise": "Turns any workflow you repeat into a complete, working Claude skill file — written out and ready to save.",
+  "free_or_paid": "paid",
+  "price": 19.0,
+  "status": "available",
+  "category": [
+    "AI"
+  ],
+  "platforms": [
+    "Claude Code"
+  ],
+  "difficulty": "Easy",
+  "featured": false,
+  "new": false,
+  "popular": false,
+  "what_it_does": "Weekly reports, recurring reviews, monthly documents, checklists that live in your head, prompts you keep retyping. Package it once, use it forever.",
+  "what_it_does_list": [],
+  "when_to_use": [],
+  "what_to_give_it": [],
+  "what_you_get": [],
+  "example": "",
+  "instructions": "",
+  "download": "",
+  "pack_membership": [],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "brain-unclogger"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23",
+  "stripe_id": "build-your-own-skill"
+}

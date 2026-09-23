@@ -1,0 +1,35 @@
+{
+  "slug": "personal-ai-skill-pack",
+  "title": "Personal AI / Life Skill Pack",
+  "free_or_paid": "paid",
+  "price": null,
+  "status": "coming-soon",
+  "promise": "AI for real life.",
+  "description": "Not generating blog posts. Helping with the annoying, repetitive, over-researched, easy-to-put-off things that fill up normal life.",
+  "included": [
+    "What Should I Wear?",
+    "Pack My Suitcase",
+    "Buy This or Skip It",
+    "Gift Genius",
+    "What's for Dinner?",
+    "Plan My Weekend",
+    "Plan This Party",
+    "Help Me Decide",
+    "Fix My Schedule",
+    "Family Command Center",
+    "Travel Researcher",
+    "Explain This to Me"
+  ],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "just-decide-already"
+    },
+    {
+      "type": "skill",
+      "slug": "research-it-so-i-dont-have-to"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23"
+}

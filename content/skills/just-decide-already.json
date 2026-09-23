@@ -1,0 +1,53 @@
+{
+  "id": "just-decide-already",
+  "slug": "just-decide-already",
+  "title": "Just Decide Already",
+  "short_title": "Just Decide Already",
+  "description": "For when you've researched something to death. It compares your options, exposes which criteria actually matter, calls out false distinctions and forces a decision.",
+  "promise": "For the moment when you've researched something so much that you have somehow become less capable of choosing.",
+  "free_or_paid": "free",
+  "price": null,
+  "status": "coming-soon",
+  "category": [
+    "Decisions"
+  ],
+  "platforms": [
+    "Claude"
+  ],
+  "difficulty": "Easy",
+  "featured": true,
+  "new": true,
+  "popular": false,
+  "what_it_does": "It compares your options, exposes which criteria actually matter, identifies false distinctions and forces a decision framework.",
+  "what_it_does_list": [],
+  "when_to_use": [
+    "You've got a comparison spreadsheet and still no answer.",
+    "You keep reopening a decision you already made."
+  ],
+  "what_to_give_it": [
+    "The options.",
+    "What you've learned so far. Messy is fine.",
+    "What happens if you don't decide."
+  ],
+  "what_you_get": [
+    "The two or three criteria that actually matter.",
+    "Which differences between the options aren't real.",
+    "A decision framework that ends in a choice."
+  ],
+  "example": "",
+  "instructions": "",
+  "download": "",
+  "pack_membership": [],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "research-it-so-i-dont-have-to"
+    },
+    {
+      "type": "skill",
+      "slug": "tell-me-what-im-missing"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23"
+}

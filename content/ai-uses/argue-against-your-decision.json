@@ -1,0 +1,38 @@
+{
+  "number": 1,
+  "slug": "argue-against-your-decision",
+  "title": "Make AI argue against the decision you've already made",
+  "category": "Decisions",
+  "story": [
+    "This has become one of my favorite uses of AI because—shocker—I can become very attached to my own idea.",
+    "I don't ask:",
+    "\"Do you think this is a good idea?\"",
+    "That's basically begging an AI model to congratulate you.",
+    "I give it my decision and tell it:"
+  ],
+  "prompt": "Assume I'm wrong. Find the three assumptions most likely to make this fail. Tell me what evidence would change your conclusion.",
+  "after": [
+    "The point isn't to let Claude run your life.",
+    "It's to force yourself to see the thing you stopped looking for the minute you decided what you wanted the answer to be."
+  ],
+  "tool": "Claude",
+  "related_skill": "tell-me-what-im-missing",
+  "related_stack": "claude",
+  "free_or_paid": "free",
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "tell-me-what-im-missing"
+    },
+    {
+      "type": "skill",
+      "slug": "logic-police"
+    },
+    {
+      "type": "stack",
+      "slug": "claude"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23"
+}

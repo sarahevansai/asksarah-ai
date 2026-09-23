@@ -1,0 +1,19 @@
+{
+  "slug": "new-pack",
+  "title": "",
+  "free_or_paid": "paid",
+  "price": null,
+  "status": "coming-soon",
+  "promise": "",
+  "description": "",
+  "included": [
+    "Skill name",
+    {
+      "name": "Skill that already has a page",
+      "slug": "its-slug"
+    }
+  ],
+  "related_items": [],
+  "published": false,
+  "updated_at": "2026-09-23"
+}

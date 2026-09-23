@@ -1,0 +1,60 @@
+{
+  "id": "research-it-so-i-dont-have-to",
+  "slug": "research-it-so-i-dont-have-to",
+  "title": "Research It So I Don't Have To",
+  "short_title": "Research It",
+  "description": "Researches something thoroughly, then gives you only what matters: what changed the answer, the tradeoffs, the open questions and what to do next.",
+  "promise": "Research something thoroughly without reading an encyclopedia afterward.",
+  "free_or_paid": "free",
+  "price": null,
+  "status": "coming-soon",
+  "category": [
+    "Research"
+  ],
+  "platforms": [
+    "Claude"
+  ],
+  "difficulty": "Easy",
+  "featured": true,
+  "new": true,
+  "popular": false,
+  "what_it_does": "It does the research, then puts the answer in this order:",
+  "what_it_does_list": [
+    "What matters",
+    "What changed the answer",
+    "Tradeoffs",
+    "Recommendation criteria",
+    "Unresolved questions",
+    "What to do next"
+  ],
+  "when_to_use": [
+    "You need to understand something well enough to decide, and you don't have six hours.",
+    "You're comparing things to buy, book or sign up for."
+  ],
+  "what_to_give_it": [
+    "The question. The real one.",
+    "What you're going to do with the answer.",
+    "Anything you already know or already ruled out."
+  ],
+  "what_you_get": [
+    "A short answer with the tradeoffs, not a report.",
+    "The questions nobody could answer yet.",
+    "What to do next."
+  ],
+  "example": "",
+  "instructions": "",
+  "download": "",
+  "pack_membership": [],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "just-decide-already"
+    },
+    {
+      "type": "skill",
+      "slug": "learning-curve-destroyer"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23"
+}

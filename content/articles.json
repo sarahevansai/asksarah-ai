@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "claude-code-guide",
+    "title": "Claude Code guide",
+    "description": "",
+    "category": "AI"
+  },
+  {
+    "slug": "claude-cowork-guide",
+    "title": "Claude Cowork guide",
+    "description": "",
+    "category": "AI"
+  },
+  {
+    "slug": "glossary",
+    "title": "AI Glossary",
+    "description": "",
+    "category": "AI"
+  },
+  {
+    "slug": "learn",
+    "title": "All articles and guides",
+    "description": "",
+    "category": "Learn"
+  }
+]

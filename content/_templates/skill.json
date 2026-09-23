@@ -1,0 +1,41 @@
+{
+  "id": "new-skill",
+  "slug": "new-skill",
+  "title": "",
+  "short_title": "",
+  "description": "One or two sentences. Shows on cards and in search.",
+  "promise": "The one-line promise under the title.",
+  "free_or_paid": "free",
+  "price": null,
+  "stripe_id": "",
+  "status": "coming-soon",
+  "category": [
+    "Decisions"
+  ],
+  "platforms": [
+    "Claude"
+  ],
+  "difficulty": "Easy",
+  "featured": false,
+  "new": true,
+  "popular": false,
+  "what_it_does": "",
+  "what_it_does_list": [],
+  "what_it_does_after": "",
+  "when_to_use": [],
+  "what_to_give_it": [],
+  "what_you_get": [],
+  "example": "",
+  "example_ref": null,
+  "instructions": [],
+  "download": "",
+  "pack_membership": [],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "tell-me-what-im-missing"
+    }
+  ],
+  "published": false,
+  "updated_at": "2026-09-23"
+}

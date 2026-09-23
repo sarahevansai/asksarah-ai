@@ -1,0 +1,44 @@
+{
+  "id": "logic-police",
+  "slug": "logic-police",
+  "title": "Logic Police",
+  "short_title": "Logic Police",
+  "description": "Finds what's WRONG with an idea, offer, pitch, plan, or strategy before a customer, investor, regulator, or the market finds it. Uses rotating adversarial personas — skeptical CFO, angry customer, burned-out journalist — and tags every hole by severity.",
+  "promise": "Finds what's WRONG with an idea, offer, pitch, plan, or strategy before a customer, investor, regulator, or the market finds it.",
+  "free_or_paid": "paid",
+  "price": 19.0,
+  "status": "available",
+  "category": [
+    "Decisions",
+    "CEO"
+  ],
+  "platforms": [
+    "Claude Code"
+  ],
+  "difficulty": "Easy",
+  "featured": false,
+  "new": false,
+  "popular": false,
+  "what_it_does": "Uses rotating adversarial personas — skeptical CFO, angry customer, burned-out journalist — and tags every hole by severity.",
+  "what_it_does_list": [],
+  "when_to_use": [],
+  "what_to_give_it": [],
+  "what_you_get": [],
+  "example": "",
+  "instructions": "",
+  "download": "",
+  "pack_membership": [],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "tell-me-what-im-missing"
+    },
+    {
+      "type": "skill",
+      "slug": "just-decide-already"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23",
+  "stripe_id": "logic-police"
+}

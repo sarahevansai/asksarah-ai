@@ -1,0 +1,39 @@
+{
+  "id": "coordinator-to-owner",
+  "slug": "coordinator-to-owner",
+  "title": "Coordinator to Owner",
+  "short_title": "Coordinator to Owner",
+  "description": "Turns someone trusted with tasks into someone trusted with outcomes. For coordinators, EAs, associates, analysts, specialists, and team leads whose work is good but scope isn't growing. The \"why am I not getting promoted\" skill.",
+  "promise": "Turns someone trusted with tasks into someone trusted with outcomes.",
+  "free_or_paid": "paid",
+  "price": 19.0,
+  "status": "available",
+  "category": [
+    "Career"
+  ],
+  "platforms": [
+    "Claude Code"
+  ],
+  "difficulty": "Easy",
+  "featured": false,
+  "new": false,
+  "popular": false,
+  "what_it_does": "For coordinators, EAs, associates, analysts, specialists, and team leads whose work is good but scope isn't growing. The \"why am I not getting promoted\" skill.",
+  "what_it_does_list": [],
+  "when_to_use": [],
+  "what_to_give_it": [],
+  "what_you_get": [],
+  "example": "",
+  "instructions": "",
+  "download": "",
+  "pack_membership": [],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "communicate-like-a-ceo"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23",
+  "stripe_id": "coordinator-to-owner"
+}

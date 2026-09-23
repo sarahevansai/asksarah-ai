@@ -1,0 +1,60 @@
+{
+  "id": "brain-unclogger",
+  "slug": "brain-unclogger",
+  "title": "The Brain Unclogger",
+  "short_title": "Brain Unclogger",
+  "description": "Dump everything in your head. It sorts it into do, decide, delegate, remember and ignore, without turning every thought into another task.",
+  "promise": "Dump everything currently occupying your brain.",
+  "free_or_paid": "free",
+  "price": null,
+  "status": "coming-soon",
+  "category": [
+    "Organization"
+  ],
+  "platforms": [
+    "Claude"
+  ],
+  "difficulty": "Easy",
+  "featured": true,
+  "new": true,
+  "popular": false,
+  "what_it_does": "You dump everything. It separates it into five piles:",
+  "what_it_does_list": [
+    "Do",
+    "Decide",
+    "Delegate",
+    "Remember",
+    "Ignore"
+  ],
+  "when_to_use": [
+    "When your brain is full and you can't tell what's urgent anymore.",
+    "Before you try to plan the week.",
+    "When ideas are living in 14 tabs, three Notes files and a Slack message to yourself."
+  ],
+  "what_to_give_it": [
+    "Everything. Unedited. Half-sentences are fine.",
+    "Voice-to-text is fine. It doesn't need to be organized. That's its job."
+  ],
+  "what_you_get": [
+    "Your brain dump sorted into do, decide, delegate, remember and ignore.",
+    "The decisions pulled out on their own.",
+    "An ignore pile you're allowed to actually ignore."
+  ],
+  "example": "",
+  "instructions": "",
+  "download": "",
+  "pack_membership": [],
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "just-decide-already"
+    },
+    {
+      "type": "skill",
+      "slug": "delegation-brief"
+    }
+  ],
+  "published": true,
+  "updated_at": "2026-09-23",
+  "what_it_does_after": "The point is to turn mental clutter into something you can act on. Not to turn every thought into another task."
+}

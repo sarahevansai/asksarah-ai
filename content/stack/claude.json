@@ -1,0 +1,31 @@
+{
+  "title": "Claude",
+  "slug": "claude",
+  "category": "AI",
+  "logo": "",
+  "short_description": "",
+  "what_i_use_it_for": "",
+  "what_i_dont_use_it_for": "",
+  "why_it_stays": "",
+  "do_i_pay": "",
+  "who_needs_it": "",
+  "who_doesnt": "",
+  "favorite_feature": "",
+  "alternative": "",
+  "affiliate_url": "",
+  "affiliate_disclosure": "",
+  "url": "https://claude.ai",
+  "related_items": [
+    {
+      "type": "skill",
+      "slug": "tell-me-what-im-missing"
+    },
+    {
+      "type": "skill",
+      "slug": "brain-unclogger"
+    }
+  ],
+  "last_reviewed": "",
+  "published": false,
+  "_note": "DRAFT. Sarah to fill every field before publishing. Nothing here is confirmed yet."
+}
