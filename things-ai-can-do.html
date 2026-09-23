@@ -27,28 +27,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/chrome.css">
   <link rel="stylesheet" href="/assets/site.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Things I didn't know AI could do until I tried it","url":"https://asksarah.ai/things-ai-can-do","author":{"@type":"Person","@id":"https://asksarah.ai/#sarah-evans","name":"Sarah Evans","url":"https://asksarah.ai"}}</script>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
 
 
-<header class="site-header">
-  <nav class="wrap nav" aria-label="Main">
-    <a class="wordmark" href="/" aria-label="askSarah.ai home"><span class="a">ask</span><span class="s">Sarah</span><span class="d">.ai</span></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
-    <div class="nav-links" id="nav-links">
+<a class="sa-skip" href="#main">Skip to content</a>
+<header class="sa-header">
+  <div class="sa-wrap sa-nav" role="navigation" aria-label="Main">
+    <a class="sa-wordmark" href="/" aria-label="askSarah.ai home"><span class="a">ask</span><span class="s">Sarah</span><span class="d">.ai</span></a>
+    <button class="sa-toggle" type="button" aria-expanded="false" aria-controls="sa-links">Menu</button>
+    <div class="sa-links" id="sa-links">
       <a href="/skills">Skills</a>
       <a href="/stack">Sarah&#39;s Stack</a>
       <a href="/shortcuts">Shortcuts</a>
       <a href="/systems">Systems</a>
       <a href="/edit">Sarah&#39;s Edit</a>
       <a href="/about">About</a>
-      <a class="nav-search" href="/search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Search</a>
+      <a class="sa-search" href="/search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Search</a>
     </div>
-  </nav>
+  </div>
 </header>
 <main id="main">
 <section class="hero"><div class="wrap">
@@ -83,12 +84,12 @@
   <a class="btn btn-primary" href="https://prsarahevans.substack.com/subscribe" target="_blank" rel="noopener" data-track="email_signup_click">Get the emails →</a>
 </div></div></section>
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
+<footer class="sa-footer">
+  <div class="sa-wrap">
+    <div class="sa-footer-grid">
       <div>
-        <a class="wordmark" href="/"><span class="a">ask</span><span class="s">Sarah</span><span class="d">.ai</span></a>
-        <p class="footer-note" style="margin-top:1rem">If something is sponsored or I make money when you buy it, I'll tell you. Right there on the page.</p>
+        <a class="sa-wordmark" href="/"><span class="a">ask</span><span class="s">Sarah</span><span class="d">.ai</span></a>
+        <p>If something is sponsored or I make money when you buy it, I'll tell you. Right there on the page.</p>
       </div>
       <div>
         <h4>AskSarah</h4>
@@ -103,7 +104,7 @@
         <a href="https://www.linkedin.com/in/prsarahevans" rel="noopener">LinkedIn</a><a href="https://prsarahevans.substack.com" rel="noopener">Substack</a><a href="https://hackernoon.com/u/sarahevans" rel="noopener">HackerNoon</a><a href="https://github.com/sarahevansai" rel="noopener">GitHub</a><a href="/connect">Connect</a>
       </div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Sarah Evans</span><span><a href="/about">About Sarah</a></span></div>
+    <div class="sa-footer-bottom"><span>© <span id="currentYear">2026</span> Sarah Evans</span><a href="/about">About Sarah</a></div>
   </div>
 </footer>
 <script src="/assets/site.js" defer></script>

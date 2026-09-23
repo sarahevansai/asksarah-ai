@@ -9,8 +9,8 @@
   window.askTrack = track;
 
   // Mobile nav
-  var toggle = document.querySelector('.nav-toggle');
-  var links = document.getElementById('nav-links');
+  var toggle = document.querySelector('.sa-toggle');
+  var links = document.getElementById('sa-links');
   if (toggle && links) {
     toggle.addEventListener('click', function () {
       var open = links.classList.toggle('open');

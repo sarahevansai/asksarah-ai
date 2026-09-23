@@ -1,4 +1,4 @@
-<html lang="en"><head>
+<html lang="en" data-theme="light"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Perception Stack™ — C-Suite Investment Brief for AI Perception | askSarah.ai</title>
@@ -17,20 +17,20 @@
 
 <style>
 :root {
-  --bg: #0c0a1a;
-  --surface: #110f24;
-  --card: #16132e;
-  --card-hover: #1c1838;
-  --white: #f0eef8;
-  --text: #c4c0d8;
-  --muted: #7a758f;
-  --violet: #7c3aed;
-  --violet-light: #a78bfa;
-  --cyan: #06b6d4;
-  --cyan-light: #22d3ee;
-  --border: rgba(124, 58, 237, 0.18);
-  --brand-grad: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
-  --text-grad: linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%);
+  --bg: #faf8f4;
+  --surface: #f4f0ea;
+  --card: #ffffff;
+  --card-hover: #fdf2f7;
+  --white: #17151f;
+  --text: #2d2a37;
+  --muted: #615c6e;
+  --violet: #be185d;
+  --violet-light: #be185d;
+  --cyan: #db2777;
+  --cyan-light: #be185d;
+  --border: rgba(190,24,93, 0.18);
+  --brand-grad: linear-gradient(135deg, #be185d 0%, #db2777 100%);
+  --text-grad: linear-gradient(135deg, #be185d 0%, #be185d 100%);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,7 +59,7 @@ body::before {
   transform: translateX(-50%);
   width: 1400px;
   height: 1400px;
-  background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0) 50%);
+  background: radial-gradient(circle, rgba(190,24,93,0.18) 0%, rgba(190,24,93,0) 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -80,8 +80,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(124,58,237,0.08);
-  background: rgba(12, 10, 26, 0.85);
+  border-bottom: 1px solid rgba(190,24,93,0.08);
+  background: rgba(250,248,244, 0.85);
   backdrop-filter: blur(12px);
 }
 
@@ -173,12 +173,12 @@ h1 .tm { font-size: 0.35em; vertical-align: super; -webkit-text-fill-color: var(
   border: none;
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s;
-  box-shadow: 0 8px 32px rgba(124,58,237,0.35);
+  box-shadow: 0 8px 32px rgba(190,24,93,0.35);
   text-decoration: none;
 }
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(124,58,237,0.5);
+  box-shadow: 0 12px 40px rgba(190,24,93,0.5);
   color: var(--white);
 }
 
@@ -301,14 +301,14 @@ h2 {
   grid-template-columns: 40px 1fr;
   gap: 16px;
   padding: 18px 0;
-  border-bottom: 1px solid rgba(124,58,237,0.08);
+  border-bottom: 1px solid rgba(190,24,93,0.08);
   align-items: start;
 }
 .bundle-item:last-child { border-bottom: none; }
 .bundle-item .check {
   width: 28px; height: 28px;
   border-radius: 8px;
-  background: rgba(34, 211, 238, 0.12);
+  background: rgba(236,72,153, 0.12);
   border: 1px solid var(--cyan);
   color: var(--cyan-light);
   font-weight: 700;
@@ -415,7 +415,7 @@ h2 {
 .sticky-cta .btn {
   padding: 14px 24px;
   font-size: 14px;
-  box-shadow: 0 12px 40px rgba(124,58,237,0.6);
+  box-shadow: 0 12px 40px rgba(190,24,93,0.6);
 }
 
 /* Footer */
@@ -447,7 +447,7 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 24px;
-  border-top: 1px solid rgba(124,58,237,0.08);
+  border-top: 1px solid rgba(190,24,93,0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -469,24 +469,36 @@ footer {
   margin: 32px auto;
 }
 </style>
+<!--sa:head-->
+<link rel="stylesheet" href="/assets/chrome.css">
+<link rel="stylesheet" href="/assets/legacy.css">
+<script defer src="/_vercel/insights/script.js"></script>
+<!--/sa:head-->
 </head>
 <body>
 
 <div class="accent-bar"></div>
 
-<header>
-  <a href="https://asksarah.ai/" class="logo">
-    <span class="ask">ask</span><span class="name">Sarah</span><span class="tld">.ai</span>
-  </a>
-  <nav>
-    <a href="https://asksarah.ai/">Home</a>
-    <a href="https://asksarah.ai/tools.html">Tools</a>
-    <a href="https://asksarah.ai/research.html">Research</a>
-    <a href="https://asksarah.ai/newsletter.html">Newsletter</a>
-    <a href="https://asksarah.ai/about.html">About</a>
-    <a href="https://asksarah.ai/connect.html">Connect</a>
-  </nav>
+<!--sa:header-->
+<a class="sa-skip" href="#main">Skip to content</a>
+<header class="sa-header">
+  <div class="sa-wrap sa-nav" role="navigation" aria-label="Main">
+    <a class="sa-wordmark" href="/" aria-label="askSarah.ai home"><span class="a">ask</span><span class="s">Sarah</span><span class="d">.ai</span></a>
+    <button class="sa-toggle" type="button" aria-expanded="false" aria-controls="sa-links">Menu</button>
+    <div class="sa-links" id="sa-links">
+      <a href="/skills">Skills</a>
+      <a href="/stack">Sarah&#39;s Stack</a>
+      <a href="/shortcuts">Shortcuts</a>
+      <a href="/systems">Systems</a>
+      <a href="/edit">Sarah&#39;s Edit</a>
+      <a href="/about">About</a>
+      <a class="sa-search" href="/search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Search</a>
+    </div>
+  </div>
 </header>
+<div hidden aria-hidden="true"><div id="mobileMenu"></div><div id="navDropdown"><button id="navDropdownBtn" type="button" tabindex="-1"></button><div id="navDropdownMenu"></div></div></div>
+<span id="main"></span>
+<!--/sa:header-->
 
 <main>
 
@@ -718,37 +730,31 @@ footer {
   <a href="https://stan.store/asksarahevans/p/the-perception-stack" class="btn">Get the bundle →</a>
 </div>
 
-<footer>
-  <div class="footer-grid">
-    <div>
-      <h4>Navigation</h4>
-      <a href="https://asksarah.ai/">Home</a>
-      <a href="https://asksarah.ai/about.html">About</a>
-      <a href="https://asksarah.ai/tools.html">Tools</a>
-      <a href="https://asksarah.ai/learn.html">Learn</a>
-      <a href="https://asksarah.ai/newsletter.html">Newsletter</a>
+<!--sa:footer-->
+<footer class="sa-footer">
+  <div class="sa-wrap">
+    <div class="sa-footer-grid">
+      <div>
+        <a class="sa-wordmark" href="/"><span class="a">ask</span><span class="s">Sarah</span><span class="d">.ai</span></a>
+        <p>If something is sponsored or I make money when you buy it, I'll tell you. Right there on the page.</p>
+      </div>
+      <div>
+        <h4>AskSarah</h4>
+        <a href="/skills">Skills</a><a href="/stack">Sarah's Stack</a><a href="/shortcuts">Shortcuts</a><a href="/systems">Systems</a><a href="/edit">Sarah's Edit</a><a href="/things-ai-can-do">Things AI can do</a>
+      </div>
+      <div>
+        <h4>More from Sarah</h4>
+        <a href="/learn">Articles</a><a href="/newsletter">Newsletter</a><a href="/shows">Live shows</a><a href="/tools">Tools</a><a href="/speaking">Speaking</a><a href="/press">Press</a><a href="/ask">Ask my digital twin</a>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <a href="https://www.linkedin.com/in/prsarahevans" rel="noopener">LinkedIn</a><a href="https://prsarahevans.substack.com" rel="noopener">Substack</a><a href="https://hackernoon.com/u/sarahevans" rel="noopener">HackerNoon</a><a href="https://github.com/sarahevansai" rel="noopener">GitHub</a><a href="/connect">Connect</a>
+      </div>
     </div>
-    <div>
-      <h4>Connect</h4>
-      <a href="https://www.linkedin.com/in/prsarahevans">LinkedIn</a>
-      <a href="https://github.com/sarahevansai">GitHub</a>
-      <a href="https://t.me/sarahevansai">Telegram</a>
-      <a href="https://stan.store/asksarahevans">Stan Store</a>
-    </div>
-    <div>
-      <h4>Built by Sarah Evans</h4>
-      <a href="https://www.zenmedia.com">Partner at Zen Media</a>
-      <a href="https://hackernoon.com/u/sarahevans">HackerNoon Column</a>
-      <a href="https://x.com/prsarahevans">X / Twitter</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <a href="https://asksarah.ai/" class="logo">
-      <span class="ask">ask</span><span class="name">Sarah</span><span class="tld">.ai</span>
-    </a>
-    <span>© Sarah Evans. All rights reserved.</span>
+    <div class="sa-footer-bottom"><span>© <span id="currentYear">2026</span> Sarah Evans</span><a href="/about">About Sarah</a></div>
   </div>
 </footer>
+<!--/sa:footer-->
 
 <script>
 // Sticky CTA reveal after scrolling past the hero
@@ -761,4 +767,7 @@ window.addEventListener('scroll', () => {
   }
 });
 </script>
+<!--sa:js-->
+<script src="/assets/site.js" defer></script>
+<!--/sa:js-->
 </body></html>

@@ -78,10 +78,13 @@ Turn on **Vercel Web Analytics** in the project dashboard (no cookies, no person
 - [x] Shortcuts / Systems / Sarah's Edit landing pages (honest "coming" state, no fake items)
 - [x] Search page over everything published
 - [x] Sitemap, canonical, OG, JSON-LD on generated pages
+- [x] **Whole-site rebrand.** All 34 older pages get the new header/footer from `scripts/chrome.mjs` (the build keeps them in sync between `<!--sa:...-->` markers) and pink colors via `scripts/rebrand-legacy-colors.mjs` + `assets/legacy.css`. Their content and scripts are unchanged. Hidden stand-in elements keep old scripts that look up the old nav from crashing.
+- [x] Fixed two bugs that were already live: the Glossary showed zero terms (unclosed `<script>`), and Research's stats never loaded (unescaped apostrophe).
+- [x] Full backup: `~/Desktop/63 💬 Ask Sarah AI/BACKUPS/asksarah-backup-2026-09-23/` (see RESTORE.md there)
 
 ### Copy I wrote that isn't from the brief (review before launch)
 The brief gave names, promises and "what it does" for the five free Skills. I filled **when to use / what to give it / what you get** in short, plain lines built only from the brief's own descriptions. Every one of those lines is in `content/skills/*.json` for you to edit. **Example use cases are left empty** except Tell Me What I'm Missing, which uses your real example from the brief. I didn't make up stories in your voice.
 
 ## 4. Later phases
 - **Phase 2:** pack detail pages + Stripe, free Skill files + download flow, email decision, move the price table, `/claude-skills` decision.
-- **Phase 3:** Shortcuts, Systems, Edit entries; filters; update old pages' navs to the new nav (40+ hand-built files, done in one scripted pass).
+- **Phase 3:** Shortcuts, Systems, Edit entries; filters; rewrite the older pages' layouts natively in the new design (right now they're recolored, not redesigned).

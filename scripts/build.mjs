@@ -11,6 +11,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { header, footer, FONTS } from './chrome.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://asksarah.ai';
@@ -130,13 +131,8 @@ const capture = (heading = "I'll send you the useful stuff. Not every thought I'
 </div>`;
 
 // ---------- layout ----------
-const NAV = [
-  ['/skills', 'Skills'], ['/stack', "Sarah's Stack"], ['/shortcuts', 'Shortcuts'], ['/systems', 'Systems'],
-  ['/edit', "Sarah's Edit"], ['/about', 'About'],
-];
 function layout({ title, description, pathname, body, jsonld = [], ogType = 'website', view = '', viewId = '', draft = false, banner = '' }) {
   const canonical = SITE + (pathname === '/' ? '' : pathname);
-  const current = (href) => (pathname === href || (href !== '/' && pathname.startsWith(href + '/')) ? ' aria-current="page"' : '');
   const ld = jsonld.filter(Boolean).map((j) => `<script type="application/ld+json">${JSON.stringify(j)}</script>`).join('\n  ');
   return `<!DOCTYPE html>
 ${GENERATED}
@@ -164,53 +160,20 @@ ${GENERATED}
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><text y='32' font-family='sans-serif' font-weight='700' font-size='28'><tspan fill='%23be185d'>ask</tspan><tspan fill='%2317151f'>S</tspan><tspan fill='%23ec4899'>.ai</tspan></text></svg>">
   <link rel="apple-touch-icon" href="/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  ${FONTS}
+  <link rel="stylesheet" href="/assets/chrome.css">
   <link rel="stylesheet" href="/assets/site.css">
   ${ld}
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body${view ? ` data-view="${esc(view)}" data-view-id="${esc(viewId)}"` : ''}>
-<a class="skip" href="#main">Skip to content</a>
 ${draft ? '<div class="draft-banner">DRAFT PREVIEW. Not published. Built with DRAFTS=1.</div>' : ''}
 ${banner}
-<header class="site-header">
-  <nav class="wrap nav" aria-label="Main">
-    <a class="wordmark" href="/" aria-label="askSarah.ai home"><span class="a">ask</span><span class="s">Sarah</span><span class="d">.ai</span></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
-    <div class="nav-links" id="nav-links">
-      ${NAV.map(([h, l]) => `<a href="${h}"${current(h)}>${esc(l)}</a>`).join('\n      ')}
-      <a class="nav-search" href="/search"${current('/search')}><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Search</a>
-    </div>
-  </nav>
-</header>
+${header(pathname)}
 <main id="main">
 ${body}
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <a class="wordmark" href="/"><span class="a">ask</span><span class="s">Sarah</span><span class="d">.ai</span></a>
-        <p class="footer-note" style="margin-top:1rem">If something is sponsored or I make money when you buy it, I'll tell you. Right there on the page.</p>
-      </div>
-      <div>
-        <h4>AskSarah</h4>
-        <a href="/skills">Skills</a><a href="/stack">Sarah's Stack</a><a href="/shortcuts">Shortcuts</a><a href="/systems">Systems</a><a href="/edit">Sarah's Edit</a><a href="/things-ai-can-do">Things AI can do</a>
-      </div>
-      <div>
-        <h4>More from Sarah</h4>
-        <a href="/learn">Articles</a><a href="/newsletter">Newsletter</a><a href="/shows">Live shows</a><a href="/tools">Tools</a><a href="/speaking">Speaking</a><a href="/press">Press</a><a href="/ask">Ask my digital twin</a>
-      </div>
-      <div>
-        <h4>Elsewhere</h4>
-        <a href="https://www.linkedin.com/in/prsarahevans" rel="noopener">LinkedIn</a><a href="https://prsarahevans.substack.com" rel="noopener">Substack</a><a href="https://hackernoon.com/u/sarahevans" rel="noopener">HackerNoon</a><a href="https://github.com/sarahevansai" rel="noopener">GitHub</a><a href="/connect">Connect</a>
-      </div>
-    </div>
-    <div class="footer-bottom"><span>© ${new Date().getFullYear()} Sarah Evans</span><span><a href="/about">About Sarah</a></span></div>
-  </div>
-</footer>
+${footer()}
 <script src="/assets/site.js" defer></script>
 </body>
 </html>
@@ -242,7 +205,7 @@ const freeSkills = C.skill.filter((s) => s.free_or_paid === 'free' && s.featured
   const body = tpl
     .replace('{{FREE_SKILL_CARDS}}', `<div class="grid">${freeSkills.map((s) => card('skill', s, { trackId: 'home->skill:' + s.slug })).join('')}</div>`)
     .replace(/\{\{SEARCH_FORM\}\}/g, () => searchForm(`q-home-${++n}`));
-  const banner = `<div class="banner" data-banner="geo101" data-until="2026-10-24T00:00:00-07:00" hidden><div class="wrap"><span><strong>GEO 101 for Agencies</strong> — live training Oct 23, 12–1 pm PT. <a href="/geo-101">Details →</a></span><button type="button" aria-label="Dismiss">×</button></div></div>`;
+  const banner = `<div class="sa-banner" data-banner="geo101" data-until="2026-10-24T00:00:00-07:00" hidden><div class="sa-wrap"><span><strong>GEO 101 for Agencies</strong> — live training Oct 23, 12–1 pm PT. <a href="/geo-101">Details →</a></span><button type="button" aria-label="Dismiss">×</button></div></div>`;
   write('/', layout({
     title: 'askSarah.ai — I figure things out for a living | Sarah Evans',
     description: "The AI Skills, tools, shortcuts and systems Sarah Evans actually uses, plus the stuff she'd send to a friend. Some free, some paid, all tested.",
@@ -639,6 +602,47 @@ fs.writeFileSync(path.join(ROOT, 'search-index.json'), JSON.stringify(index));
 </div></section>`;
   write('/search', layout({ title: 'Search askSarah.ai', description: 'Search Skills, shortcuts, systems, Sarah’s Stack and more.', pathname: '/search', body }));
 }
+
+// ---------- hand-built pages: shared header/footer ----------
+// Every older .html page gets the same header and footer as the new pages,
+// between <!--sa:...--> markers. First run swaps out the old nav/footer;
+// later runs just refresh what's between the markers.
+const LEGACY_SKIP = new Set(['email-template.html', 'card.html', 'google8dc333a5d1a3e4f3.html', 'index-v2-backup.html', 'assessment.html']);
+const block = (name, html) => `<!--sa:${name}-->\n${html}\n<!--/sa:${name}-->`;
+const legacyHead = '<link rel="stylesheet" href="/assets/chrome.css">\n<link rel="stylesheet" href="/assets/legacy.css">\n<script defer src="/_vercel/insights/script.js"></script>';
+let synced = 0;
+for (const f of fs.readdirSync(ROOT).filter((f) => f.endsWith('.html') && !LEGACY_SKIP.has(f))) {
+  const full = path.join(ROOT, f);
+  let html = fs.readFileSync(full, 'utf8');
+  if (html.includes(GENERATED)) continue;
+  const slug = '/' + f.replace(/\.html$/, '');
+  const hdr = block('header', header(slug, { legacy: true }) + '\n<span id="main"></span>');
+  const ftr = block('footer', footer());
+  const before = html;
+  if (html.includes('<!--sa:header-->')) {
+    html = html.replace(/<!--sa:header-->[\s\S]*?<!--\/sa:header-->/, hdr)
+      .replace(/<!--sa:footer-->[\s\S]*?<!--\/sa:footer-->/, ftr)
+      .replace(/<!--sa:head-->[\s\S]*?<!--\/sa:head-->/, block('head', legacyHead));
+  } else {
+    const bodyAt = html.search(/<body[^>]*>/);
+    const navMatch = /<nav\b[^>]*>[\s\S]*?<\/nav>/.exec(html.slice(bodyAt));
+    const footMatch = /<footer\b[^>]*>[\s\S]*?<\/footer>/.exec(html);
+    if (bodyAt < 0 || !navMatch || !footMatch) { console.warn('  skipped (no nav/footer found):', f); continue; }
+    let navStart = bodyAt + navMatch.index, navEnd = navStart + navMatch[0].length;
+    // If the nav sits inside a <header>, replace the whole header.
+    const hOpen = html.lastIndexOf('<header', navStart), hClose = html.indexOf('</header>', navEnd);
+    if (hOpen > bodyAt && hClose > -1 && !html.slice(hOpen, navStart).includes('</header>')) { navStart = hOpen; navEnd = hClose + '</header>'.length; }
+    html = html.slice(0, navStart) + hdr + html.slice(navEnd);
+    html = html.replace(/<footer\b[^>]*>[\s\S]*?<\/footer>/, ftr)
+      .replace(/[ \t]*<div class="mobile-menu"[^>]*>[\s\S]*?<\/div>\n?/, '')
+      .replace(/[ \t]*<div class="bg-(?:mesh|orb)[^"]*"><\/div>\n?/g, '')
+      .replace('</head>', block('head', legacyHead) + '\n</head>')
+      .replace('</body>', block('js', '<script src="/assets/site.js" defer></script>') + '\n</body>')
+      .replace(/<html lang="en"(?![^>]*data-theme)/, '<html lang="en" data-theme="light"');
+  }
+  if (html !== before) { fs.writeFileSync(full, html); synced++; }
+}
+if (synced) console.log(`Updated header/footer on ${synced} hand-built pages`);
 
 // ---------- remove stale generated pages (renamed, unpublished, deleted) ----------
 for (const dir of ['skills', 'stack', 'things-ai-can-do', 'shortcuts', 'systems', 'edit']) {
