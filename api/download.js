@@ -32,6 +32,7 @@ const SKILL_ZIP_MAP = {
   'learning-curve-destroyer':     'learning-curve-destroyer.zip',
   'build-your-own-skill':         'build-your-own-skill.zip',
   'image-metadata':               'image-metadata.zip',
+  'visibility-preflight':         'visibility-preflight.zip',
 };
 
 module.exports = async function handler(req, res) {
@@ -56,7 +57,7 @@ module.exports = async function handler(req, res) {
   if (!fs.existsSync(zipPath)) {
     console.error('Zip not found:', zipPath);
     return res.status(503).send(
-      'Download file not ready. Please email skills@asksarah.ai with your order ID: ' + session.id
+      'Download file not ready. Please email sarah@evans-global.com with your order ID: ' + session.id
     );
   }
 
