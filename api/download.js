@@ -32,6 +32,7 @@ const SKILL_ZIP_MAP = {
   'learning-curve-destroyer':     'learning-curve-destroyer.zip',
   'build-your-own-skill':         'build-your-own-skill.zip',
   'image-metadata':               'image-metadata.zip',
+  'visibility-preflight':         'visibility-preflight.zip',
 };
 
 module.exports = async function handler(req, res) {

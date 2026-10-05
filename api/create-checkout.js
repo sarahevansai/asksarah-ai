@@ -31,6 +31,7 @@ const ALLOWED_SKILLS = {
   'learning-curve-destroyer':     { name: 'Learning Curve Destroyer',       priceInCents: 1900  },
   'build-your-own-skill':         { name: 'Build Your Own Skill',           priceInCents: 1900  },
   'image-metadata':               { name: 'Image Metadata',                 priceInCents: 1500  },
+  'visibility-preflight':         { name: 'Visibility Preflight',           priceInCents: 2900  },
 };
 
 module.exports = async function handler(req, res) {
