@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI Reputation Strategy Template | askSarah.ai</title>
+  <meta name="description" content="A free eight-part template from Sarah Evans for building an AI reputation strategy your leadership can read, fund and hold you to. Fill it in and copy it out.">
+  <meta property="og:title" content="The AI Reputation Strategy Template">
+  <meta property="og:description" content="Free from Sarah Evans. Eight parts: the one-page strategy, prompt map, fact record, knowledge base, content plan, 90-day plan, scorecard and budget ask.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/ai-reputation-strategy">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://asksarah.ai/og-image.png">
+  <link rel="canonical" href="https://asksarah.ai/ai-reputation-strategy">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: one working document in eight numbered parts, a jump rail on top, actions at both ends. asksarah.ai dark system, single look. */
+:root{
+  color-scheme: dark;
+  --bg:#0c0a1a; --surface:#110f24; --card:#16132e; --card-hi:#1c1838;
+  --line:rgba(167,139,250,.16); --line-hi:rgba(167,139,250,.38);
+  --fg:#f0eef8; --body:#c4c0d8; --mute:#8d88a6;
+  --violet:#7c3aed; --violet-hi:#a78bfa; --cyan:#06b6d4; --cyan-hi:#22d3ee;
+  --ok:#34d399; --warn:#fbbf24; --bad:#fb7185;
+  --display:'Space Grotesk','Inter',system-ui,sans-serif;
+  --text:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--body);font-family:var(--text);font-size:16px;line-height:1.6;
+  background-image:radial-gradient(900px 520px at 78% -8%,rgba(124,58,237,.22),transparent 62%),radial-gradient(700px 420px at 4% 6%,rgba(6,182,212,.10),transparent 60%);
+  background-repeat:no-repeat}
+.wrap{max-width:980px;margin:0 auto;padding-block:56px 96px;
+  padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);color:var(--fg);text-wrap:balance;margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet-hi)}
+header.top{display:flex;flex-direction:column;gap:20px;margin-bottom:44px}
+h1{font-size:clamp(34px,6.2vw,60px);line-height:1.04;font-weight:700;letter-spacing:-.02em}
+h1 .grad{background:linear-gradient(92deg,var(--violet-hi),var(--cyan-hi));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:18px;max-width:62ch;color:var(--body);margin:0}
+.byline{font-size:14px;color:var(--mute);margin:0}
+.byline a{color:var(--violet-hi)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.how div{border-top:1px solid var(--line-hi);padding-top:12px;font-size:14.5px;min-width:0}
+.how b{display:block;color:var(--fg);font-family:var(--display);font-weight:600;margin-bottom:2px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:28px 0 10px}
+button{font:inherit;cursor:pointer}
+.btn{border:1px solid var(--line-hi);background:transparent;color:var(--fg);padding:11px 18px;border-radius:999px;font-weight:500;font-size:14.5px;transition:background .15s,border-color .15s}
+.btn:hover{background:var(--card-hi);border-color:var(--violet-hi)}
+.btn.primary{border:0;background:linear-gradient(92deg,var(--violet),var(--cyan));color:#fff;font-weight:600}
+.btn.primary:hover{filter:brightness(1.12)}
+.btn.quiet{border-color:var(--line);color:var(--body)}
+:focus-visible{outline:2px solid var(--cyan-hi);outline-offset:2px}
+.status{font-family:var(--mono);font-size:12.5px;color:var(--mute);margin-left:auto}
+.meter{height:3px;background:var(--card-hi);border-radius:3px;overflow:hidden;margin-bottom:26px}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--cyan-hi));transition:width .3s}
+nav.rail{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:52px}
+nav.rail a{font-family:var(--mono);font-size:12.5px;color:var(--body);text-decoration:none;border:1px solid var(--line);padding:7px 12px;border-radius:8px;display:flex;gap:8px;align-items:center}
+nav.rail a:hover{border-color:var(--line-hi);color:var(--fg)}
+nav.rail a .dot{width:7px;height:7px;border-radius:50%;background:var(--card-hi);border:1px solid var(--line-hi)}
+nav.rail a.done .dot{background:var(--cyan-hi);border-color:var(--cyan-hi)}
+section.part{padding:44px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:120px minmax(0,1fr);gap:28px}
+.num{font-family:var(--display);font-weight:700;font-size:56px;line-height:.9;color:transparent;-webkit-text-stroke:1px var(--line-hi)}
+.part h2{font-size:clamp(24px,3.4vw,32px);font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+.part .why{max-width:64ch;margin:0 0 26px}
+.fields{display:grid;gap:18px}
+.fields.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.fields.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+label.f{display:grid;gap:7px;min-width:0}
+label.f > span{font-size:13.5px;font-weight:600;color:var(--fg)}
+label.f > small{font-size:13px;color:var(--mute);margin-top:-3px}
+input[type=text],textarea,select{width:100%;font:inherit;font-size:15px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 13px;line-height:1.5}
+textarea{resize:vertical;min-height:76px}
+input::placeholder,textarea::placeholder{color:#6f6a88}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--violet-hi);box-shadow:0 0 0 3px rgba(124,58,237,.22)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:720px}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--violet-hi);text-align:left;font-weight:500;padding:13px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:6px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td textarea,td select{border-color:transparent;background:transparent;min-height:58px;padding:8px;font-size:14.5px}
+td select{min-height:0}
+td textarea:hover,td select:hover{background:var(--card)}
+.addrow{margin-top:12px}
+select.s-right{color:var(--ok)} select.s-wrong{color:var(--bad)} select.s-guess{color:var(--warn)}
+.note{font-size:13.5px;color:var(--mute);margin:14px 0 0;max-width:64ch}
+.example-flag{display:none;font-family:var(--mono);font-size:12.5px;color:#0c0a1a;background:var(--warn);padding:8px 14px;border-radius:8px;margin-bottom:22px}
+body.is-example .example-flag{display:block}
+.end{border-top:1px solid var(--line);padding-top:44px;display:grid;gap:18px}
+.end h2{font-size:28px}
+.confirm{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:14.5px;color:var(--fg);background:var(--card);border:1px solid var(--line-hi);border-radius:12px;padding:14px 16px}
+#out{min-height:260px;font-family:var(--mono);font-size:13px}
+.next{margin-top:40px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;display:grid;gap:10px}
+.next h3{font-size:22px}
+.next p{margin:0;max-width:60ch}
+.next a{color:var(--cyan-hi);font-weight:600}
+footer{margin-top:48px;font-size:13.5px;color:var(--mute)}
+footer a{color:var(--violet-hi)}
+@media (max-width:720px){
+  section.part{grid-template-columns:1fr;gap:10px;padding:36px 0}
+  .num{font-size:40px}
+  .fields.two,.fields.three,.how{grid-template-columns:1fr}
+  .status{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.meter i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="eyebrow"><a href="https://asksarah.ai" style="color:inherit;text-decoration:none">asksarah.ai</a> / Free template</span>
+    <h1>The AI Reputation <span class="grad">Strategy Template</span></h1>
+    <p class="lede">AI answers about a company change based on who is prompting, what they are prompting, and which LLM they are prompting in. Our strategies have to be built the same way. This is the template I'd use. It has eight parts, and when you finish you have a plan your leadership can read, fund and hold you to.</p>
+    <p class="byline">By Sarah Evans. It's free. Use it with your team and your clients.</p>
+    <div class="how">
+      <div><b>Fill it in here</b>Your work saves in this browser as you type.</div>
+      <div><b>Copy it out</b>One button turns all eight parts into a clean document.</div>
+      <div><b>See one filled in</b>Load the worked example and write over it.</div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <button class="btn primary" type="button" data-act="copy">Copy my strategy</button>
+    <button class="btn" type="button" data-act="example">Load the worked example</button>
+    <button class="btn quiet" type="button" data-act="clear">Clear everything</button>
+    <span class="status" id="status" role="status">0 of 8 parts started</span>
+  </div>
+  <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+  <div id="confirm-slot"></div>
+  <nav class="rail" id="rail" aria-label="Parts of the strategy"></nav>
+
+  <div class="example-flag">Worked example loaded. Lumen Payroll is a made-up company. Replace every field with your own.</div>
+
+  <main id="parts"></main>
+
+  <div class="end">
+    <h2>Take it with you</h2>
+    <p style="margin:0;max-width:62ch">Copy the full strategy and paste it into a doc, a deck or an email. Any part you left blank is skipped.</p>
+    <div class="bar" style="margin:0">
+      <button class="btn primary" type="button" data-act="copy">Copy my strategy</button>
+      <span class="status" id="status2" role="status" style="margin-left:0"></span>
+    </div>
+    <textarea id="out" hidden readonly aria-label="Your strategy as text"></textarea>
+  </div>
+
+  <div class="next">
+    <span class="eyebrow">Next</span>
+    <h3>Then practice talking about it.</h3>
+    <p>Once the plan is approved, somebody has to talk about it to the board, to a reporter or on a panel. I built The Hot Seat for that. It is a simulator for Claude that puts you in front of whoever is asking: a reporter, a creator, your employees, a customer, an analyst or a legislator. You answer, they push back, and the scorecard shows the headline and the clip your answers would have produced.</p>
+    <p><a href="/the-hot-seat">See The Hot Seat</a></p>
+  </div>
+
+  <footer>Made by Sarah Evans. More tools at <a href="https://asksarah.ai">asksarah.ai</a>.</footer>
+</div>
+
+<script>
+(function(){
+  var KEY='ai-reputation-strategy-v1';
+  var STATUS=['','Right','Wrong','Guessing'];
+  var WHERE=['','Owned (our site)','Earned media','Third-party profile or review site','Community or forum','Partner or customer'];
+  var PARTS=[
+   {id:'one-page',t:'The one-page strategy',why:'Fill this in last. It sits on top because it may be the only page some of your leadership reads, so it has to say where the brand stands, where it is going and what that takes.',cls:'two',f:[
+     ['brand','Brand','Company or client name','text'],
+     ['owner','Strategy owner','Who is accountable for this plan','text'],
+     ['today','Where we stand today','One or two sentences. What AI says about us right now, and what it gets wrong.'],
+     ['goal','Where we will be when this plan is done','What AI should say about us, to whom, in which LLMs.'],
+     ['moves','The three moves','The three things we will do. One line each.'],
+     ['need','What we need','Budget, people, approvals.'],
+     ['know','How we will know it worked','The two or three measures leadership will see every month.'],
+     ['review','When we review this plan','The date, and who is in the room.','text']
+   ]},
+   {id:'prompt-map',t:'The prompt map',why:'Each row is one real situation: who is prompting, what they are trying to get done, and the LLM they are using. Write the prompt the way they would type it. And remember prompts are not only questions. People type tasks, comparisons and instructions too.',
+    table:{k:'pm',rows:4,cols:[['who','Who is prompting'],['what','What they are prompting for'],['llm','Which LLM'],['prompt','The prompt, in their words'],['pri','Priority']],
+     ph:['Head of HR at a 200-person company','Comparing vendors before a demo','ChatGPT','Compare the top payroll platforms for mid-size companies','High']},
+    note:'Start with the people who make the decision and the moments where a wrong answer costs you the most. You do not need many rows to start.'},
+   {id:'fact-record',t:'The fact record',why:'List the facts that matter about the brand, then check what AI says for each one. Mark the ones it is guessing at, too. When AI is vague about a fact it usually could not find a clear source, and that is something we can fix.',
+    table:{k:'fr',rows:5,cols:[['fact','The fact'],['ai','What AI says'],['status','Status','status'],['source','Where the correct version is published'],['fix','The fix']],
+     ph:['Founded in 2014, HQ in Austin','Says founded in 2016, HQ in Dallas','','About page, LinkedIn, press kit','Update the three profiles that still show the old address']},
+    note:'Check each fact twice: once as yourself, and once in a fresh session with no history, the way a stranger would see it.'},
+   {id:'knowledge-base',t:'The knowledge base',why:'This is the source of truth you want AI to learn from. When a company has not written this down in one consistent place, AI pieces together its own version from whatever it finds.',cls:'two',f:[
+     ['who','Who we are, in one sentence','The sentence you want repeated word for word.'],
+     ['what','What we do and who it is for','Plain words. No category jargon.'],
+     ['proof','Proof','Numbers, customers, awards, and results that are public and checkable.'],
+     ['people','Leadership and spokespeople','Names, titles, and what each is known for.'],
+     ['not','What we are not','Old product names, past positioning, common mix-ups with other companies.'],
+     ['home','Where the source of truth lives','The pages and profiles that must always match.']
+   ]},
+   {id:'content-plan',t:'The content plan',why:'Each row answers one cluster from the prompt map. Say what gets published and where. Plan for places you own and places you do not, because AI draws on both.',
+    table:{k:'cp',rows:4,cols:[['cluster','Prompt cluster it answers'],['piece','What we will publish'],['where','Where','where'],['owner','Owner'],['date','Date']],
+     ph:['Payroll platforms for mid-size companies','Comparison guide with real pricing and setup time','','Maya, content lead','Dec 8']}},
+   {id:'plan-90',t:'The 90-day plan',why:'Fix what AI has wrong before you publish anything new. Then publish against your top priorities, and measure at the end so you know what to do next.',cls:'three',f:[
+     ['d30','Days 1 to 30','Fix the fact record. Publish the knowledge base. Set the baseline.'],
+     ['d60','Days 31 to 60','Publish against the two highest priority clusters.'],
+     ['d90','Days 61 to 90','Re-run the prompt map. Report. Decide what expands.'],
+     ['first','The first three moves, with owners','What happens this week, and who does it.','area','full']
+   ]},
+   {id:'scorecard',t:'The scorecard',why:'Pick a few measures leadership already cares about and report the same ones every month. Changing what you measure makes it hard for anyone to see progress.',
+    table:{k:'sc',rows:4,cols:[['measure','What we track'],['base','Baseline'],['target','Target'],['often','How often']],
+     ph:['Share of priority prompts where we appear','3 of 12','9 of 12','Monthly']},
+    note:'Useful measures: priority prompts where the brand appears, facts AI gets right, how the brand is described, and which sources AI cites when it talks about you.'},
+   {id:'budget-ask',t:'The budget ask',why:'This is the memo you send to get it funded. Write it for the person who signs, and keep it to what they need to decide.',cls:'two',f:[
+     ['ask','The ask, in one sentence','What you want approved, and for how long.'],
+     ['why','Why now','What changed, with one piece of evidence from the fact record.'],
+     ['cost','What it costs','Budget, people, and time.'],
+     ['ret','What it returns','Tie it to pipeline, reputation, hiring, or risk.'],
+     ['wait','What happens if we wait','Name the specific wrong answer that keeps running.'],
+     ['by','Decision needed by','Date and decision maker.','text']
+   ]}
+  ];
+
+  var EX={
+   'f_one-page_brand':'Lumen Payroll (example)','f_one-page_owner':'Dana Reyes, VP Communications',
+   'f_one-page_today':'AI describes us as a small-business payroll app. We moved to mid-size companies two years ago. It also lists a product we retired in 2023.',
+   'f_one-page_goal':'When an HR or finance leader prompts for mid-size payroll options, we appear, we are described as built for 100 to 1,000 employees, and our facts are right in the four LLMs our customers use.',
+   'f_one-page_moves':'1. Correct the eleven facts AI has wrong.\n2. Publish one knowledge base and make every profile match it.\n3. Publish against our two highest priority prompt clusters.',
+   'f_one-page_need':'$18K for the quarter, 10 hours a week from content, legal sign-off on the comparison guide.',
+   'f_one-page_know':'Priority prompts where we appear, facts AI gets right, and how we are described. Reported on the first Monday of each month.','f_one-page_review':'Feb 16, with Priya and the content team',
+   'pm_0_who':'Head of HR, 200 to 500 employees','pm_0_what':'Building a vendor list before demos','pm_0_llm':'ChatGPT','pm_0_prompt':'Compare the top payroll platforms for a 300-person company','pm_0_pri':'High',
+   'pm_1_who':'CFO at a growing company','pm_1_what':'Checking risk before signing','pm_1_llm':'Perplexity','pm_1_prompt':'Has Lumen Payroll had any compliance problems','pm_1_pri':'High',
+   'pm_2_who':'Payroll manager','pm_2_what':'Planning a migration','pm_2_llm':'Gemini','pm_2_prompt':'Write a checklist for switching payroll providers mid-year','pm_2_pri':'Medium',
+   'pm_3_who':'Job candidate','pm_3_what':'Deciding whether to apply','pm_3_llm':'Claude','pm_3_prompt':'What is it like to work at Lumen Payroll','pm_3_pri':'Medium',
+   'fr_0_fact':'Built for companies with 100 to 1,000 employees','fr_0_ai':'Says we serve small businesses under 50','fr_0_status':'Wrong','fr_0_source':'Homepage, pricing page','fr_0_fix':'Rewrite three old directory profiles and the app store listing',
+   'fr_1_fact':'QuickPay product retired in 2023','fr_1_ai':'Lists QuickPay as a current product','fr_1_status':'Wrong','fr_1_source':'Nowhere','fr_1_fix':'Publish a retirement note and redirect the old page',
+   'fr_2_fact':'4,200 customers','fr_2_ai':'Says "thousands of customers"','fr_2_status':'Guessing','fr_2_source':'Press kit only','fr_2_fix':'Add the number to the About page and company profiles',
+   'fr_3_fact':'SOC 2 Type II certified','fr_3_ai':'Correct','fr_3_status':'Right','fr_3_source':'Security page','fr_3_fix':'None',
+   'fr_4_fact':'CEO is Priya Anand','fr_4_ai':'Names the previous CEO','fr_4_status':'Wrong','fr_4_source':'Leadership page','fr_4_fix':'Update four third-party profiles and the Wikipedia talk page request',
+   'f_knowledge-base_who':'Lumen Payroll is the payroll platform built for companies with 100 to 1,000 employees.',
+   'f_knowledge-base_what':'We run payroll, tax filing, and benefits for mid-size companies that have outgrown small-business tools.',
+   'f_knowledge-base_proof':'4,200 customers. SOC 2 Type II. Average migration in 21 days.',
+   'f_knowledge-base_people':'Priya Anand, CEO: payroll compliance. Dana Reyes, VP Communications.',
+   'f_knowledge-base_not':'Not a small-business app. QuickPay is retired. Often confused with other companies named Lumen.',
+   'f_knowledge-base_home':'About page, press kit, LinkedIn company page, the two major software review sites.',
+   'cp_0_cluster':'Payroll platforms for mid-size companies','cp_0_piece':'Comparison guide with real pricing and setup time','cp_0_where':'Owned (our site)','cp_0_owner':'Maya, content','cp_0_date':'Dec 8',
+   'cp_1_cluster':'Compliance and risk','cp_1_piece':'Bylined article on mid-year payroll compliance','cp_1_where':'Earned media','cp_1_owner':'Dana','cp_1_date':'Dec 15',
+   'cp_2_cluster':'Switching providers','cp_2_piece':'Customer migration story with timeline','cp_2_where':'Partner or customer','cp_2_owner':'Customer marketing','cp_2_date':'Jan 12',
+   'cp_3_cluster':'Working at Lumen','cp_3_piece':'Updated employer profiles and a culture page','cp_3_where':'Third-party profile or review site','cp_3_owner':'People team','cp_3_date':'Jan 19',
+   'f_plan-90_d30':'Fix all Wrong facts. Publish the knowledge base. Record the baseline on all four prompts.',
+   'f_plan-90_d60':'Ship the comparison guide and the compliance byline.',
+   'f_plan-90_d90':'Re-run the prompt map. Report to leadership. Decide on the next two clusters.',
+   'f_plan-90_first':'This week: Dana locks the knowledge base. Maya updates the three directory profiles. Legal reviews the comparison guide outline.',
+   'sc_0_measure':'Priority prompts where we appear','sc_0_base':'1 of 4','sc_0_target':'4 of 4','sc_0_often':'Monthly',
+   'sc_1_measure':'Facts AI gets right','sc_1_base':'6 of 17','sc_1_target':'15 of 17','sc_1_often':'Monthly',
+   'sc_2_measure':'Described as mid-size','sc_2_base':'0 of 4 LLMs','sc_2_target':'4 of 4 LLMs','sc_2_often':'Monthly',
+   'sc_3_measure':'Our own pages cited as a source','sc_3_base':'2 citations','sc_3_target':'10 citations','sc_3_often':'Quarterly',
+   'f_budget-ask_ask':'Approve $18K and 10 hours a week from content for one quarter to correct how AI describes Lumen.',
+   'f_budget-ask_why':'A CFO prompting about us today is told we serve companies under 50 employees. That is the opposite of who we sell to.',
+   'f_budget-ask_cost':'$18K, one content lead part time, legal review on one guide.',
+   'f_budget-ask_ret':'Accurate answers in the moments that shape vendor lists, before a sales call ever happens.',
+   'f_budget-ask_wait':'The retired product and the old CEO keep showing up in answers, and every new mention makes them harder to correct.',
+   'f_budget-ask_by':'Nov 30, Priya Anand'
+  };
+
+  var host=document.getElementById('parts'), rail=document.getElementById('rail');
+  function el(tag,attrs,html){var e=document.createElement(tag);for(var k in attrs||{})e.setAttribute(k,attrs[k]);if(html!=null)e.innerHTML=html;return e;}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  function opts(list){return list.map(function(o){return '<option value="'+esc(o)+'">'+(o||'Choose')+'</option>';}).join('');}
+
+  function rowHTML(p,i){
+    var t=p.table;
+    return '<tr>'+t.cols.map(function(c,ci){
+      var id=t.k+'_'+i+'_'+c[0], lab=esc(c[1])+', row '+(i+1);
+      if(c[2]==='status')return '<td><select id="'+id+'" aria-label="'+lab+'" data-status>'+opts(STATUS)+'</select></td>';
+      if(c[2]==='where')return '<td><select id="'+id+'" aria-label="'+lab+'">'+opts(WHERE)+'</select></td>';
+      return '<td><textarea id="'+id+'" rows="2" aria-label="'+lab+'" placeholder="'+(i===0?esc(t.ph[ci]||''):'')+'"></textarea></td>';
+    }).join('')+'</tr>';
+  }
+
+  PARTS.forEach(function(p,n){
+    var num=('0'+(n+1)).slice(-2);
+    var a=el('a',{href:'#'+p.id,'data-part':p.id},'<span class="dot"></span>'+num+' '+esc(p.t.replace(/^The /,'')));
+    rail.appendChild(a);
+    var s=el('section',{class:'part',id:p.id});
+    var h='<div class="num" aria-hidden="true">'+num+'</div><div><h2>'+esc(p.t)+'</h2><p class="why">'+esc(p.why)+'</p>';
+    if(p.f){
+      h+='<div class="fields '+(p.cls||'')+'">'+p.f.map(function(f){
+        var id='f_'+p.id+'_'+f[0], full=f[4]==='full'?' style="grid-column:1/-1"':'';
+        var ctl=f[3]==='text'?'<input type="text" id="'+id+'" placeholder="'+esc(f[2])+'">':'<textarea id="'+id+'" rows="3" placeholder="'+esc(f[2])+'"></textarea>';
+        return '<label class="f"'+full+'><span>'+esc(f[1])+'</span>'+ctl+'</label>';
+      }).join('')+'</div>';
+    }
+    if(p.table){
+      var t=p.table;
+      h+='<div class="tablewrap"><table><thead><tr>'+t.cols.map(function(c){return '<th scope="col">'+esc(c[1])+'</th>';}).join('')+'</tr></thead><tbody id="tb_'+t.k+'">';
+      for(var i=0;i<t.rows;i++)h+=rowHTML(p,i);
+      h+='</tbody></table></div><button class="btn quiet addrow" type="button" data-add="'+n+'">Add a row</button>';
+    }
+    if(p.note)h+='<p class="note">'+esc(p.note)+'</p>';
+    s.innerHTML=h+'</div>';
+    host.appendChild(s);
+  });
+
+  function controls(root){return (root||host).querySelectorAll('input,textarea,select');}
+  function paint(sel){sel.className=sel.value==='Right'?'s-right':sel.value==='Wrong'?'s-wrong':sel.value==='Guessing'?'s-guess':'';}
+  function addRow(n){var p=PARTS[n],tb=document.getElementById('tb_'+p.table.k);tb.insertAdjacentHTML('beforeend',rowHTML(p,tb.rows.length));}
+  function ensureRows(data){
+    PARTS.forEach(function(p,n){if(!p.table)return;var max=0;for(var k in data){var m=k.match(new RegExp('^'+p.table.k+'_(\\d+)_'));if(m&&data[k])max=Math.max(max,+m[1]+1);}
+      var tb=document.getElementById('tb_'+p.table.k);while(tb.rows.length<max)addRow(n);});
+  }
+  function read(){var d={};controls().forEach(function(c){if(c.value.trim())d[c.id]=c.value;});return d;}
+  function fill(d){ensureRows(d);controls().forEach(function(c){c.value=d[c.id]||'';if(c.hasAttribute('data-status'))paint(c);});progress();}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify({d:read(),ex:document.body.classList.contains('is-example')}));}catch(e){}}
+  function progress(){
+    var started=0;
+    PARTS.forEach(function(p){var any=false;controls(document.getElementById(p.id)).forEach(function(c){if(c.value.trim())any=true;});
+      rail.querySelector('[data-part="'+p.id+'"]').classList.toggle('done',any);if(any)started++;});
+    document.getElementById('status').textContent=started+' of 8 parts started';
+    document.getElementById('meter').style.width=(started/8*100)+'%';
+  }
+
+  function toText(){
+    var d=read(),out=[],brand=d['f_one-page_brand']||'';
+    out.push('AI REPUTATION STRATEGY'+(brand?': '+brand:''));out.push('');
+    PARTS.forEach(function(p,n){
+      var lines=[];
+      if(p.f)p.f.forEach(function(f){var v=d['f_'+p.id+'_'+f[0]];if(v)lines.push(f[1].toUpperCase()+'\n'+v+'\n');});
+      if(p.table){var tb=document.getElementById('tb_'+p.table.k);
+        for(var i=0;i<tb.rows.length;i++){var cells=[];p.table.cols.forEach(function(c){var v=d[p.table.k+'_'+i+'_'+c[0]];if(v)cells.push(c[1]+': '+v.replace(/\n/g,' '));});
+          if(cells.length)lines.push((lines.length+1)+'. '+cells.join(' | '));}
+        if(lines.length)lines.push('');}
+      if(lines.length){out.push((n+1)+'. '+p.t.toUpperCase());out.push('');out=out.concat(lines);}
+    });
+    out.push('Template by Sarah Evans, asksarah.ai');
+    return out.join('\n');
+  }
+  function say(msg){document.getElementById('status2').textContent=msg;}
+  function copy(){
+    var txt=toText(),box=document.getElementById('out');
+    function fallback(){box.hidden=false;box.value=txt;box.focus();box.select();say('Select all and copy the text below.');box.scrollIntoView({block:'center'});}
+    if(Object.keys(read()).length===0){say('Nothing to copy yet. Fill in a part first, or load the worked example.');document.querySelector('.end').scrollIntoView({block:'center'});return;}
+    try{navigator.clipboard.writeText(txt).then(function(){say('Copied. Paste it into your doc.');document.getElementById('status').textContent='Copied to clipboard';},fallback);}catch(e){fallback();}
+  }
+  function askClear(){
+    var slot=document.getElementById('confirm-slot');
+    slot.innerHTML='<div class="confirm" role="alertdialog" aria-label="Clear everything"><span>Clear all eight parts? This cannot be undone.</span><button class="btn" type="button" id="yes-clear">Yes, clear it</button><button class="btn quiet" type="button" id="no-clear">Keep my work</button></div>';
+    document.getElementById('no-clear').onclick=function(){slot.innerHTML='';};
+    document.getElementById('yes-clear').onclick=function(){slot.innerHTML='';document.body.classList.remove('is-example');fill({});save();};
+    document.getElementById('no-clear').focus();
+  }
+  function loadExample(){
+    var go=function(){document.body.classList.add('is-example');fill(EX);save();document.getElementById('confirm-slot').innerHTML='';};
+    if(Object.keys(read()).length&&!document.body.classList.contains('is-example')){
+      var slot=document.getElementById('confirm-slot');
+      slot.innerHTML='<div class="confirm" role="alertdialog" aria-label="Load example"><span>Loading the example replaces what you have typed.</span><button class="btn" type="button" id="yes-ex">Replace with example</button><button class="btn quiet" type="button" id="no-ex">Keep my work</button></div>';
+      document.getElementById('yes-ex').onclick=go;document.getElementById('no-ex').onclick=function(){slot.innerHTML='';};
+    } else go();
+  }
+
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    if(b.dataset.add!=null){addRow(+b.dataset.add);}
+    else if(b.dataset.act==='copy')copy();
+    else if(b.dataset.act==='clear')askClear();
+    else if(b.dataset.act==='example')loadExample();
+  });
+  host.addEventListener('input',function(e){if(e.target.hasAttribute&&e.target.hasAttribute('data-status'))paint(e.target);progress();save();});
+  host.addEventListener('change',function(e){if(e.target.hasAttribute&&e.target.hasAttribute('data-status'))paint(e.target);progress();save();});
+
+  var saved=null;try{saved=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){}
+  if(saved&&saved.d){if(saved.ex)document.body.classList.add('is-example');fill(saved.d);}else progress();
+})();
+</script>
+</body>
+</html>

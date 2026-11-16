@@ -33,6 +33,7 @@ const SKILL_ZIP_MAP = {
   'build-your-own-skill':         'build-your-own-skill.zip',
   'image-metadata':               'image-metadata.zip',
   'visibility-preflight':         'visibility-preflight.zip',
+  'the-hot-seat':                 'the-hot-seat.zip',
 };
 
 module.exports = async function handler(req, res) {

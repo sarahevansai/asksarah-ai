@@ -32,6 +32,7 @@ const ALLOWED_SKILLS = {
   'build-your-own-skill':         { name: 'Build Your Own Skill',           priceInCents: 1900  },
   'image-metadata':               { name: 'Image Metadata',                 priceInCents: 1500  },
   'visibility-preflight':         { name: 'Visibility Preflight',           priceInCents: 2900  },
+  'the-hot-seat':                 { name: 'The Hot Seat',                   priceInCents: 9900, page: 'the-hot-seat', description: 'The Hot Seat by Sarah Evans. A simulator for hard questions, for Claude. Instant digital download after payment.' },
 };
 
 module.exports = async function handler(req, res) {
@@ -44,6 +45,8 @@ module.exports = async function handler(req, res) {
   if (!skill) return res.status(400).json({ error: 'Unknown skill ID' });
   if (skill.priceInCents !== priceInCents) return res.status(400).json({ error: 'Price mismatch' });
 
+  const returnPage = skill.page || 'claude-skills.html';
+
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -54,14 +57,14 @@ module.exports = async function handler(req, res) {
           unit_amount: skill.priceInCents,
           product_data: {
             name: skill.name,
-            description: 'Claude Code skill — instant digital download after payment.',
+            description: skill.description || 'Claude Code skill — instant digital download after payment.',
             images: [`${siteUrl}/og-image.png`],
           },
         },
         quantity: 1,
       }],
-      success_url: `${siteUrl}/claude-skills.html?success=1&session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url:  `${siteUrl}/claude-skills.html?canceled=1`,
+      success_url: `${siteUrl}/${returnPage}?success=1&session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url:  `${siteUrl}/${returnPage}?canceled=1`,
       metadata: { skillId },
     });
     return res.status(200).json({ url: session.url });

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hot Seat | A simulator for hard questions, by Sarah Evans</title>
+  <meta name="description" content="The Hot Seat puts you in front of a reporter, a creator, your employees, a customer, an analyst or a legislator. Claude asks one hard question at a time and shows you the headline your answers would have written. $99.">
+  <meta property="og:title" content="The Hot Seat: practice the hard questions before someone asks them for real">
+  <meta property="og:description" content="A simulator for Claude by Sarah Evans. Ten rooms, three heat levels, and a scorecard that shows the headline, the quote and the clip your answers would have produced.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/the-hot-seat">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://asksarah.ai/og-image.png">
+  <link rel="canonical" href="https://asksarah.ai/the-hot-seat">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Product","name":"The Hot Seat","description":"A simulator for hard questions. Claude plays a reporter, a creator, employees, a customer, an analyst or a legislator, asks one question at a time, and scores the round.","brand":{"@type":"Person","name":"Sarah Evans"},"offers":{"@type":"Offer","price":"99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://asksarah.ai/the-hot-seat"}}
+  </script>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0c0a1a;--surface:#110f24;--card:#16132e;--card-hi:#1c1838;
+  --line:rgba(167,139,250,.16);--line-hi:rgba(167,139,250,.38);
+  --fg:#f0eef8;--body:#c4c0d8;--mute:#8d88a6;
+  --violet:#7c3aed;--violet-hi:#a78bfa;--cyan:#06b6d4;--cyan-hi:#22d3ee;
+  --warm:#fbbf24;--tough:#fb923c;--hot:#fb7185;
+  --display:'Space Grotesk','Inter',system-ui,sans-serif;
+  --text:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0}
+body{background:var(--bg);color:var(--body);font-family:var(--text);font-size:17px;line-height:1.6;
+  background-image:radial-gradient(900px 560px at 85% -6%,rgba(251,113,133,.16),transparent 60%),radial-gradient(820px 520px at 0% 2%,rgba(124,58,237,.22),transparent 62%);background-repeat:no-repeat}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px))}
+a{color:var(--cyan-hi)}
+h1,h2,h3{font-family:var(--display);color:var(--fg);margin:0;text-wrap:balance}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet-hi)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding-block:22px}
+.logo{font-family:var(--display);font-weight:700;font-size:22px;text-decoration:none}
+.logo .a{color:var(--violet-hi)}.logo .b{color:#fff}.logo .c{color:var(--cyan)}
+.topbar .more{font-size:14px;color:var(--body);text-decoration:none}
+.topbar .more:hover{color:var(--fg)}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center;padding-block:44px 76px}
+h1{font-size:clamp(46px,8vw,88px);line-height:.96;font-weight:700;letter-spacing:-.03em;margin:16px 0 20px}
+h1 .grad{background:linear-gradient(92deg,var(--warm),var(--hot) 55%,var(--violet-hi));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-family:var(--display);font-size:clamp(20px,2.6vw,26px);line-height:1.3;color:var(--fg);margin:0 0 16px;font-weight:500}
+.lede{margin:0 0 28px;max-width:52ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+button{font:inherit;cursor:pointer}
+.btn-buy{border:0;border-radius:999px;padding:16px 30px;font-weight:600;font-size:17px;color:#fff;background:linear-gradient(92deg,var(--violet),var(--cyan));transition:filter .15s,transform .15s}
+.btn-buy:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.btn-buy:disabled{opacity:.6;cursor:wait}
+:focus-visible{outline:2px solid var(--cyan-hi);outline-offset:3px}
+.fine{font-size:14px;color:var(--mute);margin:14px 0 0}
+.seat{background:var(--card);border:1px solid var(--line-hi);border-radius:18px;padding:26px;font-family:var(--mono);font-size:13.5px;line-height:1.65;box-shadow:0 30px 80px -30px rgba(124,58,237,.55)}
+.seat .cap{display:flex;justify-content:space-between;color:var(--violet-hi);letter-spacing:.12em;font-size:11.5px;margin-bottom:16px}
+.seat dl{margin:0;display:grid;gap:12px}
+.seat dt{color:var(--mute);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+.seat dd{margin:0;color:var(--fg)}
+.seat .dread{color:var(--warm)}
+.heats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.heat{border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center;color:var(--body)}
+.heat b{display:block;font-family:var(--display);font-size:15px}
+.heat.w b{color:var(--warm)}.heat.t b{color:var(--tough)}.heat.h b{color:var(--hot)}
+.heat.t{border-color:var(--tough);background:rgba(251,146,60,.08)}
+.heat span{font-size:11px;color:var(--mute)}
+section{padding-block:68px;border-top:1px solid var(--line)}
+h2{font-size:clamp(28px,4vw,42px);line-height:1.1;font-weight:600;letter-spacing:-.015em;margin:10px 0 18px}
+.intro{max-width:62ch;margin:0 0 34px}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;border-top:2px solid var(--line-hi);padding-top:16px;min-width:0}
+.steps li::before{content:"0" counter(s);font-family:var(--mono);font-size:12px;color:var(--violet-hi);letter-spacing:.12em}
+.steps h3{font-size:19px;margin:8px 0 6px}
+.steps p{margin:0;font-size:15.5px}
+.pov{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.pov > div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;min-width:0}
+.pov h3{font-size:24px;margin-bottom:10px}
+.pov p{margin:0}
+.sig{margin:28px 0 0;font-size:15px;color:var(--mute)}
+.rooms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;list-style:none;padding:0;margin:0}
+.rooms li{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:16px;padding:15px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.rooms b{color:var(--fg);font-family:var(--display);font-weight:600;font-size:17px}
+.score-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:44px;align-items:start}
+.score{background:var(--card);border:1px solid var(--line-hi);border-radius:18px;padding:26px;font-family:var(--mono);font-size:13px;line-height:1.7;color:var(--body);min-width:0}
+.score .lab{color:var(--violet-hi);letter-spacing:.1em;font-size:11.5px;margin-top:16px}
+.score .lab:first-child{margin-top:0}
+.score q{color:var(--fg);quotes:"\201C" "\201D";display:block}
+.score .big{font-family:var(--display);font-size:42px;color:var(--fg);line-height:1.1}
+.score .rows{display:grid;grid-template-columns:1fr auto;gap:2px 16px;font-variant-numeric:tabular-nums}
+.score .rows span:nth-child(even){color:var(--fg)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:#0c0a1a;background:var(--warm);border-radius:6px;padding:3px 8px;margin-bottom:14px}
+.list{padding:0;margin:0;list-style:none;display:grid;gap:12px}
+.list li{padding-left:22px;position:relative}
+.list li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:linear-gradient(92deg,var(--violet-hi),var(--cyan-hi))}
+.buy{background:var(--card);border:1px solid var(--line-hi);border-radius:22px;padding:44px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:36px;align-items:center}
+.price{font-family:var(--display);font-size:72px;font-weight:700;color:var(--fg);line-height:1}
+.buy .right{display:grid;gap:14px;justify-items:start}
+details{border-bottom:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;color:var(--fg);font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--violet-hi);font-family:var(--mono)}
+details[open] summary::after{content:"\2212"}
+details p{margin:10px 0 0;max-width:68ch}
+footer{padding-block:40px 56px;border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
+.toast{position:fixed;bottom:max(24px,env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(20px);background:rgba(17,15,36,.97);border:1px solid var(--line-hi);border-radius:12px;padding:12px 20px;font-size:14.5px;color:var(--fg);opacity:0;pointer-events:none;transition:all .25s;z-index:20;max-width:calc(100% - 40px)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.error{border-color:rgba(244,63,94,.4);color:#f87171}
+@media (max-width:860px){
+  .hero,.score-wrap,.buy,.pov{grid-template-columns:1fr}
+  .hero{gap:34px;padding-block:20px 56px}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rooms{grid-template-columns:1fr}
+  .buy{padding:28px}
+  section{padding-block:52px}
+}
+@media (max-width:480px){.steps{grid-template-columns:1fr}.rooms li{grid-template-columns:1fr;gap:2px}.price{font-size:56px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn-buy,.toast{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/" aria-label="askSarah.ai home"><span class="a">ask</span><span class="b">Sarah</span><span class="c">.ai</span></a>
+    <a class="more" href="/ai-reputation-strategy">Free: the AI Reputation Strategy Template</a>
+  </div>
+
+  <header class="hero">
+    <div>
+      <span class="eyebrow">New from Sarah Evans</span>
+      <h1>The <span class="grad">Hot Seat</span></h1>
+      <p class="sub">Practice the hard questions before someone asks them for real.</p>
+      <p class="lede">Install it in Claude and type "put me in the hot seat." Claude sets your seat, plays whoever is asking, and pushes back when you sidestep. At the end you see the headline your answers would have written.</p>
+      <div class="cta-row">
+        <button class="btn-buy" type="button" onclick="handleBuy(this)">Get The Hot Seat for $99 →</button>
+      </div>
+      <p class="fine">One-time purchase. Instant download. Runs in Claude.</p>
+    </div>
+
+    <div class="seat" aria-label="Example of the seat card Claude fills in for you">
+      <div class="cap"><span>YOUR SEAT</span><span>EXAMPLE</span></div>
+      <dl>
+        <div><dt>In the seat</dt><dd>Priya Anand, CEO, Lumen Payroll</dd></div>
+        <div><dt>The news</dt><dd>A payroll outage delayed paychecks for 1,900 customers on Friday.</dd></div>
+        <div><dt>Who's asking</dt><dd>Live TV hit, national business network</dd></div>
+        <div><dt>The question you're probably dreading</dt><dd class="dread">"You knew about this bug in September. Why wasn't it fixed?"</dd></div>
+      </dl>
+      <div class="heats">
+        <div class="heat w"><b>Warm</b><span>a fair conversation</span></div>
+        <div class="heat t"><b>Tough</b><span>prepared, persistent</span></div>
+        <div class="heat h"><b>Hostile</b><span>wants a quote</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <span class="eyebrow">How it goes</span>
+    <h2>You don't read this. You do it.</h2>
+    <p class="intro">Plan on about 15 minutes for a round. There's nothing to prepare first.</p>
+    <ol class="steps">
+      <li><h3>Claude sets your seat</h3><p>It looks into you the way they would, fills in the news, the room and its best guess at the question you're dreading. You fix anything that's off and pick a heat.</p></li>
+      <li><h3>They ask, one at a time</h3><p>You answer the way you would in real life, out loud if you can. Sidestep and they ask again. Run long on live TV and the anchor cuts in.</p></li>
+      <li><h3>You get the scorecard</h3><p>The headline you wrote, the quote they'd pull, the clip that travels, a score out of 100 and the one fix that matters most.</p></li>
+      <li><h3>Run it again, hotter</h3><p>Same seat, new heat, no setup. Your heat ladder shows where your answers change as the pressure goes up.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <span class="eyebrow">Why I built this</span>
+    <h2>The job changed. Most media training didn't.</h2>
+    <p class="intro">The hard questions don't only come from traditional media anymore. They come from creators who build their own version of a story when there's no information out there. They come from employees, customers, analysts and legislators. Almost everything is recorded and transcribed, so almost everything is on the record. And the people interviewing you are prepping with AI, which can hand them something wrong about your company before you say a word.</p>
+    <div class="pov">
+      <div>
+        <h3>Answer the question.</h3>
+        <p>We used to train people to bridge. I'd push back on that now. Sidestepping is the thing that goes viral, and it can overtake every good part of the interview. The Hot Seat scores a straight answer higher than anything else.</p>
+      </div>
+      <div>
+        <h3>Sound like a human.</h3>
+        <p>The thing producers tell me they hate most is feeling like they're talking to a scripted bot. So the scorecard shows you where you sounded scripted, with a plain-spoken version of each line.</p>
+      </div>
+    </div>
+    <p class="sig">Sarah Evans</p>
+  </section>
+
+  <section>
+    <span class="eyebrow">Ten rooms</span>
+    <h2>Whoever is asking, there's a room for it.</h2>
+    <ul class="rooms">
+      <li><b>Live TV hit</b><span>An anchor, four minutes, and clips cut from every answer.</span></li>
+      <li><b>Print interview</b><span>A reporter who has done the reading and is recording.</span></li>
+      <li><b>Podcast</b><span>A friendly host, and 40 minutes to forget your point.</span></li>
+      <li><b>Crisis press conference</b><span>Several reporters at once, streaming live.</span></li>
+      <li><b>Panel</b><span>A moderator and rivals who also want the microphone.</span></li>
+      <li><b>Viral response</b><span>A creator has posted their own version of your story.</span></li>
+      <li><b>Town hall</b><span>Your employees, after a hard announcement.</span></li>
+      <li><b>Customer call</b><span>A customer after something went wrong.</span></li>
+      <li><b>Analyst briefing</b><span>People who know your category and compare everyone.</span></li>
+      <li><b>Legislative hearing</b><span>Members with limited time, some asking for the camera.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="score-wrap">
+      <div>
+        <span class="eyebrow">The scorecard</span>
+        <h2>See what your answers turned into.</h2>
+        <p class="intro" style="margin-bottom:22px">It opens with the outcome, because that's what the audience sees. Then the score, your best answer, the one that cost you, and a rewrite in your own voice.</p>
+        <ul class="list">
+          <li>Answered the question: 25 points</li>
+          <li>The message landed: 20</li>
+          <li>Sounded like a human: 20</li>
+          <li>Held up under pressure: 15</li>
+          <li>Clear and brief: 10</li>
+          <li>What you protected: 10</li>
+        </ul>
+      </div>
+      <div class="score" aria-label="Sample scorecard">
+        <span class="tag">SAMPLE</span>
+        <div class="lab">THE HEADLINE YOU JUST WROTE</div>
+        <q>Lumen CEO Won't Say When Company First Knew About Payroll Bug</q>
+        <div class="lab">THE QUOTE THEY WOULD PULL</div>
+        <q>What matters is that we're focused on the future.</q>
+        <div class="lab">THE CLIP THAT TRAVELS</div>
+        <q>I'm not going to get into timelines.</q>
+        Out of context, it says: they knew and won't admit it.
+        <div class="lab">SCORE</div>
+        <div class="big">61 / 100</div>
+        <div class="rows">
+          <span>Answered the question</span><span>11 / 25</span>
+          <span>The message landed</span><span>14 / 20</span>
+          <span>Sounded like a human</span><span>12 / 20</span>
+          <span>Held up under pressure</span><span>11 / 15</span>
+          <span>Clear and brief</span><span>8 / 10</span>
+          <span>What you protected</span><span>5 / 10</span>
+        </div>
+        <div class="lab">THE ONE FIX</div>
+        Answer the September question in your first sentence. Then say what you did about it.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Who it's for</span>
+    <h2>The person in the seat, and the person getting them ready.</h2>
+    <ul class="list" style="max-width:66ch">
+      <li>Executives and spokespeople with an interview, a panel, a town hall or a hearing coming up.</li>
+      <li>Comms and PR leads prepping someone else. Ask for a prep pack and get the 12 most likely questions ranked by risk, with a plain answer for each.</li>
+      <li>Agencies running prep for clients. Rerun it before every interview, for every executive.</li>
+      <li>Anyone who has to answer for a decision in front of people who are recording.</li>
+    </ul>
+  </section>
+
+  <section id="buy">
+    <div class="buy">
+      <div>
+        <span class="eyebrow">Get it</span>
+        <h2>The Hot Seat</h2>
+        <ul class="list">
+          <li>The full simulator: ten rooms, three heat levels</li>
+          <li>The scorecard, the heat ladder and your soundbite bank</li>
+          <li>A message house builder with a read-it-out-loud test</li>
+          <li>Before, during and after checklists for real interviews</li>
+          <li>A start guide. You'll be in your first round in five minutes.</li>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="price">$99</div>
+        <button class="btn-buy" type="button" onclick="handleBuy(this)">Get The Hot Seat →</button>
+        <p class="fine" style="margin:0">One-time purchase. Your download starts right after payment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Questions</span>
+    <h2>Before you buy</h2>
+    <details><summary>What do I get?</summary><p>A .zip file with The Hot Seat skill: the instructions Claude follows, the ten rooms, the scoring guide, the checklists and a start guide. It downloads right after payment.</p></details>
+    <details><summary>What do I need to run it?</summary><p>Claude, on a plan that supports skills. Upload the .zip in your skills settings, switch it on, and type "put me in the hot seat." It also runs in Claude Code.</p></details>
+    <details><summary>Does it work if I'm not technical?</summary><p>Yes. That's who I built it for. Claude sets everything up and tells you what's next at every step.</p></details>
+    <details><summary>Can I use it with clients or my executives?</summary><p>Yes. It's a single-user license, and you can use it for as many clients or executives as you work with. You may not resell or share the skill files. For a team license, email skills@asksarah.ai.</p></details>
+    <details><summary>Is it part of the Full Skills Suite?</summary><p>No. The Hot Seat is sold separately.</p></details>
+    <details><summary>Does it replace a media trainer?</summary><p>It gives you the practice rounds most people never get. It reads your words, so it can't see your posture or hear your pace. The download includes a delivery checklist for that part.</p></details>
+    <details><summary>Do you offer refunds?</summary><p>Because this is a digital download, all sales are final. If it doesn't work as described or you hit a technical issue, email skills@asksarah.ai and I'll fix it or issue a credit.</p></details>
+  </section>
+
+  <footer>Made by Sarah Evans. More at <a href="/">asksarah.ai</a>.</footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+  function showToast(msg,isError){var t=document.getElementById('toast');t.textContent=msg;t.className='toast'+(isError?' error':'')+' show';setTimeout(function(){t.className='toast';},4000);}
+  async function handleBuy(btn){
+    btn.disabled=true;var orig=btn.textContent;btn.textContent='Loading…';
+    try{
+      var res=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({skillId:'the-hot-seat',skillName:'The Hot Seat',priceInCents:9900})});
+      if(!res.ok){throw new Error('checkout');}
+      var data=await res.json();window.location.href=data.url;
+    }catch(e){showToast('Something went wrong. Please try again.',true);btn.disabled=false;btn.textContent=orig;}
+  }
+  var params=new URLSearchParams(window.location.search);
+  if(params.get('success')==='1'){
+    showToast('Payment complete. Your download is starting.');
+    var sid=params.get('session_id');
+    if(sid){var a=document.createElement('a');a.href='/api/download?session_id='+encodeURIComponent(sid);document.body.appendChild(a);a.click();a.remove();}
+    history.replaceState({},'',window.location.pathname);
+  }
+  if(params.get('canceled')==='1'){showToast('Checkout canceled. No charge was made.');history.replaceState({},'',window.location.pathname);}
+</script>
+</body>
+</html>
