@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Impostor Sweep | Find where AI sends your customers, by Sarah Evans</title>
+  <meta name="description" content="A Claude skill by Sarah Evans that checks what AI assistants tell your customers about refunds, logins and support, scans for lookalike sites using your brand's name, and drafts the response kit. $29.">
+  <meta property="og:title" content="The Impostor Sweep: find out where AI is sending your customers">
+  <meta property="og:description" content="Scammers are building fake refund and login pages that AI treats as real. This Claude skill checks every link and number AI hands out, scans for lookalike domains and audits your official pages.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asksarah.ai/impostor-sweep">
+  <meta property="og:image" content="https://asksarah.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://asksarah.ai/og-image.png">
+  <link rel="canonical" href="https://asksarah.ai/impostor-sweep">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Product","name":"The Impostor Sweep","description":"A Claude skill that checks what AI assistants tell customers about refunds, logins and support, flags impostor and lookalike sites, and drafts the response kit.","brand":{"@type":"Person","name":"Sarah Evans"},"offers":{"@type":"Offer","price":"29","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://asksarah.ai/impostor-sweep"}}
+  </script>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0c0a1a;--surface:#110f24;--card:#16132e;--card-hi:#1c1838;
+  --line:rgba(167,139,250,.16);--line-hi:rgba(167,139,250,.38);
+  --fg:#f0eef8;--body:#c4c0d8;--mute:#8d88a6;
+  --violet:#7c3aed;--violet-hi:#a78bfa;--cyan:#06b6d4;--cyan-hi:#22d3ee;
+  --warm:#fbbf24;--tough:#fb923c;--hot:#fb7185;
+  --display:'Space Grotesk','Inter',system-ui,sans-serif;
+  --text:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0}
+body{background:var(--bg);color:var(--body);font-family:var(--text);font-size:17px;line-height:1.6;
+  background-image:radial-gradient(900px 560px at 85% -6%,rgba(6,182,212,.16),transparent 60%),radial-gradient(820px 520px at 0% 2%,rgba(124,58,237,.22),transparent 62%);background-repeat:no-repeat}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px))}
+a{color:var(--cyan-hi)}
+h1,h2,h3{font-family:var(--display);color:var(--fg);margin:0;text-wrap:balance}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet-hi)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding-block:22px}
+.logo{font-family:var(--display);font-weight:700;font-size:22px;text-decoration:none}
+.logo .a{color:var(--violet-hi)}.logo .b{color:#fff}.logo .c{color:var(--cyan)}
+.topbar .more{font-size:14px;color:var(--body);text-decoration:none}
+.topbar .more:hover{color:var(--fg)}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center;padding-block:44px 76px}
+h1{font-size:clamp(46px,8vw,88px);line-height:.96;font-weight:700;letter-spacing:-.03em;margin:16px 0 20px}
+h1 .grad{background:linear-gradient(92deg,var(--cyan-hi),var(--violet-hi) 55%,var(--hot));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-family:var(--display);font-size:clamp(20px,2.6vw,26px);line-height:1.3;color:var(--fg);margin:0 0 16px;font-weight:500}
+.lede{margin:0 0 28px;max-width:52ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+button{font:inherit;cursor:pointer}
+.btn-buy{border:0;border-radius:999px;padding:16px 30px;font-weight:600;font-size:17px;color:#fff;background:linear-gradient(92deg,var(--violet),var(--cyan));transition:filter .15s,transform .15s}
+.btn-buy:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.btn-buy:disabled{opacity:.6;cursor:wait}
+:focus-visible{outline:2px solid var(--cyan-hi);outline-offset:3px}
+.fine{font-size:14px;color:var(--mute);margin:14px 0 0}
+.seat{background:var(--card);border:1px solid var(--line-hi);border-radius:18px;padding:26px;font-family:var(--mono);font-size:13.5px;line-height:1.65;box-shadow:0 30px 80px -30px rgba(124,58,237,.55)}
+.seat .cap{display:flex;justify-content:space-between;color:var(--violet-hi);letter-spacing:.12em;font-size:11.5px;margin-bottom:16px}
+.seat dl{margin:0;display:grid;gap:12px}
+.seat dt{color:var(--mute);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+.seat dd{margin:0;color:var(--fg)}
+.seat .dread{color:var(--warm)}
+.heats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.heat{border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center;color:var(--body)}
+.heat b{display:block;font-family:var(--display);font-size:15px}
+.heat.w b{color:var(--warm)}.heat.t b{color:var(--tough)}.heat.h b{color:var(--hot)}
+.heat.t{border-color:var(--tough);background:rgba(251,146,60,.08)}
+.heat span{font-size:11px;color:var(--mute)}
+section{padding-block:68px;border-top:1px solid var(--line)}
+h2{font-size:clamp(28px,4vw,42px);line-height:1.1;font-weight:600;letter-spacing:-.015em;margin:10px 0 18px}
+.intro{max-width:62ch;margin:0 0 34px}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;border-top:2px solid var(--line-hi);padding-top:16px;min-width:0}
+.steps li::before{content:"0" counter(s);font-family:var(--mono);font-size:12px;color:var(--violet-hi);letter-spacing:.12em}
+.steps h3{font-size:19px;margin:8px 0 6px}
+.steps p{margin:0;font-size:15.5px}
+.pov{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.pov > div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;min-width:0}
+.pov h3{font-size:24px;margin-bottom:10px}
+.pov p{margin:0}
+.sig{margin:28px 0 0;font-size:15px;color:var(--mute)}
+.rooms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;list-style:none;padding:0;margin:0}
+.rooms li{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:16px;padding:15px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.rooms b{color:var(--fg);font-family:var(--display);font-weight:600;font-size:17px}
+.score-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:44px;align-items:start}
+.score{background:var(--card);border:1px solid var(--line-hi);border-radius:18px;padding:26px;font-family:var(--mono);font-size:13px;line-height:1.7;color:var(--body);min-width:0}
+.score .lab{color:var(--violet-hi);letter-spacing:.1em;font-size:11.5px;margin-top:16px}
+.score .lab:first-child{margin-top:0}
+.score q{color:var(--fg);quotes:"\201C" "\201D";display:block}
+.score .big{font-family:var(--display);font-size:42px;color:var(--fg);line-height:1.1}
+.score .rows{display:grid;grid-template-columns:1fr auto;gap:2px 16px;font-variant-numeric:tabular-nums}
+.score .rows span:nth-child(even){color:var(--fg)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:#0c0a1a;background:var(--warm);border-radius:6px;padding:3px 8px;margin-bottom:14px}
+.list{padding:0;margin:0;list-style:none;display:grid;gap:12px}
+.list li{padding-left:22px;position:relative}
+.list li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:linear-gradient(92deg,var(--violet-hi),var(--cyan-hi))}
+.buy{background:var(--card);border:1px solid var(--line-hi);border-radius:22px;padding:44px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:36px;align-items:center}
+.price{font-family:var(--display);font-size:72px;font-weight:700;color:var(--fg);line-height:1}
+.buy .right{display:grid;gap:14px;justify-items:start}
+details{border-bottom:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;color:var(--fg);font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--violet-hi);font-family:var(--mono)}
+details[open] summary::after{content:"\2212"}
+details p{margin:10px 0 0;max-width:68ch}
+footer{padding-block:40px 56px;border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
+.toast{position:fixed;bottom:max(24px,env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(20px);background:rgba(17,15,36,.97);border:1px solid var(--line-hi);border-radius:12px;padding:12px 20px;font-size:14.5px;color:var(--fg);opacity:0;pointer-events:none;transition:all .25s;z-index:20;max-width:calc(100% - 40px)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.error{border-color:rgba(244,63,94,.4);color:#f87171}
+@media (max-width:860px){
+  .hero,.score-wrap,.buy,.pov{grid-template-columns:1fr}
+  .hero{gap:34px;padding-block:20px 56px}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rooms{grid-template-columns:1fr}
+  .buy{padding:28px}
+  section{padding-block:52px}
+}
+@media (max-width:480px){.steps{grid-template-columns:1fr}.rooms li{grid-template-columns:1fr;gap:2px}.price{font-size:56px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn-buy,.toast{transition:none}}
+.rep .row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.rep .row:last-child{border-bottom:0}
+.rep .v{font-size:11px;letter-spacing:.08em;border-radius:6px;padding:2px 7px;align-self:center;white-space:nowrap}
+.v.bad{background:rgba(251,113,133,.16);color:var(--hot)}.v.warn{background:rgba(251,191,36,.14);color:var(--warm)}.v.ok{background:rgba(34,211,238,.12);color:var(--cyan-hi)}
+.verdict{font-family:var(--display);font-size:26px;color:var(--hot);margin:4px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.grid > div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}
+.grid h3{font-size:20px;margin-bottom:8px}.grid p{margin:0;font-size:15.5px}
+.map{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px}
+.map th,.map td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}
+.map th{color:var(--mute);font-weight:500;font-size:11.5px;letter-spacing:.08em}
+.map td:first-child{color:var(--fg);font-family:var(--text);font-size:15px}
+.tablewrap{overflow-x:auto}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/" aria-label="askSarah.ai home"><span class="a">ask</span><span class="b">Sarah</span><span class="c">.ai</span></a>
+    <a class="more" href="/claude-skills">More Claude skills</a>
+  </div>
+
+  <header class="hero">
+    <div>
+      <span class="eyebrow">New from Sarah Evans</span>
+      <h1>The <span class="grad">Impostor Sweep</span></h1>
+      <p class="sub">Find out where AI is sending your customers when they need a refund, a login or a phone number.</p>
+      <p class="lede">Scammers are building fake refund pages, login pages and support numbers worded to match what customers type into AI, and AI is treating them as real. Install this in Claude, type "run the impostor sweep for [brand]," and get a verdict, the findings and a filled-in response kit.</p>
+      <div class="cta-row">
+        <button class="btn-buy" type="button" onclick="handleBuy(this)">Get The Impostor Sweep for $29 →</button>
+      </div>
+      <p class="fine">One-time purchase. Instant download. Runs in Claude.</p>
+    </div>
+
+    <div class="seat rep" aria-label="Example of a sweep report">
+      <div class="cap"><span>IMPOSTOR SWEEP | YOURBRAND</span><span>EXAMPLE</span></div>
+      <div class="verdict">Verdict: ACT NOW</div>
+      <div class="row"><span>yourbrand-refunds.com<br><span style="color:var(--mute)">ChatGPT, "How do I get a refund?"</span></span><span class="v bad">IMPOSTOR</span></div>
+      <div class="row"><span>"24/7 refund line" +1 (888) 412-7730<br><span style="color:var(--mute)">Perplexity, "support phone number"</span></span><span class="v bad">IMPOSTOR</span></div>
+      <div class="row"><span>help.yourbrand.com<br><span style="color:var(--mute)">Official, but no longer resolves</span></span><span class="v warn">OUTDATED</span></div>
+      <div class="row"><span>yourbrand.shop<br><span style="color:var(--mute)">Lookalike radar: registered, live site</span></span><span class="v warn">WATCH</span></div>
+      <div class="row"><span>Contact page<br><span style="color:var(--mute)">No phone or email written out</span></span><span class="v warn">GAP</span></div>
+      <div class="row"><span>yourbrand.co.uk<br><span style="color:var(--mute)">Gemini, "official UK site"</span></span><span class="v ok">OFFICIAL</span></div>
+    </div>
+  </header>
+
+  <section>
+    <span class="eyebrow">Why I built this</span>
+    <h2>AI doesn't check whether a page is official.</h2>
+    <p class="intro">It uses whatever page answers the prompt best. In Scrunch's study of AI answers from May to October 2026, impostor sites were cited for 83 Fortune 500 brands, and about three out of four of those answers presented the fake as the brand's official source. Refund and login prompts drew them most.</p>
+    <div class="pov">
+      <div>
+        <h3>Most brands find a gap, not a fake.</h3>
+        <p>A refund policy AI can't locate. An old support number still floating around. A contact page with no phone number written out. Those gaps are exactly how impostors get in, so the sweep finds them too.</p>
+      </div>
+      <div>
+        <h3>This is a comms job.</h3>
+        <p>Comms owns the official version of a brand's facts. Refund pages, support numbers and login help are reputation content now, because AI answers are where customers read them.</p>
+      </div>
+    </div>
+    <p class="sig">Sarah Evans</p>
+  </section>
+
+  <section>
+    <span class="eyebrow">What a search can't show you</span>
+    <h2>One prompt shows you one answer. This shows you the whole picture.</h2>
+    <div class="grid">
+      <div><h3>Every detail, checked live</h3><p>Every link, phone number and email AI hands out is checked against the brand's real record: does the domain exist, does the page load, is it for sale, who registered it and when.</p></div>
+      <div><h3>Lookalike radar</h3><p>Checks 100+ likely fake versions of the brand's domain and shows which are registered and live today, including ones no assistant has cited yet.</p></div>
+      <div><h3>Site audit</h3><p>Reads the brand's own site: whether AI crawlers are blocked from help pages, whether official pages list conflicting numbers, and which official links are dead.</p></div>
+      <div><h3>Customer moment map</h3><p>Refunds, cancellations, login, support, official sites and discounts, by every assistant you checked, in one grid.</p></div>
+      <div><h3>The response kit, filled in</h3><p>Platform reports, takedown and abuse requests with the registrar's real contact, correction requests, defensive registrations, a support script and a holding statement.</p></div>
+      <div><h3>Monthly reruns</h3><p>Every rerun is compared to the last one: what's new, what's gone and what's still showing up after a takedown.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">How it goes</span>
+    <h2>About 20 minutes, and Claude does the work.</h2>
+    <ol class="steps">
+      <li><h3>Claude builds the brand card</h3><p>From the brand's own website: official domains, login page, support contacts, refund page and regional sites. You fix anything that's off.</p></li>
+      <li><h3>It writes the customer prompts</h3><p>The way customers actually type them, weighted toward refunds and logins, where impostors show up most.</p></li>
+      <li><h3>It gets the answers</h3><p>Claude runs them in other assistants if you use Claude in Chrome, or hands you the prompts to paste. Short on time? A quick read uses Claude's own search.</p></li>
+      <li><h3>You get the verdict</h3><p>CLEAR, WATCH or ACT NOW, then the moment map, the findings, the gaps, page fixes and the response kit.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <span class="eyebrow">The customer moment map</span>
+    <h2>See where each assistant sends your customers.</h2>
+    <div class="tablewrap">
+      <table class="map" aria-label="Sample customer moment map">
+        <thead><tr><th>MOMENT</th><th>CHATGPT</th><th>GEMINI</th><th>PERPLEXITY</th><th>COPILOT</th></tr></thead>
+        <tbody>
+          <tr><td>Refunds</td><td style="color:var(--hot)">IMPOSTOR</td><td style="color:var(--cyan-hi)">OK</td><td style="color:var(--warm)">OUTDATED</td><td style="color:var(--cyan-hi)">OK</td></tr>
+          <tr><td>Login and account</td><td style="color:var(--cyan-hi)">OK</td><td style="color:var(--cyan-hi)">OK</td><td style="color:var(--warm)">CHECK</td><td style="color:var(--cyan-hi)">OK</td></tr>
+          <tr><td>Support contact</td><td style="color:var(--warm)">WRONG</td><td style="color:var(--cyan-hi)">OK</td><td style="color:var(--hot)">IMPOSTOR</td><td style="color:var(--warm)">OUTDATED</td></tr>
+          <tr><td>Official and regional sites</td><td style="color:var(--cyan-hi)">OK</td><td style="color:var(--hot)">IMPOSTOR</td><td style="color:var(--cyan-hi)">OK</td><td style="color:var(--cyan-hi)">OK</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fine">Sample report. "YourBrand" stands in for your brand.</p>
+  </section>
+
+  <section>
+    <span class="eyebrow">Who it's for</span>
+    <h2>Whoever owns the brand's facts.</h2>
+    <ul class="list" style="max-width:66ch">
+      <li>Comms and PR leads who want to know what AI tells customers before a launch, a sale or Black Friday.</li>
+      <li>Agencies running it for clients, or for a prospect before the first meeting. The report is written so it can go to the client as is.</li>
+      <li>Marketing, support and security teams who need the same facts and a plan for what to fix first.</li>
+    </ul>
+  </section>
+
+  <section id="buy">
+    <div class="buy">
+      <div>
+        <span class="eyebrow">Get it</span>
+        <h2>The Impostor Sweep</h2>
+        <ul class="list">
+          <li>The full guided sweep for any brand, as many times as you need</li>
+          <li>Live link checks, the lookalike radar and the site audit</li>
+          <li>The customer moment map and monthly rerun comparison</li>
+          <li>The filled-in response kit and page fixes for your web team</li>
+          <li>A start guide. You'll run your first sweep in about 20 minutes.</li>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="price">$29</div>
+        <button class="btn-buy" type="button" onclick="handleBuy(this)">Get The Impostor Sweep →</button>
+        <p class="fine" style="margin:0">One-time purchase. Your download starts right after payment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Questions</span>
+    <h2>Before you buy</h2>
+    <details><summary>What do I get?</summary><p>A .zip file with The Impostor Sweep skill: the instructions Claude follows, the prompt library, the impostor patterns, the response kit templates, the checking scripts and a start guide. It downloads right after payment.</p></details>
+    <details><summary>What do I need to run it?</summary><p>Claude, on a plan that supports skills. Upload the .zip in your skills settings, switch it on, and type "run the impostor sweep for [brand]." The live checks, radar and site audit need Claude's code tools with internet access. If they aren't available, Claude does the checks with web search and tells you what it skipped.</p></details>
+    <details><summary>Does Claude touch the suspected sites?</summary><p>No. It only reads pages and looks up domain records. It never calls a number, logs in, fills in a form or downloads anything, and it tells you not to either.</p></details>
+    <details><summary>Will it find an impostor?</summary><p>Most brands won't have one. Almost every brand has gaps, and those are usually the most useful part of the report. When it does find something, every item is marked "suspected" until your security or legal team confirms it.</p></details>
+    <details><summary>Can I use it for clients?</summary><p>Yes. It's a single-user license, and you can run it for as many brands or clients as you work with. You may not resell or share the skill files. For a team license, email skills@asksarah.ai.</p></details>
+    <details><summary>Does it replace a brand protection service?</summary><p>No. It's the check comms teams can run themselves, any time. Brands with active impersonation problems should also work with their security team or a brand protection vendor.</p></details>
+    <details><summary>Do you offer refunds?</summary><p>Because this is a digital download, all sales are final. If it doesn't work as described or you hit a technical issue, email skills@asksarah.ai and I'll fix it or issue a credit.</p></details>
+  </section>
+
+  <footer>Made by Sarah Evans. More at <a href="/">asksarah.ai</a>.</footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+  function showToast(msg,isError){var t=document.getElementById('toast');t.textContent=msg;t.className='toast'+(isError?' error':'')+' show';setTimeout(function(){t.className='toast';},4000);}
+  async function handleBuy(btn){
+    btn.disabled=true;var orig=btn.textContent;btn.textContent='Loading…';
+    try{
+      var res=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({skillId:'the-impostor-sweep',skillName:'The Impostor Sweep',priceInCents:2900})});
+      if(!res.ok){throw new Error('checkout');}
+      var data=await res.json();window.location.href=data.url;
+    }catch(e){showToast('Something went wrong. Please try again.',true);btn.disabled=false;btn.textContent=orig;}
+  }
+  var params=new URLSearchParams(window.location.search);
+  if(params.get('success')==='1'){
+    showToast('Payment complete. Your download is starting.');
+    var sid=params.get('session_id');
+    if(sid){var a=document.createElement('a');a.href='/api/download?session_id='+encodeURIComponent(sid);document.body.appendChild(a);a.click();a.remove();}
+    history.replaceState({},'',window.location.pathname);
+  }
+  if(params.get('canceled')==='1'){showToast('Checkout canceled. No charge was made.');history.replaceState({},'',window.location.pathname);}
+</script>
+</body>
+</html>

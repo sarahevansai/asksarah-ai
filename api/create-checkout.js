@@ -33,6 +33,7 @@ const ALLOWED_SKILLS = {
   'image-metadata':               { name: 'Image Metadata',                 priceInCents: 1500  },
   'visibility-preflight':         { name: 'Visibility Preflight',           priceInCents: 2900  },
   'the-hot-seat':                 { name: 'The Hot Seat',                   priceInCents: 9900, page: 'the-hot-seat', description: 'The Hot Seat by Sarah Evans. A simulator for hard questions, for Claude. Instant digital download after payment.' },
+  'the-impostor-sweep':           { name: 'The Impostor Sweep',             priceInCents: 2900, page: 'impostor-sweep', description: 'The Impostor Sweep by Sarah Evans. Finds where AI sends your customers for refunds, logins and support. Claude skill, instant digital download after payment.' },
 };
 
 module.exports = async function handler(req, res) {

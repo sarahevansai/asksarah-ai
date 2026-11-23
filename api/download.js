@@ -34,6 +34,7 @@ const SKILL_ZIP_MAP = {
   'image-metadata':               'image-metadata.zip',
   'visibility-preflight':         'visibility-preflight.zip',
   'the-hot-seat':                 'the-hot-seat.zip',
+  'the-impostor-sweep':           'the-impostor-sweep.zip',
 };
 
 module.exports = async function handler(req, res) {
