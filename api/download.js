@@ -5,7 +5,8 @@
 // Required Vercel env vars:
 //   STRIPE_SECRET_KEY   — your Stripe secret key
 //
-// Skill zip files live at: /public/skills/<skillId>.zip
+// Skill zip files live at: api/_skills/<file>.zip. They're bundled into this
+// function (see vercel.json includeFiles) and are not served as public files.
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const path   = require('path');
@@ -55,7 +56,7 @@ module.exports = async function handler(req, res) {
   const zipFile = SKILL_ZIP_MAP[skillId];
   if (!zipFile) return res.status(400).send('Unknown skill');
 
-  const zipPath = path.join(process.cwd(), '_skills', zipFile);
+  const zipPath = path.join(__dirname, '_skills', zipFile);
   if (!fs.existsSync(zipPath)) {
     console.error('Zip not found:', zipPath);
     return res.status(503).send(
