@@ -39,6 +39,14 @@ const SKILL_ZIP_MAP = {
 };
 
 module.exports = async function handler(req, res) {
+  // Read-only health check: /api/download?check=<skillId> reports whether the
+  // file is bundled. It never serves the file.
+  if (req.query.check) {
+    const f = SKILL_ZIP_MAP[req.query.check];
+    const ready = !!f && fs.existsSync(path.join(__dirname, '_skills', f));
+    return res.status(ready ? 200 : 404).json({ skill: req.query.check, ready });
+  }
+
   const { session_id } = req.query;
   if (!session_id) return res.status(400).send('Missing session_id');
 
